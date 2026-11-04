@@ -7,6 +7,7 @@ the model, which keeps the wall texture. Hair, skin, the mic and the poster are 
 a luma/saturation key.
 """
 import cv2, numpy as np
+cv2.setNumThreads(1)
 Y = np.array([0.2126, 0.7152, 0.0722], np.float32)
 
 def _nblur(v, m, s):
@@ -15,17 +16,23 @@ def _nblur(v, m, s):
 def _design(x, y):
     return np.stack([np.ones_like(x), x, y, x * x, x * y, y * y, x ** 3, y ** 3, x * x * y, x * y * y], 1)
 
-def deshadow(rgb, sofa_y, face_x=None, strength=1.0):
-    h, w = rgb.shape[:2]
-    f = rgb.astype(np.float32) / 255.0
-    sw, sh = w // 8, h // 8
+def deshadow(rgb, sofa_y, face_x=None, strength=1.0, state=None):
+    """state: dict reused across frames; the wall model + mask are refreshed every 3rd frame."""
+    H0, W0 = rgb.shape[:2]
+    half = cv2.resize(rgb, (W0 // 2, H0 // 2), interpolation=cv2.INTER_AREA)
+    f = half.astype(np.float32) / 255.0
+    h, w = f.shape[:2]; sofa_y = sofa_y / 2; face_x = None if face_x is None else face_x / 2
+    if state is not None and state.get("n", 0) % 3 and "m" in state:
+        m, model = state["m"], state["model"]; state["n"] += 1
+        return _apply(rgb, f, m, model, strength)
+    sw, sh = w // 4, h // 4
     s = cv2.resize(f, (sw, sh), interpolation=cv2.INTER_AREA)
     L = s @ Y; sat = s.max(2) - s.min(2)
     subj = ((L < 0.38) | (sat > 0.11)).astype(np.uint8)
     subj = cv2.dilate(subj, np.ones((3, 3), np.uint8))
     yy, xx = np.mgrid[0:sh, 0:sw].astype(np.float32)
-    fxl = (face_x if face_x is not None else w * 0.4) / 8
-    region = (yy < sofa_y / 8 - 2) & (xx < fxl + sw * 0.22)
+    fxl = (face_x if face_x is not None else w * 0.4) / 4
+    region = (yy < sofa_y / 4 - 2) & (xx < fxl + sw * 0.22)
     wall = region & (subj == 0)
     xs, ys = xx / sw, yy / sh
     use = wall.copy()
@@ -44,11 +51,17 @@ def deshadow(rgb, sofa_y, face_x=None, strength=1.0):
     m = cv2.GaussianBlur(m, (0, 0), 2.5)
     m = cv2.resize(m, (w, h), interpolation=cv2.INTER_CUBIC)
     model = cv2.resize(model.astype(np.float32), (w, h), interpolation=cv2.INTER_CUBIC)
+    if state is not None:
+        state.update(m=m, model=model); state["n"] = state.get("n", 0) + 1
+    return _apply(rgb, f, m, model, strength)
+
+def _apply(rgb, f, m, model, strength):
     Lf = f @ Y; satf = f.max(2) - f.min(2)
     prot = ((Lf < 0.4) | (satf > 0.12)).astype(np.uint8)
-    prot = cv2.dilate(prot, np.ones((5, 5), np.uint8)).astype(np.float32)
-    Lfs = _nblur(Lf, 1 - prot, 3)
+    prot = cv2.dilate(prot, np.ones((3, 3), np.uint8)).astype(np.float32)
+    Lfs = _nblur(Lf, 1 - prot, 1.5)
     gain = 1 + np.clip(m, 0, 1) * strength * (np.clip(model / np.maximum(Lfs, 1e-3), 1, 2.0) - 1)
-    gain = 1 + (gain - 1) * (1 - cv2.GaussianBlur(prot, (0, 0), 1.5))
-    out = np.clip(f * gain[..., None], 0, 1)
-    return (out * 255 + 0.5).astype(np.uint8), m
+    gain = 1 + (gain - 1) * (1 - cv2.GaussianBlur(prot, (0, 0), 1))
+    gain = cv2.resize(gain, (rgb.shape[1], rgb.shape[0]), interpolation=cv2.INTER_LINEAR)
+    out = rgb.astype(np.float32) * gain[..., None]
+    return np.clip(out + 0.5, 0, 255).astype(np.uint8), m

@@ -32,7 +32,12 @@ def fr(t):  # snap to frame grid
     return round(t * FPS) / FPS
 
 # ---------------------------------------------------------------- 1. plan
-words = [w for seg in json.load(open(os.path.join(S, "work/main.json"))) for w in seg["words"]]
+CUT_END = 599.95   # user: cut everything after "this doping shit is a joke"
+ALL_WORDS = [w for seg in json.load(open(os.path.join(S, "work/main.json"))) for w in seg["words"]]
+words = [w for w in ALL_WORDS if w["s"] < CUT_END]
+import re as _re
+SWEAR = _re.compile(r"\b(shit|fuck\w*|motherfuck\w*|nigga\w*|bitch\w*)\b", _re.I)
+SWEARS = [(w["s"], w["e"]) for w in words if SWEAR.search(w["w"])]
 GAP, PRE, POST = 0.45, 0.10, 0.16
 ranges = []
 cur = [words[0]["s"], words[0]["e"]]
@@ -212,7 +217,7 @@ def render_item(i):
         encp = subprocess.Popen(["ffmpeg", "-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24",
                                  "-s", "1920x1080", "-r", str(FPS), "-i", "-", "-vf", "unsharp=5:5:0.3"] + enc(out),
                                 stdin=subprocess.PIPE)
-        fsz = 1920 * 1080 * 3; nfr = 0; last = None
+        fsz = 1920 * 1080 * 3; nfr = 0; last = None; dstate = {}
         while nfr < it["frames"]:
             buf = dec.stdout.read(fsz)
             if len(buf) < fsz:
@@ -220,7 +225,7 @@ def render_item(i):
                 if buf is None: break
             last = buf
             fr_ = np.frombuffer(buf, np.uint8).reshape(1080, 1920, 3)
-            fixed, _ = deshadow(fr_, sofa_y, face_x)
+            fixed, _ = deshadow(fr_, sofa_y, face_x, state=dstate)
             fixed = (fixed.astype(np.float32) * mask[..., ::-1]).astype(np.uint8)
             encp.stdin.write(fixed.tobytes()); nfr += 1
         dec.stdout.close(); dec.wait(); encp.stdin.close(); encp.wait()
@@ -367,6 +372,18 @@ def stage_audio():
         s = round(it["src"][0] * SR); seg = srcarr[s:s + n].copy()
         seg[:fade] *= ramp; seg[-fade:] *= ramp[::-1]
         (v_track if it["type"] == "aroll" else i_track)[o:o + len(seg)] += seg
+    # mute swear words (user request): silence each word with short fades
+    fd = int(0.012 * SR); muted = 0
+    for ws, we in SWEARS:
+        o0, o1 = O(ws), O(we)
+        if o1 <= o0 or o1 - o0 > 2: continue
+        a, b = round((o0 - 0.04) * SR), round((o1 + 0.05) * SR)
+        lo, hi = max(0, a - fd), min(len(v_track), b + fd)
+        env = np.ones(hi - lo, np.float32)
+        env[a - lo:b - lo] = 0
+        env[:a - lo] = np.linspace(1, 0, a - lo); env[b - lo:] = np.linspace(0, 1, hi - b)
+        v_track[lo:hi] *= env; muted += 1
+    print("muted", muted, "swear words")
     save(os.path.join(R, "voice_raw.wav"), v_track); save(os.path.join(R, "interview_raw.wav"), i_track)
 
     title = next(it for it in timeline if it["type"] == "title")
