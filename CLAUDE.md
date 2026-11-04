@@ -37,5 +37,8 @@ Every video is one of these two. Ask which one if it isn't clear.
 - `examples/documentary/`: example videos/clips for documentary style.
 - `examples/links.md`: YouTube links and notes on what to study in each one.
 
-Note: this cloud environment can't download YouTube videos directly (YouTube returns 403).
-Frame-by-frame study needs the clips saved as files in the repo (keep each under 100 MB, or use Git LFS).
+**Getting YouTube videos in:** the user can just paste a YouTube link.
+- Use the vidIQ tool `vidiq_video_upload` with `url` set to the link. It downloads on vidIQ's servers, costs 0 credits, and handles up to 299 MB.
+- Poll `vidiq_job_poll`, then `curl` the returned `videoUrl` into the scratchpad.
+- Direct yt-dlp/youtube-dl from this cloud machine gets 403 from YouTube. Don't try to work around that.
+- Other sources: the user's Dropbox (connected through Composio) or files they upload.

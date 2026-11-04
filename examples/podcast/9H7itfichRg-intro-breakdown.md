@@ -16,3 +16,9 @@ https://youtu.be/9H7itfichRg (first 30 sec). Source: AI watch summary through vi
 - Text is **1–2 key words**, timed to the word being said. It never shows full sentences.
 - Transitions and SFX land on **pauses and stressed words**, not at random.
 - The SFX palette is small: a whoosh, a pop and a little beat-drop. Music sits under the voice.
+
+## Frame-accurate check (video imported via vidIQ, 4 Nov 2026)
+- 17 cuts in the first 30 s (about 1.8 s per shot). Cuts at: 0.04, 2.42, 3.54, 3.88, 7.79, 9.00, 9.54, 11.58, 12.67, 14.71, 15.42, 16.38, 17.29, 18.04, 19.75, 26.25, 28.96 s.
+- Big keyword text placed **behind** the host ("EASY", "AMAZING"). Sparkle and colour light-leak bursts at transitions.
+- Host cut-out with a **red or green duotone tint** and a white sticker outline, used as emphasis.
+- B-roll of the second host, then an OBS screen recording with a "#1" step label.
