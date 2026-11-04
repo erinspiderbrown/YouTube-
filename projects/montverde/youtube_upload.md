@@ -40,4 +40,4 @@ montverde academy, montverde doping, issam asinga, adaejah hodge, gerald phiri, 
 
 ## Thumbnail (user's design)
 "2 YEARS LATER / 4 ATHLETES POSITIVE / TRACK COVER-UP?" with coach, Issam, Adaejah and the AIU press release.
-Notes: use a real screenshot of the AIU 18 Mar 2025 release (the current image has garbled AI-generated text). The release says 3 athletes; the 4th is from the creator's account.
+Final: real AIU 18 Mar 2025 release swapped in (highlighted "by three athletes – all coached by Phiri" and "Possession of GW1516 when he was an Athlete in 2018 and 2019"); text changed to "3 ATHLETES POSITIVE" to match the release. Built with `thumbnail.py`.
