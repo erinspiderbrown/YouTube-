@@ -8,4 +8,4 @@ Pressmaster · Gustavo Fring · Roberto Zepeda · 2type · Ricky Esquivel · pic
 KATRIN BOLOVTSOVA · Riccardo Zerbinati
 
 Photo of Issam Asinga (#270): Oscar Muñoz Badilla
-Music: original track generated for this video (royalty-free)
+

@@ -32,6 +32,7 @@ def fr(t):  # snap to frame grid
     return round(t * FPS) / FPS
 
 # ---------------------------------------------------------------- 1. plan
+MUSIC_GAIN = 0   # user: no background music
 CUT_END = 599.95   # user: cut everything after "this doping shit is a joke"
 ALL_WORDS = [w for seg in json.load(open(os.path.join(S, "work/main.json"))) for w in seg["words"]]
 words = [w for w in ALL_WORDS if w["s"] < CUT_END]
@@ -412,7 +413,7 @@ def stage_audio():
         "[vo][io]amix=inputs=2:normalize=0,asplit=3[voice][sc][sc2]",
         # music: louder in cold open/title/end card, low bed elsewhere, ducked under voice
         f"[2:a]aformat=sample_rates=48000:channel_layouts=stereo,atrim=0:{TOTAL:.3f},"
-        f"volume='if(lt(t,{t_title_end:.2f}),0.32,if(gt(t,{end['out']:.2f}),0.45,0.085))':eval=frame,"
+        f"volume='{MUSIC_GAIN}*if(lt(t,{t_title_end:.2f}),0.32,if(gt(t,{end['out']:.2f}),0.45,0.085))':eval=frame,"
         f"afade=t=out:st={TOTAL - 2.5:.2f}:d=2.5[mus]",
         "[mus][sc]sidechaincompress=threshold=0.03:ratio=6:attack=20:release=400[duck]",
     ]

@@ -21,7 +21,7 @@ Source footage: Dropbox folder "Issam Coach" (11:39 to-camera recording, post-ra
 - B-roll matched to the line being said: photos of Gerald Phiri, Issam Asinga and Adaejah Hodge, plus free Pexels stock (track, lab testing, water bottles, campus, gavel, Florida).
 - Issam's post-race interview cut in right after the line about the Adidas deal, before "the week before that, he got suspended".
 - Orange keyword bars, lower thirds for names, and a credit tag on the photo with a visible photographer watermark.
-- Audio: voice cleanup (HPF, denoise, EQ, compression), AI-generated royalty-free music bed (vidIQ) ducked under voice, synthesized whoosh/pop/hit SFX, loudness at -14 LUFS.
+- Audio: voice cleanup (HPF, denoise, EQ, compression), no music (user removed it; `MUSIC_GAIN = 0`), synthesized whoosh/pop/hit SFX, loudness at -14 LUFS.
 
 `build.py` holds the full edit decision list (B-roll, keywords, lower thirds) in source-time seconds. Edit it and re-run to change the cut.
 
