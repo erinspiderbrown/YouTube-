@@ -200,7 +200,7 @@ def converge(t, dur):
         text(d, (p[0] + 60, p[1] + 20), "POSITIVE TEST", 24, RED, "Bold", alpha=k)
         kk = eo(seg(t, 1.2 + i * 0.15, 2.0 + i * 0.15))
         if kk > 0:
-            sx, sy = p[0] + 380, p[1]
+            sx, sy = p[0] + 540, p[1]
             ex, ey = sx + (school[0] - 150 - sx) * kk, sy + (school[1] - sy) * kk
             d.line([(sx, sy), (ex, ey)], fill=ORANGE, width=6)
     ks = eback(seg(t, 1.9, 2.5))
@@ -239,7 +239,7 @@ def africa_target(t, dur):
 def stepper(t, dur):
     im = background(t); d = ImageDraw.Draw(im, "RGBA")
     header(d, t, "Gerald Phiri · case status", "Still pending")
-    steps = ["Athletes test positive", "Provisional suspension", "Hearing", "Final decision"]
+    steps = ["Positive tests", "Provisional suspension", "Hearing", "Final decision"]
     x0, x1, y = 360, 1560, 620
     gap = (x1 - x0) / (len(steps) - 1)
     k = eo(seg(t, 0.4, 1.4))
@@ -256,7 +256,7 @@ def stepper(t, dur):
                 ph = (t * 0.9 + j / 2) % 1; rr = 30 + 50 * ph
                 d.ellipse([x - rr, y - rr, x + rr, y + rr], outline=RED + (int(220 * (1 - ph)),), width=3)
         d.ellipse([x - r, y - r, x + r, y + r], fill=col, outline=WHITE if (done or active) else GREY, width=4)
-        text(d, (x, y + 70), s.upper(), 30, WHITE if (done or active) else GREY, "Black", anchor="mt", alpha=ks)
+        text(d, (x, y + 70), s.upper(), 26, WHITE if (done or active) else GREY, "Black", anchor="mt", alpha=ks)
         if i >= 2: text(d, (x, y), "?", 34, GREY, "Black", anchor="mm", alpha=ks)
     if t > 1.6:
         k = eo(seg(t, 1.6, 2.0))

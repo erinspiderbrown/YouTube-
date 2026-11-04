@@ -2,7 +2,17 @@
 
 Source footage: Dropbox folder "Issam Coach" (11:39 to-camera recording, post-race interview clip, 6 photos).
 
-## Edit v4 (current): user feedback "too repetitive, too simple"
+## Edit v5 (current): "more futuristic, less beginner"
+- **Keyword pop-ups** are now HUD-style (`tools/hud.py`):
+  - Corner brackets snap open over a dark glass panel with scanlines.
+  - Letters decode from random glyphs, with chromatic aberration and glow.
+  - A mono "// 07 SIGNAL" label and an underline sweep with a light pulse.
+  - Glitch-slice exit.
+- **Transitions** blend both shots at every cut into or out of B-roll and graphics (`tools/transitions.py`). They cycle through scanline wipe, zoom-through flash, glowing grid-tile flip, data glitch, light-streak push and pixel dissolve.
+- **Sounds:** each transition gets its own synthesized sound, seeded per cut so none repeat exactly. HUD keywords get data-chatter "decode" sounds (`tools/sounds.py`).
+- **Suspense bed:** synthesized dark bed (sub drone, minor pad, heartbeat pulse, clock ticks, eerie harmonics), low and ducked under the voice. ElevenLabs music failed (insufficient credits), so it's made from scratch.
+
+## Edit v4: user feedback "too repetitive, too simple"
 - Name cards **only on each person's first mention** (Gerald, Issam, Adaejah). Repeat cards removed.
 - 13 animated motion graphics (`tools/mograph.py`):
   - Florida map with Montverde pin; Americas map routing 3 positive tests to Suriname / BVI / Jamaica.

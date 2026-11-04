@@ -21,7 +21,8 @@ Every video is one of these two. Ask which one if it isn't clear.
   - https://youtu.be/9H7itfichRg: intro editing (first ~30 sec). Punch-ins, keyword pop-ups, whooshes and pops.
   - https://youtu.be/A0t7WdoAUtM: storytelling and B-roll intercutting, kinetic text bars, music ducked or cut under B-roll.
 - Accent colour in use: **orange (#FF7A1A)** with dark/white text bars. The user said "orange screen graphics"; still confirm whether they meant orange or just on-screen graphics.
-- **Music:** the user removed the background music bed from the Montverde video. Don't add music by default; ask first. Sound effects are fine.
+- **Music:** the user disliked the upbeat lo-fi bed but asked for a **dark, mysterious, suspenseful** bed, low under the voice. Default to that for this kind of content; never upbeat.
+- **Style:** the user wants a **futuristic** look (HUD keywords, digital transitions, varied transition sounds). Flat orange text bars read as "beginner" to them.
 - Editing pipeline: `tools/` (transcribe, face-tracked framing, graphics). Example project: `projects/montverde/`.
 
 ### 2. Documentary style (voiceover, user not on screen)

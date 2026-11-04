@@ -14,7 +14,8 @@ import numpy as np
 
 S = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(S, "scripts"))
-import gfx, cards, mograph
+import gfx, cards, mograph, hud, sounds
+import transitions as TR
 import cv2
 from deshadow import deshadow
 
@@ -32,7 +33,7 @@ def fr(t):  # snap to frame grid
     return round(t * FPS) / FPS
 
 # ---------------------------------------------------------------- 1. plan
-MUSIC_GAIN = 0   # user: no background music
+MUSIC_GAIN = 1   # user: dark suspense bed, low under the voice (synthesized)
 CUT_END = 599.95   # user: cut everything after "this doping shit is a joke"
 ALL_WORDS = [w for seg in json.load(open(os.path.join(S, "work/main.json"))) for w in seg["words"]]
 words = [w for w in ALL_WORDS if w["s"] < CUT_END]
@@ -324,7 +325,7 @@ def transition(raw, out, kind, n):
     dec.stdout.close(); dec.wait(); encp.stdin.close(); encp.wait()
 
 def render_broll(i, b):
-    out = os.path.join(R, f"broll_{i:02d}_{b['src']}_{b['trans']}.mp4")
+    out = os.path.join(R, f"ins_{i:02d}_{b['src']}.mp4")
     if os.path.exists(out): return out
     n = round(b["dur"] * FPS)
     raw = os.path.join(R, f"raw_broll_{i:02d}.mp4")
@@ -339,15 +340,15 @@ def render_broll(i, b):
              "-map", "[o]", "-frames:v", str(n)] + enc(raw))
     else:
         mograph.render(mograph.GRAPHICS[b["src"]], b["dur"], raw)
-    transition(raw, out, b["trans"], n)
-    os.remove(raw)
+    os.replace(raw, out)
     return out
 
 def gfx_events():
     ev = []
     for i, (s, text, d, pos) in enumerate(KEYWORDS):
-        p = os.path.join(R, f"g_kw_{i:02d}.png"); gfx.keyword(text, p, pos)
-        ev.append({"start": fr(O(s)), "dur": d, "png": p, "kind": "kw"})
+        p = os.path.join(R, f"hud_{i:02d}.mov")
+        if not os.path.exists(p): hud.render(text, i + 1, d, pos, p, seed=i)
+        ev.append({"start": fr(O(s)), "dur": d, "mov": p, "kind": "kw"})
     for i, (s, name, sub, d) in enumerate(LOWER_THIRDS):
         p = os.path.join(R, f"g_lt_{i:02d}.png"); gfx.lower_third(name, sub, p)
         ev.append({"start": fr(O(s)), "dur": d, "png": p, "kind": "lt"})
@@ -364,38 +365,88 @@ def card_events():
         ev.append({"start": o0, "dur": o1 - o0, "file": out, "stamp_t": stamp[2] if stamp else None})
     return ev
 
+def boundaries(bev):
+    """Every cut between different sources (A-roll/base <-> insert, insert <-> insert, base items)."""
+    eps = 0.5 / FPS
+    ins = sorted(bev, key=lambda b: b["start"])
+    out = {}
+    def src_at(t):
+        for b in ins:
+            if b["start"] - eps <= t < b["start"] + b["dur"] - eps: return b
+        return None
+    for b in ins:
+        for T in (b["start"], b["start"] + b["dur"]):
+            out[round(T * FPS)] = (src_at(T - 1 / FPS), src_at(T + eps))
+    for it in timeline:
+        if it["type"] in ("title", "interview", "end"):
+            for T in (it["out"], it["out"] + it["frames"] / FPS):
+                k = round(T * FPS)
+                if k not in out and src_at(T) is None and 0 < T < TOTAL - 0.5: out[k] = (None, None)
+    return [(k / FPS, a, b) for k, (a, b) in sorted(out.items())]
+
+def _grab(path, offset, length, times):
+    """Frames of a source at absolute times, clamped to the source's own range."""
+    loc = [min(max(t - offset, 0), length - 1 / FPS) for t in times]
+    t0, t1 = min(loc), max(loc)
+    n = round((t1 - t0) * FPS) + 2
+    r = subprocess.run(["ffmpeg", "-v", "error", "-ss", f"{t0:.4f}", "-i", path, "-frames:v", str(n),
+                        "-f", "rawvideo", "-pix_fmt", "rgb24", "-"], capture_output=True)
+    fr_ = np.frombuffer(r.stdout, np.uint8).reshape(-1, 1080, 1920, 3)
+    return [fr_[min(len(fr_) - 1, round((t - t0) * FPS))] for t in loc]
+
+def render_transitions(bev, files):
+    fmap = {id(b): f for b, f in zip(bev, files)}
+    base = os.path.join(R, "base.mp4")
+    ev = []
+    for j, (T, A, B) in enumerate(boundaries(bev)):
+        kind = TR.KINDS[j % len(TR.KINDS)]
+        out = os.path.join(R, f"tr_{j:03d}_{kind}.mp4")
+        times = [T + (i - 6) / FPS for i in range(12)]
+        if not os.path.exists(out):
+            fa = _grab(fmap[id(A)], A["start"], A["dur"], times) if A else _grab(base, 0, TOTAL, [min(t, T - 1 / FPS) for t in times])
+            fb = _grab(fmap[id(B)], B["start"], B["dur"], times) if B else _grab(base, 0, TOTAL, [max(t, T) for t in times])
+            rng = np.random.default_rng(j)
+            encp = subprocess.Popen(["ffmpeg", "-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", "1920x1080",
+                                     "-r", str(FPS), "-i", "-"] + enc(out), stdin=subprocess.PIPE)
+            for i in range(12):
+                encp.stdin.write(np.ascontiguousarray(TR.frame(kind, fa[i], fb[i], (i + 0.5) / 12, rng)).tobytes())
+            encp.stdin.close(); encp.wait()
+        ev.append({"start": T - 6 / FPS, "dur": 12 / FPS, "file": out, "kind": kind, "cut": T})
+    return ev
+
 def stage_compose():
     bev = broll_events()
     with ThreadPoolExecutor(4) as ex:
         files = list(ex.map(lambda ib: render_broll(*ib), enumerate(bev)))
     gev = gfx_events()
     cev = card_events()
-    json.dump({"broll": bev, "gfx": gev, "cards": cev}, open(os.path.join(R, "events.json"), "w"), indent=1)
+    tev = render_transitions(bev, files)
+    json.dump({"broll": bev, "gfx": gev, "cards": cev, "trans": tev}, open(os.path.join(R, "events.json"), "w"), indent=1)
     inputs = ["-i", os.path.join(R, "base.mp4")]
     fc, last, k = [], "[0:v]", 1
     # A-roll punch-ins on keywords and emphasis beats (quick ease in, hold, ease out)
     beats = [(g["start"], min(g["dur"], 2.2)) for g in gev if g["kind"] == "kw"]
     beats += [(fr(O(t0)), 1.6) for t0 in PUNCH_EXTRA]
+    cuts = [t["cut"] for t in tev]
+    beats = [(t0, d) for t0, d in beats if not any(t0 - 0.4 < c < t0 + d + 0.7 for c in cuts)]
     terms = [f"0.075*clip((it-{t0:.3f})/0.12,0,1)*clip(({t0 + d + 0.3:.3f}-it)/0.3,0,1)" for t0, d in beats]
     zexpr = "1+" + "+".join(terms)
     pre = [f"[0:v]setpts=PTS-STARTPTS,zoompan=z='{zexpr}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d=1:s=1920x1080:fps={FPS}"]
-    # whip transitions: motion-blur the A-roll for a few frames on both sides of the insert
-    for bb in bev:
-        if bb["trans"] == "whip":
-            a0, a1 = bb["start"] - 4 / FPS, bb["start"]
-            e0, e1 = bb["start"] + bb["dur"], bb["start"] + bb["dur"] + 4 / FPS
-            pre.append(f"avgblur=sizeX=48:sizeY=1:enable='between(t,{a0:.4f},{a1:.4f})+between(t,{e0:.4f},{e1:.4f})'")
     fc.append(",".join(pre) + "[base]"); last = "[base]"
     for b, f in zip(bev, files):
         inputs += ["-i", f]
         fc.append(f"[{k}:v]setpts=PTS-STARTPTS+{b['start']:.4f}/TB[b{k}]")
         fc.append(f"{last}[b{k}]overlay=eof_action=pass:enable='between(t,{b['start']:.4f},{b['start'] + b['dur']:.4f})'[v{k}]")
         last = f"[v{k}]"; k += 1
+    for tr in tev:
+        inputs += ["-i", tr["file"]]
+        fc.append(f"[{k}:v]setpts=PTS-STARTPTS+{tr['start']:.4f}/TB[t{k}]")
+        fc.append(f"{last}[t{k}]overlay=eof_action=pass:enable='between(t,{tr['start']:.4f},{tr['start'] + tr['dur'] - 0.001:.4f})'[v{k}]")
+        last = f"[v{k}]"; k += 1
     for g in gev:
-        inputs += ["-loop", "1", "-framerate", str(FPS), "-t", f"{g['dur']:.3f}", "-i", g["png"]]
-        fc.append(f"[{k}:v]format=rgba,fade=in:st=0:d=0.15:alpha=1,fade=out:st={g['dur'] - 0.2:.3f}:d=0.2:alpha=1,"
-                  f"setpts=PTS-STARTPTS+{g['start']:.4f}/TB[g{k}]")
-        fc.append(f"{last}[g{k}]overlay=eof_action=pass:enable='between(t,{g['start']:.4f},{g['start'] + g['dur']:.4f})'[v{k}]")
+        inputs += ["-i", g["mov"]]
+        fc.append(f"[{k}:v]format=rgba,setpts=PTS-STARTPTS+{g['start']:.4f}/TB[g{k}]")
+        fc.append(f"{last}[g{k}]overlay=eof_action=pass:format=auto:enable='between(t,{g['start']:.4f},{g['start'] + g['dur']:.4f})'[v{k}]")
         last = f"[v{k}]"; k += 1
     for c in cev:
         inputs += ["-i", c["file"]]
@@ -450,12 +501,14 @@ def stage_audio():
     t_title_end = title["out"] + title["frames"] / FPS
     bev = json.load(open(os.path.join(R, "events.json")))
     sfx = []  # (file, time, gain)
-    for b in bev["broll"]:
-        tr = b.get("trans", "whip")
-        sfx.append(("whoosh", max(0, b["start"] - 0.3), 0.25 if tr in ("whip", "zoom") else 0.12))
-        if tr in ("glitch", "flash"): sfx.append(("hit", b["start"], 0.45))
-        sfx.append(("whoosh", b["start"] + b["dur"] - 0.25, 0.12))
-    for g in bev["gfx"]: sfx.append(("pop" if g["kind"] == "kw" else "whoosh", g["start"], 0.30 if g["kind"] == "kw" else 0.15))
+    sdir = os.path.join(R, "sfx"); os.makedirs(sdir, exist_ok=True)
+    TR_GAIN = {"scan": 0.32, "zoom": 0.38, "grid": 0.30, "glitch": 0.30, "streak": 0.34, "pixel": 0.26}
+    for j, tr in enumerate(bev["trans"]):
+        fpath = os.path.join(sdir, f"tr_{j:03d}.wav"); sounds.trans_sound(tr["kind"], fpath, 1000 + j)
+        sfx.append((fpath, max(0, tr["cut"] - 0.30), TR_GAIN[tr["kind"]]))
+    for j, g in enumerate(bev["gfx"]):
+        fpath = os.path.join(sdir, f"kw_{j:02d}.wav"); sounds.ui_sound("decode", fpath, 500 + j)
+        sfx.append((fpath, g["start"], 0.22))
     sfx += [("hit", title["out"], 0.9), ("whoosh", title["out"] - 0.35, 0.4), ("hit", end["out"], 0.6)]
     for c in bev.get("cards", []):
         sfx += [("whoosh", max(0, c["start"] - 0.15), 0.3), ("pop", c["start"] + 0.32, 0.35),
@@ -465,7 +518,7 @@ def stage_audio():
     sfx.append(("whoosh", inter_item["out"] - 0.3, 0.3))
 
     inputs = ["-i", os.path.join(R, "voice_raw.wav"), "-i", os.path.join(R, "interview_raw.wav"),
-              "-stream_loop", "-1", "-i", os.path.join(A, "music.wav")]
+              "-stream_loop", "-1", "-i", os.path.join(A, "suspense.wav")]
     fc = [
         # voice cleanup: rumble cut, gentle denoise, presence, compression
         "[0:a]highpass=f=80,afftdn=nf=-28,equalizer=f=3500:t=q:w=1.2:g=2.5,equalizer=f=250:t=q:w=1:g=-2,"
@@ -475,13 +528,13 @@ def stage_audio():
         "[vo][io]amix=inputs=2:normalize=0,asplit=3[voice][sc][sc2]",
         # music: louder in cold open/title/end card, low bed elsewhere, ducked under voice
         f"[2:a]aformat=sample_rates=48000:channel_layouts=stereo,atrim=0:{TOTAL:.3f},"
-        f"volume='{MUSIC_GAIN}*if(lt(t,{t_title_end:.2f}),0.32,if(gt(t,{end['out']:.2f}),0.45,0.085))':eval=frame,"
+        f"volume='{MUSIC_GAIN}*if(lt(t,{t_title_end:.2f}),0.30,if(gt(t,{end['out']:.2f}),0.40,0.17))':eval=frame,"
         f"afade=t=out:st={TOTAL - 2.5:.2f}:d=2.5[mus]",
         "[mus][sc]sidechaincompress=threshold=0.03:ratio=6:attack=20:release=400[duck]",
     ]
     k = 3; labels = []
     for name, t0, g in sfx:
-        inputs += ["-i", os.path.join(A, name + ".wav")]
+        inputs += ["-i", name if os.path.isabs(name) else os.path.join(A, name + ".wav")]
         ms = int(t0 * 1000)
         fc.append(f"[{k}:a]volume={g},adelay={ms}|{ms}[s{k}]"); labels.append(f"[s{k}]"); k += 1
     fc.append(f"{''.join(labels)}amix=inputs={len(labels)}:normalize=0[sfx]")
