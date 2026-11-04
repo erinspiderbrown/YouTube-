@@ -2,7 +2,20 @@
 
 Source footage: Dropbox folder "Issam Coach" (11:39 to-camera recording, post-race interview clip, 6 photos).
 
-## Edit v3 (current)
+## Edit v4 (current): user feedback "too repetitive, too simple"
+- Name cards **only on each person's first mention** (Gerald, Issam, Adaejah). Repeat cards removed.
+- 13 animated motion graphics (`tools/mograph.py`):
+  - Florida map with Montverde pin; Americas map routing 3 positive tests to Suriname / BVI / Jamaica.
+  - "3 countries → 1 school" convergence; Africa map "target testing" (Kenya, Ethiopia).
+  - Coach case-status stepper; "provisional suspension" dictionary card; coach ↔ athletic-director diagram.
+  - Issam "What he lost" timeline; JADCO vs AIU/WADA comparison; GW1516 explainer.
+  - Positive-test tracker (3, then 4); team grid "who got caught".
+- More stock B-roll: plane (international travel), laptop/suit (LinkedIn), newspaper, lightning, start line.
+- Transitions baked into every insert, cycling whip-pan / zoom-blur / RGB glitch / flash, with matching SFX. The A-roll gets motion blur around whips.
+- A-roll punch-in zooms on every keyword and on extra emphasis beats. Subtle film grain over everything.
+- Stock shots get a slow push-in so nothing sits static.
+
+## Edit v3
 - Ending cut after "this doping shit is a joke" (source 9:59). The "go dope / anti-doping is propaganda" section is removed. Runtime about 9:00.
 - All 27 swear words before that point are muted (short fades, no bleep).
 - Shadow removal ~4x faster: heavy work at half resolution, wall model refreshed every 3 frames.

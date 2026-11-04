@@ -14,7 +14,7 @@ import numpy as np
 
 S = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(S, "scripts"))
-import gfx, cards
+import gfx, cards, mograph
 import cv2
 from deshadow import deshadow
 
@@ -106,39 +106,54 @@ def O(src):
     return best if best is not None else TOTAL
 
 # ---------------------------------------------------------------- creative spec (source times)
-BROLL = [  # (src_start, src_end, kind, file, offset)
+BROLL = [  # (src_start, src_end, kind, source, offset)  kind: stock | mg (motion graphic)
     (3.38, 5.16, "stock", "sweep", 3),
-    (10.66, 13.6, "stock", "fl_palms", 2),
-    (20.5, 23.68, "stock", "pour_bottle", 2),
+    (10.66, 14.2, "mg", "florida_map", None),
+    (20.5, 23.68, "stock", "start_line", 2),
+    (24.42, 26.82, "stock", "plane", 1),
     (26.82, 30.56, "stock", "lab_tubes", 1),
+    (41.9, 46.3, "mg", "stepper", None),
+    (46.62, 53.0, "stock", "suit_laptop", 3),
     (65.94, 71.78, "stock", "pour_glass", 0),
     (71.78, 77.04, "stock", "warmup", 1),
     (94.38, 99.78, "stock", "lab_gloves", 1),
+    (105.6, 108.6, "stock", "women_track", 1),
     (128.26, 134.6, "stock", "campus2", 3),
-    (150.07, 153.91, "stock", "judge_doc", 1),
-    (195.53, 201.31, "stock", "campus1", 3),
+    (140.4, 147.5, "stock", "newspaper", 1),
+    (150.07, 163.0, "mg", "definition", None),
+    (178.4, 183.6, "stock", "judge_doc", 1),
+    (191.13, 197.33, "mg", "relationship", None),
+    (197.5, 201.31, "stock", "campus1", 3),
     (205.11, 209.69, "stock", "gavel", 1),
+    (218.39, 222.49, "stock", "start_line", 8),
+    (226.31, 237.0, "mg", "deal_timeline", None),
+    (245.44, 250.0, "stock", "blocks3", 2),
+    (263.18, 278.0, "mg", "jadco_vs_aiu", None),
+    (303.14, 312.34, "mg", "africa_target", None),
     (332.2, 337.26, "stock", "lab_drops", 2),
-    (390.08, 397.8, "stock", "campus2", 14),
-    (415.18, 419.62, "stock", "lab_tubes", 7),
+    (348.94, 356.0, "mg", "world_routes", None),
+    (387.7, 393.06, "mg", "converge", None),
+    (393.24, 397.8, "stock", "campus2", 14),
+    (415.18, 426.3, "mg", "gw1516", None),
+    (437.58, 443.0, "stock", "lightning", 4.4),
+    (449.4, 458.4, "mg", "tracker3", None),
     (464.19, 468.99, "stock", "women_track", 1),
+    (479.35, 489.07, "mg", "tracker4", None),
     (494.87, 499.13, "stock", "male_track", 1),
     (499.29, 503.75, "stock", "women_track", 6),
+    (505.05, 518.0, "mg", "team_grid", None),
     (549.57, 556.89, "stock", "pour_bottle", 9),
     (556.89, 561.15, "stock", "blocks1", 2),
+    (580.53, 590.63, "stock", "laptop", 1),
 ]
+TRANSITIONS = ["whip", "zoom", "glitch", "whip", "flash", "zoom"]   # cycled across inserts
 GERALD = dict(name="Gerald Phiri", sub="Former Montverde track coach")
 ISSAM = dict(name="Issam Asinga", sub="Sprinter · Suriname")
 ADAEJAH = dict(name="Adaejah Hodge", sub="Sprinter · British Virgin Islands")
-CARDS = [  # (src_start, src_end, person, photo, stamp, credit)
+CARDS = [  # first mention of each person only
     (14.3, 18.9, GERALD, "coach_mouth.jpg", None, None),
-    (41.9, 46.3, GERALD, "coach_head.jpg", ("SUSPENDED", "PROVISIONALLY", 1.0), None),
     (56.4, 62.2, ISSAM, "issam_270.jpg", ("SUSPENDED", None, 1.6), "Photo: Oscar Muñoz Badilla"),
     (103.3, 105.6, ADAEJAH, "hodge_flag.jpg", None, None),
-    (105.9, 108.6, ISSAM, "issam_race.jpg", None, None),
-    (178.4, 181.2, ISSAM, "athlete_walk.jpg", None, None),
-    (218.3, 222.6, ISSAM, "issam_race.jpg", ("SUSPENDED", None, 1.2), None),
-    (245.3, 250.0, ADAEJAH, "hodge_flag.jpg", ("NIL DEAL", "SIGNED", 1.6, (255, 122, 26, 255)), None),
 ]
 KEYWORDS = [  # (src_time, text, dur, pos)
     (1.9, "Swept under\nthe rug", 2.6, "left"),
@@ -149,21 +164,16 @@ KEYWORDS = [  # (src_time, text, dur, pos)
     (68.4, "Clear. Tasteless.\nOdorless.", 3.2, "left"),
     (117.2, "These kids\nare cooked", 2.2, "left"),
     (138.8, "Nobody's\ntalking about it", 2.4, "left"),
-    (152.0, "Administrative\nleave", 2.4, "right"),
     (205.2, "Sue the\nschool", 2.4, "left"),
     (197.5, "Well-funded\nboarding school", 3.0, "left"),
-    (226.3, "All the money\nhe lost", 2.6, "left"),
     (250.2, "Same substance.\nSame coach.", 3.2, "right"),
     (329.9, "Target\ntesting", 2.4, "left"),
-    (387.7, "3 athletes.\n1 school.", 3.0, "left"),
-    (415.2, "GW1516", 2.6, "right"),
     (437.6, "Lightning\nstriking twice", 2.6, "left"),
-    (488.0, "Athlete\n#4", 2.2, "left"),
     (551.0, "Water bottles\nat practice", 3.0, "left"),
 ]
-LOWER_THIRDS = [  # (src_time, name, sub, dur)
-    (10.9, "Montverde Academy", "Montverde, Florida", 2.6),
-]
+PUNCH_EXTRA = [6.28, 24.42, 39.08, 83.46, 91.18, 101.48, 109.3, 173.67, 214.95, 240.78, 289.0,
+               343.64, 357.26, 405.94, 520.0, 563.69, 593.47]   # emphasis beats with no graphic
+LOWER_THIRDS = []
 DISCLAIMER = "Commentary & opinion · Claims about the coach and school are allegations"
 
 def stage_plan():
@@ -264,38 +274,73 @@ def stage_aroll():
 # ---------------------------------------------------------------- 3. broll + graphics
 def broll_events():
     ev = []
-    for s, e, kind, src, opt in BROLL:
-        o0, o1 = fr(O(s)), fr(O(e))
-        if o1 - o0 < 0.8: print("skip short broll", src, s); continue
-        ev.append({"start": o0, "dur": o1 - o0, "kind": kind, "src": src, "opt": opt})
+    for i, (s0, e0, kind, src, opt) in enumerate(BROLL):
+        o0, o1 = fr(O(s0)), fr(O(e0))
+        if o1 - o0 < 0.8: print("skip short broll", src, s0); continue
+        ev.append({"start": o0, "dur": o1 - o0, "kind": kind, "src": src, "opt": opt,
+                   "trans": TRANSITIONS[len(ev) % len(TRANSITIONS)]})
     return ev
 
+def transition(raw, out, kind, n):
+    """Bake entry/exit transition into an insert clip's first/last frames."""
+    dec = subprocess.Popen(["ffmpeg", "-v", "error", "-i", raw, "-f", "rawvideo", "-pix_fmt", "rgb24", "-"],
+                           stdout=subprocess.PIPE)
+    encp = subprocess.Popen(["ffmpeg", "-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", "1920x1080",
+                             "-r", str(FPS), "-i", "-"] + enc(out), stdin=subprocess.PIPE)
+    fsz = 1920 * 1080 * 3; rng = np.random.default_rng(7)
+    IN, OUT = 6, 5
+    for i in range(n):
+        buf = dec.stdout.read(fsz)
+        if len(buf) < fsz: break
+        f = np.frombuffer(buf, np.uint8).reshape(1080, 1920, 3)
+        p_in = 1 - i / IN if i < IN else 0             # 1 -> 0 during entry
+        p_out = (i - (n - OUT)) / OUT if i >= n - OUT else 0   # 0 -> 1 during exit
+        p = max(p_in, p_out)
+        if p > 0:
+            if kind == "whip":
+                sgn = 1 if p_in else -1
+                f = np.roll(f, int(sgn * 1920 * 0.28 * p ** 1.5), axis=1)
+                k = int(2 + 140 * p) | 1
+                f = cv2.blur(f, (k, 1))
+            elif kind == "zoom":
+                z = 1 + (0.35 if p_in else 0.25) * p ** 1.3
+                M = cv2.getRotationMatrix2D((960, 540), 0, z)
+                acc = np.zeros_like(f, np.float32)
+                for j in range(4):  # cheap zoom blur
+                    Mj = cv2.getRotationMatrix2D((960, 540), 0, z * (1 + 0.025 * j * p))
+                    acc += cv2.warpAffine(f, Mj, (1920, 1080), borderMode=cv2.BORDER_REFLECT)
+                f = (acc / 4).astype(np.uint8)
+            elif kind == "glitch":
+                g = f.copy(); sh = int(40 * p)
+                g[..., 0] = np.roll(f[..., 0], sh, axis=1); g[..., 2] = np.roll(f[..., 2], -sh, axis=1)
+                for _ in range(int(10 * p) + 1):
+                    y0 = rng.integers(0, 1000); hgt = rng.integers(10, 90)
+                    g[y0:y0 + hgt] = np.roll(g[y0:y0 + hgt], int(rng.integers(-160, 160) * p), axis=1)
+                f = g
+            elif kind == "flash":
+                w = p ** 1.4 if p_in else p ** 2 * 0.7
+                f = (f.astype(np.float32) * (1 - w) + 255 * w).astype(np.uint8)
+        encp.stdin.write(np.ascontiguousarray(f).tobytes())
+    dec.stdout.close(); dec.wait(); encp.stdin.close(); encp.wait()
+
 def render_broll(i, b):
-    out = os.path.join(R, f"broll_{i:02d}.mp4")
+    out = os.path.join(R, f"broll_{i:02d}_{b['src']}_{b['trans']}.mp4")
     if os.path.exists(out): return out
     n = round(b["dur"] * FPS)
+    raw = os.path.join(R, f"raw_broll_{i:02d}.mp4")
     if b["kind"] == "stock":
         src = os.path.join(B, b["src"] + ".mp4")
+        # gentle push-in on every stock shot so nothing sits static
         fc = (f"[0:v]scale=1920:1080:force_original_aspect_ratio=increase:flags=lanczos,crop=1920:1080,"
               f"fps={FPS},{STOCK_GRADE},tpad=stop_mode=clone:stop_duration=10,"
+              f"zoompan=z='1+0.08*on/{n}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d=1:s=1920x1080:fps={FPS},"
               f"vignette=angle=PI/6,format=yuv420p,trim=end_frame={n}[o]")
         run(["ffmpeg", "-v", "error", "-y", "-ss", str(b["opt"]), "-i", src, "-filter_complex", fc,
-             "-map", "[o]", "-frames:v", str(n)] + enc(out))
+             "-map", "[o]", "-frames:v", str(n)] + enc(raw))
     else:
-        src = os.path.join(F, b["src"])
-        # blurred cover background + framed photo, slow push-in
-        fc = (f"[0:v]scale=3840:2160:force_original_aspect_ratio=increase,crop=3840:2160,boxblur=40:2,"
-              f"eq=brightness=-0.18:saturation=0.9[bg];"
-              f"[0:v]scale=-2:1860:flags=lanczos,pad=iw+24:ih+24:12:12:color=0xFF7A1A[fg];"
-              f"[bg][fg]overlay=(W-w)/2:(H-h)/2,format=yuv420p,"
-              f"zoompan=z='1+0.06*on/{n}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d={n}:s=1920x1080:fps={FPS}")
-        if b["opt"]:
-            tag = os.path.join(R, f"g_credit_{i:02d}.png"); gfx.caption_tag(b["opt"], tag)
-            run(["ffmpeg", "-v", "error", "-y", "-i", src, "-i", tag, "-filter_complex",
-                 fc + "[p];[p][1:v]overlay,format=yuv420p[o]", "-map", "[o]", "-frames:v", str(n)] + enc(out))
-        else:
-            run(["ffmpeg", "-v", "error", "-y", "-i", src, "-filter_complex", fc + ",format=yuv420p[o]",
-                 "-map", "[o]", "-frames:v", str(n)] + enc(out))
+        mograph.render(mograph.GRAPHICS[b["src"]], b["dur"], raw)
+    transition(raw, out, b["trans"], n)
+    os.remove(raw)
     return out
 
 def gfx_events():
@@ -328,6 +373,19 @@ def stage_compose():
     json.dump({"broll": bev, "gfx": gev, "cards": cev}, open(os.path.join(R, "events.json"), "w"), indent=1)
     inputs = ["-i", os.path.join(R, "base.mp4")]
     fc, last, k = [], "[0:v]", 1
+    # A-roll punch-ins on keywords and emphasis beats (quick ease in, hold, ease out)
+    beats = [(g["start"], min(g["dur"], 2.2)) for g in gev if g["kind"] == "kw"]
+    beats += [(fr(O(t0)), 1.6) for t0 in PUNCH_EXTRA]
+    terms = [f"0.075*clip((it-{t0:.3f})/0.12,0,1)*clip(({t0 + d + 0.3:.3f}-it)/0.3,0,1)" for t0, d in beats]
+    zexpr = "1+" + "+".join(terms)
+    pre = [f"[0:v]setpts=PTS-STARTPTS,zoompan=z='{zexpr}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d=1:s=1920x1080:fps={FPS}"]
+    # whip transitions: motion-blur the A-roll for a few frames on both sides of the insert
+    for bb in bev:
+        if bb["trans"] == "whip":
+            a0, a1 = bb["start"] - 4 / FPS, bb["start"]
+            e0, e1 = bb["start"] + bb["dur"], bb["start"] + bb["dur"] + 4 / FPS
+            pre.append(f"avgblur=sizeX=48:sizeY=1:enable='between(t,{a0:.4f},{a1:.4f})+between(t,{e0:.4f},{e1:.4f})'")
+    fc.append(",".join(pre) + "[base]"); last = "[base]"
     for b, f in zip(bev, files):
         inputs += ["-i", f]
         fc.append(f"[{k}:v]setpts=PTS-STARTPTS+{b['start']:.4f}/TB[b{k}]")
@@ -344,7 +402,7 @@ def stage_compose():
         fc.append(f"[{k}:v]format=rgba,setpts=PTS-STARTPTS+{c['start']:.4f}/TB[c{k}]")
         fc.append(f"{last}[c{k}]overlay=eof_action=pass:format=auto:enable='between(t,{c['start']:.4f},{c['start'] + c['dur']:.4f})'[v{k}]")
         last = f"[v{k}]"; k += 1
-    fc.append(f"{last}format=yuv420p[out]")
+    fc.append(f"{last}noise=alls=5:allf=t,format=yuv420p[out]")
     script = os.path.join(R, "compose.txt"); open(script, "w").write(";\n".join(fc))
     run(["ffmpeg", "-v", "error", "-y"] + inputs + ["-filter_complex_script", script, "-map", "[out]",
          "-c:v", "libx264", "-preset", "medium", "-crf", "19", "-pix_fmt", "yuv420p", "-r", str(FPS),
@@ -392,7 +450,11 @@ def stage_audio():
     t_title_end = title["out"] + title["frames"] / FPS
     bev = json.load(open(os.path.join(R, "events.json")))
     sfx = []  # (file, time, gain)
-    for b in bev["broll"]: sfx.append(("whoosh", max(0, b["start"] - 0.3), 0.22))
+    for b in bev["broll"]:
+        tr = b.get("trans", "whip")
+        sfx.append(("whoosh", max(0, b["start"] - 0.3), 0.25 if tr in ("whip", "zoom") else 0.12))
+        if tr in ("glitch", "flash"): sfx.append(("hit", b["start"], 0.45))
+        sfx.append(("whoosh", b["start"] + b["dur"] - 0.25, 0.12))
     for g in bev["gfx"]: sfx.append(("pop" if g["kind"] == "kw" else "whoosh", g["start"], 0.30 if g["kind"] == "kw" else 0.15))
     sfx += [("hit", title["out"], 0.9), ("whoosh", title["out"] - 0.35, 0.4), ("hit", end["out"], 0.6)]
     for c in bev.get("cards", []):
