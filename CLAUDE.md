@@ -20,7 +20,8 @@ Every video is one of these two. Ask which one if it isn't clear.
 - References (breakdowns in `examples/podcast/`):
   - https://youtu.be/9H7itfichRg: intro editing (first ~30 sec). Punch-ins, keyword pop-ups, whooshes and pops.
   - https://youtu.be/A0t7WdoAUtM: storytelling and B-roll intercutting, kinetic text bars, music ducked or cut under B-roll.
-- Open question: user mentioned "orange screen graphics". Confirm whether they meant on-screen graphics or an orange accent colour.
+- Accent colour in use: **orange (#FF7A1A)** with dark/white text bars. The user said "orange screen graphics"; still confirm whether they meant orange or just on-screen graphics.
+- Editing pipeline: `tools/` (transcribe, face-tracked framing, graphics). Example project: `projects/montverde/`.
 
 ### 2. Documentary style (voiceover, user not on screen)
 - The user reads a script as a voiceover. They do not appear on camera.

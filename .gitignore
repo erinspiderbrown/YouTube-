@@ -1,0 +1,8 @@
+# media is too big for git: keep it in Dropbox / local only
+*.mp4
+*.mov
+*.wav
+*.jpg
+*.png
+render/
+output/
