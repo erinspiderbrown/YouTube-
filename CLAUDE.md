@@ -14,7 +14,13 @@ Every video is one of these two. Ask which one if it isn't clear.
   - **B-roll / relevant content found online** that matches what's being said.
   - **On-screen graphics and motion elements** to keep viewers engaged.
   - **Sound effects** that add energy **without distracting** from the talking.
-- Reference for the intro (first ~30 sec): https://youtu.be/9H7itfichRg (see `examples/links.md`).
+- **Storytelling:** cut back and forth between the podcast and B-roll that shows exactly what's being talked about.
+  - Host sets something up → cut to the footage as proof → back to the host for the reaction or explanation.
+  - Consider a cold open on the most striking B-roll before showing the podcast set.
+- References (breakdowns in `examples/podcast/`):
+  - https://youtu.be/9H7itfichRg: intro editing (first ~30 sec). Punch-ins, keyword pop-ups, whooshes and pops.
+  - https://youtu.be/A0t7WdoAUtM: storytelling and B-roll intercutting, kinetic text bars, music ducked or cut under B-roll.
+- Open question: user mentioned "orange screen graphics". Confirm whether they meant on-screen graphics or an orange accent colour.
 
 ### 2. Documentary style (voiceover, user not on screen)
 - The user reads a script as a voiceover. They do not appear on camera.
