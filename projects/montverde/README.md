@@ -2,6 +2,13 @@
 
 Source footage: Dropbox folder "Issam Coach" (11:39 to-camera recording, post-race interview clip, 6 photos).
 
+## Edit v2 (current)
+- **Wall shadow removed**: `tools/deshadow.py` fits a smooth model of the wall's lighting around the head and lifts the cast shadow up to it, frame by frame. Hair, skin, mic and poster are protected.
+- **Animated name cards** (`tools/cards.py`) on every name mention, replacing the full-screen photos:
+  - The photo pops in on screen-right. The orange name bar and role bar wipe in.
+  - Stamps slam on: PROVISIONALLY SUSPENDED (Gerald), SUSPENDED (Issam), NIL DEAL SIGNED (Adaejah).
+  - Each card has whoosh/pop/hit SFX.
+
 ## Edit v1
 - Pauses tightened with jump cuts. Every cut changes framing between wide, medium and close-up. Crops come from 4K and are centred on the face (`tools/faces.py`).
 - Colour and lighting: highlight roll-off on the white wall, lifted skin tones, slight warmth, soft light falloff around the subject.

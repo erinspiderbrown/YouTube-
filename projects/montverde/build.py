@@ -14,7 +14,9 @@ import numpy as np
 
 S = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(S, "scripts"))
-import gfx
+import gfx, cards
+import cv2
+from deshadow import deshadow
 
 F, B, A, R = (os.path.join(S, d) for d in ("dropbox1/files", "broll", "assets", "render"))
 os.makedirs(R, exist_ok=True)
@@ -98,25 +100,18 @@ def O(src):
     return best if best is not None else TOTAL
 
 # ---------------------------------------------------------------- creative spec (source times)
-BROLL = [  # (src_start, src_end, kind, file, offset/credit)
+BROLL = [  # (src_start, src_end, kind, file, offset)
     (3.38, 5.16, "stock", "sweep", 3),
     (10.66, 13.6, "stock", "fl_palms", 2),
-    (13.6, 18.92, "photo", "coach_mouth.jpg", None),
     (20.5, 23.68, "stock", "pour_bottle", 2),
     (26.82, 30.56, "stock", "lab_tubes", 1),
-    (41.9, 46.22, "photo", "coach_head.jpg", None),
-    (56.26, 62.22, "photo", "issam_270.jpg", "Photo: Oscar Muñoz Badilla"),
     (65.94, 71.78, "stock", "pour_glass", 0),
     (71.78, 77.04, "stock", "warmup", 1),
     (94.38, 99.78, "stock", "lab_gloves", 1),
-    (103.12, 105.32, "photo", "hodge_flag.jpg", None),
-    (105.56, 108.54, "photo", "issam_race.jpg", None),
     (128.26, 134.6, "stock", "campus2", 3),
     (150.07, 153.91, "stock", "judge_doc", 1),
-    (178.29, 180.63, "stock", "gavel", 2),
     (195.53, 201.31, "stock", "campus1", 3),
-    (218.39, 222.49, "photo", "athlete_walk.jpg", None),
-    (245.44, 249.62, "photo", "hodge_flag.jpg", None),
+    (205.11, 209.69, "stock", "gavel", 1),
     (332.2, 337.26, "stock", "lab_drops", 2),
     (390.08, 397.8, "stock", "campus2", 14),
     (415.18, 419.62, "stock", "lab_tubes", 7),
@@ -126,18 +121,30 @@ BROLL = [  # (src_start, src_end, kind, file, offset/credit)
     (549.57, 556.89, "stock", "pour_bottle", 9),
     (556.89, 561.15, "stock", "blocks1", 2),
 ]
+GERALD = dict(name="Gerald Phiri", sub="Former Montverde track coach")
+ISSAM = dict(name="Issam Asinga", sub="Sprinter · Suriname")
+ADAEJAH = dict(name="Adaejah Hodge", sub="Sprinter · British Virgin Islands")
+CARDS = [  # (src_start, src_end, person, photo, stamp, credit)
+    (14.3, 18.9, GERALD, "coach_mouth.jpg", None, None),
+    (41.9, 46.3, GERALD, "coach_head.jpg", ("SUSPENDED", "PROVISIONALLY", 1.0), None),
+    (56.4, 62.2, ISSAM, "issam_270.jpg", ("SUSPENDED", None, 1.6), "Photo: Oscar Muñoz Badilla"),
+    (103.3, 105.6, ADAEJAH, "hodge_flag.jpg", None, None),
+    (105.9, 108.6, ISSAM, "issam_race.jpg", None, None),
+    (178.4, 181.2, ISSAM, "athlete_walk.jpg", None, None),
+    (218.3, 222.6, ISSAM, "issam_race.jpg", ("SUSPENDED", None, 1.2), None),
+    (245.3, 250.0, ADAEJAH, "hodge_flag.jpg", ("NIL DEAL", "SIGNED", 1.6, (255, 122, 26, 255)), None),
+]
 KEYWORDS = [  # (src_time, text, dur, pos)
     (1.9, "Swept under\nthe rug", 2.6, "left"),
     (8.3, "Almost\n2 years", 2.2, "left"),
-    (16.5, "Allegedly", 2.0, "right"),
+    (16.5, "Allegedly", 2.0, "left"),
     (34.2, "Everybody\non the team", 2.4, "left"),
-    (42.0, "Provisionally\nsuspended", 3.0, "right"),
     (47.9, "New company", 2.2, "left"),
     (68.4, "Clear. Tasteless.\nOdorless.", 3.2, "left"),
     (117.2, "These kids\nare cooked", 2.2, "left"),
     (138.8, "Nobody's\ntalking about it", 2.4, "left"),
     (152.0, "Administrative\nleave", 2.4, "right"),
-    (178.3, "Sue the\nschool", 2.2, "left"),
+    (205.2, "Sue the\nschool", 2.4, "left"),
     (197.5, "Well-funded\nboarding school", 3.0, "left"),
     (226.3, "All the money\nhe lost", 2.6, "left"),
     (250.2, "Same substance.\nSame coach.", 3.2, "right"),
@@ -150,9 +157,6 @@ KEYWORDS = [  # (src_time, text, dur, pos)
 ]
 LOWER_THIRDS = [  # (src_time, name, sub, dur)
     (10.9, "Montverde Academy", "Montverde, Florida", 2.6),
-    (14.0, "Gerald Phiri", "Former Montverde Academy coach", 4.2),
-    (56.5, "Issam Asinga", "Sprinter · Suriname", 4.2),
-    (103.2, "Adaejah Hodge", "Sprinter · British Virgin Islands", 3.6),
 ]
 DISCLAIMER = "Commentary & opinion · Claims about the coach and school are allegations"
 
@@ -167,6 +171,7 @@ GRADE = ("curves=master='0/0.02 0.18/0.21 0.42/0.5 0.7/0.72 0.85/0.8 1/0.9',"
          "eq=saturation=1.12,colorbalance=rm=0.015:bm=-0.015:rs=0.01:bs=-0.01")
 STOCK_GRADE = "eq=contrast=1.06:saturation=1.08,colorbalance=rm=0.02:bm=-0.02"
 
+SOFA_Y = 0.72 * 2160  # top of the sofa back, 4K coords
 FACES = np.array(json.load(open(os.path.join(S, "work/faces.json"))))
 FACE_MED = np.median(FACES[:, 1:3], axis=0)
 
@@ -194,12 +199,31 @@ def render_item(i):
     d = it["frames"] / FPS
     if it["type"] == "aroll":
         w, h, x, y = crop_rect(it["frame"], it["src"])
-        fc = (f"[0:v]crop={w}:{h}:{x}:{y},scale=1920:1080:flags=lanczos,fps={FPS},format=gbrp,{GRADE}[v];"
-              f"[1:v]crop={w}:{h}:{x}:{y},scale=1920:1080,format=gbrp[m];"
-              f"[v][m]blend=all_mode=multiply,unsharp=5:5:0.3,format=yuv420p,trim=end_frame={it['frames']}[o]")
-        run(["ffmpeg", "-v", "error", "-y", "-ss", f"{it['src'][0]:.3f}", "-t", f"{d + 0.5:.3f}",
-             "-i", os.path.join(F, "main.mov"), "-loop", "1", "-i", os.path.join(A, "lightmask.png"),
-             "-filter_complex", fc, "-map", "[o]", "-frames:v", str(it["frames"])] + enc(out))
+        fx, _ = face_at(*it["src"])
+        face_x = (fx - x) / w * 1920
+        sofa_y = (SOFA_Y - y) / h * 1080
+        mask = cv2.resize(cv2.imread(os.path.join(A, "lightmask.png"))[y:y + h, x:x + w], (1920, 1080),
+                          interpolation=cv2.INTER_AREA).astype(np.float32) / 255.0
+        dec = subprocess.Popen(["ffmpeg", "-v", "error", "-ss", f"{it['src'][0]:.3f}", "-t", f"{d + 0.5:.3f}",
+                                "-i", os.path.join(F, "main.mov"), "-vf",
+                                f"crop={w}:{h}:{x}:{y},scale=1920:1080:flags=lanczos,fps={FPS},{GRADE}",
+                                "-frames:v", str(it["frames"]), "-f", "rawvideo", "-pix_fmt", "rgb24", "-"],
+                               stdout=subprocess.PIPE)
+        encp = subprocess.Popen(["ffmpeg", "-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24",
+                                 "-s", "1920x1080", "-r", str(FPS), "-i", "-", "-vf", "unsharp=5:5:0.3"] + enc(out),
+                                stdin=subprocess.PIPE)
+        fsz = 1920 * 1080 * 3; nfr = 0; last = None
+        while nfr < it["frames"]:
+            buf = dec.stdout.read(fsz)
+            if len(buf) < fsz:
+                buf = last  # source ran short: hold last frame
+                if buf is None: break
+            last = buf
+            fr_ = np.frombuffer(buf, np.uint8).reshape(1080, 1920, 3)
+            fixed, _ = deshadow(fr_, sofa_y, face_x)
+            fixed = (fixed.astype(np.float32) * mask[..., ::-1]).astype(np.uint8)
+            encp.stdin.write(fixed.tobytes()); nfr += 1
+        dec.stdout.close(); dec.wait(); encp.stdin.close(); encp.wait()
     elif it["type"] == "interview":
         tag = os.path.join(R, "g_interview_tag.png")
         gfx.caption_tag("Issam Asinga · post-race interview", tag)
@@ -278,12 +302,24 @@ def gfx_events():
         ev.append({"start": fr(O(s)), "dur": d, "png": p, "kind": "lt"})
     return ev
 
+def card_events():
+    ev = []
+    for i, (s0, s1, person, photo, stamp, credit) in enumerate(CARDS):
+        o0, o1 = fr(O(s0)), fr(O(s1))
+        out = os.path.join(R, f"card_{i:02d}.mov")
+        if not os.path.exists(out):
+            cards.render(dict(person, photo=photo, path=os.path.join(F, photo), dur=o1 - o0,
+                              stamp=stamp, credit=credit), out)
+        ev.append({"start": o0, "dur": o1 - o0, "file": out, "stamp_t": stamp[2] if stamp else None})
+    return ev
+
 def stage_compose():
     bev = broll_events()
     with ThreadPoolExecutor(4) as ex:
         files = list(ex.map(lambda ib: render_broll(*ib), enumerate(bev)))
     gev = gfx_events()
-    json.dump({"broll": bev, "gfx": gev}, open(os.path.join(R, "events.json"), "w"), indent=1)
+    cev = card_events()
+    json.dump({"broll": bev, "gfx": gev, "cards": cev}, open(os.path.join(R, "events.json"), "w"), indent=1)
     inputs = ["-i", os.path.join(R, "base.mp4")]
     fc, last, k = [], "[0:v]", 1
     for b, f in zip(bev, files):
@@ -296,6 +332,11 @@ def stage_compose():
         fc.append(f"[{k}:v]format=rgba,fade=in:st=0:d=0.15:alpha=1,fade=out:st={g['dur'] - 0.2:.3f}:d=0.2:alpha=1,"
                   f"setpts=PTS-STARTPTS+{g['start']:.4f}/TB[g{k}]")
         fc.append(f"{last}[g{k}]overlay=eof_action=pass:enable='between(t,{g['start']:.4f},{g['start'] + g['dur']:.4f})'[v{k}]")
+        last = f"[v{k}]"; k += 1
+    for c in cev:
+        inputs += ["-i", c["file"]]
+        fc.append(f"[{k}:v]format=rgba,setpts=PTS-STARTPTS+{c['start']:.4f}/TB[c{k}]")
+        fc.append(f"{last}[c{k}]overlay=eof_action=pass:format=auto:enable='between(t,{c['start']:.4f},{c['start'] + c['dur']:.4f})'[v{k}]")
         last = f"[v{k}]"; k += 1
     fc.append(f"{last}format=yuv420p[out]")
     script = os.path.join(R, "compose.txt"); open(script, "w").write(";\n".join(fc))
@@ -336,6 +377,10 @@ def stage_audio():
     for b in bev["broll"]: sfx.append(("whoosh", max(0, b["start"] - 0.3), 0.22))
     for g in bev["gfx"]: sfx.append(("pop" if g["kind"] == "kw" else "whoosh", g["start"], 0.30 if g["kind"] == "kw" else 0.15))
     sfx += [("hit", title["out"], 0.9), ("whoosh", title["out"] - 0.35, 0.4), ("hit", end["out"], 0.6)]
+    for c in bev.get("cards", []):
+        sfx += [("whoosh", max(0, c["start"] - 0.15), 0.3), ("pop", c["start"] + 0.32, 0.35),
+                ("pop", c["start"] + 0.48, 0.25), ("whoosh", c["start"] + c["dur"] - 0.35, 0.18)]
+        if c["stamp_t"] is not None: sfx.append(("hit", c["start"] + c["stamp_t"], 0.7))
     inter_item = next(it for it in timeline if it["type"] == "interview")
     sfx.append(("whoosh", inter_item["out"] - 0.3, 0.3))
 
