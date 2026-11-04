@@ -10,6 +10,11 @@ Every video is one of these two. Ask which one if it isn't clear.
 - The user is on camera, talking.
 - Footage comes from the user.
 - Editing work is mainly on-camera footage: cuts, pacing, punch-ins and the like.
+- On top of the on-camera footage, the user also wants:
+  - **B-roll / relevant content found online** that matches what's being said.
+  - **On-screen graphics and motion elements** to keep viewers engaged.
+  - **Sound effects** that add energy **without distracting** from the talking.
+- Reference for the intro (first ~30 sec): https://youtu.be/9H7itfichRg (see `examples/links.md`).
 
 ### 2. Documentary style (voiceover, user not on screen)
 - The user reads a script as a voiceover. They do not appear on camera.
