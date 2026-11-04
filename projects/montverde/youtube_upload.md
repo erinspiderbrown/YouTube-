@@ -1,10 +1,10 @@
 # YouTube upload: Montverde video
 
 ## Title
-The Doping Scandal Track & Field Wants You to Forget
+The Track & Field Doping Scandal Nobody Is Talking About
 
 ## Description (paste as-is)
-Four athletes from one Florida high school tested positive for the same banned substance. The athletes got suspended. The coach got a provisional suspension, and almost two years later nobody's talking about it.
+Three athletes from one Florida high school tested positive for the same banned substance, and then a fourth. The athletes got suspended. The coach got a provisional suspension, and almost two years later nobody's talking about it.
 
 In this video I break down the Montverde Academy doping situation: what happened to Issam Asinga and Adaejah Hodge, what a "provisional suspension" actually means, how GW1516 ended up in high school kids' systems, and why nobody looked at the school sooner.
 
@@ -38,5 +38,6 @@ Map data: PublicaMundi us-states, johan/world.geo.json
 ## Tags
 montverde academy, montverde doping, issam asinga, adaejah hodge, gerald phiri, gw1516, cardarine, track and field doping, high school doping, AIU, WADA, anti doping, track and field scandal, doping scandal, provisional suspension, sprinter banned
 
-## Thumbnail text
-SWEPT UNDER THE RUG  (or: THEY WANT YOU TO FORGET)
+## Thumbnail (user's design)
+"2 YEARS LATER / 4 ATHLETES POSITIVE / TRACK COVER-UP?" with coach, Issam, Adaejah and the AIU press release.
+Notes: use a real screenshot of the AIU 18 Mar 2025 release (the current image has garbled AI-generated text). The release says 3 athletes; the 4th is from the creator's account.
