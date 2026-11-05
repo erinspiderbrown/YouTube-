@@ -11,11 +11,11 @@ Everything below is committed on that branch, except large media, which lives on
   - Fact-checked script, approved by the user (`script_v1.md`, sources in `README.md`).
   - Full voiceover, approved style: `oscar-pistorius_voiceover_v1.mp3` (7:50), word timings in `vo_v1_words.json`. Built with `tools/space_voiceover.py`; ElevenLabs flow "Oscar Pistorius documentary voiceover".
   - 51 real clips and 13 Commons photos found. Every source and link is in `credits.md`.
+- **Voiceover approved:** the user said "keep going".
 - **Next:**
-  1. The user confirms the voiceover.
-  2. Build the edit the same way as `projects/jon-drummond/jd_build.py`: real footage timed to the voiceover, neon look (`tools/neon.py`, `tools/hud.py`), music bed under the voice, SFX.
-  3. Thumbnail.
-  4. Upload package: title "The Olympic Sprinter Who Shot His Girlfriend Through A Door", description with credits, tags.
+  1. Build the edit the same way as `projects/jon-drummond/jd_build.py`: real footage timed to the voiceover, neon look (`tools/neon.py`, `tools/hud.py`), music bed under the voice, SFX.
+  2. Thumbnail.
+  3. Upload package: title "The Olympic Sprinter Who Shot His Girlfriend Through A Door", description with credits, tags.
 - **Do not use** the News Direct CGI re-enactment clip.
 - **Media not in git:** the clips are in the session scratchpad `pistorius/real/`. In a new chat, re-import them free with vidIQ (`vidiq_video_upload` with the YouTube links in `credits.md`, then `vidiq_job_poll`, then curl). Re-download the photos from Wikimedia Commons through the Composio workbench (this machine's IP gets rate-limited).
 
