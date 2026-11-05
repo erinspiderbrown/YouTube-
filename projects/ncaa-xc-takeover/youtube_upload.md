@@ -1,0 +1,60 @@
+# NCAA cross country takeover: YouTube upload package
+
+**Publish before Sat 21 Nov 2026**, the date of the NCAA DI cross country championships in Terre Haute.
+
+## Titles (vidIQ score for this channel)
+1. **Why Is Everyone Mad At The Kenyans In College Running? (93)** ← recommended. It fits the video's side and the "who's mad and why" hook.
+2. Why Americans Can't Win College Cross Country Anymore (94). The highest score, but it frames the story from the critics' side.
+3. The 28-Year-Old Freshman Who Broke College Running (91)
+4. They Broke No Rules. America Got Mad Anyway. (90)
+5. Africans Took Over College Running… So The NCAA Changed The Rules (86)
+
+## Description
+They won the 2025 NCAA cross country championships, and the comments lost it. "Should only be open to Americans." "No birth certificate." "Imported."
+
+But what rule did the African runners actually break? College has no age limit, everyone got the same eligibility, and American schools recruited these athletes themselves. In this video:
+- the 28-year-old freshman
+- the 50-year history of African runners winning in the NCAA
+- the doping double standard (Category A testing for Kenya vs. America's own record: the Exum files, BALCO, the USADA informants, Erriyon Knighton)
+- the NCAA's new 5-in-5 rule
+- what to watch at nationals on November 21
+
+0:00 2025 Nationals: Eritrea, Kenya, Morocco
+1:09 This Ain't New: Henry Rono
+1:48 The 28-Year-Old Freshman
+3:00 A Better Situation
+3:53 The Hate
+5:32 The Doping Double Standard
+8:10 The NCAA Changed The Rules
+8:47 November 21st
+
+Sources:
+- 2025 NCAA DI XC results: https://en.wikipedia.org/wiki/2025_NCAA_Division_I_Cross_Country_Championships
+- Deseret News (Eyestone, LetsRun counts): https://www.deseret.com/sports/2025/11/20/nil-changing-the-game-for-colleges-universties/
+- CITIUS Mag 2025 recap (Dave Smith, Eyestone): https://citiusmag.com/articles/ncaa-cross-country-championships-2025-recap-analysis
+- CITIUS Mag on the new eligibility rules: https://citiusmag.com/articles/ncaa-eligibility-reform-college-track-field
+- Canadian Running (Kipchoge): https://runningmagazine.ca/the-scene/ncaa-school-faces-backlash-over-28-year-old-kenyan-freshman/
+- EssentiallySports (Fitz Dunkley): https://www.essentiallysports.com/olympics-track-and-field-news-former-olympic-medallist-reveals-harsh-ncaa-cross-country-reality-amid-ongoing-foreign-athletes-debate/
+- Track & Field News, "Foreigners Dominate NCAA": https://trackandfieldnews.com/a-foreign-wave-rises-high-in-the-ncaa/
+- LetsRun (Tulane case): https://www.letsrun.com/news/2025/02/tulanes-caroline-jeptanui-finished-12th-at-ncaa-xc-champs-while-suspended-for-an-anti-doping-violation/
+- LetsRun (TCU case): https://www.letsrun.com/news/2025/03/another-kenyan-has-been-competing-in-the-ncaa-while-suspended-tcu-scratched-tabitha-ngao-from-ncaa-championships/
+- World Athletics / AIU Category A testing: https://worldathletics.org/news/news/aiu-all-athletes-high-risk-countries-eligible-oregon22
+- ESPN on the Exum documents (2003): https://www.espn.com/oly/news/2003/0416/1540029.html
+- NPR on WADA vs USADA (2024): https://www.kpbs.org/news/national/2024/08/08/with-the-summer-olympics-in-full-swing-sports-anti-doping-agencies-escalate-feud
+- AP on Knighton's ban (2025): https://www.news4jax.com/sports/2025/09/12/olympic-sprinter-erriyon-knighton-gets-4-year-ban-for-positive-test-for-anabolic-steroid/
+- 2026 Big 12 XC (Hedengren): https://www.deseret.com/sports/2026/11/02/jane-hedengren-byu-women-cross-country-claim-big-12-conference-titles/
+
+Footage: NCAA Championships, WSU Cougar Athletics, BYU Cougars, VICE Sports, AP Archive, TV Bandeirantes, Total Running Productionz. Used for commentary and criticism.
+Photos (Wikimedia Commons):
+- Henry Rono by Giuliano Bevilacqua (public domain)
+- Carl Lewis by Kingkongphoto & celebrity-photos.com (CC BY-SA 2.0)
+- Ed Eyestone by Ericmmartineau (CC BY-SA 3.0)
+- Erriyon Knighton by Erik van Leeuwen (CC0)
+
+Comments shown are real comments from the NCAA's official race upload, with usernames hidden. Lewis denied wrongdoing, and the USOC and IAAF said his clearance followed the rules of the time. USADA disputes WADA's account of its informant program.
+
+## Tags
+ncaa cross country, ncaa xc 2025, kenyan runners ncaa, african runners college, solomon kipchoge, habtom samuel, oklahoma state cross country, jane hedengren, ncaa 5 in 5 rule, ncaa eligibility age limit, henry rono, doping double standard, erriyon knighton, carl lewis 1988, track and field documentary, college running, ncaa cross country championships 2026
+
+## Pinned comment idea
+"What rule did they break? Real answers only 👇"

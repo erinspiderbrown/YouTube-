@@ -15,13 +15,17 @@ Working title: **Why Americans Can't Win College Cross Country Anymore** (vidIQ 
 
 ## Status
 - [x] Research and fact check (below)
-- [x] Script v3 (current): `script_v3.md`, with the doping double standard section (about 1,500 words, about 9 min)
-- [x] Script v2: `script_v2.md`, the user's angle
-- [x] Script v1: `script_v1.md` (about 1,050 spoken words, roughly 6:30–7:00 at 168 wpm)
-- [ ] User approves the script
-- [ ] Voiceover (ElevenLabs, same settings as Pistorius)
-- [ ] Real footage and photos
-- [ ] Edit (neon documentary look) → thumbnail → upload package
+- [x] Script v4, final for the build: `script_v4.md`. The user's angle: no rules broken, college is for adults, the online hate (with real comments), and the doping double standard.
+- [x] Voiceover v1: `ncaa-xc_voiceover_v1.mp3`, 9:44, word timings in `vo_v1_words.json`.
+  - ElevenLabs flow "NCAA XC takeover documentary voiceover" (0w93Ox1Az1tKlFWACLvx): the user's voice dk6cvd5UilZRrcpZ7dNK, eleven_v4, stability 0.45, similarity 0.85, 9 nodes (01–08, with 06 split into 06a/06b).
+  - Takes: 01B, 02A, 03B, 04A, 05A, 06aA, 06bB, 07A, 08B. Picked by transcript match; the full script was checked and no lines were skipped.
+  - The run cost 22,746 credits and used up the monthly quota (0 left), so some second takes failed. Every section still has one good take.
+  - Paced with `tools/space_voiceover.py --target-wpm 166 --min-tempo 0.94 --gap 1.0 --ref 01B`, then the warm EQ.
+- [x] Real footage: 13 clips imported through vidIQ. Commons photos and the comment receipts are listed in `credits.md`.
+- [x] Edit v1: `ncaa_build.py` + `ncaa_mograph.py`, 9:56. Neon look, real comments on screen (usernames hidden), and the Drummond music bed and SFX.
+- [x] Thumbnail v1: `thumbnail.py`, saved as `thumbnail_v1.jpg`. "WHAT RULE?" + the real comment + a Lemngole cut-out (Commons, CC BY-SA 4.0).
+- [x] Upload package: `youtube_upload.md`
+- [ ] User review of the v1 edit
 
 ## Facts and sources
 | Claim in script | Source |

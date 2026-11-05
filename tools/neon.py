@@ -35,6 +35,8 @@ def mono(size):
 # ------------------------------------------------------------------ background
 _yy, _xx = np.mgrid[0:H // 4, 0:W // 4].astype(np.float32)
 
+TAG = "JD//ARCHIVE"  # corner label on the neon background; projects override it
+
 NOBLOOM = []  # photo rects this frame: kept out of the bloom so photos don't wash out
 
 def background(t):
@@ -69,7 +71,7 @@ def background(t):
         dx = 1 if sx < W / 2 else -1; dy = 1 if sy < H / 2 else -1
         d.line([(sx, sy), (sx + dx * L, sy)], fill=CYAN + (150,), width=3)
         d.line([(sx, sy), (sx, sy + dy * L)], fill=CYAN + (150,), width=3)
-    d.text((W - 60, H - 72), f"JD//ARCHIVE  {int(t * 24) % 10000:04d}", font=mono(18), fill=CYAN + (110,), anchor="ra")
+    d.text((W - 60, H - 72), f"{TAG}  {int(t * 24) % 10000:04d}", font=mono(18), fill=CYAN + (110,), anchor="ra")
     return im
 
 # ------------------------------------------------------------------ finish (bloom)
