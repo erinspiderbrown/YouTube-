@@ -2,7 +2,19 @@
 
 Voiceover generated in ElevenLabs (flow "Jon Drummond documentary voiceover", EwtCtvyEoktyTmEPgx7r) with the user's own cloned voice (voice id dk6cvd5UilZRrcpZ7dNK), model eleven_v4, style tags "[relaxed] [laid back] [Texas accent]".
 
-## Audio in this folder
+## CURRENT: v3 voiceover (approved style, 5 Nov 2026)
+- `jon-drummond_voiceover_v3.mp3`: full track, 8:33, about 165 wpm, -16 LUFS.
+- `voiceover_v3/*_takeA_raw.mp3`: straight from ElevenLabs. `*_paced.mp3`: timed to 166 wpm with rubberband (pitch and formant preserved) and loudness-normalised.
+  - Section 5 is wordier, so its sentence pauses were lengthened by about 0.26 s instead of stretched harder.
+- Script: `script_v3.md`. Every paragraph uses `[calm] [relaxed] [Texas accent]`, with no whisper/low-voice/suspense tags and no CAPS. Slang throughout, nothing proper.
+- ElevenLabs voice_settings: stability 0.75, similarity 0.9. Take B of every section is in ElevenLabs as an alternate (flow nodes labelled "V3 0x").
+- User's pace preference: about **165–170 wpm**. 159 is too slow, 176 too fast. Calm read, not enthusiastic.
+- Re-pace tool: `python3 -I tools/pace_voiceover.py --target-wpm 166 --out FULL.mp3 <raw sections>`.
+
+## Older versions
+v1 (below) was too excited and too fast. v2 (`voiceover_v2/`, `script_v2_chill.md`) was too quiet and drifted into sounding like AI.
+
+## Audio in this folder (v1)
 - `jon-drummond_full-voiceover.mp3`: all 7 sections (take A), joined with 0.7 s gaps. 7:41.
 - `voiceover/`: every section, both takes (A/B), from the final batch (4 Nov 2026, 20:07–20:08 UTC):
 
