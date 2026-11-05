@@ -24,7 +24,25 @@ Unscored backups in the same styles:
 - He Protested For An Hour… Then The Sport Changed Forever
 - The Most Disrespectful Protest In Track & Field History
 
-## Thumbnail v3: RECOMMENDED (niche-tested style; files in `thumbnails/` and Dropbox `/Jon Drummond/`)
+## Thumbnail v4: CURRENT (HD real frames, layered; files in `thumbnails/` and Dropbox `/Jon Drummond/`)
+The user said the v3 photo "looks terrible" and the design was too simple. v4 swaps in much sharper real footage:
+- **Source:** a clean HD re-upload of the Paris 2003 race coverage, imported free with vidIQ from YouTube Short `f1Ss4gMlnyA` (it has Japanese subtitles burned in).
+- **Frames used:**
+  - The official raising the red card over Drummond as he shouts with his hands up.
+  - Him lying on the track with his hands behind his head.
+  - The start-sensor printout: "Lane4 0.052 Sec Fault".
+- **Removing the subtitles:** ElevenLabs gemini-3-pro-image made a cleaned copy of each frame. That copy was aligned to the real frame (SIFT + homography), and only the small subtitle patch was pasted back with a feather. Everything else, including both faces, is original pixels.
+- **Cut-out:** BiRefNet on the red-card frame.
+
+Thumbnails (script: `thumbnail_v4.py`):
+- **A `drummond_thumb_v4_A.jpg`: "I DIDN'T MOVE!"** ← use with title #1.
+  - Cut-out of the official raising the red card over Drummond, on a dark red stadium with light rays. The card is boosted with a white edge glow.
+  - A yellow arrow runs from the quote to the card.
+  - Photo card of him lying on the track, tagged "50 MINUTES".
+  - The sensor printout with 0.052 / Fault circled.
+- **B `drummond_thumb_v4_B.jpg`: "HE WOULDN'T / LEAVE"**, same art. Upload A and B in YouTube Studio → **Test & Compare**.
+
+## Thumbnail v3 (niche-tested style; files in `thumbnails/` and Dropbox `/Jon Drummond/`)
 Research (vidIQ outliers, 5 Nov 2026). The thumbnails winning on athlete scandal/downfall stories:
 - "RayGun and the Story of the 'Worst Olympian Ever'" (Scandal): 373K, 7.1x. Cut-out athlete on a dark stadium, a 0-18 scoreboard, "WORST OLYMPIAN EVER?" in stacked distressed white type, red brush underline.
 - David King, "The Tragic Success Of China's Greatest Hurdler": 11x. Real moment + "HE DIDN'T WANT **THIS**".
