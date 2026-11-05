@@ -15,7 +15,8 @@ Working title: **Why Americans Can't Win College Cross Country Anymore** (vidIQ 
 
 ## Status
 - [x] Research and fact check (below)
-- [x] Script v2 (current): `script_v2.md`, the user's angle
+- [x] Script v3 (current): `script_v3.md`, with the doping double standard section (about 1,500 words, about 9 min)
+- [x] Script v2: `script_v2.md`, the user's angle
 - [x] Script v1: `script_v1.md` (about 1,050 spoken words, roughly 6:30–7:00 at 168 wpm)
 - [ ] User approves the script
 - [ ] Voiceover (ElevenLabs, same settings as Pistorius)
@@ -60,6 +61,18 @@ Working title: **Why Americans Can't Win College Cross Country Anymore** (vidIQ 
   - Check the final rulings before recording. Both are named only by school in the script.
 - **"Clock starts when you enroll":** true of the old four-in-five rule. Track did charge some seasons for organized competition after a delay following high school (national-team events were exempt), so "start whenever you want" is simplified and not stated outright. It no longer applies to new international athletes under 5-in-5.
 - "Agricultural education": Kipchoge's major, per [Canadian Running](https://runningmagazine.ca/the-scene/ncaa-school-faces-backlash-over-28-year-old-kenyan-freshman/).
+
+## Script v3: doping double standard, sources and wording limits
+The user is on the African athletes' side and wants targeted testing and US cover-ups covered.
+| Claim | Source | Wording kept to |
+|---|---|---|
+| Kenya is in World Athletics Category A (highest risk) and has been for years. At least 3 no-notice out-of-competition tests in the 10 months before a major championship. Ethiopia and Kenya averaged about 7 OOC tests per athlete before Paris. The US is not Category A. | [World Athletics/AIU](https://worldathletics.org/news/news/aiu-all-athletes-high-risk-countries-eligible-oregon22), [Athletics Africa](https://athletics.africa/news/africa/kenya/athletics-kenya-plans-extensive-testing-tokyo25-20765), [Guardian NG](https://guardian.ng/?p=2825140) | "Test one group more and you catch more" is an argument, not a measured finding, so the script doesn't say *all* of Kenya's positives come from extra testing. |
+| Exum files (2003): 30,000+ pages, 100+ US positives from 1988 to 2000, athletes who won 19 Olympic medals. Carl Lewis positive for 3 stimulants at the 1988 Trials, cleared on appeal. | [ESPN](https://www.espn.com/oly/news/2003/0416/1540029.html), [Swimming World](https://swimmingworldmagazine.com/news/usoc-covered-up-over-100-positive-drug-tests-among-us-athletes-former-drug-czar-charges), [Tampa Bay Times](https://www.tampabay.com/archive/2003/05/01/usoc-followed-rules-in-track-doping-case/) | Lewis's denial and the IAAF ruling that the USOC followed its rules are both in the script, so the claim is fair to him. |
+| WADA (Aug 2024): USADA let doped athletes keep competing as informants (at least 3 cases from 2011 to 2014). USADA disputes the framing. | [NPR via KPBS](https://www.kpbs.org/news/national/2024/08/08/with-the-summer-olympics-in-full-swing-sports-anti-doping-agencies-escalate-feud), [Capital FM](https://capitalfm.africa/wada-questions-integrity-of-u-s-anti-doping-agency/) | USADA's reason ("catch bigger fish") stays in. |
+| Knighton: positive for trenbolone in 2024, cleared (contaminated meat), ran Paris (4th). World Athletics and WADA appealed, and CAS gave a 4-year ban on 12 Sep 2025. | [AP via News4Jax](https://www.news4jax.com/sports/2025/09/12/olympic-sprinter-erriyon-knighton-gets-4-year-ban-for-positive-test-for-anabolic-steroid/), [CITIUS](https://citiusmag.com/articles/erriyon-knighton-banned-cas-doping-violation-2025) | |
+| BALCO (Marion Jones, Tim Montgomery) | Covered in earlier channel research | "One of the biggest", not "the most". |
+
+The user's line that Americans are "involved in the most scandals" has no count behind it, so the script says "one of the biggest… was American" and "only one side get the whole country blamed". The one line "Kenya got some" cheaters stays in. It's what makes the double-standard point hard to argue with.
 
 ## Footage plan (real first)
 - **NCAA Championships YouTube:** full 2024 and 2025 DI men's races (`D5cb8-HwALQ`, `goYXdAHTpXg`) and the women's races. Use the finish, Samuel's win, Hansen 2nd, the OSU pack, and Lemngole's record.
