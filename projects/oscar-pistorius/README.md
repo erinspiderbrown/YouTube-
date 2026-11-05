@@ -23,7 +23,17 @@ Why this one:
     - Then the Drummond warm EQ and -16 LUFS. Sections measure -16.5 to -17.2 LUFS.
   - Spoken change: "Judge Thokozile Masipa" is read as "Judge Masipa" (the full name goes on screen).
 - [x] Real footage and photos: 51 clips (AP, Reuters, EWN, SABC, eNCA, Telegraph, Guardian, NYT, Al Jazeera, Olympic/Paralympic channels) and 13 Commons photos. List in `credits.md`. The News Direct CGI re-enactment is excluded.
-- [ ] Edit (neon documentary look, `tools/neon.py`) → thumbnail → upload package
+- [x] Edit v1 (5 Nov 2026): `op_build.py` + `op_mograph.py`, 132 shots, 7:56.
+  - Real footage first: all 50 clips re-imported via vidIQ; 13 Commons photos (incl. the Cape Times "World shock at Oscar arrest" poster and The Citizen "Blade Runner cut down").
+  - Not used: the News Direct CGI re-enactments (`newsdirect_charged`, `neighbor_screams`), evidence/blood photos in the EWN trial clip, the YouTuber clip `house_arrest_2015`, the stumps walk.
+  - Respectful "soft" sections (Reeva, her family, the night): plain cuts, cyan frames, gentler grade, no transition/HUD/photo sounds, no keyword pop-ups, no gunshot sounds anywhere.
+  - Judge Thokozile Masipa's full name is on screen (NYT courtroom shot at 5:26, again at 6:06 and in the verdict graphic).
+  - Music: three new ElevenLabs instrumental beds in `music/` (M1 cold open/rise, M2 cracks/night/trial, M3 verdicts/ending), ducked under the voice; mix -14.3 LUFS.
+  - Clip-by-clip notes (what is at which second, what to avoid): `clip_notes.txt`.
+- [x] Thumbnail v1 A/B (`thumbnail_v1.py`, `thumbnails/`).
+- [x] Upload package `youtube_upload.md`.
+- [x] Dropbox `/Oscar Pistorius/`: 1080p (199 MB) + thumbnails A/B.
+- [ ] User review of v1.
 
 ## Footage plan (real first, AI only for gaps)
 - **London 2012 Olympics:** 400m heat and semi, the Kirani James bib swap, the SA 4x400 final.

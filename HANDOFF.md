@@ -12,6 +12,8 @@ Everything below is committed on that branch, except large media, which lives on
   - Full voiceover, approved style: `oscar-pistorius_voiceover_v1.mp3` (7:50), word timings in `vo_v1_words.json`. Built with `tools/space_voiceover.py`; ElevenLabs flow "Oscar Pistorius documentary voiceover".
   - 51 real clips and 13 Commons photos found. Every source and link is in `credits.md`.
 - **Voiceover approved:** the user said "keep going".
+- **Edit v1 done (5 Nov 2026):** `op_build.py` (7:56), thumbnail `thumbnail_v1.py`, `youtube_upload.md`. 1080p + thumbnails are in Dropbox `/Oscar Pistorius/`. Waiting on the user's review.
+  - To rebuild in a new chat: re-import the clips (credits.md) into scratchpad `pistorius/real/`, the photos into `pistorius/photos/`, fix the `SCR` path at the top of `op_build.py`, then `python3 -I projects/oscar-pistorius/op_build.py`. Needs `pip install opencv-python-headless`.
 - **Next:**
   1. Build the edit the same way as `projects/jon-drummond/jd_build.py`: real footage timed to the voiceover, neon look (`tools/neon.py`, `tools/hud.py`), music bed under the voice, SFX.
   2. Thumbnail.

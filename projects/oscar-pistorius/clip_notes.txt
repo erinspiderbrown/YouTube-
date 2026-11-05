@@ -1,0 +1,47 @@
+sntv_history: 1-5 OP on track blades; 7-11 blades closeup; 13-17 in blocks; 21-27 running; 31-39 putting on legs (sitting by sign); 41-43 signing kids
+athens2004: 3-19 200m race (finish 19, WR 23.43); 21-27 closeups young OP
+rte_career: 21-23 OP closeup sunglasses; 25-28 blade; 30-52 para 200 final race wide; 54-56 OP talks to Oliveira(2642) lower third; 58-61 OP arguing; 63-67 OP closeup; 70 putting on legs; 72-76 training; 81-85 in blocks; 87 blades; 94-100 training
+itn_training: 3-7 running w/ teammate; 9 blade; 15-17 closeup; 23-25 blocks lanes; 27-31 putting on blades; 33-43 jog
+ap_cas2008: 20 OP smiling suit; 25-29 press crush; 78-177 OP interview suit (2008); 191 running ABSA; 208 sitting; 213 blade on grass
+itn_400semi_qual: 11 OP dive at finish London; 13 rings track; 15-17 heat start; 19-21 handshake Santos; 25-27 OP on blocks Olympic stadium
+bbc_400heat: filmed off monitor, AVOID
+olympic_400semis: 8 start list semi2; 85 OP on track; 116 Kirani James; 178-225 race; 241 JAMES & OP swap bibs; 256 hug; 272-303 replay; 334 results
+4x400_final: just a still photo of 4x400 finish (BAH/USA), no OP - AVOID
+ipc_moment (Paralympics 2012, 1080p): 3 race; 5-9 OP closeup; 11-17 running; 19-27 celebrates arms up; 31-33 NEW WR 41.78 + flag; 35-57 running laps; 59-61 OP with SA flag
+para_400final (Para 2012): 3-15 OP crouched in blocks; 17-45 race; 47-49 OP 2642 running; 51-69 race; 73-77 OP closeups after
+ap_interview_2012: 5-31 OP press conf London 2012 white jacket; 33-39 putting legs on; 41-49 blades closeup; 51-57 conf; 59-65 rainy track
+aljaz_outburst: 1-9 OP shakes Oliveira hand (lower third bar - crop/avoid bottom); 12-15 200 final finish; 17-20 Oliveira & OP finish; 22 blades closeup; 25-33 race; 36-46 quote card overlay (avoid); 49-70 IPC press conf; 73 OP walks track; 75 blades; 78 OP in hoodie; 89 blades; 91-97 Oliveira w/ Brazil flag; 99-115 OP photo with quote overlay; 118-120 medal podium OP+Oliveira; 123-126 podium hug
+para_200final_fan: fan cam; 186-191 SCOREBOARD "MEN'S 200M FINAL 1 OLIVEIRA 2 PISTORIUS"; 196-200 Oliveira; 127-168 race (shaky)
+afp_ipc: 3-9 IPC press conf w/ caption bar; 11-23 Craig Spence; 25 OP photo blades; 27-29 OP running; 31 OP wave photo; 33-35 OP smiling sunglasses photo; 41-47 press
+reuters_tashas (2014 trial era): 1-21 OP arrives court w/ police crush; 23-55 courtroom (witness Fresco?); 57-63 OP walks courtroom flashes; 65-71 OP crying w/ tissue closeup; 73-75 courtroom wide
+enca_fresco: 5-9 courtroom judges + "VOICE OF DARREN FRESCO" bar (Tasha's)
+ap_charged: 5-15 outside police station/court Feb 2013, weak
+citypress_court_feb15: 17-43 police bakkie + media crush Feb 15 2013; 45-48 OP hooded (subtitle overlay); 57 Henke; 64-69 OP in dock (subtitles); 71-78 OP+Reeva red carpet photo (subtitles lower half); 101-104 police van
+euronews_cries: 1-21 OP hooded into police van, crowd; 23-29 media crush; 31-37 OP in court Feb 2013; 39-47 EVIDENCE CLOSEUP - AVOID; 49-51 Reeva portrait white; 53-55 Reeva model shot (avoid); 57-59 Reeva b/w portrait
+reeva_father (ABC, lower thirds bottom): 18 Reeva b/w portrait; 26 Reeva with dog; 30-33 June Steenkamp in court; 35-50 June interview subtitles; 47-50 Reeva smiling; 55-57 OP walks out court; 60-62 Reeva party; 64-69 Barry+June; 72-74 hands
+guardian_reeva (1080p): 1-3 Reeva dance studio; 5 Reeva smiling; 7-9 Reeva holding mic at stadium; 11-13 Adam Steenkamp; 15-19 OP courtroom; 21-23 OP behind glass w/ police; 25-31 Reeva at event (captions 27-29); 35-43 Reeva TV presenter pool (captions); 45 Reeva red carpet; 53-55 newspapers TRAGEDY; 57-69 June reads speech (SABC); 71 Reeva walking; 73 Reeva laughing; 75-83 Reeva interview Wrangler; 85 red carpet
+reeva_tropika_event: Reeva presenting by pool, entire clip, clean (watermark 'getty' faint) e.g. 2-23, 37-58
+reeva_tropika_goodbye: Tropika Jamaica beach, French subs bottom; 7-11 dolphins; 33-37 Reeva laughing in wind (subs); 53-59 "IN LOVING MEMORY Reeva Rebecca Steenkamp 19-08-1983 - 14-02-2013" card
+ap_court_aug2013 (indictment Aug 2013): 1-5 OP stands in dock wide; 23-27 OP holds sister's hand; 37-47 OP head bowed; 57-63 OP+family; 67-79 OP closeup head bowed/tissue
+ap_court_leave_aug2013: 3-41 crowds outside court; 79-98 OP in dock; 129 OP closeup; 148-154 OP wiping eyes; 161-198 OP leaves through crowd w/ police; 205-243 vehicles leaving
+telegraph_crossexam (1080p): 12-135 Gerrie Nel cross-examining at podium; 42-58 gallery women; 143-158 OP family (Aimee, Carl); 228 wide courtroom w/ Masipa; 328-359 Nel seated closeup; 366 Masipa closeup
+ap_crossexam: 2 wide courtroom; 12-27 Nel standing; 32-37 MASIPA closeup red robe; 42-47 gallery; 62-112 Nel; 117 Masipa; 122-162 Nel side; 176-216 gallery incl June Steenkamp; 196 Carl Pistorius; 201 Masipa; 231-236 wide bench
+ewn_nel_wraps (1080?): 9-15 OP arrives w/ police; 20-26 OP closeup; 38-50 Nel at podium; 61-67 OP family; 73-79 wide courtroom; 85/114-120/237-249 EVIDENCE PHOTOS BLOOD - AVOID; 126 Masipa; 149-184 counsel seated; 225 Masipa; 231 OP in dock closeup; 255 wide; 272 police
+neighbor_screams: CGI RE-ENACTMENT of couple - AVOID entirely
+telegraph_card: 7-31 packed gallery; 33-37 Masipa; 39-59 OP family row; 61-65 Roux reading at podium; 67-69 Masipa
+ap_reenactment: 1-17 OP arrives at court through media; 21-27 corridor/media; 29-33 lawyers walking; 37-39 SA flag; 41-43 North Gauteng High Court exterior
+guardian_verdict (Sep 2014): 4-16 OP arrives through police (caption 7-13); 18-21 courtroom wide; 24-49 MASIPA reading verdict; 52-61 OP standing in dock; 66-72 Steenkamps (June, Barry) gallery (caption 63-66); 75-97 Masipa; 100-111 OP standing; 120-123 Steenkamp family
+nyt_verdict: 2-5 MASIPA w/ NYT lower third "THOKOZILE MATILDA MASIPA Judge" (clean 11-26); 29-41 OP standing; 50-56 June & Barry; 68-71, 104-113 OP standing; 125-128 family
+ap_5years (Oct 2014 sentencing): 1-3 Kgosi Mampuru prison exterior; 5-7 OP seated closeup; 9 bench; 11-13 courtroom wide; 15 OP standing; 17 Masipa; 19-27 OP standing sentenced
+house_arrest_2015: YouTuber monologue - AVOID
+cgtn_house_arrest: (banner bottom) 1-5 OP into police van; 7-13 OP in dock 2013; 15-19 OP & media; 21-23 Reeva portrait; 25 Reeva event; 27 Reeva w/ dogs
+ewn_sca_murder (Dec 2015): 1-73 Judge Eric Leach reading (clean); 75-77 June Steenkamp & supporters in gallery
+ewn_sca_report: 2 SCA building exterior Bloemfontein; 5-8 courtroom; 11-14 Leach w/ lower third "Eric Leach SCA Judge"; 20-26 courtroom wide; 29 June gallery; 76-88 gallery; 141-147 June outside with ANC Women's League supporters
+bbc_stumps_2016 (June 2016 sentencing hearing): 1-7 wide courtroom OP stands; 17-21 OP seated w/ lawyers; 23-33 walking on stumps (sensitive, skip)
+wcbd_stumps: lower bar; skip
+euronews_6years (Jul 2016, lower 22% has LIVE banner -> crop top): 3-38 OP closeup head bowed; 43-69 Steenkamp family; 74-79 & 125-176 Masipa reading; 95-120 OP+Reeva split (skip); 181-243 family; 217-232 OP closeup
+sabc_6years (Jul 2016, ticker bottom 12%): 7-19 OP profile closeup; 21-25 Steenkamp family (Barry)
+ap_13years (Nov 2017? sentence increased, purple bar lower ~20%): 3-21 OP walks in court; 23-25 OP closeups
+ap_noparole_2023: 1-7 OP photo head in hand (graphic bg); 11-17 OP through police/media; 19-27 printed Reeva portrait held (memorial); 29-35 June Steenkamp in car 2023; 37-69 family lawyer Tania Koen; 71-79 OP head in hand closeup; 81-87 OP leaving with police
+enca_june_statement: actually a man interviewed (Blade Runner hopes to run free) - skip
+newzroom_released (Jan 2024): 23-31 reporter at gates of Waterkloof house; 33-38 OP+Reeva selfie; 40-45 OP closeup among police; 48 OP walk; 50-55 OP in dock; 60 OP head bowed; 62-70 OP hands on head (2012 sunglasses); 82-85 police vehicle at gate; 87-89 Reeva b/w; 92 OP+Reeva SA Sports Awards; 97-99 selfie; 104 awards
