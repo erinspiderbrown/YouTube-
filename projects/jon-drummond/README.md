@@ -2,6 +2,19 @@
 
 Voiceover generated in ElevenLabs (flow "Jon Drummond documentary voiceover", EwtCtvyEoktyTmEPgx7r) with the user's own cloned voice (voice id dk6cvd5UilZRrcpZ7dNK), model eleven_v4, style tags "[relaxed] [laid back] [Texas accent]".
 
+## Video build (documentary style)
+- `jd_build.py`: shot list (78 shots, keyed to voiceover times), HUD keywords, SFX cues and music placement. Stages: shots, transitions, compose, audio, mux.
+- `jd_mograph.py`: 29 graphics:
+  - subject file, delay clock, case stamp, title, Philly→Odessa→TCU route map, medal timeline
+  - Sydney team, medal stand, emails counter, rep card, false-start rule explainer, Paris map, FALSE START
+  - fallout timeline, 2010 one-and-done / Bolt, London 2012, Tyson Gay tests, ruling, 8-year sanction
+  - same-year split, "now" card, chapter cards, quote cards, end line
+- B-roll:
+  - 7 AI clips from the user's ElevenLabs shot list (ltx-v2-fast, 6 s each: S01, S03–S08). ElevenLabs credits ran out before S09–S32.
+  - Free Pexels stock reused from Montverde (blocks, sprinters, stopwatch, lab, gavel, documents, newspapers, lightning, laptop).
+- Music: the user's ElevenLabs tracks M1–M5, placed per section and ducked under the voice. SFX: the user's 7 ElevenLabs effects plus synthesized transition and HUD sounds.
+- Not used yet: the 2 REAL clips (Paris 2003 protest, 1996 Trials). They're uploaded assets in ElevenLabs with no download URL via the connector. The user can send YouTube links to pull them in via vidIQ import.
+
 ## CURRENT: v3 voiceover (approved style, 5 Nov 2026)
 - `jon-drummond_voiceover_v3.mp3`: full track, 8:33, about 165 wpm, -16 LUFS.
 - `voiceover_v3/*_takeA_raw.mp3`: straight from ElevenLabs. `*_paced.mp3`: timed to 166 wpm with rubberband (pitch and formant preserved) and loudness-normalised.
