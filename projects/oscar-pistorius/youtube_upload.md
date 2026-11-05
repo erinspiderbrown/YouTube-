@@ -5,12 +5,20 @@ Video: `oscar-pistorius_v1` (7:56). Build script `op_build.py`, thumbnail script
 ## Title
 **The Olympic Sprinter Who Shot His Girlfriend Through A Door** (vidIQ 96)
 
-## Thumbnails (script: `thumbnail_v1.py`, Drummond v4 style)
-- Hero: a 1080p courtroom frame of Pistorius (Eyewitness News), cut out with BiRefNet, on a dark red stadium backdrop with light rays.
-- One proof element: a photo card of him on the London 2012 Olympic track, name bib and blades, tagged **LONDON 2012**, with a yellow arrow to the hero.
-- Reeva Steenkamp is not used in the thumbnail. There is no weapon, door or crime-scene imagery.
-- **A `pistorius_thumb_v1_A.jpg`: "OLYMPIAN / TO MURDERER"** ← recommended with the title.
-- **B `pistorius_thumb_v1_B.jpg`: "HERO TO / PRISONER"**. Same art. Upload A and B in YouTube Studio → **Test & Compare**.
+## Thumbnails v2: CURRENT (script: `thumbnail_v2.py`, same layout as the published Drummond "HE WOULDN'T LEAVE.")
+The user rejected v1 (cut-out on a fake backdrop: "it's not it"). v2 copies the thumbnail they actually used for Drummond:
+- One real moment full-frame. A short white black-italic statement top-left on a dark corner. One real inset in a white border, bottom-left.
+- No cut-outs, glows, rays or arrows.
+- The inset is the HD Commons photo of him sprinting on blades at London 2012 (PISTORIUS bib): the "before".
+- Reeva Steenkamp is not used. There is no weapon, door or crime-scene imagery.
+
+Variants:
+- **B `pistorius_thumb_v2_B.jpg`: "HE SAID IT WAS AN ACCIDENT."** ← recommended. EWN 1080p: him walking out of court through police, cameras and the crowd.
+- **A `pistorius_thumb_v2_A.jpg`**: the same line over the NYT frame of him standing in the dock at the 2014 verdict.
+- **C `pistorius_thumb_v2_C.jpg`: "HE THOUGHT SHE WAS AN INTRUDER."**: the dock frame.
+
+Upload B plus A or C in YouTube Studio → **Test & Compare**.
+(v1 A/B, the cut-out style, are still in `thumbnails/`.)
 
 ## Description
 ```
