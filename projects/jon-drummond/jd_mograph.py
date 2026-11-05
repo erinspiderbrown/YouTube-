@@ -53,6 +53,7 @@ def case_stamp(t, dur):
     k = eo(seg(t, 0.0, 0.5))
     x, y = 560, 220
     d.rectangle([x, y, x + 800, y + 640], fill=(232, 228, 218))
+    N.NOBLOOM.append((x, y, x + 800, y + 640))  # paper must not bloom into a white blob
     for i in range(9):
         d.rectangle([x + 70, y + 160 + i * 44, x + 70 + (600 if i % 3 else 420) * k, y + 172 + i * 44], fill=(170, 165, 155))
     text(d, (x + 70, y + 60), "ANTI-DOPING DECISION", 40, (30, 30, 30), "Black")
