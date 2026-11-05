@@ -36,16 +36,16 @@ def artic(ws):
     talk = sum(w["e"] - w["s"] for w in ws) + sum(max(0, b["s"] - a["e"]) for a, b in zip(ws, ws[1:]) if b["s"] - a["e"] < 0.25)
     return len(ws) / talk * 60
 
-def pace_section(model, path, target_wpm, min_tempo, max_extra, split_gap, ref_artic=None):
+def pace_section(model, path, target_wpm, min_tempo, max_extra, split_gap, ref_artic=None, tempo_scale=1.0):
     x = load(path); x16 = load(path, 16000)
     ws = words_of(model, x16)
     n, dur = len(ws), len(x) / SR
     if ref_artic:   # match the reference take's speaking speed first, so every section sounds like the same read
-        tempo = max(min_tempo, min(1.0, ref_artic / artic(ws)))
+        tempo = max(min_tempo, min(1.0, ref_artic / artic(ws)) * tempo_scale)
         target = max(n / target_wpm * 60, dur / tempo)
     else:
         target = n / target_wpm * 60
-        tempo = max(min_tempo, min(1.0, dur / target))
+        tempo = max(min_tempo, min(1.0, dur / target) * tempo_scale)
     # cut points at the middle of every pause >= split_gap
     cuts, kinds = [], []
     for a, b in zip(ws, ws[1:]):
@@ -77,6 +77,7 @@ def main():
     ap.add_argument("--gap", type=float, default=0.7, help="silence between sections (s)")
     ap.add_argument("--out", required=True)
     ap.add_argument("--words-json")
+    ap.add_argument("--tempo-scale", type=float, default=1.0, help="slow every section's speaking speed by this factor (keep >= 0.92 or it sounds robotic)")
     ap.add_argument("--ref", help="reference take whose speaking speed every section is matched to")
     a = ap.parse_args()
     model = WhisperModel("small.en", device="cpu", compute_type="int8")
@@ -84,7 +85,7 @@ def main():
     if ref: print(f"reference speaking speed {ref:.0f} wpm ({a.ref})")
     parts = []
     for p in a.inputs:
-        y, info = pace_section(model, p, a.target_wpm, a.min_tempo, a.max_extra, a.split_gap, ref)
+        y, info = pace_section(model, p, a.target_wpm, a.min_tempo, a.max_extra, a.split_gap, ref, a.tempo_scale)
         print(json.dumps(info))
         parts += [y, np.zeros(int(a.gap * SR), np.float32)]
     full = np.concatenate(parts[:-1])

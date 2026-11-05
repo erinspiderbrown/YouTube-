@@ -30,9 +30,9 @@ import ncaa_mograph as J, hud, sounds, transitions as TR
 import gfx
 
 FPS = 24
-VO = f"{P}/ncaa-xc_voiceover_v1.mp3"
-END = 596.2
-OUT = f"{SCR}/output/ncaa-xc_v1_master.mp4"; os.makedirs(os.path.dirname(OUT), exist_ok=True)
+VO = f"{P}/ncaa-xc_voiceover_v2.mp3"  # v2: slowed (user: v1 talked too fast)
+END_V1 = 596.2
+OUT = f"{SCR}/output/ncaa-xc_v2_master.mp4"; os.makedirs(os.path.dirname(OUT), exist_ok=True)
 
 def run(cmd):
     r = subprocess.run(cmd, capture_output=True, text=True)
@@ -105,13 +105,24 @@ MUSIC = [  # (file, start, gain, fade_out_at)
     ("M4_coaching-ban", 330.0, 0.5, 422.0), ("M5_verdict-ending", 428.0, 0.55, 490.0), ("M3_rule-paris-fallout", 494.0, 0.5, 592.0),
 ]
 
+# ---- v2 retime: every time above was set against the v1 voiceover; T() maps v1 time -> v2 time (word-aligned)
+_TM = np.array(json.load(open(f"{P}/vo_timemap_v1_to_v2.json")))
+def T(x):
+    if x <= _TM[-1, 0]: return float(np.interp(x, _TM[:, 0], _TM[:, 1]))
+    return float(_TM[-1, 1] + (x - _TM[-1, 0]))
+END = T(584.2) + (END_V1 - 584.2)
+KEYWORDS = [(T(t), txt, d, pos) for t, txt, d, pos in KEYWORDS]
+SFX = [(T(t), n, g) for t, n, g in SFX]
+MUSIC = [(n, T(s), g, T(fo)) for n, s, g, fo in MUSIC]
+
 def shots():
     out = []
     for i, x in enumerate(SHOTS):
-        s, k, src, off = x[:4]; opt = x[4] if len(x) > 4 else {}
-        e = SHOTS[i + 1][0] if i + 1 < len(SHOTS) else END
+        s0, k, src, off = x[:4]; opt = x[4] if len(x) > 4 else {}
+        e0 = SHOTS[i + 1][0] if i + 1 < len(SHOTS) else END_V1
+        s, e = T(s0), (T(e0) if i + 1 < len(SHOTS) else END)
         f0, f1 = round(s * FPS), round(e * FPS)
-        out.append(dict(i=i, start=f0 / FPS, frames=f1 - f0, kind=k, src=src, off=off, opt=opt))
+        out.append(dict(i=i, start=f0 / FPS, frames=f1 - f0, kind=k, src=src, off=off, opt=opt, scale=(e - s) / (e0 - s0)))
     return out
 
 def dur(path):
@@ -226,7 +237,8 @@ def render_shot(sh):
     if os.path.exists(out): return out
     n = sh["frames"]; d = n / FPS
     if sh["kind"] == "g":
-        M.render(J.GRAPHICS[sh["src"]], d, out); return out
+        fn, sc = J.GRAPHICS[sh["src"]], sh["scale"]  # graphics were timed to v1: stretch their clock to the slower read
+        M.render(lambda t, dd: fn(t / sc, dd / sc), d, out); return out
     if sh["kind"] in ("a", "f"):
         render_archive(sh, out); return out
     if sh["kind"] == "p":
@@ -257,7 +269,7 @@ def _grab(path, times):
     fr = np.frombuffer(r.stdout, np.uint8).reshape(-1, 1080, 1920, 3)
     return [fr[min(len(fr) - 1, max(0, round((t - t0) * FPS)))] for t in times]
 
-SECTION_STARTS = {69.7, 108.1, 180.3, 233.5, 332.7, 393.2, 490.9, 527.0, 584.2}
+SECTION_STARTS = {round(T(x), 3) for x in (69.7, 108.1, 180.3, 233.5, 332.7, 393.2, 490.9, 527.0, 584.2)}
 
 def cut_list():
     sh = shots(); cuts = []
@@ -312,7 +324,7 @@ def stage_audio():
     inputs = ["-i", VO]; fc = ["[0:a]aresample=48000,aformat=channel_layouts=stereo,apad=whole_dur=%.3f,asplit=2[vo][sc]" % END]
     k = 1; mus = []
     for name, s, g, fo in MUSIC:
-        inputs += ["-i", f"{MUSIC_DIR}/{name}.mp3"]
+        inputs += ["-stream_loop", "-1", "-i", f"{MUSIC_DIR}/{name}.mp3"]  # loop: beds are longer after the v2 retime
         ms = int(s * 1000); fl = fo - s
         fc.append(f"[{k}:a]aresample=48000,aformat=channel_layouts=stereo,atrim=0:{fl + 3:.2f},afade=t=in:d=1.5,afade=t=out:st={fl:.2f}:d=3,volume={g},adelay={ms}|{ms}[m{k}]")
         mus.append(f"[m{k}]"); k += 1
