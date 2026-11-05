@@ -320,8 +320,8 @@ def same_year(t, dur):
     k3 = eback(seg(t, 1.8, 2.2))
     if k3 > 0:
         r = 120 * k3
-        d.ellipse([960 - r, 820 - r, 960 + r, 820 + r], fill=WHITE)
-        text(d, (960, 820), "2014", int(64 * min(1, k3)), (20, 20, 20), "Black", anchor="mm")
+        d.ellipse([960 - r, 820 - r, 960 + r, 820 + r], fill=(10, 12, 22), outline=CYAN, width=7)
+        text(d, (960, 820), "2014", int(64 * min(1, k3)), WHITE, "Black", anchor="mm")
         text(d, (960, 140), "SAME YEAR", 60, WHITE, "Black", anchor="mm", alpha=min(1, k3))
     return im
 

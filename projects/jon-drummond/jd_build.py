@@ -172,7 +172,8 @@ SHOTS = [
     (383.2, "a", TYG, 12.5, {"e": 22.6}),               # "Tyson Gay failed drug tests"
     (387.2, "v", st("lab_tubes"), 1),
     (391.8, "g", "gay_case", 0),
-    (403.0, "a", TYG, 51.6, {"e": 56.0}),               # "Basically... he talked"
+    (403.0, "a", TYG, 53.9, {"e": 57.3}),               # "Basically... he talked": Gay in USADA's video
+    (404.8, "a", PAR, 58.6, {"e": 60.9, "yb": 0.3}),    # "led straight to his coach"
     (407.7, "p", "l_usada", 0, {"label": "USADA", "sub": "U.S. Anti-Doping Agency", "tag": "USADA"}),
     (410.9, "v", st("suit_laptop"), 2),
     (414.2, "v", st("gavel"), 1),
