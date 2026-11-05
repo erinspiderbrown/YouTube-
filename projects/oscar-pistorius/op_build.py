@@ -189,7 +189,7 @@ SHOTS = [
     (420.68, "g", "june_quote", 0, REEVA),
     (424.78, "a", rl("olympic_400semis"), 84.0, {"e": 90.0}),                                 # "I'ma keep it a buck"
     (428.06, "g", "night_plain", 0, REEVA),
-    (431.96, "f", rl("ewn_sca_report"), 11.0, {"e": 15.0}),                                   # "the highest court..."
+    (431.96, "f", rl("ewn_sca_murder"), 45.0, {"e": 50.0}),                                   # "the highest court..."
     (435.30, "g", "four_shots", 0, REEVA),
     (441.82, "f", rl("ap_interview_2012"), 51.0, {"e": 58.0}),
     (444.62, "a", rl("rte_career"), 80.5, {"e": 86.0}),                                       # "proving folks wrong"
