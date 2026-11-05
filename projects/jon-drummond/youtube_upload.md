@@ -80,6 +80,8 @@ Upload all three in YouTube Studio → **Test & Compare**.
 
 ## Description
 ```
+"I did not move!"
+
 In 2003, Jon Drummond laid down on the track at the World Championships in Paris… and wouldn't leave. The whole meet stopped for damn near an hour.
 
 Olympic gold medalist. Captain of Team USA's 4x100. The biggest showman in track & field. Eleven years later, the sport banned him for 8 years.
@@ -119,7 +121,7 @@ USADA logo: public domain
 Licenses: creativecommons.org/licenses
 
 ARCHIVE FOOTAGE
-2003 World Championships, Paris (fan footage + France 2 broadcast)
+2003 World Championships, Paris (fan footage, France 2 and international broadcast)
 1996 US Olympic Trials (NBC), 2000 Sydney Olympics (NBC / France Télévisions)
 1993 World Championships, Stuttgart (IAAF), 1996 Atlanta Olympics
 2011 World Championships, Daegu (Universal Sports), 2012 London Olympics
@@ -129,8 +131,8 @@ Archive footage used for commentary and criticism.
 #trackandfield #jondrummond #sprinting #olympics #falsestart
 ```
 
-## Tags
-jon drummond, jon drummond false start, jon drummond paris 2003, jon drummond protest, jon drummond banned, false start protest, sprinter refuses to leave track, track and field documentary, track and field drama, track and field history, world championships 2003, false start rule, usain bolt false start, maurice greene, sydney 2000 4x100, tyson gay, tyson gay doping, usada ban, track coach banned, team usa relay, the erin brown
+## Tags (483/500 characters)
+jon drummond, jon drummond i did not move, jon drummond false start, jon drummond paris 2003, jon drummond protest, jon drummond banned, i did not move, false start protest, false start disqualification, sprinter refuses to leave track, track and field documentary, track and field history, world championships 2003, paris 2003 100m, false start rule, usain bolt false start, maurice greene, sydney 2000 4x100, tyson gay, usada ban, track coach banned, team usa relay, the erin brown
 
 ## Pinned comment
 "Real talk: was Drummond wrong for laying on that track… or was the one-false-start rule the real problem? 👇"
