@@ -24,13 +24,17 @@ Unscored backups in the same styles:
 - He Protested For An Hour… Then The Sport Changed Forever
 - The Most Disrespectful Protest In Track & Field History
 
-## Thumbnails
-The files are in the scratchpad `output/` folder:
-- **A** `drummond_thumbnail_A.jpg`: "HE WOULDN'T LEAVE". The channel's proven format: big glowing words and his real face lying on the track, officials standing over him.
-- **B** `drummond_thumbnail_B.jpg`: 2003 vs 2014 split. The hands-up "I didn't move" protest beside a "BANNED 8 YEARS" stamp over the overhead shot. **Pair this with title #1**: the title says what happened and the thumbnail shows the twist, without repeating the same words.
-- **C** `drummond_thumbnail_C.jpg`: Jimmy-style. The overhead shot of him alone on the track with a red circle and arrow, captioned "HE WOULDN'T MOVE".
+## Thumbnails (v2: high-res, layered; files in `thumbnails/` and Dropbox `/Jon Drummond/`)
+How they're built: the real broadcast frames were upscaled 3x with Topaz "Recover 3", a faithful restoration that keeps his real face (in the ElevenLabs flow "Jon Drummond thumbnails"). The "Redefine" mode was rejected because it changed his face. BiRefNet makes the cut-out. Rendered at 2560x1440 and saved at 1280x720. Script: `thumbnail_v2.py`.
+- **1 `drummond_thumb_v2_1.jpg`: Protest vs Ban** ← recommended with title #1.
+  - Cut-out of Drummond, hands up ("I didn't move"), with a white sticker outline and cyan glow, over the Stade de France (Paris 2003).
+  - A tilted USADA "Anti-Doping Decision" case file with a red BANNED 8 YEARS stamp.
+  - A circle inset of him lying on the track, plus 2003 / 2014 tags.
+- **2 `drummond_thumb_v2_2.jpg`: HE WOULDN'T LEAVE.** Your channel's proven big-glowing-words style. Officials stand over him on the track; an inset of him arguing has an arrow to his face, plus a PARIS 2003 tag.
+- **3 `drummond_thumb_v2_3.jpg`: Jimmy-style.** The overhead shot of him alone on the track with a red ring and arrow, a face close-up inset, and "HE WOULDN'T MOVE".
 
-Upload all three in YouTube Studio → **Test & Compare** so YouTube picks the winner by watch time. Start with B as the main one.
+Upload all three in YouTube Studio → **Test & Compare**.
+(The v1 thumbnails A/B/C are still in `thumbnails/`.)
 
 ## Description
 ```
