@@ -15,6 +15,7 @@ Working title: **Why Americans Can't Win College Cross Country Anymore** (vidIQ 
 
 ## Status
 - [x] Research and fact check (below)
+- [x] Script v2 (current): `script_v2.md`, the user's angle
 - [x] Script v1: `script_v1.md` (about 1,050 spoken words, roughly 6:30–7:00 at 168 wpm)
 - [ ] User approves the script
 - [ ] Voiceover (ElevenLabs, same settings as Pistorius)
@@ -44,6 +45,21 @@ Working title: **Why Americans Can't Win College Cross Country Anymore** (vidIQ 
   - A reported post by former Trump aide Theodore Wold (one source only, and the post may be deleted).
   - The "97 Kenyans via Scholarbook/Townhall" figure (CITIUS says it's unverified).
   - Kenyan doping statistics, because none of these runners is accused and it would smear them.
+
+## Script v2 (user's direction, 5 Nov 2026): notes and open items
+- **Angle:**
+  - The African runners broke no rules.
+  - College has no age limit, and everyone gets the same eligibility.
+  - The athletes are bettering their situation.
+  - Online hate from a certain crowd, kept separate from coaches like Eyestone, who argue policy in the open (not hate, and not to be framed as hate).
+- **The online-hate section needs real receipts.** No news report documents racist abuse aimed at these runners; Eyestone's "someone will say you're racist" quote is the only race-related line found. The comment quotes in 01 and 05 ("Send 'em home", "go back where they came from") are placeholders until the user supplies real screenshots. Show those on screen with handles blurred, or reword the lines.
+  - The user's own wording, "certain white people online", is held back as "a certain crowd online". It goes in only if the screenshots support it, as the user's call.
+- **Doping beat (section 06):** this is the exception to "nobody broke rules".
+  - Caroline Jeptanui (Tulane) finished 12th at the 2024 NCAAs while provisionally suspended by ADAK since 28 Sep 2024. She wasn't on the AIU or ADAK lists. [LetsRun](https://www.letsrun.com/news/2025/02/tulanes-caroline-jeptanui-finished-12th-at-ncaa-xc-champs-while-suspended-for-an-anti-doping-violation/), [FloTrack](https://www.flotrack.org/articles/13832952-tulane-athlete-earned-all-american-honors-while-allegedly-suspended)
+  - TCU scratched Tabitha Ngao from the 2025 NCAA indoor championships over a provisional suspension. [LetsRun](https://www.letsrun.com/news/2025/03/another-kenyan-has-been-competing-in-the-ncaa-while-suspended-tcu-scratched-tabitha-ngao-from-ncaa-championships/)
+  - Check the final rulings before recording. Both are named only by school in the script.
+- **"Clock starts when you enroll":** true of the old four-in-five rule. Track did charge some seasons for organized competition after a delay following high school (national-team events were exempt), so "start whenever you want" is simplified and not stated outright. It no longer applies to new international athletes under 5-in-5.
+- "Agricultural education": Kipchoge's major, per [Canadian Running](https://runningmagazine.ca/the-scene/ncaa-school-faces-backlash-over-28-year-old-kenyan-freshman/).
 
 ## Footage plan (real first)
 - **NCAA Championships YouTube:** full 2024 and 2025 DI men's races (`D5cb8-HwALQ`, `goYXdAHTpXg`) and the women's races. Use the finish, Samuel's win, Hansen 2nd, the OSU pack, and Lemngole's record.
