@@ -2,6 +2,20 @@
 
 Voiceover generated in ElevenLabs (flow "Jon Drummond documentary voiceover", EwtCtvyEoktyTmEPgx7r) with the user's own cloned voice (voice id dk6cvd5UilZRrcpZ7dNK), model eleven_v4, style tags "[relaxed] [laid back] [Texas accent]".
 
+## NEXT: v4 voiceover (waiting on ElevenLabs credits)
+- The user says v3/v3b still sounds robotic, mostly toward the end, and wants it consistent from start to finish. Some words are mispronounced.
+- `script_v4.md`:
+  - No IPA.
+  - "Drummund" spelling, every, his self.
+  - Same settings for every section: stability 0.45, similarity 0.85.
+- ElevenLabs nodes "V4 01" to "V4 07 (natural, consistent)" in flow EwtCtvyEoktyTmEPgx7r are ready to run.
+- Cost: 19,350 credits for 2 takes each (≈9,700 for one). The account has 125 credits left of a 161,000 monthly quota.
+- Once credits are in:
+  1. Run all 7 nodes.
+  2. Pick the better take per section.
+  3. Run `tools/rephrase_voiceover.py` against `vo_v3_words.json` so the edit stays in sync.
+  4. Apply the warm EQ chain, then run `jd_build.py audio mux` and encode.
+
 ## CURRENT: video v2 (neon + real footage, 5 Nov 2026)
 User feedback on v1:
 - Liked the editing direction, the sounds and their voice. The music bed helps mask the AI artifacts in the voice, so it stays.
