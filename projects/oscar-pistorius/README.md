@@ -9,7 +9,7 @@ Why this one:
 
 ## Status
 - [x] Facts checked (below)
-- [x] Script v1: `script_v1.md` (about 1,500 words, ~9 min at 166 wpm)
+- [x] Script v1: `script_v1.md` (1,298 words, about 8:30 with pauses; about 8,700 characters, roughly 8,500 ElevenLabs credits per take)
 - [ ] User approves the script
 - [ ] Voiceover: ElevenLabs flow with the user's voice (dk6cvd5UilZRrcpZ7dNK), same settings as Drummond v4
 - [ ] Real footage and photos
