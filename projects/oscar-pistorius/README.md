@@ -12,7 +12,7 @@ Why this one:
 - [x] Script v1: `script_v1.md` (1,298 words, about 8:30 with pauses; about 8,700 characters, roughly 8,500 ElevenLabs credits per take)
 - [ ] User approves the script
 - [ ] Voiceover: ElevenLabs flow with the user's voice (dk6cvd5UilZRrcpZ7dNK), same settings as Drummond v4
-- [ ] Real footage and photos
+- [x] Real footage and photos: 51 clips (AP, Reuters, EWN, SABC, eNCA, Telegraph, Guardian, NYT, Al Jazeera, Olympic/Paralympic channels) and 13 Commons photos. List in `credits.md`. The News Direct CGI re-enactment is excluded.
 - [ ] Edit (neon documentary look, `tools/neon.py`) → thumbnail → upload package
 
 ## Footage plan (real first, AI only for gaps)
