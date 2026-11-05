@@ -16,6 +16,7 @@ import gfx
 
 W, H, FPS = 1920, 1080, 24
 ORANGE = (255, 122, 26)
+CYAN = (0, 229, 255)
 WHITE = (250, 250, 250)
 GLYPHS = "ABCDEFGHJKLMNPQRSTUVWXYZ0123456789#%&/<>=+"
 MONO = "/usr/share/fonts/truetype/dejavu/DejaVuSansMono-Bold.ttf"
@@ -25,9 +26,11 @@ def eo(t):
 def seg(t, a, b):
     return min(max((t - a) / (b - a), 0), 1)
 
-def render(text, idx, dur, pos, out, label="SIGNAL", seed=0):
+def render(text, idx, dur, pos, out, label="SIGNAL", seed=0, neon=False):
+    """neon=True: cyan brackets/label, coloured bloom around the letters (Drummond doc look)."""
     from PIL import ImageFont
     rnd = random.Random(seed)
+    BR = CYAN if neon else ORANGE
     lines = text.upper().split("\n")
     f = gfx.font("Black", 92)
     fm = ImageFont.truetype(MONO, 22)
@@ -56,7 +59,8 @@ def render(text, idx, dur, pos, out, label="SIGNAL", seed=0):
         # glass panel
         if ko > 0.3:
             a = int(150 * seg(t, 0.06, 0.25))
-            d.rectangle([cx - hw, cy - hh, cx + hw, cy + hh], fill=(8, 9, 12, int(a * 1.3)), outline=(255, 255, 255, int(a * 0.25)))
+            d.rectangle([cx - hw, cy - hh, cx + hw, cy + hh], fill=(5, 8, 18, int(a * 1.3)),
+                        outline=(BR + (int(a * 0.9),)) if neon else (255, 255, 255, int(a * 0.25)), width=2 if neon else 1)
             for yy in range(int(cy - hh) + ((fi * 3) % 6), int(cy + hh), 6):  # moving scanlines
                 d.line([(cx - hw, yy), (cx + hw, yy)], fill=(255, 255, 255, 10))
         # corner brackets
@@ -64,12 +68,12 @@ def render(text, idx, dur, pos, out, label="SIGNAL", seed=0):
         for sx in (-1, 1):
             for sy in (-1, 1):
                 px, py = cx + sx * hw, cy + sy * hh
-                d.line([(px, py), (px - sx * L, py)], fill=ORANGE + (255,), width=wdt)
-                d.line([(px, py), (px, py - sy * L)], fill=ORANGE + (255,), width=wdt)
+                d.line([(px, py), (px - sx * L, py)], fill=BR + (255,), width=wdt + (2 if neon else 0))
+                d.line([(px, py), (px, py - sy * L)], fill=BR + (255,), width=wdt + (2 if neon else 0))
         # mono label
         if t > 0.15:
             blink = "_" if int(t * 4) % 2 == 0 else " "
-            d.text((x0 + 4, y0 - 34), f"// {idx:02d}  {label}{blink}", font=fm, fill=ORANGE + (230,))
+            d.text((x0 + 4, y0 - 34), f"// {idx:02d}  {label}{blink}", font=fm, fill=BR + (230,))
         # text layer (decode)
         tl = Image.new("RGBA", (W, H), (0, 0, 0, 0)); td = ImageDraw.Draw(tl)
         for li, l in enumerate(lines):
@@ -95,9 +99,21 @@ def render(text, idx, dur, pos, out, label="SIGNAL", seed=0):
             out_arr[..., 0] = np.maximum(arr[..., 0], r[..., 0]); out_arr[..., 2] = np.maximum(arr[..., 2], b[..., 2])
             out_arr[..., 3] = np.maximum(arr[..., 3], np.maximum(r[..., 3], b[..., 3]) // 2)
             tl = Image.fromarray(out_arr)
-        glow = tl.filter(ImageFilter.GaussianBlur(10))
-        im.alpha_composite(glow.point(lambda v: v // 3) if False else glow)
-        im.alpha_composite(tl)
+        if neon:  # coloured neon bloom: white letters glow cyan, accent line glows orange
+            arr = np.array(tl); col = arr.copy()
+            white = arr[..., 1] > 200
+            col[white, 0], col[white, 1], col[white, 2] = CYAN
+            tint = Image.fromarray(col)
+            wide = tint.filter(ImageFilter.GaussianBlur(18)); tight = tint.filter(ImageFilter.GaussianBlur(5))
+            for g in (wide, wide, tight): im.alpha_composite(g)
+            im.alpha_composite(tl)
+            # the panel/brackets glow too (glow layer goes underneath)
+            base = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+            base.alpha_composite(im.filter(ImageFilter.GaussianBlur(8))); base.alpha_composite(im); im = base
+        else:
+            glow = tl.filter(ImageFilter.GaussianBlur(10))
+            im.alpha_composite(glow)
+            im.alpha_composite(tl)
         # underline sweep + travelling light pulse
         ku = eo(seg(t, 0.35, 0.75))
         if ku > 0:

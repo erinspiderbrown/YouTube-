@@ -1,12 +1,22 @@
-"""Motion graphics for the Jon Drummond documentary (same dark/orange HUD look as tools/mograph.py)."""
+"""Motion graphics for the Jon Drummond documentary.
+
+v2: neon look (tools/neon.py background + bloom), real photos in neon frames (profile, team, medal stand, MJ quote).
+The caller sets neon.PHOTOS to the folder holding the Commons photos and M.finish = neon.finish."""
 import math, sys, os
 sys.path.insert(0, "/home/user/YouTube-/tools")
 from PIL import Image, ImageDraw
 import mograph as M
 from mograph import background, header, text, eo, eback, seg, pin, Proj, draw_map, _load, arc, ORANGE, RED, WHITE, GREY, DIM, BG
 import gfx
+import neon as N
+from neon import CYAN, PINK, neon_photo
+background = N.background  # neon background replaces the flat charcoal one
+M.BG = N.BG
 
 W, H = 1920, 1080
+
+def ph(name):
+    return f"{N.PHOTOS}/{name}.jpg"
 
 def _box(d, x, y, w, h, k, col=ORANGE):
     d.rectangle([x, y, x + w * k, y + h], fill=(20, 21, 26), outline=col, width=3)
@@ -16,9 +26,10 @@ def profile(t, dur):
     k = eo(seg(t, 0.1, 0.6))
     text(d, (160, 300), "SUBJECT FILE", 30, ORANGE, "Bold", alpha=k)
     d.rectangle([160, 350, 160 + 900 * eo(seg(t, 0.2, 0.8)), 356], fill=ORANGE)
-    f = gfx.font("Black", 150)
+    f = gfx.font("Black", 124)
     name = "JON DRUMMOND"[: int(12 * eo(seg(t, 0.3, 1.1)))]
-    d.text((160, 380), name, font=f, fill=WHITE)
+    d.text((160, 385), name, font=f, fill=WHITE)
+    neon_photo(im, ph("p_drummond_1994"), 1500, 500, 600, t, 0.35, ORANGE, "Jon Drummond", "1994 · San Jose", crop=(0.56, 0.5, 1.0))
     for i, (lab, val) in enumerate([("ROLE", "US 4x100 RELAY CAPTAIN"), ("HONORS", "OLYMPIC GOLD MEDALIST"), ("HOMETOWN", "PHILADELPHIA, PA")]):
         kk = eo(seg(t, 1.0 + i * 0.35, 1.4 + i * 0.35))
         text(d, (160, 600 + i * 80), lab, 26, GREY, "Bold", alpha=kk)
@@ -100,31 +111,32 @@ def medals(t, dur):
     return im
 
 def team_card(t, dur):
+    """Pops in on the VO: Greene 117.92, Williams 119.12, Lewis 120.20, 'they win' 121.40 (shot starts 117.9)."""
     im = background(t); d = ImageDraw.Draw(im, "RGBA")
     header(d, t, "Sydney 2000 · Olympic final", "USA 4x100")
-    names = [("JON DRUMMOND", "CAPTAIN"), ("BERNARD WILLIAMS", ""), ("BRIAN LEWIS", ""), ("MAURICE GREENE", "")]
-    for i, (n, tag) in enumerate(names):
-        k = eo(seg(t, 0.4 + i * 0.25, 0.8 + i * 0.25))
-        if k <= 0: continue
-        y = 380 + i * 140; x = 160 + int((1 - k) * -80)
-        d.rectangle([x, y, x + 12, y + 100], fill=ORANGE if tag else WHITE)
-        text(d, (x + 40, y + 10), f"LEG {i + 1}", 24, GREY, "Bold", alpha=k)
-        text(d, (x + 40, y + 40), n, 54, WHITE, "Black", alpha=k)
-        if tag: text(d, (x + 40 + 640, y + 52), tag, 30, ORANGE, "Black", alpha=k)
-    kg = eback(seg(t, 2.0, 2.5))
+    cards = [("p_drummond_1994", "Jon Drummond", "Leg 1 · captain", (0.56, 0.5, 1.0), 0.0, ORANGE),
+             ("p_williams", "Bernard Williams", "Leg 2", (0.36, 0.5, 1.0), 1.2, CYAN),
+             ("p_lewis_1996", "Brian Lewis", "Leg 3", (0.5, 0.34, 0.6), 2.3, CYAN),
+             ("p_greene_sydney", "Maurice Greene", "Leg 4 · anchor", (0.5, 0.4, 0.72), 0.05, CYAN)]
+    for i, (src, nm, sub, crop, t0, col) in enumerate(cards):
+        neon_photo(im, ph(src), 300 + i * 440, 560, 470, t, t0, col, nm, sub, crop=crop)
+    kg = eback(seg(t, 3.5, 3.9))
     if kg > 0:
-        r = 140 * kg; d.ellipse([1500 - r, 600 - r, 1500 + r, 600 + r], fill=ORANGE)
-        text(d, (1500, 600), "GOLD", int(60 * min(1, kg)), (20, 20, 20), "Black", anchor="mm")
+        d = ImageDraw.Draw(im, "RGBA")
+        r = 92 * kg; cx, cy = 1700, 180
+        d.ellipse([cx - r, cy - r, cx + r, cy + r], fill=ORANGE, outline=(255, 230, 180), width=5)
+        text(d, (cx, cy), "GOLD", int(46 * min(1, kg)), (20, 20, 20), "Black", anchor="mm")
     return im
 
 def medal_stand(t, dur):
     im = background(t); d = ImageDraw.Draw(im, "RGBA")
     header(d, t, "Sydney 2000 · Medal stand", "On camera")
     for i, (lab, h) in enumerate([("2", 180), ("1", 260), ("3", 130)]):
-        k = eo(seg(t, 0.3 + i * 0.15, 0.8 + i * 0.15)); x = 560 + i * 280
-        d.rectangle([x, 900 - h * k, x + 260, 900], fill=(30, 32, 38), outline=ORANGE if lab == "1" else GREY, width=3)
-        text(d, (x + 130, 900 - h * k + 40), lab, 70, ORANGE if lab == "1" else GREY, "Black", anchor="mm", alpha=k)
-    text(d, (960, 330), "MEDALS PRESENTED BY HENRY KISSINGER", 34, WHITE, "Bold", anchor="mm", alpha=eo(seg(t, 1.0, 1.5)))
+        k = eo(seg(t, 0.3 + i * 0.15, 0.8 + i * 0.15)); x = 200 + i * 280
+        col = ORANGE if lab == "1" else CYAN
+        d.rectangle([x, 900 - h * k, x + 260, 900], fill=(12, 14, 26), outline=col, width=4)
+        text(d, (x + 130, 900 - h * k + 40), lab, 70, col, "Black", anchor="mm", alpha=k)
+    neon_photo(im, ph("p_kissinger"), 1420, 540, 560, t, 1.3, ORANGE, "Henry Kissinger", "handed out the medals", crop=(0.5, 0.42, 0.8))
     return im
 
 def emails(t, dur):
@@ -190,8 +202,10 @@ def false_start(t, dur):
     text(d, (960, 640), "DRUMMOND · DISQUALIFIED", 50, WHITE, "Black", anchor="mm", alpha=eo(seg(t, 0.5, 0.9)))
     return im
 
-def quote_card(t, dur, kicker, lines, sub=None):
-    im = background(t); d = ImageDraw.Draw(im, "RGBA")
+def quote_card(t, dur, kicker, lines, sub=None, photo=None):
+    im = background(t)
+    if photo: neon_photo(im, ph(photo[0]), 1560, 560, 520, t, photo[1], CYAN, photo[2], photo[3], crop=photo[4])
+    d = ImageDraw.Draw(im, "RGBA")
     text(d, (160, 300), kicker.upper(), 30, ORANGE, "Bold", alpha=eo(seg(t, 0.1, 0.5)))
     d.rectangle([160, 350, 160 + 140 * eo(seg(t, 0.2, 0.6)), 356], fill=ORANGE)
     text(d, (130, 330), "“", 220, (60, 62, 70), "Black")
@@ -340,6 +354,7 @@ GRAPHICS = {
     "ch_sydney": chapter("SYDNEY 2000", "II"), "ch_paris": chapter("PARIS 2003", "III"), "ch_fall": chapter("THE FALL", "IV"),
     "q_spirit": lambda t, d: quote_card(t, d, "His statement · in my words", ["His spirit was broke…", "'cause all he ever wanted", "was to entertain the fans."]),
     "q_regret": lambda t, d: quote_card(t, d, "USA Track & Field", ["“Regrettable.”"], "PROMISED A WHOLE CONDUCT POLICY FOR ATHLETES"),
-    "q_mj": lambda t, d: quote_card(t, d, "The reaction", ["Spain's federation: kick him out.", "Michael Johnson:", "embarrassed to be American."]),
+    "q_mj": lambda t, d: quote_card(t, d, "The reaction", ["Spain's federation:", "kick him out.", "Michael Johnson:", "embarrassed to be American."],
+                                  photo=("p_mjohnson", 4.4, "Michael Johnson", "4x Olympic champ", (0.5, 0.5, 1.0))),
     "q_ceo": lambda t, d: quote_card(t, d, "USA Track & Field CEO", ["“Deeply disappointed.”"], "SAID THEY HAD NO KNOWLEDGE OF WHAT DRUMMOND WAS DOIN'"),
 }

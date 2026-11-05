@@ -31,6 +31,12 @@ Every video is one of these two. Ask which one if it isn't clear.
   - Footage the user provides.
   - Footage Claude finds or makes.
 - **The user says exactly what they want.** Follow their shot-by-shot directions. Don't make up creative choices they didn't ask for. If a direction is unclear, ask.
+- **Real over generated:** the user wants every real photo and real video of the people and events that can be found online, especially real footage of the moment the voiceover describes.
+  - Photos: Wikimedia Commons, with credits in the description. Commons rate-limits this machine's IP, so fetch through the Composio workbench.
+  - Video: YouTube links imported via vidIQ, plus the user's Dropbox clips.
+  - AI or stock clips only fill gaps.
+- **Look:** futuristic **neon that pops**: glow/bloom, cyan + orange neon, HUD tags on archival footage, neon-framed photo cards. See `tools/neon.py` and `projects/jon-drummond/`.
+- Keep the music bed under the voice: it masks AI artifacts in the cloned voice.
 
 ## Reference examples
 - `examples/podcast/`: example videos/clips for podcast style.

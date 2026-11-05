@@ -2,8 +2,41 @@
 
 Voiceover generated in ElevenLabs (flow "Jon Drummond documentary voiceover", EwtCtvyEoktyTmEPgx7r) with the user's own cloned voice (voice id dk6cvd5UilZRrcpZ7dNK), model eleven_v4, style tags "[relaxed] [laid back] [Texas accent]".
 
-## Video build (documentary style)
-- `jd_build.py`: shot list (78 shots, keyed to voiceover times), HUD keywords, SFX cues and music placement. Stages: shots, transitions, compose, audio, mux.
+## CURRENT: video v2 (neon + real footage, 5 Nov 2026)
+User feedback on v1:
+- Liked the editing direction, the sounds and their voice. The music bed helps mask the AI artifacts in the voice, so it stays.
+- Wanted it **more futuristic: "neon and it should pop."**
+- Wanted their real Dropbox footage of Drummond lying on the track in the cold open.
+- Wanted real pictures of the relay members, and **every real photo and real video that can be pulled from the internet**.
+
+What v2 does:
+- `jd_build.py`: 127 shots. Shot kinds:
+  - `a`: archival full-bleed
+  - `f`: archival framed in neon over a blurred backdrop
+  - `p`: Commons photo card with name tag
+  - `g`: graphic
+  - `v`: stock/AI
+- Every archival shot carries an `ARCHIVE // PLACE · YEAR` tag.
+- Real footage (scratchpad `real/`, sources in `credits.md`):
+  - User's Dropbox Paris 2003 protest and 1996 Trials.
+  - France 2 broadcast of the protest.
+  - NBC and France TV Sydney 2000 relay, with the USA lineup lower third and Greene's tongue-out.
+  - Stuttgart '93 world record, Atlanta '96, Bolt's Daegu 2011 false start, London 2012 women's world record, PBS on Tyson Gay.
+- Real photos (Wikimedia Commons, credits in `credits.md`):
+  - Team card: Drummond, Williams, Greene, plus a Brian Lewis frame from the '96 Trials. Each pops in as the voiceover says the name.
+  - Kissinger on the medal stand.
+  - Michael Johnson on the quote card.
+  - Wilt, Overbrook, West Philly, Odessa College, TCU, Paris 2003, London 2012, Tyson Gay, USADA.
+- Neon look (`tools/neon.py`):
+  - Graphics: synthwave floor grid, HUD corners and bloom.
+  - HUD keywords: cyan brackets with coloured glow (`hud.render(..., neon=True)`).
+  - Transitions alternate orange and cyan glow.
+  - Stock gets a punchier teal/orange grade.
+- Most AI clips were replaced by real footage. Music, SFX and voiceover are unchanged from v1.
+- Output: scratchpad `output/jon-drummond_v2_master.mp4` (+ 720p preview and ~200 MB 1080p).
+
+## Video build v1 (documentary style)
+- `jd_build.py` (v1 version in git history): shot list (78 shots, keyed to voiceover times), HUD keywords, SFX cues and music placement. Stages: shots, transitions, compose, audio, mux.
 - `jd_mograph.py`: 29 graphics:
   - subject file, delay clock, case stamp, title, Philly→Odessa→TCU route map, medal timeline
   - Sydney team, medal stand, emails counter, rep card, false-start rule explainer, Paris map, FALSE START
@@ -13,7 +46,7 @@ Voiceover generated in ElevenLabs (flow "Jon Drummond documentary voiceover", Ew
   - 7 AI clips from the user's ElevenLabs shot list (ltx-v2-fast, 6 s each: S01, S03–S08). ElevenLabs credits ran out before S09–S32.
   - Free Pexels stock reused from Montverde (blocks, sprinters, stopwatch, lab, gavel, documents, newspapers, lightning, laptop).
 - Music: the user's ElevenLabs tracks M1–M5, placed per section and ducked under the voice. SFX: the user's 7 ElevenLabs effects plus synthesized transition and HUD sounds.
-- Not used yet: the 2 REAL clips (Paris 2003 protest, 1996 Trials). They're uploaded assets in ElevenLabs with no download URL via the connector. The user can send YouTube links to pull them in via vidIQ import.
+- v1 did not use the 2 REAL clips (Paris 2003 protest, 1996 Trials). v2 pulls them from the user's Dropbox (`/Issam Coach/JD VUDEO/`).
 
 ## CURRENT: v3 voiceover (approved style, 5 Nov 2026)
 - `jon-drummond_voiceover_v3.mp3`: full track, 8:33, about 165 wpm, -16 LUFS.
