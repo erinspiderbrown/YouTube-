@@ -11,9 +11,16 @@ Why this one:
 - [x] Facts checked (below)
 - [x] Script v1: `script_v1.md` (1,298 words, about 8:30 with pauses; about 8,700 characters, roughly 8,500 ElevenLabs credits per take)
 - [ ] User approves the script
-- [ ] Voiceover: ElevenLabs flow "Oscar Pistorius documentary voiceover" (pPXcfbuQkzpC0Af2Kib8), nodes "OP 01" to "OP 07", same settings as Drummond v4.
-  - Done (`voiceover/`): 01 take A (49s), 02 take A (51s), 04 take B (45s). Transcripts match the script; raw pace is 175–188 wpm, to be paced to about 166.
-  - Waiting on ElevenLabs credits: the account hit its 194,000 quota with 278 left. Still needed: 03, 05, 06, 07. One take each is about 5,800 credits; two takes about 11,600.
+- [x] Voiceover v1: `oscar-pistorius_voiceover_v1.mp3`, 7:50 at 167 wpm. Word timings are in `vo_v1_words.json`.
+  - Recorded in ElevenLabs flow "Oscar Pistorius documentary voiceover" (pPXcfbuQkzpC0Af2Kib8) with the same settings as Drummond v4: eleven_v4, the user's voice, stability 0.45, similarity 0.85.
+  - The user's reference is the 01 cold open ("that's perfect"); every other section is held to it.
+  - **Take picks:** 01A 02A 03A 04B 05B 06A 07B, chosen by closeness to 01A (pitch, pitch range, spectrum, pace; `voiceover/take_scores.json`) plus a clean read.
+    - 05A said "said" for "say".
+    - 07A slipped a line.
+  - **Pacing:** `tools/space_voiceover.py --target-wpm 168 --min-tempo 0.91 --ref 01_takeA_raw.mp3`.
+    - Each section's speaking speed is matched to 01A. Only 05 needed a light 0.936 atempo; the others are untouched.
+    - The rest of the time goes into the natural pauses (sentence ends get twice the extra), so there is no stretching and no robotic sound.
+    - Then the Drummond warm EQ and -16 LUFS. Sections measure -16.5 to -17.2 LUFS.
   - Spoken change: "Judge Thokozile Masipa" is read as "Judge Masipa" (the full name goes on screen).
 - [x] Real footage and photos: 51 clips (AP, Reuters, EWN, SABC, eNCA, Telegraph, Guardian, NYT, Al Jazeera, Olympic/Paralympic channels) and 13 Commons photos. List in `credits.md`. The News Direct CGI re-enactment is excluded.
 - [ ] Edit (neon documentary look, `tools/neon.py`) → thumbnail → upload package
