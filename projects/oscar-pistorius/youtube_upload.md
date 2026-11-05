@@ -45,6 +45,8 @@ Beijing National Stadium, 2008 Summer Paralympics: li yong, CC BY-SA 2.0
 Men's 400m semi-final 2, London 2012: Darren Wilkinson, CC BY-SA 2.0
 Oscar Pistorius (racing): Elvar Pálsson, CC BY 2.0
 Oscar Pistorius in Warsaw: Kaston, CC BY-SA 3.0
+Oscar Pistorius, first round of the 400m, London 2012: Jim Thurston, CC BY-SA 2.0
+Cape Times poster, 15 Feb 2013: Discott, CC BY-SA 4.0
 Oscar Pistorius leading South Africa's team, London 2012 Paralympics opening ceremony: Michael Greenwood, CC BY 2.0
 Licenses: creativecommons.org/licenses
 

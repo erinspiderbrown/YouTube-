@@ -104,7 +104,7 @@ SHOTS = [
     (131.52, "g", "cas", 0),
     (135.58, "p", "2008_Summer_Paralympics_Athletism_Beijing_National_Stadium", 0, {"label": "Beijing 2008", "sub": "Paralympics, not the Olympics", "tag": "Photo · Beijing 2008"}),
     (138.96, "a", rl("itn_400semi_qual"), 25.0, {"e": 28.5}),                                 # "London, August 2012"
-    (141.6, "a", rl("olympic_400semis"), 84.0, {"e": 90.0}),
+    (141.6, "p", "Oscar_Pistorius_the_first_round_of_the_400m_at_the_London_20", 0, {"label": "Oscar Pistorius", "sub": "400m round one · 4 Aug 2012", "tag": "Photo · London 2012"}),
     (144.44, "a", rl("itn_400semi_qual"), 10.2, {"e": 12.6}),                                 # "first double amputee..."
     (146.6, "p", "Mens_400m_semi_final_2_Oscar_Pistorius_Nigel_Levine", 0, {"label": "Men's 400m", "sub": "Olympic semi-final · London 2012", "tag": "Photo · London 2012"}),
     (149.28, "a", rl("itn_400semi_qual"), 14.5, {"e": 18.5}),                                 # "made it out his heat"
@@ -146,7 +146,7 @@ SHOTS = [
     (269.54, "f", rl("ap_court_aug2013"), 67.0, {"e": 79.5, **REEVA}),
     (275.06, "f", rl("euronews_cries"), 57.0, {"e": 60.0, "tag": "Reeva Steenkamp", **REEVA}),
     (277.46, "f", rl("euronews_cries"), 1.0, {"e": 13.0}),                                    # "charged with murder"
-    (280.8, "f", rl("citypress_court_feb15"), 24.0, {"e": 30.0, "tag": "Pretoria · 15 Feb 2013"}),
+    (280.8, "p", "Cape_Times_newspaper_poster_dated_15_February_2013_about_the", 0, {"label": "Cape Times", "sub": "15 February 2013", "tag": "Photo · Feb 2013"}),
     (283.90, "f", rl("cgtn_house_arrest"), 7.0, {"e": 13.0, "cb": 0.24}),                     # "did he really think..."
     # ---- 06 the trial
     (286.98, "f", rl("ap_reenactment"), 41.0, {"e": 44.0, "tag": "North Gauteng High Court · 2014"}),

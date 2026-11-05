@@ -252,7 +252,7 @@ def verdict1(t, dur):
         kk = eo(seg(t, t0, t0 + 0.5))
         if kk <= 0: continue
         y = 420 + i * 170
-        d.rectangle([160, y, 1400 * kk, y + 130], fill=(8, 10, 22), outline=col, width=3)
+        d.rectangle([160, y, 160 + 1240 * kk, y + 130], fill=(8, 10, 22), outline=col, width=3)
         text(d, (200, y + 30), a, 58, WHITE, "Black", alpha=kk)
         text(d, (1340, y + 36), b, 52, col, "Black", anchor="ra", alpha=kk)
     text(d, (160, 800), "CULPABLE HOMICIDE ≈ MANSLAUGHTER", 32, CYAN, "Bold", alpha=eo(seg(t, 2.0, 2.6)))
