@@ -34,7 +34,7 @@ import jd_mograph as J, hud, sounds, transitions as TR
 import gfx
 
 FPS = 24
-VO = f"{P}/jon-drummond_voiceover_v3.mp3"
+VO = f"{P}/jon-drummond_voiceover_v3b.mp3"  # v3b: natural-speed phrases on the v3 timeline + warmer EQ (tools/rephrase_voiceover.py)
 END = 517.5
 OUT = f"{SCR}/output/jon-drummond_v2_master.mp4"
 
@@ -421,7 +421,7 @@ def stage_audio():
         ms = int(s * 1000); fl = fo - s
         fc.append(f"[{k}:a]aresample=48000,aformat=channel_layouts=stereo,atrim=0:{fl + 3:.2f},afade=t=in:d=1.5,afade=t=out:st={fl:.2f}:d=3,volume={g},adelay={ms}|{ms}[m{k}]")
         mus.append(f"[m{k}]"); k += 1
-    fc.append(f"{''.join(mus)}amix=inputs={len(mus)}:normalize=0[mbus]")
+    fc.append(f"{''.join(mus)}amix=inputs={len(mus)}:normalize=0,equalizer=f=220:t=q:w=1.1:g=-3.5[mbus]")  # leave room for the voice's low end
     fc.append("[mbus][sc]sidechaincompress=threshold=0.04:ratio=5:attack=25:release=450:makeup=1[mduck]")
     fx = []
     for t, name, g in SFX:
