@@ -24,7 +24,31 @@ Unscored backups in the same styles:
 - He Protested For An Hour… Then The Sport Changed Forever
 - The Most Disrespectful Protest In Track & Field History
 
-## Thumbnails (v2: high-res, layered; files in `thumbnails/` and Dropbox `/Jon Drummond/`)
+## Thumbnail v3: RECOMMENDED (niche-tested style; files in `thumbnails/` and Dropbox `/Jon Drummond/`)
+Research (vidIQ outliers, 5 Nov 2026). The thumbnails winning on athlete scandal/downfall stories:
+- "RayGun and the Story of the 'Worst Olympian Ever'" (Scandal): 373K, 7.1x. Cut-out athlete on a dark stadium, a 0-18 scoreboard, "WORST OLYMPIAN EVER?" in stacked distressed white type, red brush underline.
+- David King, "The Tragic Success Of China's Greatest Hurdler": 11x. Real moment + "HE DIDN'T WANT **THIS**".
+- CATASTROPHIYA, "They couldn't save the OLYMPIC CHAMPION": 530K, 20x. "SHE STILL **HANGS**".
+- "FRAMED" (NHRA scandal): 188x. One red-boxed word + an arrow to the proof.
+- "THE END" (Bol Bol ban), "SHE DIED INSTANTLY", "Liar." (1.1M, 27x).
+
+What the winners share:
+- One real subject, big, on a dark background.
+- One proof element.
+- 2–4 huge condensed words that ask a question the title doesn't answer.
+- One red accent, and nothing else. The busier collage style (v2) isn't what's winning.
+
+Thumbnails (script: `thumbnail_v3.py`):
+- **A `drummond_thumb_v3_A.jpg`: "WORST PROTEST EVER?"** ← use with title #1.
+  - The real Paris 2003 frame of Drummond, hands up and eyes closed ("I didn't move"), cut out over a dark Stade de France with a red backlight.
+  - An LED results board behind him reads FALSE START.
+  - Stacked distressed white type with a red brush underline.
+  - The question invites the "was he wrong or was the rule wrong?" debate that the pinned comment asks.
+- **B `drummond_thumb_v3_B.jpg`: "HE WOULDN'T / LEAVE"**, with LEAVE in glowing red. Same art. Use it as the second Test & Compare option, or pair it with title #3 ("The Sprinter Who Stopped The World Championships For An Hour").
+
+Both read clearly at phone and sidebar size. Upload A and B (plus v2 #1 if you want a third) in YouTube Studio → **Test & Compare**.
+
+## Thumbnails v2 (high-res, layered; files in `thumbnails/` and Dropbox `/Jon Drummond/`)
 How they're built: the real broadcast frames were upscaled 3x with Topaz "Recover 3", a faithful restoration that keeps his real face (in the ElevenLabs flow "Jon Drummond thumbnails"). The "Redefine" mode was rejected because it changed his face. BiRefNet makes the cut-out. Rendered at 2560x1440 and saved at 1280x720. Script: `thumbnail_v2.py`.
 - **1 `drummond_thumb_v2_1.jpg`: Protest vs Ban** ← recommended with title #1.
   - Cut-out of Drummond, hands up ("I didn't move"), with a white sticker outline and cyan glow, over the Stade de France (Paris 2003).
