@@ -31,6 +31,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("raw"); ap.add_argument("timeline"); ap.add_argument("out")
     ap.add_argument("--tempo", type=float, default=0.95)
+    ap.add_argument("--max-tempo", type=float, default=1.08)
     ap.add_argument("--gap", type=float, default=0.2, help="pause (s) that splits phrases")
     ap.add_argument("--total", type=float, default=0)
     a = ap.parse_args()
@@ -90,8 +91,8 @@ def main():
             nstart = nxt["t_anchor"] - (nxt["r_anchor"] - nxt["cs"]) / a.tempo
             room = nstart - start
             need = len(seg) / SR / tempo
-            if need > room:
-                tempo = min(1.0, len(seg) / SR / max(room, 0.05)); fast += 1
+            if need > room:  # allow a slight speed-up (max 1.08) before ever trimming
+                tempo = min(a.max_tempo, len(seg) / SR / max(room, 0.05)); fast += 1
                 start = p["t_anchor"] - (p["r_anchor"] - p["cs"]) / tempo
                 over = len(seg) / SR / tempo - (nstart - start)
                 if over > 0.01: tight += 1; print(f"  overlap {over:.2f}s at {start:.1f}s: {p['text'][:60]}")
@@ -103,7 +104,7 @@ def main():
         if len(y) > 2 * f:
             y[:f] *= np.linspace(0, 1, f); y[-f:] *= np.linspace(1, 0, f)
         i0 = max(0, int(start * SR)); buf[i0:i0 + len(y)] += y[:len(buf) - i0]
-    print(f"{len(plan)} phrases placed; {fast} sped up toward 1.0 to fit; {tight} still overlap slightly")
+    print(f"{len(plan)} phrases placed; {fast} sped up (max --max-tempo) to fit; {tight} still overlap slightly")
     buf = buf[:int(total * SR)]
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-f", "f32le", "-ar", str(SR), "-ac", "1", "-i", "-", "-c:a", "pcm_s16le", a.out],
                    input=np.clip(buf, -1, 1).tobytes(), check=True)

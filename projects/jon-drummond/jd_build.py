@@ -34,7 +34,7 @@ import jd_mograph as J, hud, sounds, transitions as TR
 import gfx
 
 FPS = 24
-VO = f"{P}/jon-drummond_voiceover_v3b.mp3"  # v3b: natural-speed phrases on the v3 timeline + warmer EQ (tools/rephrase_voiceover.py)
+VO = f"{P}/jon-drummond_voiceover_v4.mp3"  # v4: regenerated (stability 0.45, fixed spellings), phrases placed on the v3 timeline, warm EQ
 END = 517.5
 OUT = f"{SCR}/output/jon-drummond_v2_master.mp4"
 
