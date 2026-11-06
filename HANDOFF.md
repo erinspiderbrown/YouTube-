@@ -14,6 +14,7 @@ The user said: "Disregard the Marion Jones video. Just focus on this video." The
   - Music `music/M1_dark.mp3`, `M2_verdict.mp3`. SFX in `sfx/`.
   - Build: `sf_build.py` (+ `sf_gfx.py`), Jxmy style, 6:15, with 5 real audio bites from Foster's own 2024 doc.
   - Thumbnails `thumbnail_v1.py` (A/B/C). Upload package `youtube_upload.md`.
+  - **Delivered 6 Nov 2026:** 1080p (202 MB) + thumbnails A/B/C in Dropbox `/Shea Foster/`. Waiting on the user's review.
 - **Faces:** every runner except Foster is blurred. Foster is the bleached-blond runner holding the 3rd-place trophy in 17.jpg/20.jpg (face-matched with SFace).
 - **Media not in git:** scratchpad `shea/` (dropbox photos, `real/` clips: NGTF bCnvO33Dcn0, 6LAX0Cp96Zw, jhbWcMw03Zo, hyTTK0DXCv0; `assets/`, `ai/`).
 - Marion Jones is cancelled (keep `projects/marion-jones/style_jxmy.md` for the edit style).
