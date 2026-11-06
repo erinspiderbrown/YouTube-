@@ -15,7 +15,7 @@ The user said: "Disregard the Marion Jones video. Just focus on this video." The
   - Build: `sf_build.py` (+ `sf_gfx.py`), Jxmy style, 6:15, with 5 real audio bites from Foster's own 2024 doc.
   - Thumbnails `thumbnail_v1.py` (A/B/C). Upload package `youtube_upload.md`.
   - **Delivered 6 Nov 2026:** 1080p (202 MB) + thumbnails A/B/C in Dropbox `/Shea Foster/`. User approved ("Absolute cinema"), picked thumbnail A. The user will upload it themselves (no scheduling). Dropbox /Shea Foster/ also has shea_foster_youtube_upload.txt (title, description, tags, pinned comment).
-  - TikTok cut (6 Nov): `tt_build.py`, 1080x1920, full 16:9 frame fit to width (no crop), hook title on top, word-by-word captions below. In Dropbox: shea_foster_tiktok_v1.mp4 + shea_foster_tiktok_caption.txt.
+  - TikTok cut v2 (6 Nov): `sf_vertical.py` (native 1080x1920, blurred fill, no black) + `tt_build.py` (title + captions). In Dropbox: shea_foster_tiktok_v2_fullscreen.mp4 + shea_foster_tiktok_caption.txt. (v1 had black bars; user rejected that: see the CLAUDE.md TikTok rule.)
 - **Faces:** every runner except Foster is blurred. Foster is the bleached-blond runner holding the 3rd-place trophy in 17.jpg/20.jpg (face-matched with SFace).
 - **Media not in git:** scratchpad `shea/` (dropbox photos, `real/` clips: NGTF bCnvO33Dcn0, 6LAX0Cp96Zw, jhbWcMw03Zo, hyTTK0DXCv0; `assets/`, `ai/`).
 - Marion Jones is cancelled (keep `projects/marion-jones/style_jxmy.md` for the edit style).
@@ -27,7 +27,7 @@ The user said: "Disregard the Marion Jones video. Just focus on this video." The
   - 51 real clips and 13 Commons photos found. Every source and link is in `credits.md`.
 - **Voiceover approved:** the user said "keep going".
 - **Edit v1 done (5 Nov 2026):** `op_build.py` (7:56), thumbnail `thumbnail_v1.py`, `youtube_upload.md`. 1080p + thumbnails are in Dropbox `/Oscar Pistorius/`. User approved ("Absolute cinema"), picked thumbnail A. The user will upload it themselves (no scheduling). Dropbox /Shea Foster/ also has shea_foster_youtube_upload.txt (title, description, tags, pinned comment).
-  - TikTok cut (6 Nov): `tt_build.py`, 1080x1920, full 16:9 frame fit to width (no crop), hook title on top, word-by-word captions below. In Dropbox: shea_foster_tiktok_v1.mp4 + shea_foster_tiktok_caption.txt.
+  - TikTok cut v2 (6 Nov): `sf_vertical.py` (native 1080x1920, blurred fill, no black) + `tt_build.py` (title + captions). In Dropbox: shea_foster_tiktok_v2_fullscreen.mp4 + shea_foster_tiktok_caption.txt. (v1 had black bars; user rejected that: see the CLAUDE.md TikTok rule.)
   - To rebuild in a new chat: re-import the clips (credits.md) into scratchpad `pistorius/real/`, the photos into `pistorius/photos/`, fix the `SCR` path at the top of `op_build.py`, then `python3 -I projects/oscar-pistorius/op_build.py`. Needs `pip install opencv-python-headless`.
 - **Next:**
   1. Build the edit the same way as `projects/jon-drummond/jd_build.py`: real footage timed to the voiceover, neon look (`tools/neon.py`, `tools/hud.py`), music bed under the voice, SFX.
