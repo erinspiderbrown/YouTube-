@@ -1,7 +1,7 @@
 """Vertical TikTok cut of the Shea Foster video (1080x1920), with nothing cropped.
 
-The full 16:9 master is scaled to the frame width and centred. A hook title sits above it and big word-by-word
-captions sit below it. Everything stays inside TikTok's safe area: clear of the top tabs, the right-hand
+Input is the native vertical master from sf_vertical.py: no black anywhere, the 16:9 picture uncropped over a blurred
+fill. This pass adds the hook title at the top and big word-by-word captions below the picture. Everything stays inside TikTok's safe area: clear of the top tabs, the right-hand
 button column and the bottom caption bar.
 
 Run after sf_build.py:  python3 projects/shea-foster/tt_build.py
@@ -13,7 +13,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import sf_build as S
 
 P = S.P
-MASTER = f"{P}/out/shea_foster_v1.mp4"
+MASTER = f"{P}/out/shea_foster_v1_vertical_master.mp4"   # from sf_vertical.py (already 1080x1920, no black)
 OUT = f"{P}/out/shea_foster_tiktok_v1.mp4"
 R = S.R
 VW, VH, VY = 1080, 608, 640           # video box inside the 1080x1920 frame
@@ -114,8 +114,8 @@ Style: Title,Inter Display Black,82,&H00FFFFFF,&H00FFFFFF,&H00000000,&H96000000,
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
 """
-    ev = [f"Dialogue: 1,{ass_time(0)},{ass_time(end)},Title,,0,0,0,,{{\\pos(540,400)}}{TITLE[0]}",
-          f"Dialogue: 1,{ass_time(0)},{ass_time(end)},Title,,0,0,0,,{{\\pos(540,500)\\c&H00D7FF&}}{TITLE[1]}"]
+    ev = [f"Dialogue: 1,{ass_time(0)},{ass_time(end)},Title,,0,0,0,,{{\\pos(540,310)}}{TITLE[0]}",
+          f"Dialogue: 1,{ass_time(0)},{ass_time(end)},Title,,0,0,0,,{{\\pos(540,405)\\c&H00D7FF&}}{TITLE[1]}"]
     chs = chunks(words)
     for ci, ch in enumerate(chs):
         nxt = chs[ci + 1][0][1] - 0.05 if ci + 1 < len(chs) else end
@@ -138,8 +138,7 @@ def main():
     json.dump(words, open(f"{R}/tt_words.json", "w"))
     ass = f"{R}/tt_captions.ass"
     print("caption events", build_ass(words, ass, S.END))
-    vf = (f"[0:v]scale={VW}:{VH}:flags=lanczos,setsar=1,pad=1080:1920:0:{VY}:black,"
-          f"ass={ass}:fontsdir=/usr/share/fonts/opentype/inter,format=yuv420p[v]")
+    vf = f"[0:v]ass={ass}:fontsdir=/usr/share/fonts/opentype/inter,format=yuv420p[v]"
     S.run(["ffmpeg", "-v", "error", "-y", "-i", MASTER, "-filter_complex", vf, "-map", "[v]", "-map", "0:a",
            "-c:v", "libx264", "-preset", "slow", "-crf", "18", "-profile:v", "high", "-r", "30",
            "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart", OUT])

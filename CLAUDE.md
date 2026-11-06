@@ -39,6 +39,13 @@ Every video is one of these two. Ask which one if it isn't clear.
 - Keep the music bed under the voice: it masks AI artifacts in the cloned voice.
 - **Thumbnails:** copy the style of the thumbnail the user published for Jon Drummond ("HE WOULDN'T LEAVE."): the real key moment full-frame and sharp, a short white black-italic statement top-left with a period (Inter Display Black Italic), and one real photo inset in a white border bottom-left. The user rejected cut-outs on fake backdrops, glows, light rays and arrows ("it's not it"). Template: `projects/oscar-pistorius/thumbnail_v2.py`.
 
+## TikTok / vertical versions (user rule, 6 Nov 2026)
+- 1080x1920, and the **whole screen must be filled: no black space anywhere**, ever (no letterbox bars, no black title cards).
+- Don't crop the main content to fill the frame either: the user rejected the Drummond TikTok because things were cut off and too big.
+- Fill the frame with a blurred background of the same shot, or a split layout (scene on top, info/captions or a second related shot below) when that makes sense. Keep it high quality.
+- Hook title at the top, big word-by-word captions below the footage, all inside TikTok's safe area (clear of the top tabs, the right-hand button column and the bottom caption bar).
+- Reference build: `projects/shea-foster/sf_vertical.py` + `tt_build.py`.
+
 ## Reference examples
 - `examples/podcast/`: example videos/clips for podcast style.
 - `examples/documentary/`: example videos/clips for documentary style.

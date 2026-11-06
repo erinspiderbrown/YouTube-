@@ -50,10 +50,19 @@ def big(text, label=None, size=230, label_above=False):
     y = (H - th) // 2 - bb[1] - (30 if label else 0)
     d.text(((W - tw) // 2 - bb[0], y), text, font=f, fill=(255, 255, 255, 255))
     if label:
-        lf = _fit(label, "Bold", 46, W - 260)
-        lw = lf.getlength(label)
+        lf = font("Bold", 46 if W > 1500 else 52)
+        lines, cur = [], ""
+        for wd in label.split(" "):
+            t2 = (cur + " " + wd).strip()
+            if lf.getlength(t2) > W - 200 and cur:
+                lines.append(cur); cur = wd
+            else:
+                cur = t2
+        lines.append(cur)
         ly = y + bb[1] - 80 if label_above else y + bb[3] + 40
-        d.text(((W - lw) // 2, ly), label, font=lf, fill=(255, 255, 255, 235))
+        for ln in lines:
+            d.text(((W - lf.getlength(ln)) // 2, ly), ln, font=lf, fill=(255, 255, 255, 235))
+            ly += int(lf.size * 1.25)
     return _shadow(im)
 
 
@@ -128,7 +137,8 @@ def doc(source, text, highlights=(), width=1360, size=50, title=None):
         hl = any(marks[pos:pos + len(wd)])
         toks.append((wd, hl))
         pos += len(wd) + 1
-    pad = 70
+    width = min(width, W - 60)
+    pad = 70 if W > 1500 else 56
     inner = width - 2 * pad
     lines, cur, cw = [], [], 0
     sp = f.getlength(" ")
