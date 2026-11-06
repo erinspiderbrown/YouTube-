@@ -1,4 +1,4 @@
-# Handoff: where things stand (updated 5 Nov 2026)
+# Handoff: where things stand (updated 6 Nov 2026)
 
 To continue in a new chat:
 1. Open the repo `erinspiderbrown/YouTube-` on branch **`claude/blissful-euler-adwpg2`**.
@@ -6,7 +6,19 @@ To continue in a new chat:
 
 Everything below is committed on that branch, except large media, which lives on the session's machine and is listed with how to get it back.
 
-## Current job: Oscar Pistorius documentary (`projects/oscar-pistorius/`)
+## Current job: Shea Foster documentary (`projects/shea-foster/`), started 6 Nov 2026
+The user said: "Disregard the Marion Jones video. Just focus on this video." They asked me to build the whole thing overnight.
+- **Done:**
+  - Script `script_v2.md`: Southern read; the drawer/EPO story is told first-person from the user's talks with his teammates.
+  - Voiceover `voiceover/sf_vo_full.mp3` (5:32). ElevenLabs flow pPXcfbuQkzpC0Af2Kib8, nodes "SF 01–07".
+  - Music `music/M1_dark.mp3`, `M2_verdict.mp3`. SFX in `sfx/`.
+  - Build: `sf_build.py` (+ `sf_gfx.py`), Jxmy style, 6:15, with 5 real audio bites from Foster's own 2024 doc.
+  - Thumbnails `thumbnail_v1.py` (A/B/C). Upload package `youtube_upload.md`.
+- **Faces:** every runner except Foster is blurred. Foster is the bleached-blond runner holding the 3rd-place trophy in 17.jpg/20.jpg (face-matched with SFace).
+- **Media not in git:** scratchpad `shea/` (dropbox photos, `real/` clips: NGTF bCnvO33Dcn0, 6LAX0Cp96Zw, jhbWcMw03Zo, hyTTK0DXCv0; `assets/`, `ai/`).
+- Marion Jones is cancelled (keep `projects/marion-jones/style_jxmy.md` for the edit style).
+
+## Done earlier: Oscar Pistorius (`projects/oscar-pistorius/`)
 - **Done:**
   - Fact-checked script, approved by the user (`script_v1.md`, sources in `README.md`).
   - Full voiceover, approved style: `oscar-pistorius_voiceover_v1.mp3` (7:50), word timings in `vo_v1_words.json`. Built with `tools/space_voiceover.py`; ElevenLabs flow "Oscar Pistorius documentary voiceover".
