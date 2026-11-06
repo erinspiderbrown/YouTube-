@@ -50,7 +50,7 @@ Voice:
 
 [calm] [relaxed] [Texas accent] Coma. Broke his spine. Paralyzed from the waist down. They had to fuse his spine back together… eight screws and four rods.
 
-(REAL AUDIO: Foster: "I asked the doctors when was I gonna be able to run again… he said you'll be lucky enough if you're able to walk again.")
+(REAL AUDIO: Foster: "I asked the doctors when was I gonna be able to run again… she said you'll be lucky enough if you're able to walk again.")
 
 [calm] [relaxed] [Texas accent] Five months later… he out there racin' at the NCAA cross country championships for Oklahoma State. Twenty-seventh. All-American again. And Oklahoma State finished third in the country.
 
