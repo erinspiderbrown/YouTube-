@@ -28,6 +28,7 @@ All clips were imported through vidIQ from the public YouTube uploads below. The
 ## Thumbnail photos (Wikimedia Commons, all by Quejaytee, CC BY-SA 4.0)
 - Doris Lemngole, Weltklasse Zürich 2026, files 01 and 03: https://commons.wikimedia.org/wiki/File:Doris_Lemngole_at_the_2026_Wanda_Diamond_League%E2%80%99s_Weltklasse_Z%C3%BCrich_athletics_competition._01.jpg
 - Faith Cherotich wins the 3000m steeplechase, Zürich 2026: https://commons.wikimedia.org/wiki/File:Faith_Cherotich_wins_the_3000_meter_steeplechase_at_the_2026_Wanda_Diamond_League%E2%80%99s_Weltklasse_Z%C3%BCrich_athletics_competition_06.jpg
+- Kipchoge thumbnails (D2a/D2b): a 1080p frame from youthrunnermag's 2024 NCAA Mountain Regional interview, https://youtu.be/gHvSTQ1nQ0A
 - Inset frames come from the NCAA Championships race upload and the WSU WCC 2025 race (see Footage).
 
 ## On-screen comments

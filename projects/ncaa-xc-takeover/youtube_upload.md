@@ -19,6 +19,8 @@
 - B "WHAT RULE?": celebrating Lemngole, with the real "Not guests." comment circled.
 - C "IMPORTED?": Lemngole and Cherotich finishing 1-2, with the real "imported from Africa" comment circled.
 - D "28 YEARS OLD. FRESHMAN.": Kipchoge in WSU kit (720p broadcast frame), with an inset of the NCAA trophy start line.
+- **D2a "28 YEAR OLD FRESHMAN?"** (redesign of D, `thumbnail_kip.py`): sharp 1080p cut-out of Kipchoge in his Texas Tech beanie from the Nov 2024 regional, a giant yellow 28 and a red FRESHMAN? bar, on a Texas Tech red background.
+- **D2b "AGE 28. COLLEGE FRESHMAN."**: the same cut-out on a blurred background, with a red LEGAL? badge.
 - E "NO AGE LIMIT.": Kipchoge (720p frame), with the Samuel champion inset.
 - F, no text, in the Pistorius collage style: Lemngole and Samuel, with the comment card in the middle.
 
