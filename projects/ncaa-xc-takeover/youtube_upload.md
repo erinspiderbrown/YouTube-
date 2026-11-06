@@ -38,7 +38,7 @@ Every option below uses the 1080p Texas Tech-era interview face (youthrunnermag,
 ## Final upload
 - Title: **College Has No Age Limit. So Why Is Everyone Mad?**
 - Thumbnail: K2 (18 struck out, 28 circled, COLLEGE FRESHMAN)
-- Scheduled: Sun 8 Nov 2026, 6:00 AM Central (12:00 UTC); category Sports
+- Scheduled: Sun 8 Nov 2026, 6:00 AM Mountain (13:00 UTC); category Sports
 
 ## Description
 They won the 2025 NCAA cross country championships, and the comments lost it. "Should only be open to Americans." "No birth certificate." "Imported."
