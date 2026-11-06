@@ -2,6 +2,8 @@
 
 Working title: **She Won 5 Olympic Medals… Then Went To Prison** (vidIQ 92)
 
+Edit style: JxmyHighroller (see `style_jxmy.md`). Lines in (REAL AUDIO: …) are archive sound the narration pauses for; they are not read.
+
 Style and settings, the same as the approved Pistorius and Drummond v4 reads:
 - `[calm] [relaxed] [Texas accent]` on every paragraph.
 - eleven_v4, stability 0.45, similarity 0.85.
@@ -17,11 +19,15 @@ Words to check in the first test read:
 - Tulsa
 
 ## 01 Cold open
-[calm] [relaxed] [Texas accent] Aight, so check it. October 2007. White Plains, New York. A woman walk out a federal courthouse, step up to a wall of microphones… and she start cryin'.
+(REAL AUDIO: Marion Jones outside the White Plains courthouse, 5 Oct 2007: "I have let them down. I have let my country down. And I have let myself down." Narration starts after.)
 
-[calm] [relaxed] [Texas accent] Seven years before that, she was the fastest woman on the planet. Sydney Olympics. Five medals. Three of 'em gold. Her face was on magazine covers, commercials… everywhere.
+[calm] [relaxed] [Texas accent] You see this woman right here? Seven years before this moment, she was the fastest woman on the planet.
 
-[pause] [calm] [relaxed] [Texas accent] And now she standin' there tellin' the whole world she lied.
+[calm] [relaxed] [Texas accent] Sydney Olympics. Five medals. Three of 'em gold. Her face was on magazine covers, commercials… everywhere.
+
+(REAL AUDIO: Sydney 2000 100m final, commentator's call at the finish.)
+
+[pause] [calm] [relaxed] [Texas accent] And now she standin' outside a federal courthouse tellin' the whole world she lied.
 
 [calm] [relaxed] [Texas accent] Her name is Marion Jones. And three months after that press conference… a judge sent her to prison.
 
