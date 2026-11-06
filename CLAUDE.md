@@ -37,6 +37,7 @@ Every video is one of these two. Ask which one if it isn't clear.
   - AI or stock clips only fill gaps.
 - **Look:** futuristic **neon that pops**: glow/bloom, cyan + orange neon, HUD tags on archival footage, neon-framed photo cards. See `tools/neon.py` and `projects/jon-drummond/`.
 - Keep the music bed under the voice: it masks AI artifacts in the cloned voice.
+- **Thumbnails:** copy the style of the thumbnail the user published for Jon Drummond ("HE WOULDN'T LEAVE."): the real key moment full-frame and sharp, a short white black-italic statement top-left with a period (Inter Display Black Italic), and one real photo inset in a white border bottom-left. The user rejected cut-outs on fake backdrops, glows, light rays and arrows ("it's not it"). Template: `projects/oscar-pistorius/thumbnail_v2.py`.
 
 ## Reference examples
 - `examples/podcast/`: example videos/clips for podcast style.

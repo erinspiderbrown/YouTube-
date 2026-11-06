@@ -64,9 +64,6 @@ Nothing guarantees a viral video. These are the bets with the most proof behind 
 
 ## Rules for every one of these
 - **Title:** name or role, then the fall, then a twist ("…Then Went To Prison"). Never a race recap title.
-- **Thumbnail:**
-  - The sharpest real photo or frame of the person's face, cut out on a dark background.
-  - One proof element (a mugshot, stamp, scoreboard, document).
-  - 2–4 huge words, plus one arrow or circle.
+- **Thumbnail:** see CLAUDE.md. Use the real moment full-frame, a short white italic statement and a real inset. No cut-outs or arrows.
 - **Footage:** real footage first. Import broadcast clips through vidIQ and pull Commons photos for credits, the same as the Drummond workflow.
 - Post sensitive deaths and crimes respectfully: facts, sources and dates on screen.
