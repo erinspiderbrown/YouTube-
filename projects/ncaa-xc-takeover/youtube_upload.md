@@ -24,6 +24,17 @@
 - E "NO AGE LIMIT.": Kipchoge (720p frame), with the Samuel champion inset.
 - F, no text, in the Pistorius collage style: Lemngole and Samuel, with the comment card in the middle.
 
+## Thumbnails v3: Kipchoge, built from the niche's breakout patterns (`thumbnail_kip2.py`)
+Studied 16 breakout thumbnails from track story and commentary channels (Track Legends Rewind 386x, Bodega Track 329x, Speed Academics 1088x, Golden Legacies, Coach Rob, Eamonn Kichuk, plus the competing "Did International Athletes Ruin the NCAA?"). What they share:
+- one big sharp emotional face on a blurred natural background
+- 1–3 huge words
+- a news-style white bottom banner in tall bold type with a small red tag
+- two-face or VS contrast, or a red circle/strike
+Every option below uses the 1080p Texas Tech-era interview face (youthrunnermag, https://youtu.be/gHvSTQ1nQ0A).
+- **K1 "LEGAL?" + news banner "HE'S 28… AND A FRESHMAN."** over his real 2024 regional race, blurred (Makosh Official, https://youtu.be/_nQhvRsfULo), with a red "TEXAS TECH · 2024" tag.
+- **K2 "18 → 28 · COLLEGE FRESHMAN"**: 18 struck out in red, 28 circled in yellow, over his own interview background blurred.
+- **K3 "FRESHMAN?!" + yellow "AGE: 28" pill** over the race background.
+
 ## Description
 They won the 2025 NCAA cross country championships, and the comments lost it. "Should only be open to Americans." "No birth certificate." "Imported."
 
