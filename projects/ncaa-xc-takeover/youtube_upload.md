@@ -35,6 +35,11 @@ Every option below uses the 1080p Texas Tech-era interview face (youthrunnermag,
 - **K2 "18 → 28 · COLLEGE FRESHMAN"**: 18 struck out in red, 28 circled in yellow, over his own interview background blurred.
 - **K3 "FRESHMAN?!" + yellow "AGE: 28" pill** over the race background.
 
+## Final upload
+- Title: **College Has No Age Limit. So Why Is Everyone Mad?**
+- Thumbnail: K2 (18 struck out, 28 circled, COLLEGE FRESHMAN)
+- Scheduled: Sun 8 Nov 2026, 6:00 AM Central (12:00 UTC); category Sports
+
 ## Description
 They won the 2025 NCAA cross country championships, and the comments lost it. "Should only be open to Americans." "No birth certificate." "Imported."
 
@@ -46,13 +51,13 @@ But what rule did the African runners actually break? College has no age limit, 
 - what to watch at nationals on November 21
 
 0:00 2025 Nationals: Eritrea, Kenya, Morocco
-1:09 This Ain't New: Henry Rono
-1:48 The 28-Year-Old Freshman
-3:00 A Better Situation
-3:53 The Hate
-5:32 The Doping Double Standard
-8:10 The NCAA Changed The Rules
-8:47 November 21st
+1:16 This Ain't New: Henry Rono
+2:00 The 28-Year-Old Freshman
+3:20 A Better Situation
+4:20 The Hate
+6:11 The Doping Double Standard
+9:09 The NCAA Changed The Rules
+9:52 November 21st
 
 Sources:
 - 2025 NCAA DI XC results: https://en.wikipedia.org/wiki/2025_NCAA_Division_I_Cross_Country_Championships
