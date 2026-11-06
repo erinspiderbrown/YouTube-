@@ -30,9 +30,9 @@ import ncaa_mograph as J, hud, sounds, transitions as TR
 import gfx
 
 FPS = 24
-VO = f"{P}/ncaa-xc_voiceover_v4.mp3"  # v4: Kenya/Kenyan respelled "Kinya/Kinyan" (user: Texas pronunciation), else as v3
+VO = f"{P}/ncaa-xc_voiceover_v5.mp3"  # v5: v4 with each "Kinya/Kinyan" said slower (atempo 0.8 on just those words, tools/slow_words.py)
 END_V1 = 596.2
-OUT = f"{SCR}/output/ncaa-xc_v4_master.mp4"; os.makedirs(os.path.dirname(OUT), exist_ok=True)
+OUT = f"{SCR}/output/ncaa-xc_v5_master.mp4"; os.makedirs(os.path.dirname(OUT), exist_ok=True)
 
 def run(cmd):
     r = subprocess.run(cmd, capture_output=True, text=True)
@@ -106,7 +106,7 @@ MUSIC = [  # (file, start, gain, fade_out_at)
 ]
 
 # ---- v2 retime: every time above was set against the v1 voiceover; T() maps v1 time -> v2 time (word-aligned)
-_TM = np.array(json.load(open(f"{P}/vo_timemap_v1_to_v4.json")))
+_TM = np.array(json.load(open(f"{P}/vo_timemap_v1_to_v5.json")))
 def T(x):
     if x <= _TM[-1, 0]: return float(np.interp(x, _TM[:, 0], _TM[:, 1]))
     return float(_TM[-1, 1] + (x - _TM[-1, 0]))
