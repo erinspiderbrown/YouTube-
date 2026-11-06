@@ -3,11 +3,24 @@
 **Publish before Sat 21 Nov 2026**, the date of the NCAA DI cross country championships in Terre Haute.
 
 ## Titles (vidIQ score for this channel)
-1. **Why Is Everyone Mad At The Kenyans In College Running? (93)** ← recommended. It fits the video's side and the "who's mad and why" hook.
-2. Why Americans Can't Win College Cross Country Anymore (94). The highest score, but it frames the story from the critics' side.
-3. The 28-Year-Old Freshman Who Broke College Running (91)
-4. They Broke No Rules. America Got Mad Anyway. (90)
-5. Africans Took Over College Running… So The NCAA Changed The Rules (86)
+1. **College Has No Age Limit. So Why Is Everyone Mad? (95)** ← top score; pairs with thumbnail E or D
+2. Why Americans Can't Win College Cross Country Anymore (94). Frames it from the critics' side.
+3. Why Is Everyone Mad At The Kenyans In College Running? (93). Pairs with B or F.
+4. The Comments Called Them "Imported." Here's The Truth. (93). Pairs with C.
+5. The 28-Year-Old Freshman Who Broke College Running (91). Pairs with D.
+6. They Broke No Rules. America Got Mad Anyway. (90). Pairs with A.
+7. They Didn't Cheat. They Just Kept Winning. (90)
+8. They Kept Winning. So America Changed The Rules. (89)
+9. America Is Mad Kenyans Keep Winning College Races (88)
+10. Africans Took Over College Running… So The NCAA Changed The Rules (86)
+
+## Thumbnail options v2 (`thumbnails_v2.py`, styled after the Drummond and Pistorius thumbnails)
+- A "THEY BROKE NO RULES.": stone-faced Lemngole, with an inset of Habtom Samuel's "2025 NCAA Men's XC Champion" interview frame.
+- B "WHAT RULE?": celebrating Lemngole, with the real "Not guests." comment circled.
+- C "IMPORTED?": Lemngole and Cherotich finishing 1-2, with the real "imported from Africa" comment circled.
+- D "28 YEARS OLD. FRESHMAN.": Kipchoge in WSU kit (720p broadcast frame), with an inset of the NCAA trophy start line.
+- E "NO AGE LIMIT.": Kipchoge (720p frame), with the Samuel champion inset.
+- F, no text, in the Pistorius collage style: Lemngole and Samuel, with the comment card in the middle.
 
 ## Description
 They won the 2025 NCAA cross country championships, and the comments lost it. "Should only be open to Americans." "No birth certificate." "Imported."

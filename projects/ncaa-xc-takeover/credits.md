@@ -25,6 +25,11 @@ All clips were imported through vidIQ from the public YouTube uploads below. The
 - Ed Eyestone, by Ericmmartineau, CC BY-SA 3.0: https://commons.wikimedia.org/wiki/File:Ed_Eyestone.jpg
 - Erriyon Knighton, Eugene 2022, by Erik van Leeuwen, CC0: https://commons.wikimedia.org/wiki/File:Erriyon_Knighton_(cropped)_Eugene_2022.jpg
 
+## Thumbnail photos (Wikimedia Commons, all by Quejaytee, CC BY-SA 4.0)
+- Doris Lemngole, Weltklasse Zürich 2026, files 01 and 03: https://commons.wikimedia.org/wiki/File:Doris_Lemngole_at_the_2026_Wanda_Diamond_League%E2%80%99s_Weltklasse_Z%C3%BCrich_athletics_competition._01.jpg
+- Faith Cherotich wins the 3000m steeplechase, Zürich 2026: https://commons.wikimedia.org/wiki/File:Faith_Cherotich_wins_the_3000_meter_steeplechase_at_the_2026_Wanda_Diamond_League%E2%80%99s_Weltklasse_Z%C3%BCrich_athletics_competition_06.jpg
+- Inset frames come from the NCAA Championships race upload and the WSU WCC 2025 race (see Footage).
+
 ## On-screen comments
 Real top-level comments and replies from the official NCAA upload of the 2025 men's race (https://youtu.be/goYXdAHTpXg), fetched 5 Nov 2026. The full text, like counts and dates are in `comment_receipts.json`. Usernames are hidden on screen and the text is not edited (long comments are cut with "…").
 
