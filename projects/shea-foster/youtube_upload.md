@@ -28,6 +28,14 @@ Main frame: Foster's 2024 sit-down interview.
 
 Upload A, then B or C, in YouTube Studio → **Test & Compare**.
 
+## Thumbnails v3 (7 Nov 2026, based on a study of million-view thumbnails in the niche): `thumbnail_v3.py`
+In Dropbox `/Shea Foster/thumbnails v3/`.
+- **T2 "IT WAS HIM."** ← recommended. Full-frame OSU podium photo, Foster circled in red with an arrow (the call-out style from JxmyHighroller's 7.8M-view video). Pairs with "Who's Doping In This Photo? (You Picked Wrong)".
+- **T1 "WHO'S DOPING?"**: the same photo with no answer, a pure guessing game. Test against T2.
+- **T3 "HIS TEAMMATES KNEW."**: upgraded A2: bigger text, yellow keyword, Foster circled in the inset.
+- **T4 "PARALYZED / BANNED."**: hospital bed vs. his OSU photo in black & white, the whole arc in one look.
+Test & Compare: T2 vs T1 vs T4.
+
 ## Description
 ```
 Look at this Oklahoma State team photo. One of these runners got banned four years for blood doping. Who did you pick?
