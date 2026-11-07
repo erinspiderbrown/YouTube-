@@ -289,7 +289,7 @@ SHOTS = [
     c(489.9, "ncaa2016_100", 190, amb=1), c(492.4, "ncaa2024_100", 104, cr=E, amb=1), c(494.5, "ncaa2026_100", 178, cr=E, amb=1),
     c(496.6, "ncaa2021_100", 37, cr=E, bw=1), c(498.2, "ncaa2021_100", 200, cr=E, bw=1), c(499.0, "coleman_ban_news", 21, bw=1),
     c(499.8, "lawson_2017_interview", 95, bw=1), c(500.6, "ncaa2024_100", 230, cr=E, bw=1), c(502.2, "ncaa2026_100", 226, cr=E, amb=1),
-    c(504.0, "ncaa2026_100", 247, cr=E, sp=0.6), c(509.4, "ncaa2016_100", 182, amb=1), c(511.3, "VERDICT2", 0),
+    c(504.0, "ncaa2026_100", 240, cr=E, sp=0.6), c(509.4, "ncaa2016_100", 182, amb=1), c(511.3, "VERDICT2", 0),
     c(514.3, "ncaa2025_100", 190, cr=E, bw=1, sp=0.5),
 ]
 VERDICT_SEQ = [(0, None), (467.0 - 464.4, 1), (469.8 - 464.4, 8), (474.0 - 464.4, 7), (476.6 - 464.4, 3), (480.2 - 464.4, 0),
@@ -394,7 +394,7 @@ def card_base(src, ss, out):
 
 def render_shot(i, sh, t1):
     out = f"{R}/shots/{i:03d}.mp4"
-    dur = round(t1 - sh["t"], 3)
+    dur = (round(t1 * FPS) - round(sh["t"] * FPS)) / FPS  # frame-exact so the picture never drifts from the voice
     key = json.dumps([sh, dur, [o for o in OVER if o[0] < t1 and o[1] > sh["t"]]], sort_keys=True, default=str)
     stamp = f"{out}.key"
     if os.path.exists(out) and os.path.exists(stamp) and open(stamp).read() == key: return out
@@ -463,7 +463,7 @@ def stage_shots():
     from concurrent.futures import ThreadPoolExecutor
     # grids first (sequential, PIL heavy) so the parallel ffmpeg pass never races on them
     for i, sh, t1 in shot_list():
-        if sh["src"] == "GRID": grid_step(sh["ss"], round(t1 - sh["t"], 3))
+        if sh["src"] == "GRID": grid_step(sh["ss"], (round(t1 * FPS) - round(sh["t"] * FPS)) / FPS)
     with ThreadPoolExecutor(6) as ex:
         list(ex.map(lambda a: render_shot(*a), shot_list()))
     print("shots", len(SHOTS))
