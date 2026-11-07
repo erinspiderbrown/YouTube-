@@ -6,9 +6,18 @@ Video: `out/shea_foster_v1.mp4` (6:15).
 ## Title
 **Everyone Was Watching The Wrong Runner**
 
-Alternates:
-- His Teammates Found EPO In His Drawer… Nobody Said A Word
-- From Paralyzed To Team USA… Then Banned 4 Years
+Alternates, scored with vidIQ on your channel (7 Nov 2026):
+| Score | Title |
+|---|---|
+| 97 | If He Was African, Everybody Would Be Talking About This |
+| 96 | Who's Doping In This Photo? (You Picked Wrong) |
+| 95 | I Raced Against Him. I Knew Something Was Off. (only if you raced in the same event; otherwise "I Watched Him Run. I Knew Something Was Off.") |
+| 94 | He Went From Paralyzed To Team USA… Then Got Banned For Doping |
+| 89 | Everyone Was Watching The Wrong Runner (current) |
+| 87 | His Teammates Found EPO In His Drawer… Nobody Said A Word |
+| 86 | The Miracle Comeback Was A Lie |
+| 84 | The NCAA Doping Scandal Nobody Talked About |
+Rejected (not accurate): "He Faked A Paralympic Miracle" (the injury was real) and "…Was Doping The Whole Time" (not proven).
 
 ## Thumbnails (Drummond published style: real frame, white black-italic statement, one real inset)
 Main frame: Foster's 2024 sit-down interview.
