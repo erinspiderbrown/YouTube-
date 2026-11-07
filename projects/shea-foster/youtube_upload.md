@@ -36,6 +36,17 @@ In Dropbox `/Shea Foster/thumbnails v3/`.
 - **T4 "PARALYZED / BANNED."**: hospital bed vs. his OSU photo in black & white, the whole arc in one look.
 Test & Compare: T2 vs T1 vs T4.
 
+## Titles to pair with thumbnail T2 "IT WAS HIM." (vidIQ scores, 7 Nov 2026)
+The title should add what the thumbnail doesn't say (who he is and why it matters), not repeat "it was him".
+1. 96 Who's Doping In This Photo? (You Picked Wrong) ← recommended: the thumbnail answers the question, so the click is "why?"
+2. 97 If He Was African, Everybody Would Be Talking About This
+3. 94 He Went From Paralyzed To Team USA… Then Got Banned For Doping
+4. 92 Everyone Guessed Wrong. It Was The White Guy.
+5. 90 The Comeback Story Was Too Good To Be True
+6. 88 Nobody Thought It Would Be Him (repeats the thumbnail, weaker)
+7. 87 His Teammates Found EPO In His Drawer… Nobody Said A Word
+Careful: "He Was Paralyzed In June. All-American In November. Now We Know Why." scored 96, but it states as fact that the 2021 comeback was doping, which isn't proven.
+
 ## Description
 ```
 Look at this Oklahoma State team photo. One of these runners got banned four years for blood doping. Who did you pick?
