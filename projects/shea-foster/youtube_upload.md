@@ -12,7 +12,8 @@ Alternates:
 
 ## Thumbnails (Drummond published style: real frame, white black-italic statement, one real inset)
 Main frame: Foster's 2024 sit-down interview.
-- **A `shea_thumb_A.jpg`: "HIS TEAMMATES KNEW."** ← CHOSEN by the user (6 Nov 2026). Inset: the 2021 OSU podium photo, every face but Foster's blurred.
+- **A2 `shea_thumb_A2.jpg`: "HIS TEAMMATES KNEW."** ← CURRENT (7 Nov 2026): the user asked to unblur the faces, keep the school name visible and make Foster the highlight. The inset is 21.jpg, unblurred, with teammates dimmed and Foster bright, and "OKLAHOMA STATE · 3RD AT 2021 NCAA XC" on the frame.
+- **A `shea_thumb_A.jpg`**: the earlier version with blurred faces. Inset: the 2021 OSU podium photo, every face but Foster's blurred.
 - **B `shea_thumb_B.jpg`: "BANNED 4 YEARS."** Inset: the hospital photo after the 2021 crash.
 - **C `shea_thumb_C.jpg`: "NOBODY SAID A WORD."** Same inset as A.
 
