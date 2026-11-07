@@ -3,7 +3,7 @@
 - Title: **The Fastest Man In College Every Year Since 2016 (Where Are They Now?)** (vidIQ 99)
 - Thumbnail: D, year panels (user's pick)
 - Scheduled: Mon 9 Nov 2026, 6:00 AM Mountain (13:00 UTC); category Sports
-- Video: v1, 8:42
+- Video: v2 (test-3 voice), 8:32
 
 ## Description
 Every June somebody wins the NCAA 100m and the whole sport says "he's the next one." So I went back and checked every men's champion since 2016. One became world champion. One is banned until 2029. One lost two years to a steak. And one of them isn't here anymore.
@@ -11,17 +11,17 @@ Every June somebody wins the NCAA 100m and the whole sport says "he's the next o
 What is an NCAA title really worth?
 
 0:00 10 Men, 10 Titles
-0:38 2016: Jarrion Lawson
-1:45 2017: Christian Coleman
-2:36 2018: Cameron Burrell
-3:18 2019: Divine Oduduru
-4:05 2021: Terrance Laird
-4:52 2022: Joseph Fahnbulleh
-5:23 2023: Courtney Lindsey
-5:53 2024: Louie Hinchliffe
-6:39 2025: Jordan Anthony
-7:11 2026: Kanyinsola Ajayi
-7:43 The Verdict
+0:36 2016: Jarrion Lawson
+1:41 2017: Christian Coleman
+2:31 2018: Cameron Burrell
+3:12 2019: Divine Oduduru
+3:58 2021: Terrance Laird
+4:45 2022: Joseph Fahnbulleh
+5:15 2023: Courtney Lindsey
+5:45 2024: Louie Hinchliffe
+6:28 2025: Jordan Anthony
+7:00 2026: Kanyinsola Ajayi
+7:33 The Verdict
 
 Rest easy, Cameron Burrell. If you're struggling, you're not alone. In the US, call or text 988.
 
