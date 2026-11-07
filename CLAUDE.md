@@ -38,6 +38,18 @@ Every video is one of these two. Ask which one if it isn't clear.
 - **Look:** futuristic **neon that pops**: glow/bloom, cyan + orange neon, HUD tags on archival footage, neon-framed photo cards. See `tools/neon.py` and `projects/jon-drummond/`.
 - Keep the music bed under the voice: it masks AI artifacts in the cloned voice.
 
+## The user's voice: use this for ALL YouTube and TikTok voiceovers
+The user approved this exact setup ("test 3", Nov 2026, the NCAA 100m champions video). Don't switch back to anything proper-sounding; they reject it every time.
+- **ElevenLabs:** voice `dk6cvd5UilZRrcpZ7dNK` (Erin Brown), model `eleven_v4`, voice_settings **stability 0.25, similarity 0.8**. Pass the voice as `voice_id`, not `voice`.
+- **Tags at the start of every paragraph:** `[tellin' a story on the block] [nasal voice] [Texas street accent] [relaxed, not proper]`. For a death or tribute, swap the first tag for `[quiet, respectful]` and keep the rest.
+- **Write the script how the user talks, not proper English.** Urban, Texas, casual: "Ten dudes." "One of 'em banned 'til twenty twenty-nine." "He go pro, and two years later he world champ." "Where they at now." Drop extra verbs ("he twenty-three", "this America"), use "ain't", "gon'", "tryna", "somethin'", "'cause", "a lotta". Facts stay exactly right.
+- **Pronunciation and spelling for the voice:**
+  - Kenya / Kenyan: write **Kinya / Kinyan / Kinyans** (user says "Kin-yan", Texas). Stretch those words a little (`tools/slow_words.py`, factor 0.88).
+  - Years and times as words: "twenty sixteen", "nine eight-two", "nineteen seventy-three", "twenty-oh-six".
+  - "N C double-A", "L S U", "U S A" spelled with spaces.
+- **Pace:** `tools/space_voiceover.py --tempo-scale 0.93 --target-wpm 148 --min-tempo 0.9 --max-extra 1.2 --gap 1.3`. The user said the first takes were too fast; this is the approved speed.
+- Before a full re-record of a new style, test ~25 s first and let the user pick.
+
 ## Reference examples
 - `examples/podcast/`: example videos/clips for podcast style.
 - `examples/documentary/`: example videos/clips for documentary style.

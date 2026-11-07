@@ -15,8 +15,9 @@ SCR = "/tmp/claude-0/-home-user/9c604270-316e-5b2c-b8cd-3de373b077b3/scratchpad"
 H = f"{SCR}/hundo"; REAL = f"{H}/real"; R = f"{H}/render"; FACES = f"{H}/faces"
 for d in ("ov", "shots", "grid", "cards"): os.makedirs(f"{R}/{d}", exist_ok=True)
 SFXD = f"{ROOT}/projects/jon-drummond/sfx"
-VO = f"{P}/hundo_voiceover_v1.wav"; END = 522.0
-OUT = f"{SCR}/output/hundo_v1_master.mp4"; os.makedirs(os.path.dirname(OUT), exist_ok=True)
+VO_VER = int(os.environ.get("VO_VER", "2"))  # v2 = less-proper re-record (user picked test 3)
+VO = f"{P}/hundo_voiceover_v{VO_VER}.wav"; END = 522.0
+OUT = f"{SCR}/output/hundo_v{VO_VER}_master.mp4"; os.makedirs(os.path.dirname(OUT), exist_ok=True)
 W, Hh, FPS = 1920, 1080, 24
 ANTON = f"{ROOT}/tools/fonts/Anton-Regular.ttf"; INTER = "/usr/share/fonts/opentype/inter/InterDisplay-Black.otf"
 INTB = "/usr/share/fonts/opentype/inter/Inter-Bold.otf"
@@ -297,6 +298,20 @@ VERDICT_SEQ = [(0, None), (467.0 - 464.4, 1), (469.8 - 464.4, 8), (474.0 - 464.4
 VERDICT2_SEQ = [(0, None), (512.8 - 511.3, 2)]
 GRID_DUR = {i: (2.0 if i else 1.9) for i in range(11)}
 
+# ---- every time in this file was set against voiceover v1. T() maps v1 time -> current voiceover, anchored on the
+# start and end of each of the 191 script sentences (the v2 script keeps v1's sentences one-to-one).
+_A = [(0.0, 0.0)]
+if VO_VER != 1:
+    import json as _j
+    _s1 = _j.load(open(f"{H}/v1_sent_times.json")); _s2 = _j.load(open(f"{H}/v{VO_VER}_sent_times.json"))
+    for (a1, b1), (a2, b2) in zip(_s1, _s2): _A += [(a1, a2), (b1, b2)]
+_A.sort(); _X = np.array([a for a, _ in _A]); _Y = np.maximum.accumulate(np.array([b for _, b in _A]))
+def T(x):
+    if VO_VER == 1: return x
+    if x <= _X[-1]: return float(np.interp(x, _X, _Y))
+    return float(_Y[-1] + (x - _X[-1]))
+
+
 def pop(t0, t1, text, col=WHITE, pos="c", size=150): return (t0, t1, ("pop", text, list(col), pos, size))
 OVER = [
     pop(0.2, 1.7, "10 MEN."), pop(1.8, 3.8, "10 NATIONAL TITLES"), pop(3.9, 7.0, "10 \"FASTEST MAN IN COLLEGE\" CROWNS", size=110),
@@ -382,6 +397,14 @@ OVER = [
     pop(509.5, 511.2, "RUN IT BACK.", WHITE, "c", 170), pop(511.4, 512.7, "ASK THESE NINE.", WHITE, "b", 120),
     pop(512.8, 514.2, "REMEMBER THE TENTH.", YEL, "b", 120), (514.4, END, ("endq",)),
 ]
+
+if VO_VER != 1:
+    _vdur = float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", VO], capture_output=True, text=True).stdout)
+    END = round(_vdur + 4.1, 2)
+    for sh in SHOTS: sh["t"] = round(T(sh["t"]), 3)
+    OVER = [(round(T(a), 3), round(T(b), 3) if b != 522.0 else END, sp) for a, b, sp in OVER]
+    VERDICT_SEQ = [(round(T(464.4 + r) - T(464.4), 3), i) for r, i in VERDICT_SEQ]
+    VERDICT2_SEQ = [(round(T(511.3 + r) - T(511.3), 3), i) for r, i in VERDICT2_SEQ]
 
 # ------------------------------------------------------------------ shot rendering
 CROPS = {"espn": "crop=iw*0.9:ih*0.9:iw*0.05:0,"}
@@ -484,19 +507,21 @@ def sfx_list():
     for sh in SHOTS:
         if sh["src"] == "GRID" and 0 < sh["ss"] and sh["ss"] != 3: S.append((sh["t"] + 0.12, "rubber-stamp", 0.6))
         if sh["src"] in ("GRID", "GRIDZ") and sh["ss"] < 10: S.append((sh["t"] + 0.8, "whoosh", 0.4))
-    S += [(59.2, "record-scratch", 0.45), (213.2, "record-scratch", 0.45), (0.0, "sub-boom", 0.6), (26.2, "sub-boom", 0.5)]
+    S += [(T(59.2), "record-scratch", 0.45), (T(213.2), "record-scratch", 0.45), (0.0, "sub-boom", 0.6), (T(26.2), "sub-boom", 0.5)]
     return S
 
 def stage_audio():
     M = f"{P}/music"
     # trap bed: loop to cover the whole film, dip out for the Burrell tribute (156.5-200), tribute piano underneath
-    vol = ("volume='0.17*(1-0.94*between(t,157.6,199.6))"
-           "*if(between(t,156.4,157.6),1-(t-156.4)/1.2*0.94,1)*if(between(t,199.6,201.0),0.06+(t-199.6)/1.4*0.94,1)':eval=frame")
+    a0, a1, a2, a3 = T(156.4), T(157.6), T(199.6), T(201.0)
+    vol = (f"volume='0.17*(1-0.94*between(t,{a1:.2f},{a2:.2f}))"
+           f"*if(between(t,{a0:.2f},{a1:.2f}),1-(t-{a0:.2f})/{a1 - a0:.2f}*0.94,1)*if(between(t,{a2:.2f},{a3:.2f}),0.06+(t-{a2:.2f})/{a3 - a2:.2f}*0.94,1)':eval=frame")
     trap = f"{R}/trap_full.wav"
     run(["ffmpeg", "-v", "error", "-y", "-stream_loop", "2", "-i", f"{M}/trap_bed.mp3", "-t", str(END), "-af", vol + f",afade=t=out:st={END - 4}:d=4", "-ar", "48000", "-ac", "2", trap])
     trib = f"{R}/tribute.wav"
-    run(["ffmpeg", "-v", "error", "-y", "-i", f"{M}/tribute.mp3", "-t", "44", "-af",
-         "volume=0.3,afade=t=in:st=0:d=1.5,afade=t=out:st=40.5:d=3.5,adelay=156800|156800", "-ar", "48000", "-ac", "2", trib])
+    tl = T(200.8) - T(156.8); dl = int(T(156.8) * 1000)
+    run(["ffmpeg", "-v", "error", "-y", "-i", f"{M}/tribute.mp3", "-t", f"{tl:.2f}", "-af",
+         f"volume=0.3,afade=t=in:st=0:d=1.5,afade=t=out:st={tl - 3.5:.2f}:d=3.5,adelay={dl}|{dl}", "-ar", "48000", "-ac", "2", trib])
     S = sfx_list(); ins = []; fl = []
     for j, (t, n, g) in enumerate(S):
         ins += ["-i", f"{SFXD}/{n}.mp3"]; d = int(max(0, t) * 1000)
