@@ -273,7 +273,7 @@ PH = {"douala": f"{TB}/photos/c00.jpg", "gabs": f"{TB}/photos/c01.jpg", "kanye_r
 def c(t, src, ss=0, **o): return dict(t=t, src=src, ss=ss, **o)
 SHOTS = [
     # 01 cold open
-    c(0.0, "paris100", 0.5, amb=1), c(4.74, "paris100", 6.5), c(6.28, "paris100", 13), c(7.24, "paris100", 19),
+    c(0.0, "paris100", 24, amb=1), c(4.74, "paris100", 0.5), c(5.28, "paris100", 4.9), c(6.28, "paris100", 13), c(7.24, "paris100", 19),
     c(8.64, "MAP", mode="intro"),
     c(18.16, "paris200", 5, amb=1), c(21.12, "paris200", 28, amb=1), c(23.62, "paris200", 41.5, amb=1),
     c(28.36, "paris200", 119, amb=1), c(33.46, "nairobi2021", 21.2, sp=0.6), c(35.6, "budapest100", 393),
@@ -316,7 +316,7 @@ SHOTS = [
     # 09 the weight
     c(369.3, "PHOTO", photo="laus2"), c(373.64, "PHOTO", photo="laus3"), c(378.02, "CARD", base=("budapest100", 556)),
     # 10 close
-    c(386.28, "paris200", 156), c(388.62, "nairobi2021", 21.5), c(391.98, "budapest100", 393), c(394.14, "paris200", 119),
+    c(386.28, "paris200", 156), c(388.62, "nairobi2021", 20.8, sp=0.55), c(391.98, "budapest100", 393), c(394.14, "paris200", 119),
     c(396.58, "paris200", 90), c(400.34, "paris200", 124), c(402.32, "homecoming", 21), c(404.12, "MAP", mode="lit"),
     c(407.42, "gaborone4x4", 2720), c(412.5, "PHOTO", photo="bislett"), c(414.68, "CARD", base=("paris200", 156)),
 ]
