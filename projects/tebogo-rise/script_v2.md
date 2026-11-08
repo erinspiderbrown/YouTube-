@@ -37,7 +37,7 @@ And he never left home. No American college. No Jamaica. He stayed in Botswana.
 ## 03 · The World Under-Twenties: he arrives
 Twenty twenty-one. Nairobi, Kenya. World Under-Twenty Championships.
 
-Seventeen years old. He win the hundred.
+Eighteen years old. He win the hundred. (cut from VO v2: the take said "seventeen"; on screen "AGE 18")
 
 People in track start sayin' his name. But twenty twenty-two is when the world found out.
 
@@ -165,7 +165,7 @@ This September, after a loss in Budapest, he said, "I carry so many hopes and li
 ## 10 · Close
 So that's Letsile Tebogo.
 
-World Under-Twenty champ at seventeen.
+World Under-Twenty champ. (VO v2: "at seventeen" cut; on screen "AT 18")
 
 Two world medals at twenty.
 

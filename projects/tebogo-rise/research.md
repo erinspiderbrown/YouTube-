@@ -9,7 +9,7 @@ https://www.pulse.co.ke/story/its-just-too-much-letsile-tebogo-opens-up-on-menta
 https://worldathletics.org/competitions/world-athletics-relays/gaborone26/news/feature/pride-of-the-nation-letsile-tebogo
 
 - Born 7 Jun 2003, Kanye, Botswana. Nickname "School-boy". Raised by mother Seratiwa with grandma, uncles, aunts; little known about father; younger sister swims. Coach Kebonyemodisa Mosimanyane; trains at home in Botswana. Nike.
-- 2021 (17): World Relays debut (Chorzów). World U20 Nairobi: 100 gold 10.19, 200 silver.
+- 2021 (17 at Relays in May; 18 at U20s in Aug): World Relays debut (Chorzów). World U20 Nairobi: 100 gold 10.19, 200 silver.
 - 2022: national 100 record 10.08 (Feb); 9.96 in Gaborone (Apr 30) = first Botswana man under 10, world U20 record. Africans: 200 gold 20.26 (youngest ever). Worlds Eugene heat 9.94 (U20 WR). World U20 Cali: 100 gold 9.91 (U20 WR, celebrated before the line, Bolt comparisons, Reuters "showboating"), 200 silver 19.96.
 - 2023 Budapest Worlds: 100 silver 9.88 (behind Lyles), 200 bronze 19.81.
 - 2024: 300m world best 30.69 (Feb), 400 44.29 (Mar). Mother died 19 May 2024 (Gaborone Private Hospital, long/chronic illness; one source says breast cancer) while he was competing in the US; news hit social media before family told him. Quote: "When my mother passed away, I thought it was the end of my career." Tattoo for her; Paris spikes with her birth date, her initials on his nails.
