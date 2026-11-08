@@ -2,9 +2,9 @@
 
 - Title: **The Fastest Man In College Every Year Since 2016 (Where Are They Now?)** (vidIQ 99)
 - Thumbnail: D, year panels (user's pick)
-- Scheduled: Mon 9 Nov 2026, 6:00 AM Mountain (13:00 UTC); category Sports
+- Scheduled: Mon 9 Nov 2026, 11:00 AM Mountain (18:00 UTC); category Sports (moved from 6 AM at the user's request)
 - Video: v2 (test-3 voice), 8:32
-- Uploaded: https://youtu.be/Cp0mSVsrUng (private, publishAt 2026-11-09T13:00Z, thumbnail D set)
+- Uploaded: https://youtu.be/Cp0mSVsrUng (private, publishAt 2026-11-09T18:00Z, thumbnail D set)
 
 ## Description
 Every June somebody wins the NCAA 100m and the whole sport says "he's the next one." So I went back and checked every men's champion since 2016. One became world champion. One is banned until 2029. One lost two years to a steak. And one of them isn't here anymore.

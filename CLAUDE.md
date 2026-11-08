@@ -52,6 +52,10 @@ The user approved this exact setup ("test 3", Nov 2026, the NCAA 100m champions 
 - **Pace:** `tools/space_voiceover.py --tempo-scale 0.93 --target-wpm 148 --min-tempo 0.9 --max-extra 1.2 --gap 1.3`. The user said the first takes were too fast; this is the approved speed.
 - Before a full re-record of a new style, test ~25 s first and let the user pick.
 
+## Scheduling uploads
+- The user wants every scheduled video to go public at **11:00 AM Mountain** (18:00 UTC in winter), not 6 AM. Keep the date they give.
+- Uploads go through Composio's YouTube connection, whose daily upload quota is shared and often used up. On a 429, retry just after 08:00 UTC.
+
 ## Reference examples
 - `examples/podcast/`: example videos/clips for podcast style.
 - `examples/documentary/`: example videos/clips for documentary style.
