@@ -17,3 +17,12 @@ https://worldathletics.org/competitions/world-athletics-relays/gaborone26/news/f
 - 2025: Feb floods, pulled stranded cars out of floodwater in Gaborone. Tokyo Worlds: 100 final false start DQ; 200 4th 19.65; 4x400 GOLD (2:57.76). DL wins Doha, Pre.
 - 2026: injury (fall in warm-up, helped off track, missed race); then DL wins Oslo + Lausanne; World Relays in Gaborone (home) 4x400 gold 2:54.47 African record; skipped Commonwealth Games (excused); Ultimate Championship Budapest: 100 7th 10.07, 200 2nd 19.76. Quote: "I carry so many hopes and lives behind my back so it is just too much but we will go through it."
 - NOT confirmed: childhood football. Leave out.
+
+## Africa / generation (added for v2)
+- First African man to win Olympic 200m; only previous African short-sprint Olympic champion: Reggie Walker (RSA), 100m, 1908. https://www.outlookindia.com/sports/paris-olympics-botswanas-letsile-tebogo-becomes-africas-first-200m-champion , https://allafrica.com/stories/202408090287.html
+- Quote after Paris: "It means a lot to the African continent because now they see Africa as a sprinting home." (same sources)
+- NBC: played football first; chose athletics in 2019. Budapest 2023 100m silver = first African man to win a world 100m medal; 200m bronze despite a grade-one tear in the semifinal. Quote: "Africans can be sprinters too." https://www.nbcsports.com/olympics/news/africans-can-be-sprinters-too-the-rise-of-botswanas-letsile-tebogo
+- Paris 200 final: 1 Tebogo 19.46, 2 Bednarek 19.62, 3 Lyles 19.70 (Lyles had COVID), 6 Makarawu (ZIM). Fifth-fastest performer ever. https://en.wikipedia.org/wiki/Athletics_at_the_2024_Summer_Olympics_%E2%80%93_Men%27s_200_metres
+- Frankie Fredericks (NAM): Olympic silvers 1992 + 1996 in 100 and 200, never gold.
+- Collen Kebinatshipi: 2025 world 400m champion, 43.53, Botswana's first men's world champion; Ndori bronze; Botswana 4x400 world gold. https://en.wikipedia.org/wiki/Collen_Kebinatshipi
+- World Relays Gaborone 2026: first time in Africa; Tebogo kids' athletics activation. https://worldathletics.org/competitions/world-athletics-relays/gaborone26/news/press-releases/world-relays-milestone-global-celebration-africa
