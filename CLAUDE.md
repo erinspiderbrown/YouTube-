@@ -54,7 +54,8 @@ The user approved this exact setup ("test 3", Nov 2026, the NCAA 100m champions 
 
 ## Scheduling uploads
 - The user wants every scheduled video to go public at **11:00 AM Mountain** (18:00 UTC in winter), not 6 AM. Keep the date they give.
-- Uploads go through Composio's YouTube connection, whose daily upload quota is shared and often used up. On a 429, retry just after 08:00 UTC.
+- **Schedule through Upload-Post** (Composio toolkit `upload_post`, profile `default`, YouTube channel The Erin Brown connected). It has its own YouTube quota. `UPLOAD_POST_SCHEDULE_POST` with `content_type: video`, `platforms: ["youtube"]`, `video` = a public MP4 URL (Higgsfield `media_upload` gives one), `scheduled_date` in UTC. It posts publicly at that time; set thumbnail/category/tags afterwards with Composio YouTube (those calls don't use the upload quota).
+- Composio's own YouTube upload (`YOUTUBE_MULTIPART_UPLOAD_VIDEO`) shares a daily upload quota that is usually used up; don't rely on it.
 
 ## Reference examples
 - `examples/podcast/`: example videos/clips for podcast style.
