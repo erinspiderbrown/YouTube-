@@ -34,7 +34,7 @@ def _w(v): return json.load(open(f"{P}/vo_v{v}_words.json"))[0]["words"]
 def _tok(w): return "".join(ch for ch in w.lower() if ch.isalnum())
 def _anchors():
     import difflib
-    a, b = _w(1), _w(3); ta, tb = [_tok(x["w"]) for x in a], [_tok(x["w"]) for x in b]
+    a, b = _w(1), _w(VO_VER); ta, tb = [_tok(x["w"]) for x in a], [_tok(x["w"]) for x in b]
     sm = difflib.SequenceMatcher(None, ta, tb, autojunk=False); P_ = [(0.0, 0.0)]
     for blk in sm.get_matching_blocks():
         if blk.size < 2: continue
@@ -50,8 +50,8 @@ def _find(words, phrase, after=0.0):
     for i in range(len(t) - len(p) + 1):
         if t[i:i + len(p)] == p and words[i]["s"] >= after: return words[i]["s"]
     raise KeyError(phrase)
-if VO_VER == 3:
-    W3 = _w(3)
+if VO_VER >= 3:
+    W3 = _w(VO_VER)
     B0 = _find(W3, "now peep where") - 0.25          # start of "Botswana before him" (raw v3 time)
     B1 = _find(W3, "nairobi", B0) - 1.6              # "Twenty twenty-one. Nairobi" -> back to the mapped edit
     EXTRA_ANCHORS = [(71.95, B0 - 0.05), (74.10, B1)]
@@ -321,7 +321,7 @@ SHOTS = [
     c(407.42, "gaborone4x4", 2720), c(412.5, "PHOTO", photo="bislett"), c(414.68, "CARD", base=("paris200", 156)),
 ]
 for s in SHOTS: s["t"] = round(T(s["t"]), 3)
-if VO_VER == 3:  # "Botswana before him" (only in v3): placed at raw v3 times found in the transcript
+if VO_VER >= 3:  # "Botswana before him" (only in v3): placed at raw v3 times found in the transcript
     f = lambda p: _find(W3, p, B0 - 1)
     SHOTS += [dict(t=B0, src="PHOTO", photo="gabs"), dict(t=f("country under") - 0.2, src="PHOTO", photo="kanye_road"),
               dict(t=f("before paris") - 0.2, src="CARD", base=("gaborone4x4", 2930)),
@@ -396,7 +396,7 @@ OVER = [
     (414.68, 999, ("endq", "IS TEBOGO THE BIGGEST THING", "TO HAPPEN TO AFRICAN SPRINTING?")),
 ]
 OVER = [(round(T(a), 3), round(min(T(b), END), 3), s) for a, b, s in OVER]
-if VO_VER == 3:
+if VO_VER >= 3:
     f = lambda p: _find(W3, p, B0 - 1)
     OVER += [(B0, f("country under") - 0.3, ("pop", "BOTSWANA BEFORE HIM", list(GOLD), "b", 130)),
              (f("country under"), f("before paris") - 0.3, ("list", ["UNDER 3 MILLION PEOPLE", "MOSTLY DESERT"])),
