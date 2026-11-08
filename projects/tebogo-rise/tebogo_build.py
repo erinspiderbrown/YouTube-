@@ -18,23 +18,54 @@ ROOT = "/home/user/YouTube-"; P = f"{ROOT}/projects/tebogo-rise"
 SCR = "/tmp/claude-0/-home-user/9c604270-316e-5b2c-b8cd-3de373b077b3/scratchpad"
 TB = f"{SCR}/tebogo"; REAL = f"{TB}/real"; R = f"{TB}/render"; SFXD = f"{TB}/sfx"
 for d in ("ov", "shots", "cards", "maps"): os.makedirs(f"{R}/{d}", exist_ok=True)
-VO = f"{P}/tebogo_voiceover_v2.wav"
-OUT = f"{SCR}/output/Tebogo_Rise_v1.mp4"; os.makedirs(os.path.dirname(OUT), exist_ok=True)
+VO_VER = int(os.environ.get("VO_VER", "3"))
+VO = f"{P}/tebogo_voiceover_v{VO_VER}.wav"
+OUT = f"{SCR}/output/Tebogo_Rise_v{VO_VER}.mp4"; os.makedirs(os.path.dirname(OUT), exist_ok=True)
 W, Hh, FPS = 1920, 1080, 24
 ANTON = f"{ROOT}/tools/fonts/Anton-Regular.ttf"; INTER = "/usr/share/fonts/opentype/inter/InterDisplay-Black.otf"
 INTB = "/usr/share/fonts/opentype/inter/Inter-Bold.otf"
 WHITE, BLACK = (255, 255, 255), (0, 0, 0)
 GOLD, BLUE, DEEP, RED = (242, 179, 61), (117, 170, 219), (14, 10, 6), (220, 60, 40)
 
-# VO v1 -> v2 (two cuts)
+# EDL times are VO v1 seconds. v2 = v1 with two cuts; v3 = full street/chill re-record (script_v3.md), mapped by
+# aligning the two whisper transcripts word by word (difflib), plus manual anchors around the new "Botswana before him".
 CUTS = [(78.30, 79.95), (390.20, 391.45)]
-def T(x):
-    s = 0.0
-    for a, b in CUTS:
-        if x >= b: s += b - a
-        elif x > a: s += x - a
-    return x - s
-END = T(421.2) + 3.4  # end card holds after "Let me know down below."
+def _w(v): return json.load(open(f"{P}/vo_v{v}_words.json"))[0]["words"]
+def _tok(w): return "".join(ch for ch in w.lower() if ch.isalnum())
+def _anchors():
+    import difflib
+    a, b = _w(1), _w(3); ta, tb = [_tok(x["w"]) for x in a], [_tok(x["w"]) for x in b]
+    sm = difflib.SequenceMatcher(None, ta, tb, autojunk=False); P_ = [(0.0, 0.0)]
+    for blk in sm.get_matching_blocks():
+        if blk.size < 2: continue
+        for k in range(blk.size):
+            y = b[blk.b + k]["s"]
+            if not (B0 - 0.5 <= y <= B1 + 0.5): P_.append((a[blk.a + k]["s"], y))
+    P_ += EXTRA_ANCHORS; P_.sort(); out = [P_[0]]
+    for x, y in P_[1:]:
+        if x > out[-1][0] + 1e-3 and y > out[-1][1] + 1e-3: out.append((x, y))
+    out.append((a[-1]["e"] + 10, b[-1]["e"] + 10)); return out
+def _find(words, phrase, after=0.0):
+    p = [_tok(x) for x in phrase.split()]; t = [_tok(x["w"]) for x in words]
+    for i in range(len(t) - len(p) + 1):
+        if t[i:i + len(p)] == p and words[i]["s"] >= after: return words[i]["s"]
+    raise KeyError(phrase)
+if VO_VER == 3:
+    W3 = _w(3)
+    B0 = _find(W3, "now peep where") - 0.25          # start of "Botswana before him" (raw v3 time)
+    B1 = _find(W3, "nairobi", B0) - 1.6              # "Twenty twenty-one. Nairobi" -> back to the mapped edit
+    EXTRA_ANCHORS = [(71.95, B0 - 0.05), (74.10, B1)]
+    _A = _anchors(); _AX = np.array([p[0] for p in _A]); _AY = np.array([p[1] for p in _A])
+    def T(x): return float(np.interp(x, _AX, _AY))
+    END = W3[-1]["e"] + 3.4
+else:
+    def T(x):
+        s = 0.0
+        for a, b in CUTS:
+            if x >= b: s += b - a
+            elif x > a: s += x - a
+        return x - s
+    END = T(421.2) + 3.4
 
 def run(cmd, **kw):
     r = subprocess.run(cmd, capture_output=True, text=True, **kw)
@@ -290,6 +321,15 @@ SHOTS = [
     c(407.42, "gaborone4x4", 2720), c(412.5, "PHOTO", photo="bislett"), c(414.68, "CARD", base=("paris200", 156)),
 ]
 for s in SHOTS: s["t"] = round(T(s["t"]), 3)
+if VO_VER == 3:  # "Botswana before him" (only in v3): placed at raw v3 times found in the transcript
+    f = lambda p: _find(W3, p, B0 - 1)
+    SHOTS += [dict(t=B0, src="PHOTO", photo="gabs"), dict(t=f("country under") - 0.2, src="PHOTO", photo="kanye_road"),
+              dict(t=f("before paris") - 0.2, src="CARD", base=("gaborone4x4", 2930)),
+              dict(t=f("amos") - 0.5, src="CARD", base=("gaborone4x4", 3200)),
+              dict(t=f("one world") - 0.2, src="CARD", base=("homecoming", 103)),
+              dict(t=f("but a real") - 0.2, src="MAPSTILL", mode="kanye"),
+              dict(t=f("thats where he") - 0.2, src="PHOTO", photo="douala")]
+    SHOTS.sort(key=lambda s: s["t"])
 
 def pop(t0, t1, text, col=WHITE, pos="c", size=150): return (t0, t1, ("pop", text, list(col), pos, size))
 OVER = [
@@ -302,7 +342,7 @@ OVER = [
     (42.4, 49.7, ("name", "LETSILE TEBOGO", "BORN JUNE 7, 2003 · KANYE, BOTSWANA")),
     pop(49.84, 53.1, "SOCCER FIRST", WHITE, "b", 140), pop(53.4, 59.1, "HIS MOM, SERATIWA", WHITE, "b", 110),
     pop(59.28, 61.4, "2019", GOLD, "t", 170), (61.6, 65.1, ("name", "KEBONYEMODISA MOSIMANYANE", "HIS COACH THEN · HIS COACH NOW")),
-    pop(68.0, 70.4, "NO U.S. COLLEGE", WHITE, "b", 130), pop(70.54, 73.9, "STAYED IN BOTSWANA", GOLD, "b", 130),
+    pop(68.0, 70.4, "NO U.S. COLLEGE", WHITE, "b", 130), pop(70.54, 71.85, "STAYED IN BOTSWANA", GOLD, "b", 130),
     (74.18, 77.9, ("year", "2021")), pop(75.0, 77.9, "NAIROBI, KENYA · WORLD U20s", WHITE, "b", 90),
     pop(79.95, 81.3, "AGE 18", GOLD, "tl", 130), pop(80.1, 86.4, "WORLD U20 100M CHAMPION", GOLD, "b", 110),
     (86.46, 90.7, ("year", "2022")), (88.2, 90.7, ("stat", "9.96", "GABORONE · APRIL 2022")),
@@ -356,6 +396,16 @@ OVER = [
     (414.68, 999, ("endq", "IS TEBOGO THE BIGGEST THING", "TO HAPPEN TO AFRICAN SPRINTING?")),
 ]
 OVER = [(round(T(a), 3), round(min(T(b), END), 3), s) for a, b, s in OVER]
+if VO_VER == 3:
+    f = lambda p: _find(W3, p, B0 - 1)
+    OVER += [(B0, f("country under") - 0.3, ("pop", "BOTSWANA BEFORE HIM", list(GOLD), "b", 130)),
+             (f("country under"), f("before paris") - 0.3, ("list", ["UNDER 3 MILLION PEOPLE", "MOSTLY DESERT"])),
+             (f("before paris"), f("amos") - 0.6, ("stat", "2", "OLYMPIC MEDALS BEFORE PARIS")),
+             (f("amos") - 0.3, f("and a") - 0.1, ("name", "NIJEL AMOS", "800M SILVER \u00b7 LONDON 2012")),
+             (f("and a"), f("one world") - 0.3, ("pop", "4\u00d7400 BRONZE \u00b7 TOKYO 2020", list(WHITE), "b", 110)),
+             (f("one world"), f("but a real") - 0.3, ("name", "AMANTLE MONTSHO", "WORLD 400M CHAMPION \u00b7 2011")),
+             (f("but a real") + 0.3, f("thats where he") - 0.3, ("pop", "A REAL SPRINTER? NEVER.", list(GOLD), "b", 130))]
+    OVER.sort(key=lambda o: o[0])
 
 GRADE = "colorbalance=rs=0.06:gs=0.015:bs=-0.07:rm=0.04:bm=-0.04,eq=contrast=1.07:saturation=1.14:gamma=0.98,vignette=PI/5"
 def card_base(src, ss, out, bw=False, red=False):
