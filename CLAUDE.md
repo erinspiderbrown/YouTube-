@@ -47,6 +47,8 @@ The user approved this exact setup ("test 3", Nov 2026, the NCAA 100m champions 
   - Kenya / Kenyan: write **Kinya / Kinyan / Kinyans** (user says "Kin-yan", Texas). Stretch those words a little (`tools/slow_words.py`, factor 0.88).
   - Years and times as words: "twenty sixteen", "nine eight-two", "nineteen seventy-three", "twenty-oh-six".
   - "N C double-A", "L S U", "U S A" spelled with spaces.
+  - Letsile Tebogo: write **Let-see-lay Tuhbowho** (user: first name "Let see lay"; last name "Tuh bow ho" said fast, run together).
+- **Energy:** chill, not hype. The user said the Tebogo take was "too enthusiastic". Add `[chill, not hype]` to the tags, and keep lines plain street talk (no narrator phrasing like "a village about an hour outside the capital").
 - **Pace:** `tools/space_voiceover.py --tempo-scale 0.93 --target-wpm 148 --min-tempo 0.9 --max-extra 1.2 --gap 1.3`. The user said the first takes were too fast; this is the approved speed.
 - Before a full re-record of a new style, test ~25 s first and let the user pick.
 
