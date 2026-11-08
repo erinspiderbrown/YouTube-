@@ -2,7 +2,8 @@
 
 - Title: **The Rise Of Letsile Tebogo: How A Kid From Botswana Beat America** (vidIQ 91, user's pick)
 - Thumbnail: F_hero_HD (user's pick)
-- Scheduled: Tue 10 Nov 2026, 11:00 AM Mountain (18:00 UTC) via Upload-Post (job 7df0b76281354e82aef4d42a61f2fd3a); category Sports. A check runs at 18:12 UTC to set thumbnail F, category and tags.
+- Scheduled: Tue 10 Nov 2026, 11:00 AM Mountain (18:00 UTC). Uploaded via Upload-Post as private with YouTube publishAt.
+- Uploaded: https://youtu.be/6hh7MNH8-wE (thumbnail F, 18 tags, category Sports, English captions `tebogo_captions_en.srt` all set before release)
 - Video: Tebogo_Rise_v4.mp4, 7:47 (VO v4: user's own name pronunciation spliced in)
 
 ## Description

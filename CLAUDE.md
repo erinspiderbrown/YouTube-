@@ -54,7 +54,12 @@ The user approved this exact setup ("test 3", Nov 2026, the NCAA 100m champions 
 
 ## Scheduling uploads
 - The user wants every scheduled video to go public at **11:00 AM Mountain** (18:00 UTC in winter), not 6 AM. Keep the date they give.
-- **Schedule through Upload-Post** (Composio toolkit `upload_post`, profile `default`, YouTube channel The Erin Brown connected). It has its own YouTube quota. `UPLOAD_POST_SCHEDULE_POST` with `content_type: video`, `platforms: ["youtube"]`, `video` = a public MP4 URL (Higgsfield `media_upload` gives one), `scheduled_date` in UTC. It posts publicly at that time; set thumbnail/category/tags afterwards with Composio YouTube (those calls don't use the upload quota).
+- **Upload through Upload-Post** (Composio toolkit `upload_post`, profile `default`, YouTube channel The Erin Brown connected). It has its own YouTube quota. The flow that gets everything on before the video goes public:
+  1. Host the MP4 at a public URL (Higgsfield `media_upload` → PUT → `media_confirm`).
+  2. `UPLOAD_POST_SCHEDULE_POST` (`content_type: video`, `platforms: ["youtube"]`, `video` = URL, title, description, `scheduled_date` a few minutes from now).
+  3. Before it runs, `PATCH https://api.upload-post.com/api/uploadposts/schedule/<job_id>` via `COMPOSIO_PROXY_EXECUTE` (JSON) with `fields: {privacyStatus: "private", youtube_publish_at: "<release time UTC>", categoryId: "17"}`. It then uploads as a private video that YouTube itself publishes at the release time.
+  4. Get the video ID from `GET /api/uploadposts/history`, then with Composio YouTube (no upload quota): `PUT /videos?part=snippet` for tags + category, `YOUTUBE_UPDATE_THUMBNAIL`, and `YOUTUBE_UPLOAD_CAPTION_TRACK` with an .srt from `tools/make_captions.py SCRIPT.md WORDS.json OUT.srt` (script text timed to the VO's whisper words).
+  Upload-Post drops tags and thumbnail sent through Composio, which is why step 4 sets them.
 - Composio's own YouTube upload (`YOUTUBE_MULTIPART_UPLOAD_VIDEO`) shares a daily upload quota that is usually used up; don't rely on it.
 
 ## Reference examples
