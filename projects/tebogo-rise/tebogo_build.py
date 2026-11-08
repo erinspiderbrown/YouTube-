@@ -166,7 +166,7 @@ def map_frame(mode, u, dur):
     C = geo(); q = u / dur
     views = {  # (lon, lat, px per degree) start -> end
         "intro": ((17, 3, 9.0), (17, 3, 13.0)), "kanye": ((17, 3, 13.0), (24.3, -22.4, 82.0)),
-        "namibia": ((19, -10, 16.0), (21, -22, 38.0)), "light": ((19, 2, 12.5), (19, 2, 14.0)),
+        "namibia": ((10, -10, 16.0), (6, -21, 38.0)), "light": ((19, 2, 12.5), (19, 2, 14.0)),
         "nigeria": ((18, 0, 13.0), (8, 6, 34.0)), "lit": ((19, 2, 15.0), (19, 2, 12.0))}[mode]
     zq = ease((u - 0.6) / 4.2) if mode == "kanye" else ease(q)
     lon0, lat0, k = [a + (b - a) * zq for a, b in zip(*views)]
@@ -181,7 +181,7 @@ def map_frame(mode, u, dur):
         bx, by = C["072"]["c"]; dist = {cid: math.hypot(v["c"][0] - bx, v["c"][1] - by) for cid, v in C.items()}; dmax = max(dist.values())
         for cid in C:
             if mode == "light": lit[cid] = min(1, max(0, (q * 1.15 * dmax - dist[cid]) / 6))
-            else: lit[cid] = 0.55 if mode == "nigeria" else 1.0
+            else: lit[cid] = 0.2 if mode == "nigeria" else 1.0
     draw_in = min(1, u / 1.4) if mode == "intro" else 1
     glow = Image.new("RGBA", (W, Hh), (0, 0, 0, 0)); gd = ImageDraw.Draw(glow)
     for cid, v in C.items():
@@ -216,7 +216,8 @@ def map_frame(mode, u, dur):
         pin(*GABS, "GABORONE", min(1, (u - 5.0) / 0.4) * 0.0)  # capital kept unlabelled to keep focus on Kanye
         pin(*KANYE, "KANYE", min(1, (u - 5.2) / 0.4))
     if mode == "namibia":
-        label(*C["516"]["c"], "NAMIBIA", WHITE, 64); label(*C["072"]["c"], "BOTSWANA", WHITE, 46)
+        nx, ny = C["516"]["c"]; bx, by = C["072"]["c"]
+        label(nx - 1.0, ny - 4.5, "NAMIBIA", WHITE, 64); label(bx + 0.8, by + 0.2, "BOTSWANA", WHITE, 40)
     if mode == "nigeria":
         label(*C["566"]["c"], "NIGERIA", WHITE, 60); label(*C["072"]["c"], "BOTSWANA", WHITE, 30)
     if mode in ("light", "lit"): label(*C["072"]["c"], "BOTSWANA", WHITE, 30)
@@ -235,7 +236,7 @@ def map_clip(mode, dur):
 # ------------------------------------------------------------------ edit decision list (VO v1 seconds)
 PH = {"douala": f"{TB}/photos/c00.jpg", "gabs": f"{TB}/photos/c01.jpg", "kanye_road": f"{TB}/photos/c02.jpg",
       "paris_jo": f"{TB}/photos/c06.jpg", "laus1": f"{TB}/photos/c08.jpg", "laus2": f"{TB}/photos/c09.jpg",
-      "laus3": f"{TB}/commons/c23.jpg", "bislett": f"{TB}/src/bislett_smile.jpg",
+      "laus3": f"{TB}/commons/c20.jpg", "bislett": f"{TB}/src/bislett_smile.jpg",
       "bud_flag": f"{TB}/src/bud_flag.png", "bud_face": f"{TB}/src/bud_face.png", "bud_face2": f"{TB}/src/bud_face2.png",
       "u20_board": f"{TB}/src/u20_board.png"}
 def c(t, src, ss=0, **o): return dict(t=t, src=src, ss=ss, **o)
@@ -268,7 +269,7 @@ SHOTS = [
     c(222.66, "paris200", 123.2, sp=0.6), c(224.78, "paris200", 119, sp=0.7),
     # 06 Paris
     c(228.46, "paris100", 12, amb=1), c(230.2, "paris100", 47, amb=1), c(234.34, "paris200", 5, amb=1),
-    c(237.86, "paris200", 14, amb=1), c(242.52, "MAP", mode="namibia"), c(249.96, "paris200", 45, amb=1),
+    c(237.86, "paris200", 14, amb=1), c(239.16, "paris200", 29, amb=1), c(242.52, "MAP", mode="namibia"), c(249.96, "paris200", 45, amb=1),
     c(253.44, "paris200", 50.5, amb=1), c(257.8, "paris200", 80, amb=1), c(260.9, "paris200", 119, amb=1),
     c(264.52, "paris200", 147, amb=1), c(267.98, "paris200", 156, amb=1),
     # 07 Africa
