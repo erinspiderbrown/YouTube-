@@ -19,3 +19,17 @@ Thumbnails are in the scratchpad `tebogo/thumbs/`.
 | 10 | From Botswana To Olympic Gold: The Rise Of Letsile Tebogo | 82 | E_18-to-olympic-champ |
 
 **Recommended test:** title #1 with B_first-ever-africa, and A_18-20-21_age-panels and C_19-46 as the other two arms in YouTube Test & Compare (same title, swap thumbnails). If the user wants to keep "The Rise of…", use #2 (93), which keeps it after the colon.
+
+## Round 2 (8 Nov 2026), scored with vidIQ against The Erin Brown channel
+| # | Title | Score | Pair with |
+|---|---|---|---|
+| 1 | He Was 18 When The World Found Out. At 21 He Made Africa History | **98** | G_collage_HD (18 / 21 panels) |
+| 2 | How Letsile Tebogo Became Africa's First Olympic 200m Champion | **95** | F_hero_HD |
+| 3 | He Made History For All Of Africa: The Rise Of Letsile Tebogo | 93 | G_collage_HD |
+| 4 | The First African To Ever Win Olympic 200m Gold | 92 | F_hero_HD |
+| 5 | The Rise Of Letsile Tebogo: How A Kid From Botswana Beat America | 91 | F_hero_HD (Paris: Bednarek 2nd, Lyles 3rd) |
+| 6 | Tebogo: The Fastest Man Africa Ever Produced | 86 | F_hero_HD |
+
+Million-view references for the round-2 thumbnails: Olympics "BOLT / The Fastest Man Alive" (8.4M), Olympics "Letsile Tebogo wins gold" (1.2M),
+World Athletics "Pride of a Nation" 4x400 (1.2M), "The Rise and Fall of Sha'Carri Richardson" (464K, 32x on a 1.3K-sub channel).
+Pattern: one big real HD face, dark or soft background, giant name, one short gold line. Thumbnail face: Douala 2024 portrait by Charlyneros (CC0, Wikimedia Commons).
