@@ -1,7 +1,13 @@
 # Upload package: Every Banned Drug in Track & The Star Who Got Caught Using It
 
+**Uploaded 9 Nov 2026:** https://youtu.be/Z0PqrAc67gU (private; YouTube publishes it Wed 11 Nov 2026 at 18:00 UTC = 11:00 AM Mountain).
+Via Upload-Post job `eaec0bcbf6f24cc294158db0e0bbc74b` (350 MB 1080p re-encode; the 610 MB master was over the host's size limit).
+Set afterwards with Composio YouTube: 24 tags, category 17 (Sports), thumbnail F (`thumbs/v5/F_drugs_neon_tiles.jpg`), English captions (`captions_en.srt`, 572 cues).
+Description trimmed to fit YouTube's 5,000-byte limit (dropped some clip-channel labels).
+
+
 - **Title:** Every Banned Drug in Track & The Star Who Got Caught Using It
-- **Thumbnail:** waiting on the user's pick (E white grid or F dark neon tiles), `thumbs/v5/`
+- **Thumbnail:** F, dark neon tiles (`thumbs/v5/F_drugs_neon_tiles.jpg`); E is the alternate
 - **Video:** `scratchpad/output/Every_Banned_Drug_In_Track_v1.mp4` (about 20:24)
 - **Category:** 17 (Sports) · **Schedule:** 11:00 AM Mountain on the date the user gives (Upload-Post flow in CLAUDE.md)
 - **Captions:** `tools/make_captions.py script_v2.md vo_v1_words.json captions_en.srt` (note: soundbites shift the timeline; build from the final mix)
