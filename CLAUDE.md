@@ -67,6 +67,7 @@ Every video is one of these two. Ask which one if it isn't clear.
 - Composio's own YouTube upload (`YOUTUBE_MULTIPART_UPLOAD_VIDEO`) shares a daily upload quota that is usually used up; don't rely on it.
 
 ## Reference examples
+- `examples/thumbnails/README.md`: **thumbnail style to follow** (Ev Hand, @evhandd, the user's pick, 9 Nov 2026): one story scene, real HD people, a reacting face, props as physical labels (price tags, stamped folders, CENSORED bars), 1–3 huge words, curved arrows.
 - `examples/podcast/`: example videos/clips for podcast style.
 - `examples/documentary/`: example videos/clips for documentary style.
 - `examples/links.md`: YouTube links and notes on what to study in each one.
