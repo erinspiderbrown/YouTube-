@@ -17,3 +17,5 @@ Scored with vidIQ `vidiq_score_title` (channelId UCiMHg3V2Q414zFIjb8PyTcg, type 
 
 **Recommendation:** use #1 or #2 with thumbnail A (face + drug grid). Use #6 if thumbnail C (lineup) wins.
 Don't put Christian Coleman in the title or thumbnail. His ban was for whereabouts failures, not a substance.
+
+**Chosen (user, 9 Nov 2026):** title #1 "Every Banned Drug in Track & The Star Who Got Caught Using It" (98).
