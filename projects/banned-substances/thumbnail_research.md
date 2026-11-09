@@ -66,3 +66,23 @@ Ben Johnson, as evergreen demand: [1988 100m semis (CBC)](https://youtu.be/Wcya6
 4. **One-hero alternative:** the CAMMA "steroids." pattern (369K, 6.8x) is one face with one huge word. For us that's Ben Johnson with 9.79 and STANOZOLOL.
 5. **Optional title bar** like OnlyBiology's "EVERY **STEROID** RANKED" (33x), with one keyword coloured. Our neon cyan/orange style can carry it.
 6. Avoid: Christian Coleman (his ban was for whereabouts failures, not a substance), and AI-made drug images (the user wants real photos).
+
+## 7. Million-view thumbnails (YouTube search, view counts from the watch API, 2026-11-09)
+| Video | Channel | Views | Thumbnail |
+|---|---|---:|---|
+| [10 Athletes Who Were Caught Cheating On Live TV](https://youtu.be/hK_L_v3x0Ks) | TheRichest | 34.2M | one bright real photo, no text |
+| [WHEN ATHLETES GET CAUGHT CHEATING!](https://youtu.be/ouvR6KVciUc) | CubeHub01 | 20.4M | one bright real photo, no text |
+| [Athletes Caught Cheating - Part 3](https://youtu.be/zx3XVQtWWUk) | BE AMAZED | 13.1M | Marion Jones with the US flag + green magnifier circle showing a syringe |
+| [8 Worst Cheaters in Sport History](https://youtu.be/A-qVvT32GMo) | BRAIN TIME | 9.3M | real frame + red circle zoom on the evidence |
+| [Every Drug & Its Effect Explained in 17 Minutes](https://youtu.be/VSjX4Qm-RYg) | EverythingProfessor | 5.5M | white bg, 2x5 coloured circles, label under each, bold title with one red word |
+| [Every Drug Explained in 10 minutes or less](https://youtu.be/EzLrv3DX6es) | catlover12 | 5.1M | same circle grid |
+| [Every Rare Drug & Its Effects Explained](https://youtu.be/j9k2HLHC0to) | EverythingProfessor | 2.3M | same circle grid |
+| [How Olympic Sports Doping Actually Works](https://youtu.be/2op5XG7LGkI) | Insider | 3.4M | real footage + red arrow on the evidence |
+| [Steroids Made Him a Monster](https://youtu.be/3ibx1orx6As) | DarkSideSports | 1.2M | intense face close-up + newspaper collage |
+
+What they share, and what S1–S3 got wrong:
+- **Bright, natural colour.** None of them use a dark red tint. S1–S3 were dark and moody.
+- **One focal point plus one piece of "evidence"** (a circle or magnifier on a syringe, a pill, a boot), so the viewer sees the story before reading anything.
+- **Little or no text.** At most one word or number. No label pills.
+- For "every X explained" lists, the winner is the **white circle grid** with a title and one coloured keyword.
+Made from this: H1 (Johnson + Winstrol zoom), H2 (Jones + syringe zoom, the 13M layout), H3 (Sha'Carri + leaf zoom), G1 (circle grid).
