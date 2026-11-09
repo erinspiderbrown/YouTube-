@@ -64,3 +64,17 @@ New sources, all real photos except where noted:
 | B | Depo-Testosterone vial | U.S. DEA | Public domain | (listed above) |
 | A | Cannabis leaf | Cannabis Urlaub | CC BY 2.0 | https://commons.wikimedia.org/wiki/File:CannabisLeaf.jpg |
 | C | Marion Jones, Sydney 2000 + insulin syringe | (listed above) | | |
+
+## v5 drug thumbnails (E, F), 2026-11-09
+| Drug tile | Photo | Author | Licence | Commons page |
+|---|---|---|---|---|
+| Stanozolol | Winstrol tablets | Nuklear | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Winstrol_tablets.JPG |
+| EPO | MIRCERA (CERA, a long-acting EPO) | melvil | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:MIRCERA.jpg |
+| Testosterone | Depo-Testosterone vial | U.S. DEA | Public domain | https://commons.wikimedia.org/wiki/File:Depo-testosterone_200_mg_ml_crop.jpg |
+| HGH | Humatrope 144 iu | Jackdan35 | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Humatrope_144_iu.JPG |
+| Weed | Cannabis leaf | Cannabis Urlaub | CC BY 2.0 | https://commons.wikimedia.org/wiki/File:CannabisLeaf.jpg |
+| Meldonium | Packaging of Mildronate | Mildronate | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Packaging_of_Mildronate.jpg |
+| Captagon | Seized Captagon pills | Staff Sgt. Christopher Brown (US military) | Public domain | https://commons.wikimedia.org/wiki/File:Captagon.jpg |
+| Diuretics | Furorese 40 mg (furosemide) | Pavel Dušek | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Furorese_40_mg_tbl.jpg |
+| Asthma pump | Ventolin Inhaler N (salbutamol) | Tomino de WS | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Ventolin_Inhaler_N_100_ug_inh.jpg |
+| Rat poison | Strychnine Sulfate Tablets, Eli Lilly (via DPLA) | Eli Lilly and Company | CC BY 4.0 | https://commons.wikimedia.org/wiki/File:Strychnine_Sulfate_Tablets_-_DPLA_-_14d2696c4911458be1ce7ce3bad0bfba.jpg |
