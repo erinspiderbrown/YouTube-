@@ -55,3 +55,12 @@ New sources, all real photos except where noted:
 | G1 | Thomas Hicks, winner of the 1904 Olympic marathon (cropped) | unknown, 1904 | Public domain | https://commons.wikimedia.org/wiki/File:Thomas_J._Hicks_of_Cambridge,_Massachusetts_YMCA_winner_of_the_1904_Olympic_Marathon_Race_(cropped).jpg |
 | G1 | Katrin Krabbe, Berlin 1988 | Bundesarchiv | CC BY-SA 3.0 DE | (already listed above) |
 | G1 | Asbel Kiprop, Erriyon Knighton, Ruth Chepngetich | frames from the news clips used in the video (Africanews, CGTN, CBS Chicago) | n/a | n/a |
+
+## v4 HD thumbnails (A–D), 2026-11-09
+| Used in | Photo | Author | Licence | Commons page |
+|---|---|---|---|---|
+| A, D | Sha'Carri Richardson winning the 100m, 2021 US Olympic Trials (5472px original) | jenaragon94 | CC BY 2.0 | https://commons.wikimedia.org/wiki/File:Sha%27Carri_Richardson_562_(51919394290).jpg |
+| B, D | Justin Gatlin, men's 100m final, London 2012 | Kent Capture | CC BY 2.0 | https://commons.wikimedia.org/wiki/File:Justin_Gatlin-Men%27s_100m_Final-London_2012_Olympics_(8374272018).jpg |
+| B | Depo-Testosterone vial | U.S. DEA | Public domain | (listed above) |
+| A | Cannabis leaf | Cannabis Urlaub | CC BY 2.0 | https://commons.wikimedia.org/wiki/File:CannabisLeaf.jpg |
+| C | Marion Jones, Sydney 2000 + insulin syringe | (listed above) | | |
