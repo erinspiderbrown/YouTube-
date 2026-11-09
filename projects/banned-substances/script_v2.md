@@ -64,7 +64,7 @@ Number four. THG. They called it "the clear."
 
 This was a designer steroid. Cooked up in a lab at BALCO for one reason. The tests couldn't see it. You could be on it and pass everything.
 
-So how you catch a drug nobody can see? Twenty-oh-three, somebody mailed a used syringe to the anti-doping people. Anonymous. And who was it? Trevor Graham. The coach of Marion Jones, Tim Montgomery, and Justin Gatlin. His own athletes' world. Y'all can't make this stuff up.
+So how you catch a drug nobody can see? Twenty-oh-three, somebody mailed a used syringe to the anti-doping people. Anonymous. And who was it? Trevor Graham. The coach of Marion Jones, Tim Montgomery, and Justin Gatlin. He coached them, and he the one who mailed it. Y'all can't make this stuff up.
 
 The lab cracked it, built a test, and went back through old samples. Dwain Chambers, European champ. Positive. Regina Jacobs. Positive.
 
