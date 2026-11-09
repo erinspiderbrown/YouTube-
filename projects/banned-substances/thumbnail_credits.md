@@ -43,3 +43,15 @@ Thumbnail photos (Wikimedia Commons): El Gráfico no. 3599 (1988, public domain)
 
 ## Not on Commons
 I found no usable Commons photos of Tim Montgomery or Dennis Mitchell (searches on 2026-11-09). If they're needed, use frames from the vidIQ-imported race footage. I also found no real EPO vial photo on Commons.
+
+## v3 thumbnails (H1, H2, H3, G1), 2026-11-09
+New sources, all real photos except where noted:
+| Used in | Photo | Author | Licence | Commons page |
+|---|---|---|---|---|
+| H1, G1 | Ben Johnson in the blocks, Seoul 1988 100m final (broadcast frame, from clip benjohnson88) | broadcast footage | archival footage, as used in the video | n/a |
+| H2 | Insulin syringe in hand | Flickr user (see page) | CC BY 2.0 | https://commons.wikimedia.org/wiki/File:Syringe_with_insulin_for_a_cat.jpg |
+| H3 | Sha'Carri Richardson with the US flag, Budapest 2023 | Erik van Leeuwen | GFDL | (already listed above) |
+| H3 | Cannabis leaf against the sky | Cannabis Urlaub | CC BY 2.0 | https://commons.wikimedia.org/wiki/File:CannabisLeaf.jpg |
+| G1 | Thomas Hicks, winner of the 1904 Olympic marathon (cropped) | unknown, 1904 | Public domain | https://commons.wikimedia.org/wiki/File:Thomas_J._Hicks_of_Cambridge,_Massachusetts_YMCA_winner_of_the_1904_Olympic_Marathon_Race_(cropped).jpg |
+| G1 | Katrin Krabbe, Berlin 1988 | Bundesarchiv | CC BY-SA 3.0 DE | (already listed above) |
+| G1 | Asbel Kiprop, Erriyon Knighton, Ruth Chepngetich | frames from the news clips used in the video (Africanews, CGTN, CBS Chicago) | n/a | n/a |
