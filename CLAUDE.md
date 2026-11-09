@@ -39,9 +39,12 @@ Every video is one of these two. Ask which one if it isn't clear.
 - Keep the music bed under the voice: it masks AI artifacts in the cloned voice.
 
 ## The user's voice: use this for ALL YouTube and TikTok voiceovers
-The user approved this exact setup ("test 3", Nov 2026, the NCAA 100m champions video). Don't switch back to anything proper-sounding; they reject it every time.
-- **ElevenLabs:** voice `dk6cvd5UilZRrcpZ7dNK` (Erin Brown), model `eleven_v4`, voice_settings **stability 0.25, similarity 0.8**. Pass the voice as `voice_id`, not `voice`.
-- **Tags at the start of every paragraph:** `[tellin' a story on the block] [nasal voice] [Texas street accent] [relaxed, not proper]`. For a death or tribute, swap the first tag for `[quiet, respectful]` and keep the rest.
+**Default from 9 Nov 2026: the "Felix / Jacobs" voice.** The user said the voice on their Allyson Felix and Marcell Jacobs videos "is the closest to mine" and asked for it on every future YouTube narration. It's the setup first made for the Jon Drummond video (v4), reused for "Felix vs Tarmoh" (ElevenLabs flow `4LlukseKRsgRiOUAzkpV`; the Drummond take is flow `EwtCtvyEoktyTmEPgx7r`, nodes "V4 0x"). No Jacobs flow exists in ElevenLabs any more; it was made with the same recipe.
+- **ElevenLabs:** voice `dk6cvd5UilZRrcpZ7dNK` (Erin Brown), model `eleven_v4`, voice_settings **stability 0.45, similarity 0.85**. Pass the voice as `voice_id`, and set the settings with `creative_update_node` `model_parameters={"voice_id": ..., "voice_settings": {"stability": 0.45, "similarity": 0.85}}`. The key is `similarity`, not `similarity_boost`; a wrong key is dropped silently, so read the node back before running.
+- **Tags at the start of every paragraph:** `[calm] [relaxed] [Texas accent]`. Put `[pause]` before a turn or a reveal (`[pause] [calm] [relaxed] [Texas accent] Then a few hours later…`).
+- **Script voice in that recipe:** "Aight, so check it out." "Mane." "Bruh." "Lemme tell y'all." "And here go the crazy part." "They was sellin' her as the golden girl." Ellipses for beats ("And third… Jeneba Tarmoh.").
+- The previous setup ("test 3": stability 0.25, similarity 0.8, tags `[tellin' a story on the block] [nasal voice] [Texas street accent] [relaxed, not proper] [chill, not hype]`) made the NCAA 100m, Tebogo and banned-substances voiceovers. The user says it's okay but talks too proper. Use it only if the user asks.
+- For a death or tribute, add `[quiet, respectful]` in front of the tags.
 - **Write the script how the user talks, not proper English.** Urban, Texas, casual: "Ten dudes." "One of 'em banned 'til twenty twenty-nine." "He go pro, and two years later he world champ." "Where they at now." Drop extra verbs ("he twenty-three", "this America"), use "ain't", "gon'", "tryna", "somethin'", "'cause", "a lotta". Facts stay exactly right.
 - **Pronunciation and spelling for the voice:**
   - Kenya / Kenyan: write **Kinya / Kinyan / Kinyans** (user says "Kin-yan", Texas). Stretch those words a little (`tools/slow_words.py`, factor 0.88).
