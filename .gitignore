@@ -7,3 +7,4 @@
 render/
 output/
 __pycache__/
+projects/banned-substances/*.mp4

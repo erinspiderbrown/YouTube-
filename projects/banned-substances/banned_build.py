@@ -592,7 +592,7 @@ def timeline():
         st = SB_START(s) - (PAD - 0.15); ov.append((round(st + 0.1, 3), round(st + s["dur"] + 2 * PAD - 0.1, 3), ("sbtag", s["tag"])))
     return out, ov, end
 
-GRADE = "eq=contrast=1.08:saturation=1.12:gamma=0.97,colorbalance=rs=-0.03:bs=0.05:rh=0.04:bh=-0.02,vignette=PI/5"
+GRADE = "eq=contrast=1.08:saturation=1.12:gamma=0.97,colorbalance=rs=-0.03:bs=0.05:rh=0.04:bh=-0.02,vignette=PI/5,tpad=stop_mode=clone:stop_duration=60"
 def card_png(sh, key):
     out = f"{R}/cards/{hashlib.md5(json.dumps(key, sort_keys=True, default=str).encode()).hexdigest()[:12]}.png"
     if os.path.exists(out): return out
@@ -606,7 +606,7 @@ def card_png(sh, key):
 
 def tag_png(tag):
     p = f"{R}/ov/tag_{hashlib.md5(tag.encode()).hexdigest()[:10]}.png"
-    if not os.path.exists(p): archive_tag(tag).save(p)
+    if not os.path.exists(p): archive_tag(tag).save(p + ".tmp.png"); os.replace(p + ".tmp.png", p)
     return p
 
 def render_shot(i, sh, T1, OV):
@@ -627,7 +627,7 @@ def render_shot(i, sh, T1, OV):
         base = (f"[0:v]setpts=PTS-STARTPTS,scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080,"
                 f"scale='trunc(1920*(1+0.04*t/{dur:.3f})/2)*2':-2:eval=frame,crop=1920:1080,setsar=1,{GRADE}")
         if sh.get("sb"): base = (f"[0:v]setpts=PTS-STARTPTS,scale=1920:1080:force_original_aspect_ratio=decrease,pad=1920:1080:(ow-iw)/2:(oh-ih)/2,setsar=1,"
-                                 f"eq=contrast=1.05:saturation=1.05")
+                                 f"eq=contrast=1.05:saturation=1.05,tpad=stop_mode=clone:stop_duration=30")
         amb_vol = 1.0 if sh.get("sb") else (0.9 if sh.get("full_amb") else (0.18 if sh.get("amb") else 0.0))
         if not sh.get("sb"):
             ins += ["-loop", "1", "-t", f"{dur:.3f}", "-i", tag_png(sh.get("tag", "ARCHIVE"))]
@@ -635,9 +635,12 @@ def render_shot(i, sh, T1, OV):
     if src not in ("COUNT", "TEXT", "PHOTO") and not sh.get("sb"):
         k = 1; vf.append("[1:v]format=rgba[o1];[b0][o1]overlay=0:0[b1]")
     for (o0, o1, spec) in mine:
-        a_, b_ = max(0, o0 - T0), min(dur, o1 - T0); png = overlay_png(spec); k += 1
+        a_, b_ = max(0, o0 - T0), min(dur, o1 - T0)
+        if b_ - a_ < 0.25: continue
+        png = overlay_png(spec); k += 1
         ins += ["-loop", "1", "-t", f"{b_:.3f}", "-i", png]
-        fin = 0.15 if o0 >= T0 else 0; fout = 0.15 if o1 <= T1 else 0
+        fd = min(0.15, (b_ - a_) / 3)
+        fin = fd if o0 >= T0 else 0; fout = fd if o1 <= T1 else 0
         chain = f"[{k}:v]format=rgba"
         if fin: chain += f",fade=in:st={a_:.3f}:d={fin}:alpha=1"
         if fout: chain += f",fade=out:st={b_ - fout:.3f}:d={fout}:alpha=1"
@@ -666,6 +669,8 @@ def stage_shots():
     for i, (sh, t1) in todo:   # PIL cards first (sequential, cached)
         if sh["src"] in ("COUNT", "TEXT", "PHOTO"): card_png(sh, [sh.get(k) for k in ("src", "n", "name", "cat", "ph", "col", "sub", "lines", "path", "label", "bw", "crop", "full")])
     for o in ov: overlay_png(o[2])
+    for _, (sh, t1) in todo:
+        if sh["src"] not in ("COUNT", "TEXT", "PHOTO") and not sh.get("sb"): tag_png(sh.get("tag", "ARCHIVE"))
     with ThreadPoolExecutor(6) as ex: list(ex.map(lambda a: render_shot(a[0], a[1][0], a[1][1], ov), todo))
     print("shots", len(todo), "of", len(shots), "end", round(end, 1))
 
@@ -705,11 +710,17 @@ def bed(path, t0, t1, vol, end, fin=1.5, fout=2.5, offset=0.0):
          f"volume={vol},afade=t=in:st=0:d={fin},afade=t=out:st={max(0, L - fout):.2f}:d={fout},adelay={dl}|{dl},apad=whole_dur={end:.2f}",
          "-ar", "48000", "-ac", "2", out]); return out
 
+def SECTIONS():
+    """Raw VO start of the bonus section, the last substance (weed) and the close."""
+    keep = _CUR[0]
+    b = A("before we get to the last one", CARD[19]); w = A("and the last one the one", b + 5); c = A("so thats every banned", w + 5)
+    _CUR[0] = keep; return b, w, c
+
 def stage_audio():
     shots, ov, end = TL(); vo = vo_track(end)
     M1 = f"{ROOT}/projects/jon-drummond/music"; M2 = f"{ROOT}/projects/ncaa-100m-champs/music"
     C = {k: FT(v) for k, v in CARD.items()}
-    bonus = FT(at("before we get to the last one", CARD[19])); weed = FT(at("and the last one", CARD[19] + 30)); close = FT(at("so that s every banned", CARD[19] + 60))
+    bonus, weed, close = [FT(x) for x in SECTIONS()]
     beds = [bed(f"{M1}/M1_cold-open-background.mp3", 0, C[1] + 0.5, 0.55, end, 0.5, 1.5),
             bed(f"{M2}/trap_bed.mp3", C[1] - 0.2, C[6] + 0.4, 0.38, end, 0.3, 1.5),
             bed(f"{M1}/M3_rule-paris-fallout.mp3", C[6] - 0.2, C[10] + 0.4, 0.45, end, 0.6, 1.5),
@@ -737,7 +748,9 @@ def stage_audio():
         f"{bed_in}amix=inputs={nb}:normalize=0[music];[vo][pic]amix=inputs=2:normalize=0[key0];[key0]asplit=2[key][keyout];" \
         f"[music][key]sidechaincompress=threshold=0.025:ratio=6:attack=20:release=500[duck];" \
         f"[keyout][duck]{mix_in}amix=inputs={2 + len(S_)}:normalize=0:duration=first,alimiter=limit=0.95[out]"
-    cmd = ["ffmpeg", "-v", "error", "-y", "-i", vo, "-i", f"{R}/picture.mp4"] + sum((["-i", b] for b in beds), []) + ins + \
+    run(["ffmpeg", "-v", "error", "-y", "-i", f"{R}/picture.mp4", "-vn", "-af", f"aresample=48000:async=1:first_pts=0,apad=whole_dur={end:.2f}",
+         "-t", f"{end:.2f}", "-ac", "2", "-c:a", "pcm_s16le", f"{R}/pic_audio.wav"])
+    cmd = ["ffmpeg", "-v", "error", "-y", "-i", vo, "-i", f"{R}/pic_audio.wav"] + sum((["-i", b] for b in beds), []) + ins + \
           ["-filter_complex", fc, "-map", "[out]", "-t", f"{end:.2f}", "-ar", "48000", f"{R}/mix.wav"]
     run(cmd); print("audio", len(S_), "sfx")
 
