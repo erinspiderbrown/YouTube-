@@ -38,7 +38,14 @@ Every video is one of these two. Ask which one if it isn't clear.
 - **Look:** futuristic **neon that pops**: glow/bloom, cyan + orange neon, HUD tags on archival footage, neon-framed photo cards. See `tools/neon.py` and `projects/jon-drummond/`.
 - Keep the music bed under the voice: it masks AI artifacts in the cloned voice.
 
-## The user's voice: use this for ALL YouTube and TikTok voiceovers
+## The user reads their own scripts (from 10 Nov 2026)
+The user said viewers notice the AI voice and that it "doesn't really sound like me". **For videos that aren't too long, the user records the voiceover themselves.** Claude writes the script and does the editing.
+- Write the script in the user's own words (see the script rules below), split into short sections they can read in one take.
+- Give the user a **teleprompter page**: an Artifact with big text, one section per screen, and a scroll at their pace. Where the page can use the mic, it records each take there; otherwise the user records on their phone and sends the files.
+- Take their recordings from the chat upload, the page, or their Dropbox. Clean them up: noise reduction, levels, cut the breaths and mistakes, keep their natural pace. **Do not** run them through `space_voiceover.py` or any tempo change. Then transcribe for timing and edit as usual.
+- Use the cloned voice below only for long videos, or when the user asks for it.
+
+## The cloned voice (long videos only, or when the user asks)
 **Default from 9 Nov 2026: the "Felix / Jacobs" voice.** The user said the voice on their Allyson Felix and Marcell Jacobs videos "is the closest to mine" and asked for it on every future YouTube narration. It's the setup first made for the Jon Drummond video (v4), reused for "Felix vs Tarmoh" (ElevenLabs flow `4LlukseKRsgRiOUAzkpV`; the Drummond take is flow `EwtCtvyEoktyTmEPgx7r`, nodes "V4 0x"). No Jacobs flow exists in ElevenLabs any more; it was made with the same recipe.
 - **ElevenLabs:** voice `dk6cvd5UilZRrcpZ7dNK` (Erin Brown), model `eleven_v4`, voice_settings **stability 0.45, similarity 0.85**. Pass the voice as `voice_id`, and set the settings with `creative_update_node` `model_parameters={"voice_id": ..., "voice_settings": {"stability": 0.45, "similarity": 0.85}}`. The key is `similarity`, not `similarity_boost`; a wrong key is dropped silently, so read the node back before running.
 - **Tags at the start of every paragraph:** `[calm] [relaxed] [Texas accent]`. Put `[pause]` before a turn or a reveal (`[pause] [calm] [relaxed] [Texas accent] Then a few hours later…`).
