@@ -75,7 +75,7 @@ The user said viewers notice the AI voice and that it "doesn't really sound like
 - Composio's own YouTube upload (`YOUTUBE_MULTIPART_UPLOAD_VIDEO`) shares a daily upload quota that is usually used up; don't rely on it.
 
 ## Reference examples
-- `examples/thumbnails/README.md`: **thumbnail style to follow** (Ev Hand, @evhandd, the user's pick, 9 Nov 2026): one story scene, real HD people, a reacting face, props as physical labels (price tags, stamped folders, CENSORED bars), 1–3 huge words, curved arrows.
+- `examples/thumbnails/README.md`: **thumbnail house style = the user's own Boling thumbnail** (`examples/thumbnails/user_boling_what_happened.png`, 10 Nov 2026). One bright stadium scene, the athlete's peak action cutout upper-left, a big front-lit close-up face on the right, a heavy italic 2-line question bottom-left (white + yellow→orange gradient, red swoosh). Build with `tools/thumb_template.py`. The earlier Ev Hand notes are superseded.
 - `examples/podcast/`: example videos/clips for podcast style.
 - `examples/documentary/`: example videos/clips for documentary style.
 - `examples/links.md`: YouTube links and notes on what to study in each one.

@@ -1,4 +1,45 @@
-# Thumbnail style guide: model it on Ev Hand (@evhandd)
+# Thumbnail style: THE HOUSE STYLE is the user's own Boling thumbnail
+
+**From 10 Nov 2026, model every thumbnail on `user_boling_what_happened.png`** (the user made it themselves for
+"America's Fastest High Schooler... What Went Wrong?" and said: "create something similar for my future thumbnails").
+After four rounds the user rejected: stat boards and props, rectangular split panels, grunge text, black-and-white
+"selective colour", ghosted overlays and dark moody grades. Don't go back to those.
+
+## What it is
+- **One bright, daylight scene, no panels or borders.** The background is a real packed stadium crowd, softly blurred
+  (depth of field), with blue sky, warm light and high clarity.
+- **The same athlete twice:**
+  - **The peak moment (glory):** an action cutout in the upper-left/centre, about 70% of the frame height (his
+    mid-air long jump in the Strake Jesuit kit, bib visible).
+  - **A big close-up face:** on the right, about 45–55% of the width. The head is cropped slightly at the top, the
+    shoulders reach the bottom, it's front-lit and smiling/reacting, and real props like the interview mics (KHOU 11)
+    and the medal ribbon show.
+- **Text bottom-left, 2 lines, heavy italic sans:**
+  - "WHAT" in white with a soft grey gradient.
+  - "HAPPENED?" bigger, in a yellow → orange gradient.
+  - Dark outline and a strong drop shadow, with a red brush swoosh under line 2.
+  - The text sits left of the face and doesn't cover it.
+- **Everything crisp, HD and saturated.** Both photos are real, from the same era (high school), and graded to match
+  each other and the background.
+
+## How to make one
+- Use `tools/thumb_template.py`. It does the background, action, face, text and swoosh, with the font
+  `tools/fonts/Montserrat-BlackItalic.ttf`:
+  `python3 tools/thumb_template.py --bg CROWD.jpg --action ACTION.png --face FACE.png --l1 WHAT --l2 HAPPENED? --out OUT.jpg`
+  - Make the cutouts with rembg (`isnet-general-use`; `birefnet-portrait` for faces). Check the masks; a
+    see-through shirt means re-run with the portrait model.
+- **Pick the photos first; they make or break it.**
+  - **FACE:** a bright, front-lit head-and-shoulders shot looking slightly off-camera (podium/interview/press photo).
+    Not a dark or moody documentary frame.
+  - **ACTION:** the athlete's most famous moment, sharp and big.
+  - **BG:** a real crowd or stadium from the same event, if possible.
+  - Real photos only (the user's rule).
+- **Text:** 1–2 words per line and a question works best ("WHAT HAPPENED?", "WHAT WENT WRONG?", "WHERE IS HE NOW?").
+  Keep it different from the title.
+
+---
+
+# Earlier reference: Ev Hand (@evhandd), 9 Nov 2026 (superseded by the house style above)
 
 The user (9 Nov 2026): "he really does great YouTube thumbnails that perform really well. Take that into consideration when editing my next thumbnails."
 Channel: https://youtube.com/@evhandd (UCpejmzf5hYcckscyg79JeLQ). Sports-business explainers, 12 long videos, best 266K / 150K / 120K views.
