@@ -369,7 +369,7 @@ def sfx_plan(shots, ov):
         elif k == "endq": cand.append((o0 - 0.05, "zoom", 0.3, 3))
     cand.sort(key=lambda c: (c[0], -c[3])); out, last = [], -9
     for t, kind, g, pri in cand:
-        if t - last < 3.0: continue
+        if t - last < (6.0 if pri == 2 else 3.0): continue
         out.append((t, make_sfx(kind, 40 + len(out) * 7), g)); last = t
     return out
 

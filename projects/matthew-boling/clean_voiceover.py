@@ -5,7 +5,7 @@ W=json.load(open("words_raw.json"))
 endfix={"Matt pt 5.m4a":51.65}
 # v2 (user, 10 Nov: "it's not clipping when I'm making mistakes"): restarts / re-reads found by a verbatim
 # re-transcription + the waveform. Each range is the flubbed take, snapped to the silences around it.
-MIST={"Boling part 2.m4a":[(41.80,42.42),     # "both relays, s-, set relays" stumble
+MIST={"Boling part 2.m4a":[(41.80,43.56),     # "both relays, s-, set relays" stumble (keep "both relays... world U20 records")
                             (50.12,53.22)],    # "He didn't want to... He didn't... he didn't want his race"
       "Matt pt 5.m4a":[(42.95,46.30)],         # "moved to South Carolina to... Moves to South Carolina"
       "Matt pt 7 (1).m4a":[(45.68,46.30)]}     # "still mean... yeah... staying home"
