@@ -24,3 +24,4 @@ Sources: Wikipedia (Matthew_Boling), World Athletics profile (14774788), ESPN (t
 - His 2025 USATF outdoor result and his full 2026 season.
 - Any injury reports: none found.
 - A May 2026 YouTube video titled "44.74 400m" is probably his 2019 high school relay split, not a 2026 race.
+- Teleprompter page: https://claude.ai/artifact/Q32N88VGZnbNfKRxU2WL2W (source: boling_teleprompter.html)
