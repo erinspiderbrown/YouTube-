@@ -35,7 +35,22 @@ Every video is one of these two. Ask which one if it isn't clear.
   - Photos: Wikimedia Commons, with credits in the description. Commons rate-limits this machine's IP, so fetch through the Composio workbench.
   - Video: YouTube links imported via vidIQ, plus the user's Dropbox clips.
   - AI or stock clips only fill gaps.
-- **Look:** futuristic **neon that pops**: glow/bloom, cyan + orange neon, HUD tags on archival footage, neon-framed photo cards. See `tools/neon.py` and `projects/jon-drummond/`.
+- **The approved editing style (from 10 Nov 2026): the Boling v2 edit.** The user called it "probably the highest production level" so far and asked to save it for future videos. The template is `projects/matthew-boling/boling_build.py`; the full recipe is in `projects/matthew-boling/EDIT_STYLE.md`. In short:
+  - **Real soundbites play with their own sound while the voiceover pauses:** news segments, live race calls, family and coaches from documentaries, the athlete in their own words (interviews, vlogs). Aim for about 15 per 6 min of VO. They give the video its length (8+ min) and credibility. Never pad or slow the voice for length.
+  - **Cold open** on the strongest soundbite (Boling: his dad watching the 9.98 come up on the scoreboard).
+  - **Footage hunt:** race broadcasts, local news, documentary shorts and the athlete's own channel, imported via vidIQ. Make contact sheets to pick moments, and transcribe every clip to find the soundbites.
+  - **Graphics:** `tools/kinetic.py`. Animated numbers that roll and slam, kinetic words, lower thirds, stamps (NO PARIS), and a chapter slate per part with a flash cut. A small source credit goes bottom-right. No neon stat boxes (the user: "not all that").
+  - **Editing:**
+    - punch-in on every number or key word
+    - black-and-white on the low points
+    - slow-mo on finishes and flashbacks
+    - cuts every 2–5 s
+  - **Sound:**
+    - a dark bed per chapter, ducked under the voice
+    - very few SFX, varied, never back to back (6 s minimum between stat hits, 3 s between any two hits, none on plain cuts)
+    - soundbites loudness-matched (-17 LUFS)
+  - **User-read voiceover:** cut every flub and restart. Re-transcribe the raw takes verbatim in short chunks plus check the waveform (`clean_voiceover.py` MIST list), then re-time with `retime_words.py`.
+- Older look (Jon Drummond, banned substances): neon glow/HUD (`tools/neon.py`). Use it only if the user asks.
 - Keep the music bed under the voice: it masks AI artifacts in the cloned voice.
 
 ## The user reads their own scripts (from 10 Nov 2026)
