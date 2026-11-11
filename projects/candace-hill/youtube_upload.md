@@ -2,11 +2,17 @@
 
 Video: `Did_Candace_Hill_Finesse_ASICS.mp4` (scratchpad/output). Thumbnail: `thumbnail_T1_finessed.jpg` (downfall style, real frame from the Gatorade POY film).
 
-## Title options (thumbnail already says "SHE FINESSED ASICS?", so the title adds the facts)
-1. **She Signed a 10-Year Deal at 16… Then Never Ran Faster** (pick)
-2. Did Candace Hill Finesse ASICS?
-3. 10.98 at 16, Paid for 10 Years… What Happened to Candace Hill?
-4. The Fastest High School Girl Ever Never Got Faster
+## Title + thumbnail (study: examples/packaging_study_2026-11-11.md)
+Run all three thumbnails in YouTube Studio "Test & compare" with title 1.
+- **Thumbnail A (`thumbnail_TA_zero.jpg`)**: "PRs SINCE AGE 16: 0" — 16-year-old with the flag (colour) vs. ASICS-era interview (B&W). The "TOTAL PLAYS IN NFL: 4" formula.
+- **Thumbnail B (`thumbnail_TB_deal.jpg`)**: ASICS logo + "PAID HER AT 16" + the real MileSplit line ("with no deductions") + her stare. The "How 1 Deal Destroyed…" formula.
+- **Thumbnail C (`thumbnail_T1_finessed.jpg`)**: "SHE FINESSED ASICS?" downfall style.
+
+Titles (best first):
+1. **She Was The Fastest Girl Alive. Then ASICS Paid Her.** (the channel's winning "X. Then Y." twist; pairs with A or C)
+2. ASICS Paid Her For 10 Years… She Never Ran Faster (pairs with C)
+3. The Fastest High School Girl Ever… Never Got Faster (pairs with B)
+4. She Ran 10.98 At 16. She Never Beat It. (pairs with B)
 
 ## Description
 In 2015, a 16-year-old from Conyers, Georgia ran 10.98 — the first high school girl ever under 11 seconds. Six months later ASICS gave her a 10-year pro deal, reportedly six figures a year with no deductions. After that day in Shoreline, she never ran a legal sub-11 again, never made a senior Team USA, and never beat her 100 or 200 times from age 16.
