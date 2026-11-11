@@ -1,5 +1,10 @@
 # Candace Hill: YouTube package (11 Nov 2026)
 
+- **Uploaded 11 Nov 2026 23:11 UTC (unlisted):** https://youtu.be/ge7_Fp0vIe0 via Upload-Post job `2f48baeba012464fad86087ccbf4b379`.
+  Title: "ASICS Paid Her For 10 Years… She Never Ran Faster" (user pick to pair with thumbnail C). Category 17, 18 tags, thumbnail C (`thumbnail_T1_finessed.jpg`),
+  English captions (`captions_en.srt`, 241 cues: VO + every soundbite, built by `make_final_captions.py`, status serving). Description = `description.txt`.
+  Upload copy: scratchpad/output/Candace_up.mp4 (9:38). Monetization: check the Monetization tab in Studio.
+
 Video: `Did_Candace_Hill_Finesse_ASICS.mp4` (scratchpad/output). Thumbnail: `thumbnail_T1_finessed.jpg` (downfall style, real frame from the Gatorade POY film).
 
 ## Title + thumbnail (study: examples/packaging_study_2026-11-11.md)
