@@ -64,7 +64,7 @@ footer button.rec.on{animation:pulse 1.2s infinite}
 <footer>
   <button id="prev" aria-label="Previous part">◀</button>
   <div class="grp"><button id="slower" aria-label="Scroll slower">−</button><span id="spd">Speed 3</span><button id="faster" aria-label="Scroll faster">+</button></div>
-  <button id="rec" class="rec">● Record</button>
+  <button id="rec" class="rec">⬆ Add take</button><input id="pick" type="file" accept="audio/*,.m4a,.mp4,.webm,video/mp4,video/webm" hidden>
   <button id="play" class="go">▶ Scroll</button>
   <div class="grp"><button id="smaller" aria-label="Smaller text">A−</button><span id="sz">Text</span><button id="bigger" aria-label="Bigger text">A+</button></div>
   <button id="next" aria-label="Next part">▶</button>
@@ -85,10 +85,10 @@ function render(){
   const s=SECS[cur];
   const help = cur===0 ? `<div class="help"><strong>How to record</strong><ul>
     <li>Quiet room with soft things around you. A closet or a parked car works great.</li>
-    <li>Tap <strong>● Record</strong>. The text starts scrolling with you. Tap <strong>■ Stop</strong> at the end of the part.</li>
+    <li>Start a new recording in your phone's voice memo app, then come back here and tap <strong>▶ Scroll</strong>. Hold the phone about 6 inches from your mouth.</li>
+    <li>Read the part, stop the memo, then tap <strong>⬆ Add take</strong> and pick that recording. It saves here and I pick it up.</li>
     <li>Mess up? Pause, then say the line again. I cut the bad take.</li>
-    <li>Each take saves here automatically, and I pick them up. Re-record a part as many times as you want; I use the newest one.</li>
-    <li>If the mic won't start on this page, use your phone's voice memo app (name each one like the grey label) and send the files in the chat.</li></ul></div>` : "";
+    <li>Re-record a part as many times as you want; I use the newest take. If a file won't add, send it in the chat instead.</li></ul></div>` : "";
   col.innerHTML = help + `<div class="label">Part ${s.n} of ${SECS.length} · ${s.title}</div><div class="file">Phone backup name: ${fileName(s)}</div>` +
     s.paras.map(p=> p.startsWith("[") ? `<div class="cue">${esc(p.replace(/^\[|\]$/g,""))} (don't read)</div>` : `<p>${esc(p)}</p>`).join("");
   main.scrollTop=0; acc=0;
@@ -101,7 +101,7 @@ function render(){
 }
 function renderTakes(msg){
   const box=$("takes"); const mine=takes.filter(t=>t.part===SECS[cur].n).sort((a,b)=>b.at-a.at);
-  const status = msg || (rec ? "Recording…" : !db||!assets ? "Saving takes needs this page opened in Claude (signed in). You can still read and scroll." : mine.length ? `${mine.length} take${mine.length>1?"s":""} saved for this part (newest first). I use the newest.` : "No takes yet for this part.");
+  const status = msg || (!db||!assets ? "Saving takes needs this page opened in Claude (signed in). You can still read and scroll." : mine.length ? `${mine.length} take${mine.length>1?"s":""} saved for this part (newest first). I use the newest.` : "No takes yet for this part.");
   box.innerHTML = `<span id="status">${esc(status)}</span>` + mine.map(t=>`<span class="take"><audio controls preload="none" src="/_blob/${t.asset}"></audio><span>${Math.round(t.secs||0)} s</span>${downloads?`<button data-save="${t.asset}">Save to phone</button>`:""}</span>`).join("");
 }
 $("takes").onclick=async e=>{ const id=e.target.dataset?.save; if(!id||!downloads) return;
@@ -112,33 +112,23 @@ function applySpeed(){ $("spd").textContent = "Speed " + speed; store.set("speed
 function tick(t){ if(!playing) return; const dt = last ? (t-last)/1000 : 0; last=t; acc += dt * (12 + speed*9); if(acc>=1){ const n=Math.floor(acc); main.scrollTop += n; acc-=n; } if(main.scrollTop+main.clientHeight >= main.scrollHeight-2){ stop(); return; } raf=requestAnimationFrame(tick); }
 async function play(){ playing=true; last=0; $("play").textContent="❚❚ Pause"; raf=requestAnimationFrame(tick); try{ lock = await navigator.wakeLock?.request("screen"); }catch(e){} }
 function stop(){ playing=false; cancelAnimationFrame(raf); $("play").textContent="▶ Scroll"; try{ lock?.release(); }catch(e){} lock=null; }
-async function startRec(){
-  if(!navigator.mediaDevices?.getUserMedia || !window.MediaRecorder){ renderTakes("This browser can't record here. Use your phone's voice memo app and send the files."); return; }
-  try{ stream = await navigator.mediaDevices.getUserMedia({audio:{echoCancellation:false,noiseSuppression:false,autoGainControl:true,channelCount:1}}); }
-  catch(e){ renderTakes("The mic is blocked on this page. Use your phone's voice memo app and send the files."); return; }
-  const type = ["audio/webm;codecs=opus","audio/webm","audio/mp4"].find(t=>MediaRecorder.isTypeSupported(t)) || "";
-  chunks=[]; rec = new MediaRecorder(stream, type?{mimeType:type,audioBitsPerSecond:128000}:{});
-  rec.ondataavailable=e=>{ if(e.data.size) chunks.push(e.data); };
-  rec.onstop=saveTake; rec.start(1000); t0=Date.now();
-  $("rec").textContent="■ Stop"; $("rec").classList.add("on"); main.scrollTop=0; renderTakes(); play();
-}
-async function saveTake(){
-  const part=SECS[cur].n, secs=(Date.now()-t0)/1000, mime=rec.mimeType||"audio/webm";
-  stream.getTracks().forEach(t=>t.stop()); rec=null; $("rec").textContent="● Record"; $("rec").classList.remove("on"); stop();
-  const blob=new Blob(chunks,{type:mime});
-  if(secs<1.5){ renderTakes("That take was too short, so it wasn't saved."); return; }
-  if(!assets||!db){ renderTakes("Couldn't save the take here (open the page in Claude, signed in)."); if(downloads){ try{ await downloads.save({filename:fileName(SECS[cur])+(mime.includes("mp4")?".m4a":".webm"),data:blob}); }catch(e){} } return; }
+async function addTake(file){
+  if(!file) return;
+  const part=SECS[cur].n, title=SECS[cur].title;
+  if(!assets||!db){ renderTakes("Saving takes needs this page opened in Claude, signed in. Send the file in the chat instead."); return; }
+  const name=(file.name||"").toLowerCase(), t=(file.type||"").toLowerCase();
+  const kind = /webm/.test(t)||name.endsWith(".webm") ? "video/webm" : (/mp4|m4a|aac|quicktime/.test(t)||/\.(m4a|mp4|aac|mov)$/.test(name)) ? "video/mp4" : null;
+  if(!kind){ renderTakes("That file type can't be stored here ("+(t||name||"unknown")+"). Send it in the chat instead."); return; }
+  let secs=0; try{ secs=await new Promise(r=>{const a=new Audio(); a.preload="metadata"; a.onloadedmetadata=()=>r(isFinite(a.duration)?a.duration:0); a.onerror=()=>r(0); a.src=URL.createObjectURL(file);}); }catch(e){}
   renderTakes("Saving take…");
   try{
-    const up = await assets.upload(blob,{type: mime.includes("mp4") ? "video/mp4" : "video/webm"});
-    await db.collection("takes").add({part, title:SECS[cur].title, asset:up.id, type:mime, secs:Math.round(secs*10)/10, at:Date.now()});
-    renderTakes(`Saved (${Math.round(secs)} s). Next part when you're ready.`);
-  }catch(e){
-    renderTakes("Upload failed ("+(e?.code||"error")+"). Saving it to your device instead.");
-    if(downloads){ try{ await downloads.save({filename:fileName(SECS[cur])+(mime.includes("mp4")?".m4a":".webm"),data:blob}); }catch(_){} }
-  }
+    const up=await assets.upload(file,{type:kind});
+    await db.collection("takes").add({part, title, asset:up.id, type:kind, file:file.name||"", secs:Math.round(secs*10)/10, at:Date.now()});
+    renderTakes(`Saved${secs?` (${Math.round(secs)} s)`:""}. Next part when you're ready.`);
+  }catch(e){ renderTakes("Couldn't save that file ("+(e?.code||"error")+"). Send it in the chat instead."); }
 }
-$("rec").onclick=()=> rec ? rec.stop() : startRec();
+$("pick").onchange=e=>{ const f=e.target.files?.[0]; e.target.value=""; addTake(f); };
+$("rec").onclick=()=> $("pick").click();
 $("play").onclick=()=> playing?stop():play();
 $("prev").onclick=()=>{ if(cur>0 && !rec){stop();cur--;render();} };
 $("next").onclick=()=>{ if(cur<SECS.length-1 && !rec){stop();cur++;render();} };
@@ -148,7 +138,6 @@ $("bigger").onclick=()=>{ size=Math.min(6,size+1); applySize(); };
 $("smaller").onclick=()=>{ size=Math.max(-4,size-1); applySize(); };
 addEventListener("keydown",e=>{ if(e.target.closest("input,textarea")) return;
   if(e.code==="Space"){e.preventDefault(); playing?stop():play();}
-  else if(e.key==="r"||e.key==="R"){ $("rec").click(); }
   else if(e.key==="ArrowRight"){ $("next").click(); } else if(e.key==="ArrowLeft"){ $("prev").click(); }
   else if(e.key==="ArrowUp"){ $("faster").click(); } else if(e.key==="ArrowDown"){ $("slower").click(); } });
 addEventListener("resize",applySize);
