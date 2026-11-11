@@ -35,6 +35,7 @@ Every video is one of these two. Ask which one if it isn't clear.
   - Photos: Wikimedia Commons, with credits in the description. Commons rate-limits this machine's IP, so fetch through the Composio workbench.
   - Video: YouTube links imported via vidIQ, plus the user's Dropbox clips.
   - AI or stock clips only fill gaps.
+  - **Never use FloTrack or MileSplit footage (both FloSports), in any video** (user, 11 Nov 2026). No FloTrack broadcasts, FloTrack/MileSplit uploads or interviews, or re-uploads showing their logo or watermark. Check news packages for MileSplit-watermarked race footage too. Citing their articles as a text source is fine.
 - **The approved editing style (from 10 Nov 2026): the Boling v2 edit.** The user called it "probably the highest production level" so far and asked to save it for future videos. The template is `projects/matthew-boling/boling_build.py`; the full recipe is in `projects/matthew-boling/EDIT_STYLE.md`. In short:
   - **Real soundbites play with their own sound while the voiceover pauses:** news segments, live race calls, family and coaches from documentaries, the athlete in their own words (interviews, vlogs). Aim for about 15 per 6 min of VO. They give the video its length (8+ min) and credibility. Never pad or slow the voice for length.
   - **Cold open** on the strongest soundbite (Boling: his dad watching the 9.98 come up on the scoreboard).

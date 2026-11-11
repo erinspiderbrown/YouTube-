@@ -2,8 +2,8 @@
 (projects/matthew-boling/EDIT_STYLE.md). Copied from boling_build.py; only the config, soundbites and EDL differ.
 
 - Voiceover: the user's 8 Dropbox takes, cleaned by clean_voiceover.py (flubs cut, long pauses shortened, no tempo change).
-- Soundbites: the race call of the 10.98 (cold open), CNN, Trans World Sport, Gatorade, IAAF Inside Athletics,
-  MileSplit "Stay Your Lane", the 2016 U20 race call, FloTrack 2021, 11Alive 2024. The voiceover pauses for each.
+- Soundbites: Candace on CNN (cold open), Trans World Sport, Gatorade, IAAF Inside Athletics, the 2016 U20 race call,
+  11Alive 2024, Atlanta City Games. The voiceover pauses for each. No FloTrack/MileSplit footage (user rule, 11 Nov 2026).
 - Receipts: real articles (SI, Canadian Running, Footwear News/WWD, MileSplit, World Athletics, RunBlogRun) with the key
   line boxed in red, pushed in slowly (clips/art_*.mp4).
 
@@ -52,7 +52,7 @@ def A(phrase, after=None, end=False, win=45):
 
 # ------------------------------------------------------------------ source credits
 TAGS = {
-    "c_1098_hs": "FLOTRACK · BROOKS PR · JUNE 20, 2015", "c_brooks": "YOUTH RUNNER · BROOKS PR 2015", "c_cnn": "CNN · 2015",
+    "c_brooks": "YOUTH RUNNER · BROOKS PR 2015", "c_cnn": "CNN · 2015",
     "c_tws": "TRANS WORLD SPORT · 2016", "c_gatorade": "GATORADE PLAYER OF THE YEAR · 2015", "c_cali100": "WORLD YOUTH CHAMPS · CALI 2015",
     "c_cali200": "WORLD YOUTH CHAMPS · CALI 2015", "c_asics_ad": "ASICS", "c_stayyourlane": "MILESPLIT · STAY YOUR LANE · 2018",
     "c_insideath": "IAAF INSIDE ATHLETICS · 2016", "c_u20final": "WORLD U20 CHAMPS · BYDGOSZCZ 2016", "c_letsrun16": "LETSRUN · 2016",
@@ -77,27 +77,22 @@ def snap(src, a, b):
     return round(max(0, a2), 2), round(max(b2, a2 + 1), 2)
 
 PAD = 0.3
-PRE_SB = ("c_1098_hs", 46.8, 57.4, "FLOTRACK BROADCAST · JUNE 20, 2015")   # cold open: "No, no, no... 10.98... national record"
+PRE_SB = ("c_cnn", 80.35, 101.3, "CANDACE HILL · CNN 2015")   # cold open: "the official came to me... you just ran a 10.98"
 SB_LIST = [  # ((before phrase, part), src, a, b, credit)
     (("six months later", 1), "c_tws", 41.3, 45.8, "CANDACE HILL · TRANS WORLD SPORT"),
     (("no high school girl", 2), "c_brooks", 33.0, 47.7, "CANDACE HILL · MINUTES AFTER THE 10.98"),
     (("that same summer", 2), "c_cnn", 69.25, 78.33, "CNN · 2015"),
     (("you know the only", 2), "c_gatorade", 107.3, 113.4, "GATORADE · 2015"),
     (("there is calling", 2), "c_gatorade", 42.2, 56.9, "COACH · GATORADE POY FILM"),
-    (("ain t never say", 3), "c_stayyourlane", 176.2, 182.6, "CANDACE HILL · 2018"),
-    (("so at 16", 3), "c_stayyourlane", 188.3, 201.2, "CANDACE HILL · 2018"),
-    (("so at 16", 3), "c_stayyourlane", 206.4, 214.1, "CANDACE HILL · 2018"),
+    (("ain t never say", 3), "c_tws", 126.4, 139.2, "TRANS WORLD SPORT · 2016"),
+    (("so at 16", 3), "c_cnn", 158.9, 176.0, "CNN · 2015"),
     (("the very", 4), "c_tws", 423.0, 438.1, "COACH TONY CARPENTER · 2016"),
-    (("she still makes", 4), "c_stayyourlane", 251.3, 264.9, "CANDACE HILL · 2018"),
     (("then goes to the world", 4), "c_insideath", 219.2, 233.5, "CANDACE HILL · AFTER THE 2016 TRIALS"),
     (("so the talent", 4), "c_u20final", 56.1, 71.7, "EUROSPORT · WORLD U20 FINAL 2016"),
     (("but then", 4), "c_insideath", 266.0, 280.7, "CANDACE HILL · AGE 17"),
-    (("in 2019 at usas", 4), "c_stayyourlane", 318.5, 327.8, "CANDACE HILL · 2018"),
-    (("she started seeing", 5), "c_stayyourlane", 268.2, 278.7, "CANDACE HILL · 2018"),
-    (("2021", 6), "c_stayyourlane", 516.0, 524.9, "CANDACE HILL · 2018"),
-    (("july of 2021", 6), "c_flo2021", 84.0, 88.3, "FLOTRACK · 2021"),
+    (("2021", 6), "c_tws", 439.7, 450.2, "CANDACE HILL · 2016"),
     (("2024", 6), "c_11alive", 26.8, 42.4, "11ALIVE NEWS · MAY 2024"),
-    (("but ain t nobody", 8), "c_ms_junior", 159.4, 167.6, "CANDACE HILL · 2017"),
+    (("candace ain t quit", 8), "c_150atl", 100.2, 108.4, "CANDACE HILL · ATLANTA 2024"),
     (("so which one", 8), "c_tws", 403.9, 421.4, "CANDACE HILL · 2016"),
 ]
 SOUNDBITES = []
@@ -142,7 +137,7 @@ def build_edl():
     _sb(); a = A; _CUR[0] = 0.0
     # 1 cold open ---------------------------------------------------------------------
     S(a("june"), "c_brooks", 6.7, amb=1); say(a("june"), 2.4, "JUNE 20, 2015", "white", "t")
-    S(a("shoreline"), "c_cnn", 9.0); say(a("shoreline"), 2.0, "SHORELINE, WASHINGTON", "orange", "t", "SHORELINE,")
+    S(a("shoreline"), "c_brooks", 9.4, amb=1); say(a("shoreline"), 2.0, "SHORELINE, WASHINGTON", "orange", "t", "SHORELINE,")
     S(a("a 16 year"), "c_gatorade", 20.0); say(a("16 year"), 1.8, "AGE 16", "orange", "t")
     S(a("10 98") - 0.1, "c_cnn", 26.9, punch=0.3); stat(a("10 98"), 2.4, "10.98", "100M · AGE 16", "orange")
     S(a("six months later"), "c_asics_ad", 1.0)
@@ -186,7 +181,7 @@ def build_edl():
     S(a("now here go"), "c_trials24", 98.7)
     S(a("most track contracts"), "c_trials24", 106.5); say(a("reduction clause") - 0.2, 1.5, "REDUCTION CLAUSE", "red", "c", "REDUCTION")
     S(a("you don t run fast"), "c_semi24", 29.6, amb=1); stack(a("you don t run fast"), 3.6, ["DON'T RUN FAST", "DON'T RANK", "DON'T MAKE THE TEAM"], "red")
-    S(a("they cut your pay"), "c_stayyourlane", 389.9, bw=1); stamp(a("they cut your pay") + 0.3, 1.6, "PAY CUT")
+    S(a("they cut your pay"), "c_insideath", 552.2, bw=1); stamp(a("they cut your pay") + 0.3, 1.6, "PAY CUT")
     S(a("reportedly"), "art_ms_1", 9.0); say(a("none of that"), 1.6, "NOT CANDACE", "gold", "c")
     S(a("and it ran"), "art_wwd_h0", 1.0); stat(a("2025"), 2.4, "2025", "THE DEAL RUNS THROUGH", "gold")
     S(a("till she was"), "c_asics_ad", 41.6); say(a("26 years"), 1.6, "UNTIL AGE 26", "white", "t")
@@ -199,32 +194,32 @@ def build_edl():
     say(a("2016"), 1.6, "2016", "white", "t", None, 150)
     S(a("the olympic year"), "c_insideath", 135.0)
     S(a("candace is 17"), "c_letsrun16", 20.0); say(a("17"), 1.2, "AGE 17", "orange", "t")
-    S(a("she missed about"), "c_stayyourlane", 389.9, bw=1); stat(a("four months"), 2.4, "4 MONTHS", "OF TRAINING · MISSED", "red")
+    S(a("she missed about"), "c_insideath", 306.8, bw=1); stat(a("four months"), 2.4, "4 MONTHS", "OF TRAINING · MISSED", "red")
     S(a("she still makes"), "c_letsrun16", 40.0)
     S(a("13th"), "c_letsrun16", 60.0, bw=1); stack(a("13th"), 3.0, ["13TH · 100M", "14TH · 200M"], "red")
     S(a("then goes to the world"), "c_u20final", 24.3, amb=1)
     S(a("win gold"), "c_u20final", 86.0, punch=0.3); stat(a("1107"), 2.4, "11.07", "WORLD U20 GOLD · 2016", "gold")
     S(a("so the talent"), "c_u20final", 79.5)
-    S(a("but then"), "c_ms_junior", 31.7, bw=1)
+    S(a("but then"), "c_letsrun16", 70.0, bw=1)
     S(a("it just stops"), "c_wa60", 13.2, bw=1); stamp(a("stops"), 1.4, "STOPPED")
-    S(a("2017"), "c_ms_junior", 8.7, bw=1); say(a("2017"), 1.3, "2017", "white", "c", None, 170)
+    S(a("2017"), "c_wa60", 37.3, bw=1); say(a("2017"), 1.3, "2017", "white", "c", None, 170)
     S(a("2018"), "c_wa60", 22.9, bw=1); say(a("2018"), 1.3, "2018", "white", "c", None, 170)
-    S(a("2019"), "c_stayyourlane", 408.1, bw=1); say(a("2019"), 1.3, "2019", "white", "c", None, 170)
-    S(a("no personal best"), "c_stayyourlane", 335.5, bw=1); stamp(a("no personal best") + 0.2, 1.4, "NO PR")
-    S(a("in 2019 at usas"), "c_stayyourlane", 244.9, bw=1); stack(a("14th in the 100"), 3.2, ["14TH · 100M", "14TH · 200M", "2019 USAs"], "red")
-    S(a("and she s going through"), "c_stayyourlane", 27.2)
+    S(a("2019"), "c_insideath", 478.5, bw=1); say(a("2019"), 1.3, "2019", "white", "c", None, 170)
+    S(a("no personal best"), "c_letsrun16", 85.0, bw=1); stamp(a("no personal best") + 0.2, 1.4, "NO PR")
+    S(a("in 2019 at usas"), "c_insideath", 699.4, bw=1); stack(a("14th in the 100"), 3.2, ["14TH · 100M", "14TH · 200M", "2019 USAs"], "red")
+    S(a("and she s going through"), "c_gatorade", 12.0)
     S(a("by 2023"), "c_tws", 140.7); stat(a("five different"), 2.4, "5", "COACHING CHANGES BY 2023", "red")
     # 5 the part nobody saw -------------------------------------------------------------
-    S(PART[5] - 0.15, "c_stayyourlane", 408.1, flash=1); chapter(PART[5], "04", "THE PART NOBODY SAW")
+    S(PART[5] - 0.15, "c_insideath", 404.9, flash=1); chapter(PART[5], "04", "THE PART NOBODY SAW")
     S(a("in 2021"), "art_wa_0", 0.0)
     S(a("she said i have"), "art_wa_1", 0.0)
     S(a("and she said"), "art_wa_1", 6.0); say(a("second guessing"), 2.2, "“SECOND-GUESSING MYSELF”", "white", "b", "SECOND-GUESSING")
     S(a("she started seeing"), "art_wa_2", 0.0); say(a("therapist"), 1.6, "THERAPY", "cyan", "t")
-    S(a("some of your emotional"), "c_stayyourlane", 400.0, bw=1)
+    S(a("some of your emotional"), "c_insideath", 184.1, bw=1)
     S(a("if your mind"), "c_tws", 24.8); say(a("your body"), 2.4, "“YOUR BODY QUICKLY FOLLOWS SUIT”", "white", "b", "BODY")
     # 6 so close ------------------------------------------------------------------------
-    S(PART[6] - 0.15, "c_flo2021", 43.7, flash=1, amb=1); chapter(PART[6], "05", "SO CLOSE")
-    S(a("she finally looks"), "c_flo2021", 47.2, amb=1)
+    S(PART[6] - 0.15, "c_tws", 91.0, flash=1); chapter(PART[6], "05", "SO CLOSE")
+    S(a("she finally looks"), "c_150atl", 54.7)
     S(a("july of 2021"), "c_asics_ad", 33.8); say(a("july of 2021"), 2.0, "JULY 2021 · CALIFORNIA", "white", "t", "2021")
     S(a("she runs 10 99"), "c_asics_ad", 37.7, punch=0.6); stat(a("10 99"), 2.4, "10.99", "UNDER 11 · FIRST TIME SINCE 2015", "cyan")
     S(a("under 11"), "c_tws", 57.9); say(a("first time in six years"), 2.0, "FIRST TIME IN 6 YEARS", "gold", "b", "6 YEARS")
@@ -236,7 +231,7 @@ def build_edl():
     S(a("make the finals"), "c_trials21", 10.0, amb=1)
     t9 = a("make the finals", end=True) + 0.25   # NBC board: 9 finalists, Hill 9th in 11.23 (the user's "8." was cut from the VO)
     S(t9, "c_trials21", 190.0); say(t9 + 0.1, 2.4, "9TH OF 9 · 11.23", "red", "t", "9TH")
-    S(a("then she moved") + 1.2, "c_stayyourlane", 27.2); name(a("dennis"), 2.6, "DENNIS SHAVER", "COACH · BATON ROUGE", "orange")
+    S(a("then she moved") + 1.2, "c_asics_ad", 18.4); name(a("dennis"), 2.6, "DENNIS SHAVER", "COACH · BATON ROUGE", "orange")
     S(a("with pros like"), "art_rbr_h0", 0.0)
     S(a("and she was back"), "art_rbr_h1", 2.0); say(a("pre med"), 1.6, "PRE-MED", "cyan", "c")
     S(a("2024"), "c_150atl", 2.0, amb=1)
@@ -251,7 +246,7 @@ def build_edl():
     S(a("olympic teams"), "c_trials24", 169.7, bw=1); stat(a("zero"), 2.4, "0", "OLYMPIC TEAMS", "red")
     S(a("world championship"), "c_trials21", 76.7, bw=1); stat(a("zero"), 2.4, "0", "WORLD CHAMPIONSHIP TEAMS", "red")
     S(a("personal best is"), "art_rbr_h0", 3.0); stat(a("zero"), 2.4, "0", "100/200 PRs SINCE AGE 16", "red")
-    S(a("her best 100"), "c_1098_hs", 36.0, slow=0.5, tag="FLASHBACK · JUNE 20, 2015"); stat(a("10 98"), 2.4, "10.98", "STILL HER BEST · AGE 16", "orange")
+    S(a("her best 100"), "c_brooks", 28.1, slow=0.5, tag="FLASHBACK · JUNE 20, 2015"); stat(a("10 98"), 2.4, "10.98", "STILL HER BEST · AGE 16", "orange")
     S(a("her best 200"), "c_cali200", 183.6, tag="FLASHBACK · CALI 2015"); stat(a("2243"), 2.2, "22.43", "STILL HER BEST · AGE 16", "orange")
     S(a("and that deal"), "art_rbr_h1", 0.0); say(a("three years left"), 2.4, "3 YEARS LEFT · 2023", "gold", "b", "3 YEARS")
     # 8 did she finesse asics? ----------------------------------------------------------
@@ -262,7 +257,7 @@ def build_edl():
     S(a("and the time"), "c_letsrun16", 60.0, bw=1); say(a("never came"), 1.8, "NEVER CAME BACK", "red", "b", "NEVER")
     S(a("that s what"), "c_asics_ad", 49.3); stamp(a("finesse"), 2.0, "FINESSE", "gold")
     S(a("but ain t nobody"), "c_cnn", 26.9)
-    S(a("they saw a 16"), "c_1098_hs", 38.0, amb=1, slow=0.6)
+    S(a("they saw a 16"), "c_brooks", 12.0, amb=1, slow=0.6)
     S(a("made a bet"), "art_si_0", 4.0)
     S(a("candace ain t quit"), "c_150atl", 34.5); stat(a("two olympic"), 2.4, "2", "OLYMPIC TRIALS FINALS", "cyan")
     S(a("she went back"), "c_tws", 206.9)

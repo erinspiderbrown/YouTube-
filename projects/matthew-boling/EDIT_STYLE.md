@@ -16,7 +16,7 @@ Video: https://youtu.be/kPf1d0eAMrE (v2, 9:28). Build: `boling_build.py` (copy i
 ## 2. Footage
 - Import everything through vidIQ (free):
   - race broadcasts (NCAA, SEC, World Athletics, NBC)
-  - fan and FloTrack race videos
+  - fan race videos (never FloTrack or MileSplit footage: user rule, 11 Nov 2026)
   - local and national news (CBS, KHOU)
   - documentary shorts about the athlete (Park Stories)
   - the athlete's own vlogs
