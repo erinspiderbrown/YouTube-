@@ -1,0 +1,165 @@
+<title>Candace Hill Teleprompter</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Space+Grotesk:wght@500;700&display=swap">
+<style>
+/* Layout: a single-theme dark prompter. Thin top bar with part chips, one big reading column, a fixed control bar at the bottom. */
+:root{
+  --bg:#0b0d10; --panel:#14171c; --line:#262b33; --fg:#f3f1ec; --muted:#9aa1ab; --accent:#ff7a1a; --guide:rgba(255,122,26,.16);
+  --read:"Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --ui:"Space Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --size:44px;
+  color-scheme:dark;
+}
+html,body{height:100%}
+body{background:var(--bg);color:var(--fg);font-family:var(--ui);display:flex;flex-direction:column;overflow:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--panel);z-index:10}
+header{background:var(--panel);border-bottom:1px solid var(--line);padding-block:10px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:8px}
+.top{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.top h1{font-size:15px;margin:0;letter-spacing:.06em;text-transform:uppercase;font-weight:700}
+.top h1 b{color:var(--accent)}
+.meta{color:var(--muted);font-size:13px;font-variant-numeric:tabular-nums}
+.chips{display:flex;gap:6px;overflow-x:auto;padding-bottom:2px}
+.chip{flex:0 0 auto;font:600 13px var(--ui);color:var(--muted);background:transparent;border:1px solid var(--line);border-radius:999px;padding:6px 11px;cursor:pointer;white-space:nowrap}
+.chip[aria-current="true"]{color:var(--bg);background:var(--accent);border-color:var(--accent)}
+.chip.done::after{content:" ✓";color:var(--accent)}
+.chip[aria-current="true"].done::after{color:var(--bg)}
+button:focus-visible,.chip:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+main{flex:1;min-height:0;overflow-y:auto;position:relative;scroll-behavior:auto}
+.col{max-width:34ch;margin:0 auto;padding-block:30vh 60vh;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));font-family:var(--read);font-size:var(--size);line-height:1.42}
+.col .label{font:700 14px var(--ui);letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:.6em}
+.col .file{font:500 13px var(--ui);color:var(--muted);margin-bottom:1.4em;letter-spacing:.02em}
+.col p{margin:0 0 .9em;text-wrap:pretty}
+.guide{position:fixed;left:0;right:0;top:38%;height:calc(var(--size)*1.5);background:var(--guide);border-block:1px solid rgba(255,122,26,.35);pointer-events:none;z-index:1}
+.help{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:1.2em;font:400 15px/1.5 var(--ui);color:var(--muted)}
+.help strong{color:var(--fg)}
+.help ul{margin:.4em 0 0;padding-left:1.1em}
+footer{background:var(--panel);border-top:1px solid var(--line);padding-top:10px;padding-bottom:calc(10px + env(safe-area-inset-bottom,0px));padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;gap:8px;align-items:center;justify-content:center;flex-wrap:wrap}
+footer button{font:700 15px var(--ui);color:var(--fg);background:#1c2027;border:1px solid var(--line);border-radius:10px;padding:10px 14px;cursor:pointer;min-width:44px}
+footer button.go{background:var(--accent);border-color:var(--accent);color:#14100b;min-width:110px}
+.grp{display:flex;align-items:center;gap:6px}
+.grp span{color:var(--muted);font-size:12px;letter-spacing:.06em;text-transform:uppercase;min-width:52px;text-align:center;font-variant-numeric:tabular-nums}
+.cue{font:600 15px var(--ui);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border-left:3px solid var(--accent);padding:4px 10px;margin:0 0 1.2em}
+footer button.rec{background:#c8102e;border-color:#c8102e;color:#fff;min-width:120px}
+footer button.rec.on{animation:pulse 1.2s infinite}
+@keyframes pulse{50%{opacity:.6}}
+.takes{max-width:34ch;margin:0 auto;font:400 14px var(--ui);color:var(--muted)}
+#takes{background:var(--panel);border-top:1px solid var(--line);padding:8px max(16px,env(safe-area-inset-left,0px));display:flex;gap:8px;align-items:center;flex-wrap:wrap;font:500 13px var(--ui);color:var(--muted);max-height:30vh;overflow:auto}
+#takes .take{display:flex;align-items:center;gap:6px;background:#1c2027;border:1px solid var(--line);border-radius:10px;padding:4px 8px}
+#takes audio{height:30px;max-width:200px}
+#takes button{font:600 12px var(--ui);color:var(--fg);background:transparent;border:1px solid var(--line);border-radius:8px;padding:4px 8px;cursor:pointer}
+#status{color:var(--fg)}
+@media (prefers-reduced-motion:reduce){footer button.rec.on{animation:none}}
+@media (max-width:520px){:root{--size:32px}.guide{top:34%}}
+@media (prefers-reduced-motion:reduce){main{scroll-behavior:auto}}
+</style>
+
+<header>
+  <div class="top"><h1>Did Candace Hill <b>Finesse ASICS?</b></h1><span class="meta" id="meta"></span></div>
+  <nav class="chips" id="chips" aria-label="Script parts"></nav>
+</header>
+<div class="guide" aria-hidden="true"></div>
+<main id="main"><div class="col" id="col"></div></main>
+<div id="takes" aria-live="polite"><span id="status">Takes for this part show up here.</span></div>
+<footer>
+  <button id="prev" aria-label="Previous part">◀</button>
+  <div class="grp"><button id="slower" aria-label="Scroll slower">−</button><span id="spd">Speed 3</span><button id="faster" aria-label="Scroll faster">+</button></div>
+  <button id="rec" class="rec">● Record</button>
+  <button id="play" class="go">▶ Scroll</button>
+  <div class="grp"><button id="smaller" aria-label="Smaller text">A−</button><span id="sz">Text</span><button id="bigger" aria-label="Bigger text">A+</button></div>
+  <button id="next" aria-label="Next part">▶</button>
+</footer>
+<script>
+const SECS = [{"n": 1, "title": "Cold open", "paras": ["June 20, 2015. Shoreline, Washington.", "A 16-year-old girl lines up in the 100… and runs 10.98.", "[SOUNDBITE: the 10.98 race and the reaction]", "6 months later, ASICS hands her a 10-year pro deal. At 16. Reportedly 6 figures a year… with no deductions.", "And after that day in Shoreline?", "She never ran under 11 again. Never made a Team USA for the Olympics or the World Championships. Never ran a personal best in the 100 or the 200 again.", "Not once.", "So, real talk. Did Candace Hill finesse ASICS?", "Lemme tell y'all the whole story."]}, {"n": 2, "title": "The fastest girl alive", "paras": ["Candace Hill. From Conyers, Georgia. Rockdale County High School.", "And that 10.98 wasn't no fluke. No high school girl had ever broken 11 seconds. Ever.", "That same summer she go to the World Youth Championships in Cali, Colombia, and she win the 100… and the 200. 22.43 in the 200.", "She win Gatorade National Athlete of the Year. As a sophomore. You know the only other sophomore to ever win that?", "Marion Jones.", "They was callin' her the fastest girl alive. USC wanted her. Florida wanted her. Every big program in the country."]}, {"n": 3, "title": "The deal", "paras": ["December 17, 2015.", "Candace Hill signs a 10-year professional contract with ASICS. She 16 years old. The youngest American track athlete to ever go pro.", "[SOUNDBITE: news report on the signing]", "ASICS ain't never say the number. But MileSplit reported, from a source, it was 6 figures a year, for 10 years, with no deductions. Her agency never confirmed it.", "Now here go why that matters.", "Most track contracts got what they call reduction clauses. You don't run fast, you don't rank, you don't make the team? They cut your pay.", "Reportedly, Candace ain't have that.", "And it ran all the way through 2025. Till she 26. Plus they said they'd pay for her college.", "So at 16, before she even finished high school… she was set for 10 years."]}, {"n": 4, "title": "The fall-off", "paras": ["2016. The Olympic year. Candace is 17.", "She miss about 4 months of training. She still make the Olympic Trials. 13th in the 100. 14th in the 200.", "Then she go to the World Under-20 Championships and win gold. 11.07.", "So the talent was still there.", "But then… it just stops.", "2017. 2018. 2019. No personal bests. In 2019 at USAs, she finish 14th in the 100… and 14th in the 200.", "And she going through coaches. By 2023, 5 different coaching changes."]}, {"n": 5, "title": "\"You made the wrong decision\"", "paras": ["And here go the part nobody saw.", "In 2021 she opened up to World Athletics.", "She said: \"I had so many people constantly in my ear saying, you made the wrong decision.\" And she said, \"It had me second-guessing myself.\"", "[SOUNDBITE: Candace Hill interview]", "She started seeing a therapist. And she said her therapist told her some of your emotional issues can turn into physical pain.", "She said, \"If your mind is not in a great space, your body quickly follows suit.\""]}, {"n": 6, "title": "So close", "paras": ["2021. She finally look like herself again.", "July 2021. Out in California. She run… 10.99.", "Under 11. For the 1st time in 6 years.", "But the wind was 2.5. The legal limit is 2.0.", "Wind-aided. It don't count.", "That same summer she make the Olympic Trials final. 8th.", "Then she move to Baton Rouge to train under Dennis Shaver, with pros like Aleia Hobbs. And she back in school. Pre-med.", "2024. Olympic Trials. She make the 100 meter final again.", "[SOUNDBITE: 2024 Trials 100m final]", "7th. 11.00.", "1 hundredth. That's how close she got."]}, {"n": 7, "title": "The receipts", "paras": ["So let's add it up.", "Legal sub-11s after she signed: 0.", "Olympic teams: 0.", "World Championship teams: 0.", "Personal bests in the 100 or the 200 since she was 16: 0.", "Her best 100 ever… is still the 10.98 she ran in high school. Her best 200 ever… still the 22.43 from that same summer.", "And that deal? In 2023 she said she still had 3 years left on it."]}, {"n": 8, "title": "Did she finesse ASICS?", "paras": ["Now I'ma keep it real with y'all.", "If you look at it like a business deal… yeah. Candace got the bag. 10 years. Reportedly no deductions. And the times they was payin' for… never came back.", "That's a finesse.", "But ain't nobody tricked ASICS. They saw a 16-year-old run 10.98 and made the bet themselves. And Candace ain't quit. She made 2 Olympic Trials finals. She went back to school. She fought through a lot of people telling her she messed up her life.", "So which one is it?", "Did Candace Hill finesse ASICS? Or did ASICS bet on a kid… and lose?", "And if you was 16 and they put that contract in front of you… would you have signed?", "Let me know in the comments."]}];
+const slug = s => s.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
+const fileName = s => `candace_${String(s.n).padStart(2,"0")}_${slug(s.title)}`;
+const store = { get(k,d){try{const v=localStorage.getItem("ch_"+k);return v==null?d:JSON.parse(v)}catch(e){return d}}, set(k,v){try{localStorage.setItem("ch_"+k,JSON.stringify(v))}catch(e){}} };
+let cur = Math.min(store.get("cur",0), SECS.length-1), speed = store.get("speed",3), size = store.get("size",0);
+let playing=false, raf=0, last=0, acc=0, lock=null;
+let db=null, assets=null, downloads=null, takes=[], rec=null, chunks=[], t0=0, stream=null;
+const $ = id => document.getElementById(id);
+const main=$("main"), col=$("col");
+const esc = t => t.replace(/&/g,"&amp;").replace(/</g,"&lt;");
+function words(s){return s.paras.filter(p=>!p.startsWith("[")).join(" ").split(/\s+/).length}
+function render(){
+  const s=SECS[cur];
+  const help = cur===0 ? `<div class="help"><strong>How to record</strong><ul>
+    <li>Quiet room with soft things around you. A closet or a parked car works great.</li>
+    <li>Tap <strong>● Record</strong>. The text starts scrolling with you. Tap <strong>■ Stop</strong> at the end of the part.</li>
+    <li>Mess up? Pause, then say the line again. I cut the bad take.</li>
+    <li>Each take saves here automatically, and I pick them up. Re-record a part as many times as you want; I use the newest one.</li>
+    <li>If the mic won't start on this page, use your phone's voice memo app (name each one like the grey label) and send the files in the chat.</li></ul></div>` : "";
+  col.innerHTML = help + `<div class="label">Part ${s.n} of ${SECS.length} · ${s.title}</div><div class="file">Phone backup name: ${fileName(s)}</div>` +
+    s.paras.map(p=> p.startsWith("[") ? `<div class="cue">${esc(p.replace(/^\[|\]$/g,""))} (don't read)</div>` : `<p>${esc(p)}</p>`).join("");
+  main.scrollTop=0; acc=0;
+  const doneParts=new Set(takes.map(t=>t.part));
+  [...$("chips").children].forEach((c,i)=>{c.setAttribute("aria-current", i===cur ? "true":"false"); c.classList.toggle("done", doneParts.has(SECS[i].n));});
+  $("chips").children[cur].scrollIntoView({block:"nearest",inline:"center"});
+  const total=SECS.reduce((a,x)=>a+words(x),0);
+  $("meta").textContent = `${words(s)} words · about ${Math.max(1,Math.round(words(s)/150*60))} s · whole script about ${Math.round(total/150)} min`;
+  store.set("cur",cur); renderTakes();
+}
+function renderTakes(msg){
+  const box=$("takes"); const mine=takes.filter(t=>t.part===SECS[cur].n).sort((a,b)=>b.at-a.at);
+  const status = msg || (rec ? "Recording…" : !db||!assets ? "Saving takes needs this page opened in Claude (signed in). You can still read and scroll." : mine.length ? `${mine.length} take${mine.length>1?"s":""} saved for this part (newest first). I use the newest.` : "No takes yet for this part.");
+  box.innerHTML = `<span id="status">${esc(status)}</span>` + mine.map(t=>`<span class="take"><audio controls preload="none" src="/_blob/${t.asset}"></audio><span>${Math.round(t.secs||0)} s</span>${downloads?`<button data-save="${t.asset}">Save to phone</button>`:""}</span>`).join("");
+}
+$("takes").onclick=async e=>{ const id=e.target.dataset?.save; if(!id||!downloads) return;
+  const t=takes.find(x=>x.asset===id); try{ const b=await (await fetch("/_blob/"+id)).blob(); await downloads.save({filename:`${fileName(SECS.find(s=>s.n===t.part))}.${(t.type||"").includes("mp4")?"m4a":"webm"}`, data:b}); }catch(err){ renderTakes("Couldn't save that file."); } };
+function chips(){ $("chips").innerHTML = SECS.map((s,i)=>`<button class="chip" data-i="${i}">${s.n}. ${esc(s.title)}</button>`).join(""); $("chips").onclick=e=>{const b=e.target.closest(".chip"); if(b && !rec){stop(); cur=+b.dataset.i; render();}}; }
+function applySize(){ const base = innerWidth<=520 ? 32 : 44; document.documentElement.style.setProperty("--size", (base + size*4) + "px"); $("sz").textContent = "Text " + (size>=0?"+":"") + size; store.set("size",size); }
+function applySpeed(){ $("spd").textContent = "Speed " + speed; store.set("speed",speed); }
+function tick(t){ if(!playing) return; const dt = last ? (t-last)/1000 : 0; last=t; acc += dt * (12 + speed*9); if(acc>=1){ const n=Math.floor(acc); main.scrollTop += n; acc-=n; } if(main.scrollTop+main.clientHeight >= main.scrollHeight-2){ stop(); return; } raf=requestAnimationFrame(tick); }
+async function play(){ playing=true; last=0; $("play").textContent="❚❚ Pause"; raf=requestAnimationFrame(tick); try{ lock = await navigator.wakeLock?.request("screen"); }catch(e){} }
+function stop(){ playing=false; cancelAnimationFrame(raf); $("play").textContent="▶ Scroll"; try{ lock?.release(); }catch(e){} lock=null; }
+async function startRec(){
+  if(!navigator.mediaDevices?.getUserMedia || !window.MediaRecorder){ renderTakes("This browser can't record here. Use your phone's voice memo app and send the files."); return; }
+  try{ stream = await navigator.mediaDevices.getUserMedia({audio:{echoCancellation:false,noiseSuppression:false,autoGainControl:true,channelCount:1}}); }
+  catch(e){ renderTakes("The mic is blocked on this page. Use your phone's voice memo app and send the files."); return; }
+  const type = ["audio/webm;codecs=opus","audio/webm","audio/mp4"].find(t=>MediaRecorder.isTypeSupported(t)) || "";
+  chunks=[]; rec = new MediaRecorder(stream, type?{mimeType:type,audioBitsPerSecond:128000}:{});
+  rec.ondataavailable=e=>{ if(e.data.size) chunks.push(e.data); };
+  rec.onstop=saveTake; rec.start(1000); t0=Date.now();
+  $("rec").textContent="■ Stop"; $("rec").classList.add("on"); main.scrollTop=0; renderTakes(); play();
+}
+async function saveTake(){
+  const part=SECS[cur].n, secs=(Date.now()-t0)/1000, mime=rec.mimeType||"audio/webm";
+  stream.getTracks().forEach(t=>t.stop()); rec=null; $("rec").textContent="● Record"; $("rec").classList.remove("on"); stop();
+  const blob=new Blob(chunks,{type:mime});
+  if(secs<1.5){ renderTakes("That take was too short, so it wasn't saved."); return; }
+  if(!assets||!db){ renderTakes("Couldn't save the take here (open the page in Claude, signed in)."); if(downloads){ try{ await downloads.save({filename:fileName(SECS[cur])+(mime.includes("mp4")?".m4a":".webm"),data:blob}); }catch(e){} } return; }
+  renderTakes("Saving take…");
+  try{
+    const up = await assets.upload(blob,{type: mime.includes("mp4") ? "video/mp4" : "video/webm"});
+    await db.collection("takes").add({part, title:SECS[cur].title, asset:up.id, type:mime, secs:Math.round(secs*10)/10, at:Date.now()});
+    renderTakes(`Saved (${Math.round(secs)} s). Next part when you're ready.`);
+  }catch(e){
+    renderTakes("Upload failed ("+(e?.code||"error")+"). Saving it to your device instead.");
+    if(downloads){ try{ await downloads.save({filename:fileName(SECS[cur])+(mime.includes("mp4")?".m4a":".webm"),data:blob}); }catch(_){} }
+  }
+}
+$("rec").onclick=()=> rec ? rec.stop() : startRec();
+$("play").onclick=()=> playing?stop():play();
+$("prev").onclick=()=>{ if(cur>0 && !rec){stop();cur--;render();} };
+$("next").onclick=()=>{ if(cur<SECS.length-1 && !rec){stop();cur++;render();} };
+$("faster").onclick=()=>{ speed=Math.min(10,speed+1); applySpeed(); };
+$("slower").onclick=()=>{ speed=Math.max(1,speed-1); applySpeed(); };
+$("bigger").onclick=()=>{ size=Math.min(6,size+1); applySize(); };
+$("smaller").onclick=()=>{ size=Math.max(-4,size-1); applySize(); };
+addEventListener("keydown",e=>{ if(e.target.closest("input,textarea")) return;
+  if(e.code==="Space"){e.preventDefault(); playing?stop():play();}
+  else if(e.key==="r"||e.key==="R"){ $("rec").click(); }
+  else if(e.key==="ArrowRight"){ $("next").click(); } else if(e.key==="ArrowLeft"){ $("prev").click(); }
+  else if(e.key==="ArrowUp"){ $("faster").click(); } else if(e.key==="ArrowDown"){ $("slower").click(); } });
+addEventListener("resize",applySize);
+main.addEventListener("wheel",()=>{ if(playing && !rec) stop(); },{passive:true});
+main.addEventListener("touchstart",()=>{ if(playing && !rec) stop(); },{passive:true});
+chips(); applySize(); applySpeed(); render();
+(async()=>{
+  try{ downloads = await window.claude?.use("downloads"); }catch(e){}
+  try{ assets = await window.claude?.use("assets"); }catch(e){}
+  try{ db = await window.claude?.use("db"); }catch(e){}
+  if(db){ db.collection("takes").onSnapshot(s=>{ takes=s.docs.map(d=>({id:d.id,...d.data()})); render(); }, ()=>renderTakes("Couldn't load saved takes.")); }
+  else renderTakes();
+})();
+</script>

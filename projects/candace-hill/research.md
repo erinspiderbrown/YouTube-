@@ -53,3 +53,10 @@
 - 2021 Trials
 - 2024 Trials 100m final
 - Interviews with her (World Athletics, MileSplit, FloTrack)
+
+## Added 11 Nov 2026 (for the "finessed ASICS" angle)
+- **Contract terms:** MileSplit (Johanna Gretschel, Oct 27, 2015), from an unnamed source: "a six-figure per year deal for 10 years with no deductions." GA&M didn't confirm it. ASICS announced the deal as running "through 2025". https://www.milesplit.com/articles/167267/16-year-old-candace-hill-turns-pro
+- **2021 10.99w:** July 2021, Southern California (American Track League / Mission Viejo per reports), +2.5 wind, so not legal. Her 200m that day was 22.30w. https://world-track.org/2021/07/candace-hill-double-jamaicans-tokyo-american-track-league-los-angeles-meeting/
+- **60m indoor PR:** 7.16 on Feb 13, 2021 (New Balance Indoor GP). That's the only PR after 2015, so the script limits "no PRs" to the 100 and 200.
+- **Senior teams:** Wikipedia lists no senior Olympic, World Championships, World Indoor or World Relays selection. Her international titles are World Youth 2015 and World U20 2016.
+- Teleprompter with recording: https://claude.ai/artifact/TXh7FRZsMntx4PP6vuuamd (takes in db collection "takes": part, asset id, type, secs, at; fetch with Artifact read path=<asset id>).
