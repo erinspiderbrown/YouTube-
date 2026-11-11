@@ -54,3 +54,10 @@ Video: https://youtu.be/kPf1d0eAMrE (v2, 9:28). Build: `boling_build.py` (copy i
 - A dark bed per chapter (`projects/jon-drummond/music`), sidechain-ducked under voice + soundbites.
 - Race clips keep their crowd sound low (0.16).
 - SFX: about 30 in a 9.5-minute video, only on chapters, stamps, stats and the end question, varied kinds. At least 6 s between stat hits and 3 s between any two hits. Nothing on plain cuts.
+
+## 6. Article receipts (added on Candace Hill, 11 Nov 2026)
+- Screenshot the real news articles with Playwright, wrapping the key line in a red outline box
+  (`projects/candace-hill/art2.js`), then turn each into a 12 s push-in toward the box (zoompan; see the
+  `art_*.mp4` step in the Candace notes). Use them as shots with the outlet + date as the source credit.
+- Check every number against the broadcast's own results board, not only Wikipedia (Wikipedia said 8th in the
+  2021 Trials final; NBC's board showed 9th of 9).

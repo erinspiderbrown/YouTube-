@@ -93,13 +93,18 @@ def main():
         face = face.convert("RGB"); s = max(W / face.width, H / face.height)
         face = face.resize((int(face.width * s) + 1, int(face.height * s) + 1), Image.LANCZOS)
         im = grade_face(face.crop((0, 0, W, H)).convert("RGBA"))
-    big = text_img(a.big, BLOCK, 300, (235, 16, 22), 3, (120, 0, 0))
-    bx, by = (W - big.width) // 2, int(H * a.big_y)
+    # auto-fit: left + big + right must fit across the frame with gaps (long words shrink together)
+    k = 1.0
+    for _ in range(12):
+        big = text_img(a.big, BLOCK, 300 * k, (235, 16, 22), 3, (120, 0, 0))
+        left = text_img(a.left, ITAL, 150 * k, (255, 255, 255))
+        right = text_img(a.right, ITAL, (82 if len(a.right) > 6 else 130) * k, (255, 255, 255))
+        if left.width + big.width + right.width - 60 <= W - 60: break
+        k *= 0.93
+    bx = (W - big.width) // 2 + (left.width - right.width) // 6; by = int(H * a.big_y)
     paste_shadow(im, big, (bx, by), 18, 0.8, (8, 12))
-    left = text_img(a.left, ITAL, 150, (255, 255, 255))
-    paste_shadow(im, left, (max(30, bx - left.width - 30), by + int(big.height * 0.28)))
-    right = text_img(a.right, ITAL, 82 if len(a.right) > 6 else 130, (255, 255, 255))
-    rx = min(W - right.width - 10, bx + big.width + 10); ry = by + int(big.height * 0.38)
+    paste_shadow(im, left, (max(10, bx - left.width + 20), by + int(big.height * 0.28)))
+    rx = min(W - right.width, bx + big.width - 20); ry = by + int(big.height * 0.38)
     paste_shadow(im, right, (rx, ry))
     # yellow marker underline, slightly uneven
     ul = Image.new("RGBA", (W, H), (0, 0, 0, 0)); d = ImageDraw.Draw(ul)

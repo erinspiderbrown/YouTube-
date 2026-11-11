@@ -102,7 +102,7 @@ But the wind was 2.5. The legal limit is 2.0.
 
 Wind-aided. It don't count.
 
-That same summer she make the Olympic Trials final. 8th.
+That same summer she make the Olympic Trials final. 9th. Last.
 
 Then she move to Baton Rouge to train under Dennis Shaver, with pros like Aleia Hobbs. And she back in school. Pre-med.
 

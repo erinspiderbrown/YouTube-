@@ -24,9 +24,10 @@
   - "I had so many people constantly in my ear saying: 'you made the wrong decision'." "It had me second-guessing myself."
   - "My therapist told me that some of your emotional issues can form into physical pain, and that's true." "If your mind is not in a great space, your body quickly follows suit."
   - "I'm starting to see the light at the end of the tunnel."
-  - That season: a 10.99 season best (0.01 off her personal best), and 8th in the Olympic Trials 100m final (11.23).
+  - That season: a 10.99w (+2.5 wind, not legal; legal season best 11.13), and 9th (last of 9) in the Olympic Trials 100m final (11.23), per NBC's on-screen results; Wikipedia says 8th.
 - **2022:** USAs 200m, 11th (22.50).
 - **2023 (RunBlogRun, March 2023):** studying pre-med at LSU (psychology), with 3 years left on her ASICS deal. Goal: "I want to PR in the 100m and the 200m this year."
+- **2024 (checked 11 Nov 2026, TFN):** final 1 Richardson 10.71, 2 Jefferson 10.80, 3 Terry 10.89, 4 Davis 10.91, 5 Hobbs 10.93, 6 Clark 10.95, **7 Hill 11.00**, 8 Prandini 11.02, 9 Battle 11.12.
 - **2024:**
   - Fastest 150m of the season (16.29) at the Adidas Atlanta City Games, just ahead of training partner Favour Ofili.
   - **Olympic Trials 100m final: 7th in 11.00** (semi 11.10). Sha'Carri won in 10.71. 200m: out in the semis (22.61).
