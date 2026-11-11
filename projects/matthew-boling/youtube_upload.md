@@ -1,7 +1,7 @@
 # Upload package: The Downfall of Matthew Boling (v2 cut)
 
 - **Title (user pick, #5):** America's Fastest High Schooler... What Went Wrong?
-- **Uploaded 10 Nov 2026 (unlisted):** https://youtu.be/kPf1d0eAMrE via Upload-Post job `1861db3db2fd437eafa96ce1a497b45b` (privacyStatus unlisted, category 17). Tags + captions pending: YouTube API quota was used up; scheduled for after the reset. Thumbnail later (user).
+- **Uploaded 10 Nov 2026 (unlisted):** https://youtu.be/kPf1d0eAMrE via Upload-Post job `1861db3db2fd437eafa96ce1a497b45b` (privacyStatus unlisted, category 17). Done 11 Nov 08:23 UTC: 22 tags, the user's own thumbnail (`thumbnail_final.jpg`), English captions (`captions_en.srt`, serving). Removed the old Bolt/Arkansas photo credits from the description (no longer in the thumbnail). Still unlisted.
 - **Video:** `scratchpad/output/Downfall_of_Matthew_Boling_v2_up.mp4` (9:28, re-encode of the v2 master)
 - **Category:** 17 (Sports) · **Captions:** `captions_en.srt` (script text timed to the final timeline)
 - **Monetization:** no API can switch it; check the video's Monetization tab in Studio.
