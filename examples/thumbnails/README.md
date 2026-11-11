@@ -78,3 +78,11 @@ Contact sheets of all 12 (maxres): `evhandd/sheet1.jpg` (top 4 by views), `sheet
 - **The host's face:** Ev's thumbnails all have his own reacting face. If the user wants that, we need a few HD photos of them making the faces (side-eye, shocked, pointing, hands on head) on a plain background. Until then, use the athlete's own reaction photo in that spot.
 - Real photos only (the user's rule). A composited background may be generated to set the scene (warehouse, lab, courtroom), but people and the key object stay real.
 - Keep the earlier HD rules from `projects/banned-substances/thumbnail_research.md`: only ever downscale photos, light grading, sharp cutouts.
+
+## Downfall videos: the "HE LOST EVERYTHING." style (user approved the concept, 11 Nov 2026)
+Reference: `downfall_ref_internetjanitor.jpg` (InternetJanitor, Ben Shapiro, 1.7M views in 2 days). Demo: `downfall_demo_boling.jpg`.
+- One huge, front-on close-up of the subject's face, centred, filling the frame, on a plain textured deep-blue background.
+- 3 words across the top: a small white italic word on the left, a GIANT red block word over the forehead, and a white italic word on the right with a yellow marker underline.
+- The face must be a real photo or video frame where the person already looks sad, shocked or defeated. Never paint on tears or change the expression.
+- Build with `tools/thumb_downfall.py` (cut the face with rembg birefnet-portrait first, then frame it with `--crop`).
+- Use it for downfall / fell-off / "what went wrong" videos. Keep the user's Boling style (stadium + action + face) for other videos.

@@ -91,6 +91,7 @@ The user said viewers notice the AI voice and that it "doesn't really sound like
 
 ## Reference examples
 - `examples/thumbnails/README.md`: **thumbnail house style = the user's own Boling thumbnail** (`examples/thumbnails/user_boling_what_happened.png`, 10 Nov 2026). One bright stadium scene, the athlete's peak action cutout upper-left, a big front-lit close-up face on the right, a heavy italic 2-line question bottom-left (white + yellow→orange gradient, red swoosh). Build with `tools/thumb_template.py`. The earlier Ev Hand notes are superseded.
+  - **Downfall videos** use the second style the user liked (11 Nov 2026): one huge real sad/defeated face on textured blue with 3 words ("HE **LOST** EVERYTHING.": small white, giant red, white with a yellow underline). Build with `tools/thumb_downfall.py`. Never paint on tears.
 - `examples/podcast/`: example videos/clips for podcast style.
 - `examples/documentary/`: example videos/clips for documentary style.
 - `examples/links.md`: YouTube links and notes on what to study in each one.
