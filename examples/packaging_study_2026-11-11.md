@@ -30,3 +30,7 @@ Losers: portraits, medals, lists of years, nothing to solve.
 5. Avoid "The Rise Of…", "Where Are They Now", plain topic titles. Prefer "X. Then Y." / "… — Then Everything Changed".
 6. Upload with YouTube Studio "Test & compare" (up to 3 thumbnails) and let YouTube pick.
 Tools: `tools/thumb_number.py` (one-number before/after), `tools/thumb_downfall.py`, `tools/thumb_template.py`.
+
+## Result, 12 Nov 2026
+- Boling, with the user's own house-style thumbnail (action cutout + big face + "WHAT HAPPENED?") and title "America's Fastest High Schooler... What Went Wrong?": **20,000 views on day 1**, the channel's best start.
+- Candace's "SHE FINESSED ASICS?" (downfall style) did less. **Default to the house style (tools/thumb_template.py)** for "what happened to…" stories; use downfall/number styles as Test & compare variants.

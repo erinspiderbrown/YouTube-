@@ -1,5 +1,10 @@
 # Abby Steiner: titles (12 Nov 2026; rules in examples/packaging_study_2026-11-11.md)
 
+## v4 (12 Nov 2026): lead with the house style (Boling did 20K on day 1)
+- **Thumbnail E (main): `thumbnail_TE_house_what.jpg`**: Oregon 2022 race photo (Erik van Leeuwen, GFDL, Wikimedia Commons) + her 2024 Trials tears + "WHAT HAPPENED?" over Hayward Field (Habst, CC BY-SA 4.0, Commons). Credit both in the description.
+- D: same with "WHERE'D SHE GO?". Test against C ("NOW PUMA IS SUING HER").
+- Title for E: **The White Girl Who Outran America… Then Disappeared**
+
 ## v3: final titles + thumbnails (12 Nov 2026)
 New development: PUMA filed a €11.6M (~$13M) case against her in Germany (per her lawyers). Pair title (the mystery) with thumbnail (the twist):
 1. **The White Girl Who Outran America… Then Disappeared** + thumbnail C "NOW PUMA IS SUING HER" (pick)
