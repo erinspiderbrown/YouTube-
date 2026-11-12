@@ -1,5 +1,12 @@
 # Abby Steiner: titles (12 Nov 2026; rules in examples/packaging_study_2026-11-11.md)
 
+## v6 (12 Nov 2026, user): "the downfall of her and what went wrong" (script_v5.md). Boling formula.
+Thumbnail E "WHAT HAPPENED?" (main). Titles:
+1. **America's Fastest College Woman Ever... What Went Wrong?** (pick: the exact Boling formula that did 20K day 1)
+2. The White Girl Who Outran America… What Went Wrong?
+3. The Downfall Of Abby Steiner
+4. She Was A World Champion At 22. Then It All Fell Apart.
+
 ## v5 (12 Nov 2026, user): NOT a PUMA video. No PUMA in the title or thumbnails (drop C).
 Thumbnail: **E "WHAT HAPPENED?"** (main), D "WHERE'D SHE GO?" or A "RACES SINCE 2024: 0" / B "SHE VANISHED IN 2024." as Test & compare options.
 Titles:

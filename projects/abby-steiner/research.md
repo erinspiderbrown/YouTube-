@@ -46,3 +46,8 @@
   https://www.nbcboston.com/news/local/elite-sprinters-sue-puma-shoe-injuries-massachusetts-lawsuits/3962829/
 - Competitor coverage: Total Running Productions "Abby Steiner Situation Is Crazy" (447K in 2 weeks), Track and Field Zone "…Takes a Shocking Turn" (24K / 4 days). The user's own "Dumb Sprinter Abby Steiner Sues Puma, and more…" (3.2K, May 2026).
 - Note: TRP says she was 5th at the 2024 Trials and had an "Achilles tear" before them; our sources say 6th (FOS, Citius title "6th In The Final"). Keep 6th; leave the tear out (unverified).
+
+## Her own words (verified from transcripts, 12 Nov 2026)
+- Citius Mag, 2024 Trials (https://youtu.be/zZ4n7Vxi8FM): "I actually had Haglund's surgery in both of my feet this offseason. So the left one I had done August, the right one I had done end of September." "I was back training probably around beginning of December. I think that was the first time I like jogged on a track." "Dealing with some things in the foot after LA, thought it was best to train through and try to get ready for these trials." "We did what we needed to do last year, trying to shut it down early." Cries at ~165-195 s.
+- Citius Mag, Eugene 2022 after the 4x100 gold (https://youtu.be/CBXhdNKD5uk): asked "Are you done, finally?" she said "We'll be done after this meet." (Citius title: "at the end of long season").
+- 2023: 300m indoor American record 35.54 (Feb 11, 2023); USAs 4th 22.07.
