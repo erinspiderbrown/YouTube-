@@ -1,5 +1,14 @@
 # Abby Steiner: titles (12 Nov 2026; rules in examples/packaging_study_2026-11-11.md)
 
+## v3: final titles + thumbnails (12 Nov 2026)
+New development: PUMA filed a €11.6M (~$13M) case against her in Germany (per her lawyers). Pair title (the mystery) with thumbnail (the twist):
+1. **The White Girl Who Outran America… Then Disappeared** + thumbnail C "NOW PUMA IS SUING HER" (pick)
+2. She Sued PUMA… Now PUMA Wants $13 Million From Her + thumbnail B "SHE VANISHED IN 2024."
+3. America's Fastest College Woman Ever Vanished. Here's Why. + thumbnail A "RACES SINCE 2024: 0"
+4. What Happened To Abby Steiner Is Worse Than You Think + thumbnail C
+Test A/B/C in YouTube Studio "Test & compare".
+Thumbnails: thumbnail_TA_zero.jpg, thumbnail_TB_vanished.jpg, thumbnail_TC_puma.jpg (real frames: Eugene 2022 mixed zone, Citius Mag 2024 Trials interview; receipt = Meyers & Flowers release headline).
+
 ## v2 angle (user): the rare white sprinter who got as fast as anybody, then disappeared
 1. **The White Girl Who Outran America… Then Disappeared** (pick: rarity + twist + mystery; pairs with the Boling "White Lightning" audience)
 2. America's Fastest White Sprinter Vanished. Here's Where She Went.

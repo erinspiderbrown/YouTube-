@@ -37,3 +37,12 @@
 
 ## Footage to hunt (no FloTrack/MileSplit)
 2022 NCAA 200 final (ESPN/SEC), 2022 USAs 200 (NBC), Eugene 2022 relays (World Athletics/NBC), Kentucky Athletics features, Bowerman Award, PUMA signing/ads, 2024 Trials 200 final (NBC), local news (NBC4 Columbus, 10TV, LEX18, WKYT) on the lawsuit, her own social posts/interviews.
+
+## Update 12 Nov 2026: after the lawsuit
+- **June 9, 2026:** Champion Allison (US 400m) and Damion Thomas (Jamaican Olympian) filed separate suits against PUMA and Mercedes F1 in Massachusetts Superior Court, same lawyer (Peter J. Flowers, Meyers & Flowers), same claims. (NBC Boston, Yahoo, SGI Europe)
+- **June 11, 2026:** PUMA asked the Massachusetts court to dismiss or compel arbitration (per Meyers & Flowers).
+- **July 2, 2026:** PUMA filed an action at the Regional Court of Nuremberg-Fürth, Germany, against Steiner, Allison and Thomas: **€11.6 million** (~$13M), seeking declarations stripping their right to sue for injuries plus full indemnity incl. legal fees. **Source: the athletes' law firm (Meyers & Flowers release, Sept 17, 2026), not independently confirmed; attribute it.** Flowers: PUMA is "using a court in Nuremberg to punish and intimidate U.S. athletes". Sept 8, 2026: the firm moved for an anti-suit injunction.
+  https://www.meyers-flowers.com/meyers-flowers-warns-athletes-against-puma-sponsorship-agreements-following-punitive-e11-6-million-german-lawsuit-filed-against-u-s-olympians/
+  https://www.nbcboston.com/news/local/elite-sprinters-sue-puma-shoe-injuries-massachusetts-lawsuits/3962829/
+- Competitor coverage: Total Running Productions "Abby Steiner Situation Is Crazy" (447K in 2 weeks), Track and Field Zone "…Takes a Shocking Turn" (24K / 4 days). The user's own "Dumb Sprinter Abby Steiner Sues Puma, and more…" (3.2K, May 2026).
+- Note: TRP says she was 5th at the 2024 Trials and had an "Achilles tear" before them; our sources say 6th (FOS, Citius title "6th In The Final"). Keep 6th; leave the tear out (unverified).
