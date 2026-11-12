@@ -1,5 +1,13 @@
 # Abby Steiner: titles (12 Nov 2026; rules in examples/packaging_study_2026-11-11.md)
 
+## v5 (12 Nov 2026, user): NOT a PUMA video. No PUMA in the title or thumbnails (drop C).
+Thumbnail: **E "WHAT HAPPENED?"** (main), D "WHERE'D SHE GO?" or A "RACES SINCE 2024: 0" / B "SHE VANISHED IN 2024." as Test & compare options.
+Titles:
+1. **The White Girl Who Outran America… Then Disappeared** (pick)
+2. She Beat The Fastest Women In America… Then Vanished
+3. America's Fastest College Woman Ever… What Happened?
+4. She Was A World Champion At 22. Then She Disappeared.
+
 ## v4 (12 Nov 2026): lead with the house style (Boling did 20K on day 1)
 - **Thumbnail E (main): `thumbnail_TE_house_what.jpg`**: Oregon 2022 race photo (Erik van Leeuwen, GFDL, Wikimedia Commons) + her 2024 Trials tears + "WHAT HAPPENED?" over Hayward Field (Habst, CC BY-SA 4.0, Commons). Credit both in the description.
 - D: same with "WHERE'D SHE GO?". Test against C ("NOW PUMA IS SUING HER").
