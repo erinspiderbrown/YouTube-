@@ -1,4 +1,13 @@
 # Abby Steiner: titles (12 Nov 2026; rules in examples/packaging_study_2026-11-11.md)
+
+## v2 angle (user): the rare white sprinter who got as fast as anybody, then disappeared
+1. **The White Girl Who Outran America… Then Disappeared** (pick: rarity + twist + mystery; pairs with the Boling "White Lightning" audience)
+2. America's Fastest White Sprinter Vanished. Here's Where She Went.
+3. She Beat The Fastest Women In America… Then Vanished
+4. Whatever Happened To Abby Steiner? (search title; weakest click)
+Thumbnail C fits best: her face, "WHERE'D SHE GO?" or "SHE DISAPPEARED." (downfall style). Keep "fastest white…" claims out of graphics unless sourced.
+
+## v1 angle (lawsuit first), kept for reference
 Boling's title ("America's Fastest High Schooler... What Went Wrong?") is the channel's best performer this week:
 superlative identity instead of a name + a twist. Same build here, plus the brand fight.
 
