@@ -1,5 +1,17 @@
 # Abby Steiner: titles (12 Nov 2026; rules in examples/packaging_study_2026-11-11.md)
 
+## v7 (12 Nov 2026): viral title list, each modeled on a proven hit
+Proof: own channel "America's Fastest High Schooler... What Went Wrong?" 20K day 1; Jumpman "This Is The World's Fastest White Man... But Why Are They So Slow?" 814K; Jumpman "What Happened To Every Teen Prodigy Called The 'Next Usain Bolt'?" 455K; ThatsGoodSports "A Track Star Nearly Broke the NFL…Before Breaking Himself" 187K; TRP "Abby Steiner Situation Is Crazy" 447K/2wk; Citius "Abby Steiner Emotional After Missing 2024 U.S. Olympic 200m Team" 205K; Athletics Rewind "Why Abby Steiner LEFT the Track for Good" 64K; Auditing The Absurd "Abby Steiner Remember The Name" 1.2M.
+1. America's Fastest College Woman Ever... What Went Wrong? (own 20K formula)
+2. The White Girl Who Beat America's Fastest Women… Then Her Body Broke (Jumpman white-sprinter + ThatsGoodSports "before breaking")
+3. She Beat The Fastest Women In America… Then Disappeared
+4. What Happened To The White Girl Who Outran America?
+5. World Champion At 22. Done At 24. What Happened To Abby Steiner? (last race June 2024 at 24)
+6. She Was Supposed To Be America's Next Great Sprinter… What Went Wrong?
+7. The Abby Steiner Downfall Is Worse Than You Think
+8. Why Abby Steiner Really Disappeared
+Avoid "fastest white woman ever/in the world": false (Dafne Schippers 21.63).
+
 ## v6 (12 Nov 2026, user): "the downfall of her and what went wrong" (script_v5.md). Boling formula.
 Thumbnail E "WHAT HAPPENED?" (main). Titles:
 1. **America's Fastest College Woman Ever... What Went Wrong?** (pick: the exact Boling formula that did 20K day 1)
