@@ -59,6 +59,7 @@ The user said viewers notice the AI voice and that it "doesn't really sound like
 - Write the script in the user's own words (see the script rules below), split into short sections they can read in one take.
 - **Numbers in scripts the user reads:** always digits, never spelled out ("9.98", "4x400", "6th", "2-time", "1 spot", "US", "NCAA"). Dates: month as a word, day and year as numbers ("April 27, 2019"). The "years and times as words" rule below is only for the cloned voice.
 - Give the user a **teleprompter page**: an Artifact with big text, one section per screen, and a scroll at their pace. Where the page can use the mic, it records each take there; otherwise the user records on their phone and sends the files.
+- **Never clip a word, especially years** (user, 13 Nov 2026: "2024" came out as "2020"). Whisper word end times run early on numbers, so never cut at whisper end + padding. Place every pause or flub cut inside measured silence with `tools/safe_cuts.py` (`pause_cuts`, `safe_point`), then re-transcribe the cleaned voiceover and run `check_numbers(script, words)`: every year and number in the script must come back whole before the edit is built.
 - Take their recordings from the chat upload, the page, or their Dropbox. Clean them up: noise reduction, levels, cut the breaths and mistakes, keep their natural pace. **Do not** run them through `space_voiceover.py` or any tempo change. Then transcribe for timing and edit as usual.
 - Use the cloned voice below only for long videos, or when the user asks for it.
 
