@@ -1,0 +1,154 @@
+<title>Katelyn Tuohy Teleprompter</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Space+Grotesk:wght@500;700&display=swap">
+<style>
+/* Layout: a single-theme dark prompter. Thin top bar with part chips, one big reading column, a fixed control bar at the bottom. */
+:root{
+  --bg:#0b0d10; --panel:#14171c; --line:#262b33; --fg:#f3f1ec; --muted:#9aa1ab; --accent:#ff7a1a; --guide:rgba(255,122,26,.16);
+  --read:"Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --ui:"Space Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --size:44px;
+  color-scheme:dark;
+}
+html,body{height:100%}
+body{background:var(--bg);color:var(--fg);font-family:var(--ui);display:flex;flex-direction:column;overflow:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--panel);z-index:10}
+header{background:var(--panel);border-bottom:1px solid var(--line);padding-block:10px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:8px}
+.top{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.top h1{font-size:15px;margin:0;letter-spacing:.06em;text-transform:uppercase;font-weight:700}
+.top h1 b{color:var(--accent)}
+.meta{color:var(--muted);font-size:13px;font-variant-numeric:tabular-nums}
+.chips{display:flex;gap:6px;overflow-x:auto;padding-bottom:2px}
+.chip{flex:0 0 auto;font:600 13px var(--ui);color:var(--muted);background:transparent;border:1px solid var(--line);border-radius:999px;padding:6px 11px;cursor:pointer;white-space:nowrap}
+.chip[aria-current="true"]{color:var(--bg);background:var(--accent);border-color:var(--accent)}
+.chip.done::after{content:" ✓";color:var(--accent)}
+.chip[aria-current="true"].done::after{color:var(--bg)}
+button:focus-visible,.chip:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+main{flex:1;min-height:0;overflow-y:auto;position:relative;scroll-behavior:auto}
+.col{max-width:34ch;margin:0 auto;padding-block:30vh 60vh;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));font-family:var(--read);font-size:var(--size);line-height:1.42}
+.col .label{font:700 14px var(--ui);letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:.6em}
+.col .file{font:500 13px var(--ui);color:var(--muted);margin-bottom:1.4em;letter-spacing:.02em}
+.col p{margin:0 0 .9em;text-wrap:pretty}
+.guide{position:fixed;left:0;right:0;top:38%;height:calc(var(--size)*1.5);background:var(--guide);border-block:1px solid rgba(255,122,26,.35);pointer-events:none;z-index:1}
+.help{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:1.2em;font:400 15px/1.5 var(--ui);color:var(--muted)}
+.help strong{color:var(--fg)}
+.help ul{margin:.4em 0 0;padding-left:1.1em}
+footer{background:var(--panel);border-top:1px solid var(--line);padding-top:10px;padding-bottom:calc(10px + env(safe-area-inset-bottom,0px));padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;gap:8px;align-items:center;justify-content:center;flex-wrap:wrap}
+footer button{font:700 15px var(--ui);color:var(--fg);background:#1c2027;border:1px solid var(--line);border-radius:10px;padding:10px 14px;cursor:pointer;min-width:44px}
+footer button.go{background:var(--accent);border-color:var(--accent);color:#14100b;min-width:110px}
+.grp{display:flex;align-items:center;gap:6px}
+.grp span{color:var(--muted);font-size:12px;letter-spacing:.06em;text-transform:uppercase;min-width:52px;text-align:center;font-variant-numeric:tabular-nums}
+.cue{font:600 15px var(--ui);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border-left:3px solid var(--accent);padding:4px 10px;margin:0 0 1.2em}
+footer button.rec{background:#c8102e;border-color:#c8102e;color:#fff;min-width:120px}
+footer button.rec.on{animation:pulse 1.2s infinite}
+@keyframes pulse{50%{opacity:.6}}
+.takes{max-width:34ch;margin:0 auto;font:400 14px var(--ui);color:var(--muted)}
+#takes{background:var(--panel);border-top:1px solid var(--line);padding:8px max(16px,env(safe-area-inset-left,0px));display:flex;gap:8px;align-items:center;flex-wrap:wrap;font:500 13px var(--ui);color:var(--muted);max-height:30vh;overflow:auto}
+#takes .take{display:flex;align-items:center;gap:6px;background:#1c2027;border:1px solid var(--line);border-radius:10px;padding:4px 8px}
+#takes audio{height:30px;max-width:200px}
+#takes button{font:600 12px var(--ui);color:var(--fg);background:transparent;border:1px solid var(--line);border-radius:8px;padding:4px 8px;cursor:pointer}
+#status{color:var(--fg)}
+@media (prefers-reduced-motion:reduce){footer button.rec.on{animation:none}}
+@media (max-width:520px){:root{--size:32px}.guide{top:34%}}
+@media (prefers-reduced-motion:reduce){main{scroll-behavior:auto}}
+</style>
+
+<header>
+  <div class="top"><h1>America's Fastest College Woman Ever… <b>What Went Wrong?</b></h1><span class="meta" id="meta"></span></div>
+  <nav class="chips" id="chips" aria-label="Script parts"></nav>
+</header>
+<div class="guide" aria-hidden="true"></div>
+<main id="main"><div class="col" id="col"></div></main>
+<div id="takes" aria-live="polite"><span id="status">Takes for this part show up here.</span></div>
+<footer>
+  <button id="prev" aria-label="Previous part">◀</button>
+  <div class="grp"><button id="slower" aria-label="Scroll slower">−</button><span id="spd">Speed 3</span><button id="faster" aria-label="Scroll faster">+</button></div>
+  <button id="rec" class="rec">⬆ Add take</button><input id="pick" type="file" accept="audio/*,.m4a,.mp4,.webm,video/mp4,video/webm" hidden>
+  <button id="play" class="go">▶ Scroll</button>
+  <div class="grp"><button id="smaller" aria-label="Smaller text">A−</button><span id="sz">Text</span><button id="bigger" aria-label="Bigger text">A+</button></div>
+  <button id="next" aria-label="Next part">▶</button>
+</footer>
+<script>
+const SECS = [{"n": 1, "title": "Cold open", "paras": ["December 2017. A 15-year-old girl from New York wins the biggest high school cross country race in America… by 40 seconds.", "[SOUNDBITE: 2017 Nike Cross Nationals finish call]", "Her county gave her her own day. Katelyn Tuohy Day. She was a sophomore.", "The New York Times called her \"America's next great running hope.\"", "6 years later she signs with adidas as a pro.", "And now? She ain't raced since April. Least not that anybody can find. No updates. Nothing.", "So where did Katelyn Tuohy go? Lemme tell y'all."]}, {"n": 2, "title": "The phenom", "paras": ["Katelyn Tuohy. North Rockland High School. Rockland County, New York.", "And y'all gotta understand. She wasn't just good. She was breaking records that been standing for decades.", "At 15, she ran the 5000 in 15:37. Fastest high school girl ever.", "At 16, she ran the mile in 4:33.87. That broke a high school record that stood for 36 years.", "[SOUNDBITE: the 4:33.87 mile, the crowd going crazy]", "Then she broke Mary Cain's record in the 3000. Racing against pros. She was still in high school.", "And Nike Cross Nationals? She won it 3 straight years. Nobody had ever done that.", "One coach told the New York Times, \"She might be the best high school runner ever already.\""]}, {"n": 3, "title": "The weight", "paras": ["But here go the thing nobody talks about.", "All that attention. On a teenager.", "She said it herself later: \"I had a lot of pressure and attention on me at a young age.\"", "She said she stopped reading the articles about her. Stopped reading the comments on her Instagram.", "And right after her last high school race… knee surgery."]}, {"n": 4, "title": "NC State", "paras": ["Then she goes to NC State. Coach Laurie Henes.", "Freshman year she hurt. She misses most of the fall.", "But by year 2? She back.", "June 2022. NCAA champion in the 5000.", "[SOUNDBITE: 2022 NCAA 5000 finish]", "November 2022. NCAA cross country champion. She ran down Parker Valby.", "[SOUNDBITE: 2022 NCAA XC finish call]", "Then 2023 she just went crazy. NCAA record in the mile. 4:24. NCAA record in the 3000. NCAA record in the 5000. 2 more NCAA titles indoors.", "4 individual NCAA titles. 3 team titles. 3 NCAA records.", "Everything they said she would be? She was being it."]}, {"n": 5, "title": "Going pro", "paras": ["December 2023. She turns pro with adidas.", "And she skips her last year of college track to do it.", "[SOUNDBITE: Katelyn on turning pro, \"It's cool to see one of your dreams come true\"]", "And that's where it started going sideways."]}, {"n": 6, "title": "The slide", "paras": ["2024. Olympic year. Her first year as a pro.", "And she don't race. All winter. All spring. A hamstring tear. Then her back. Then her IT band and her knee.", "Her first race of the whole year? The Olympic Trials.", "She makes the final. 12th. No Paris.", "She did come back. She won a 5000 in LA that summer. January 2025 she ran 4:25 in the mile. Fastest in the world at the time.", "[SOUNDBITE: Katelyn after the 4:25 mile]", "June 2025 she won in Portland.", "But then the US Championships. 5000 meters. 19th.", "In December, US cross country. 16th."]}, {"n": 7, "title": "The disappearance", "paras": ["2026.", "January, she runs the mile. 8th.", "February, she wins a mile in North Carolina. That's her last win.", "1 week later, US indoor championships. 3000. 15th out of 16.", "Then April. The Boston 5K. 10th.", "And after the race, they ask her how her winter went.", "[SOUNDBITE: Katelyn, \"I was dealing with some health issues that we were trying to figure out\"]", "They asked her was it a running injury.", "[SOUNDBITE: Katelyn, \"Uh, just other stuff, yeah… kind of keep that to myself\"]", "And we gon' respect that. Ain't nobody gon' guess on here.", "But she said she would \"definitely\" run the US road 5K champs in May.", "She ain't run it.", "July, the US Championships. In New York. Her home state.", "She wasn't there.", "No races. And I couldn't find 1 statement about it. Not from her, not from her coach, not from adidas.", "April 18, 2026. That's the last time we saw her race."]}, {"n": 8, "title": "The comeback that wasn't", "paras": ["Then October. New York Road Runners puts out the field for a 5K in Central Park. And her name is on it.", "They said she \"will race for the first time since April.\"", "October 31. The race goes off.", "And when the results come out… her name ain't in the top 9.", "No time. No explanation.", "And while she been gone, the sport kept moving. Her NCAA 3000 record? 2 girls broke it in the same race. Her course record from that NCAA cross country title? Broke this fall."]}, {"n": 9, "title": "So what y'all think?", "paras": ["Now I'ma keep it real with y'all.", "She 24 years old. In distance running? That's young. Most women don't hit their best till their late 20s.", "So this ain't over. Not even close.", "But look at the line. 3 national titles in high school. 4 NCAA titles. NCAA records. Then a 12th. A 19th. A 15th. And then… nothing.", "So what y'all think? Was it the pressure from being a superstar at 15? The injuries? Turning pro too early?", "Or is she about to come back and shock everybody?", "Let me know in the comments. And Katelyn, if you see this… we rootin' for you."]}];
+const slug = s => s.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
+const fileName = s => `tuohy_${String(s.n).padStart(2,"0")}_${slug(s.title)}`;
+const store = { get(k,d){try{const v=localStorage.getItem("as_"+k);return v==null?d:JSON.parse(v)}catch(e){return d}}, set(k,v){try{localStorage.setItem("as_"+k,JSON.stringify(v))}catch(e){}} };
+let cur = Math.min(store.get("cur",0), SECS.length-1), speed = store.get("speed",3), size = store.get("size",0);
+let playing=false, raf=0, last=0, acc=0, lock=null;
+let db=null, assets=null, downloads=null, takes=[], rec=null, chunks=[], t0=0, stream=null;
+const $ = id => document.getElementById(id);
+const main=$("main"), col=$("col");
+const esc = t => t.replace(/&/g,"&amp;").replace(/</g,"&lt;");
+function words(s){return s.paras.filter(p=>!p.startsWith("[")).join(" ").split(/\s+/).length}
+function render(){
+  const s=SECS[cur];
+  const help = cur===0 ? `<div class="help"><strong>How to record</strong><ul>
+    <li>Quiet room with soft things around you. A closet or a parked car works great.</li>
+    <li>Start a new recording in your phone's voice memo app, then come back here and tap <strong>▶ Scroll</strong>. Hold the phone about 6 inches from your mouth.</li>
+    <li>Read the part, stop the memo, then tap <strong>⬆ Add take</strong> and pick that recording. It saves here and I pick it up.</li>
+    <li>Mess up? Pause, then say the line again. I cut the bad take.</li>
+    <li>Re-record a part as many times as you want; I use the newest take. If a file won't add, send it in the chat instead.</li></ul></div>` : "";
+  col.innerHTML = help + `<div class="label">Part ${s.n} of ${SECS.length} · ${s.title}</div><div class="file">Phone backup name: ${fileName(s)}</div>` +
+    s.paras.map(p=> p.startsWith("[") ? `<div class="cue">${esc(p.replace(/^\[|\]$/g,""))} (don't read)</div>` : `<p>${esc(p)}</p>`).join("");
+  main.scrollTop=0; acc=0;
+  const doneParts=new Set(takes.map(t=>t.part));
+  [...$("chips").children].forEach((c,i)=>{c.setAttribute("aria-current", i===cur ? "true":"false"); c.classList.toggle("done", doneParts.has(SECS[i].n));});
+  $("chips").children[cur].scrollIntoView({block:"nearest",inline:"center"});
+  const total=SECS.reduce((a,x)=>a+words(x),0);
+  $("meta").textContent = `${words(s)} words · about ${Math.max(1,Math.round(words(s)/150*60))} s · whole script about ${Math.round(total/150)} min`;
+  store.set("cur",cur); renderTakes();
+}
+function renderTakes(msg){
+  const box=$("takes"); const mine=takes.filter(t=>t.part===SECS[cur].n).sort((a,b)=>b.at-a.at);
+  const status = msg || (!db||!assets ? "Saving takes needs this page opened in Claude (signed in). You can still read and scroll." : mine.length ? `${mine.length} take${mine.length>1?"s":""} saved for this part (newest first). I use the newest.` : "No takes yet for this part.");
+  box.innerHTML = `<span id="status">${esc(status)}</span>` + mine.map(t=>`<span class="take"><audio controls preload="none" src="/_blob/${t.asset}"></audio><span>${Math.round(t.secs||0)} s</span>${downloads?`<button data-save="${t.asset}">Save to phone</button>`:""}</span>`).join("");
+}
+$("takes").onclick=async e=>{ const id=e.target.dataset?.save; if(!id||!downloads) return;
+  const t=takes.find(x=>x.asset===id); try{ const b=await (await fetch("/_blob/"+id)).blob(); await downloads.save({filename:`${fileName(SECS.find(s=>s.n===t.part))}.${(t.type||"").includes("mp4")?"m4a":"webm"}`, data:b}); }catch(err){ renderTakes("Couldn't save that file."); } };
+function chips(){ $("chips").innerHTML = SECS.map((s,i)=>`<button class="chip" data-i="${i}">${s.n}. ${esc(s.title)}</button>`).join(""); $("chips").onclick=e=>{const b=e.target.closest(".chip"); if(b && !rec){stop(); cur=+b.dataset.i; render();}}; }
+function applySize(){ const base = innerWidth<=520 ? 32 : 44; document.documentElement.style.setProperty("--size", (base + size*4) + "px"); $("sz").textContent = "Text " + (size>=0?"+":"") + size; store.set("size",size); }
+function applySpeed(){ $("spd").textContent = "Speed " + speed; store.set("speed",speed); }
+function tick(t){ if(!playing) return; const dt = last ? (t-last)/1000 : 0; last=t; acc += dt * (12 + speed*9); if(acc>=1){ const n=Math.floor(acc); main.scrollTop += n; acc-=n; } if(main.scrollTop+main.clientHeight >= main.scrollHeight-2){ stop(); return; } raf=requestAnimationFrame(tick); }
+async function play(){ playing=true; last=0; $("play").textContent="❚❚ Pause"; raf=requestAnimationFrame(tick); try{ lock = await navigator.wakeLock?.request("screen"); }catch(e){} }
+function stop(){ playing=false; cancelAnimationFrame(raf); $("play").textContent="▶ Scroll"; try{ lock?.release(); }catch(e){} lock=null; }
+async function addTake(file){
+  if(!file) return;
+  const part=SECS[cur].n, title=SECS[cur].title;
+  if(!assets||!db){ renderTakes("Saving takes needs this page opened in Claude, signed in. Send the file in the chat instead."); return; }
+  const name=(file.name||"").toLowerCase(), t=(file.type||"").toLowerCase();
+  const kind = /webm/.test(t)||name.endsWith(".webm") ? "video/webm" : (/mp4|m4a|aac|quicktime/.test(t)||/\.(m4a|mp4|aac|mov)$/.test(name)) ? "video/mp4" : null;
+  if(!kind){ renderTakes("That file type can't be stored here ("+(t||name||"unknown")+"). Send it in the chat instead."); return; }
+  let secs=0; try{ secs=await new Promise(r=>{const a=new Audio(); a.preload="metadata"; a.onloadedmetadata=()=>r(isFinite(a.duration)?a.duration:0); a.onerror=()=>r(0); a.src=URL.createObjectURL(file);}); }catch(e){}
+  renderTakes("Saving take…");
+  try{
+    const up=await assets.upload(file,{type:kind});
+    await db.collection("takes").add({part, title, asset:up.id, type:kind, file:file.name||"", secs:Math.round(secs*10)/10, at:Date.now()});
+    renderTakes(`Saved${secs?` (${Math.round(secs)} s)`:""}. Next part when you're ready.`);
+  }catch(e){ renderTakes("Couldn't save that file ("+(e?.code||"error")+"). Send it in the chat instead."); }
+}
+$("pick").onchange=e=>{ const f=e.target.files?.[0]; e.target.value=""; addTake(f); };
+$("rec").onclick=()=> $("pick").click();
+$("play").onclick=()=> playing?stop():play();
+$("prev").onclick=()=>{ if(cur>0 && !rec){stop();cur--;render();} };
+$("next").onclick=()=>{ if(cur<SECS.length-1 && !rec){stop();cur++;render();} };
+$("faster").onclick=()=>{ speed=Math.min(10,speed+1); applySpeed(); };
+$("slower").onclick=()=>{ speed=Math.max(1,speed-1); applySpeed(); };
+$("bigger").onclick=()=>{ size=Math.min(6,size+1); applySize(); };
+$("smaller").onclick=()=>{ size=Math.max(-4,size-1); applySize(); };
+addEventListener("keydown",e=>{ if(e.target.closest("input,textarea")) return;
+  if(e.code==="Space"){e.preventDefault(); playing?stop():play();}
+  else if(e.key==="ArrowRight"){ $("next").click(); } else if(e.key==="ArrowLeft"){ $("prev").click(); }
+  else if(e.key==="ArrowUp"){ $("faster").click(); } else if(e.key==="ArrowDown"){ $("slower").click(); } });
+addEventListener("resize",applySize);
+main.addEventListener("wheel",()=>{ if(playing && !rec) stop(); },{passive:true});
+main.addEventListener("touchstart",()=>{ if(playing && !rec) stop(); },{passive:true});
+chips(); applySize(); applySpeed(); render();
+(async()=>{
+  try{ downloads = await window.claude?.use("downloads"); }catch(e){}
+  try{ assets = await window.claude?.use("assets"); }catch(e){}
+  try{ db = await window.claude?.use("db"); }catch(e){}
+  if(db){ db.collection("takes").onSnapshot(s=>{ takes=s.docs.map(d=>({id:d.id,...d.data()})); render(); }, ()=>renderTakes("Couldn't load saved takes.")); }
+  else renderTakes();
+})();
+</script>
