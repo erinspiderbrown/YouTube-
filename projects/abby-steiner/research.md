@@ -51,3 +51,6 @@
 - Citius Mag, 2024 Trials (https://youtu.be/zZ4n7Vxi8FM): "I actually had Haglund's surgery in both of my feet this offseason. So the left one I had done August, the right one I had done end of September." "I was back training probably around beginning of December. I think that was the first time I like jogged on a track." "Dealing with some things in the foot after LA, thought it was best to train through and try to get ready for these trials." "We did what we needed to do last year, trying to shut it down early." Cries at ~165-195 s.
 - Citius Mag, Eugene 2022 after the 4x100 gold (https://youtu.be/CBXhdNKD5uk): asked "Are you done, finally?" she said "We'll be done after this meet." (Citius title: "at the end of long season").
 - 2023: 300m indoor American record 35.54 (Feb 11, 2023); USAs 4th 22.07.
+
+## High school (checked 13 Nov 2026)
+- 4 straight Ohio state outdoor 200 titles; state 100 titles her last 3 seasons (Yahoo/Columbus Dispatch). Ohio state records indoor 60/200, outdoor 100/200 (MileSplit OH). US #6 200 / #10 100 in one season; 2nd at New Balance Nationals indoor 200 (23.51, Ohio record). 7th on the all-time national HS performer list (200). Not the US #1, so script says "one of the fastest girls in the whole country" / "top 10 in the nation".
