@@ -10,4 +10,4 @@
 - Video: https://youtu.be/RDwopZY9ddk (Upload-Post job bf4cc9742b13410cb58abcfb10c7e355), private, YouTube publishes at 2026-11-13T13:00:00Z (6:00 AM MT). Category 17 set via the schedule PATCH.
 - Thumbnail: the user's own "THIS IS SO BAD" image (`thumbnail_user_so_bad.jpg`), set via vidIQ `vidiq_update_video_thumbnail` because the Composio YouTube quota was used up.
 - Tags: set via vidIQ `vidiq_update_video`.
-- Captions: `captions_en.srt` (267 cues), queued for after the quota reset (08:00 UTC).
+- Captions: `captions_en.srt` (267 cues) uploaded 08:11 UTC, status serving. Verified: private, publishAt 2026-11-13T13:00:00Z, category 17, 18 tags, custom thumbnail.
