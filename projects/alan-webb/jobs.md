@@ -1,0 +1,6 @@
+# vidIQ import jobs (13 Nov 2026)
+w_pre2001 job_efeb53ac-9184-4ea2-ba41-7b7fc10f7098 yC56qHrECTA (Jim Muchmore, full 2001 Pre mile)
+w_pre2004 job_a111f426-4599-4d76-95f9-a39f7df21182 gslhsH8rt38 (Pivotal Running, 2004 Bowerman Mile)
+w_podcast26 job_e85b4a4f-ffa0-44e3-a145-35a1074e7f3e OOQAu9MtAo8 (Running Effect podcast, May 2026)
+w_tracktown job_a3453581-347c-49df-9648-503af321d738 2DojsE27DtM (TrackTown USA, 2026)
+w_pre2001b job_d3b54ece-92eb-4469-b5c7-cfd4fa9ec425 niCWRb29y-E (RunningSwag re-upload)

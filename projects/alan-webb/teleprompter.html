@@ -1,0 +1,154 @@
+<title>Alan Webb Teleprompter</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Space+Grotesk:wght@500;700&display=swap">
+<style>
+/* Layout: a single-theme dark prompter. Thin top bar with part chips, one big reading column, a fixed control bar at the bottom. */
+:root{
+  --bg:#0b0d10; --panel:#14171c; --line:#262b33; --fg:#f3f1ec; --muted:#9aa1ab; --accent:#ff7a1a; --guide:rgba(255,122,26,.16);
+  --read:"Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --ui:"Space Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --size:44px;
+  color-scheme:dark;
+}
+html,body{height:100%}
+body{background:var(--bg);color:var(--fg);font-family:var(--ui);display:flex;flex-direction:column;overflow:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--panel);z-index:10}
+header{background:var(--panel);border-bottom:1px solid var(--line);padding-block:10px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:8px}
+.top{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.top h1{font-size:15px;margin:0;letter-spacing:.06em;text-transform:uppercase;font-weight:700}
+.top h1 b{color:var(--accent)}
+.meta{color:var(--muted);font-size:13px;font-variant-numeric:tabular-nums}
+.chips{display:flex;gap:6px;overflow-x:auto;padding-bottom:2px}
+.chip{flex:0 0 auto;font:600 13px var(--ui);color:var(--muted);background:transparent;border:1px solid var(--line);border-radius:999px;padding:6px 11px;cursor:pointer;white-space:nowrap}
+.chip[aria-current="true"]{color:var(--bg);background:var(--accent);border-color:var(--accent)}
+.chip.done::after{content:" ✓";color:var(--accent)}
+.chip[aria-current="true"].done::after{color:var(--bg)}
+button:focus-visible,.chip:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+main{flex:1;min-height:0;overflow-y:auto;position:relative;scroll-behavior:auto}
+.col{max-width:34ch;margin:0 auto;padding-block:30vh 60vh;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));font-family:var(--read);font-size:var(--size);line-height:1.42}
+.col .label{font:700 14px var(--ui);letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:.6em}
+.col .file{font:500 13px var(--ui);color:var(--muted);margin-bottom:1.4em;letter-spacing:.02em}
+.col p{margin:0 0 .9em;text-wrap:pretty}
+.guide{position:fixed;left:0;right:0;top:38%;height:calc(var(--size)*1.5);background:var(--guide);border-block:1px solid rgba(255,122,26,.35);pointer-events:none;z-index:1}
+.help{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:1.2em;font:400 15px/1.5 var(--ui);color:var(--muted)}
+.help strong{color:var(--fg)}
+.help ul{margin:.4em 0 0;padding-left:1.1em}
+footer{background:var(--panel);border-top:1px solid var(--line);padding-top:10px;padding-bottom:calc(10px + env(safe-area-inset-bottom,0px));padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;gap:8px;align-items:center;justify-content:center;flex-wrap:wrap}
+footer button{font:700 15px var(--ui);color:var(--fg);background:#1c2027;border:1px solid var(--line);border-radius:10px;padding:10px 14px;cursor:pointer;min-width:44px}
+footer button.go{background:var(--accent);border-color:var(--accent);color:#14100b;min-width:110px}
+.grp{display:flex;align-items:center;gap:6px}
+.grp span{color:var(--muted);font-size:12px;letter-spacing:.06em;text-transform:uppercase;min-width:52px;text-align:center;font-variant-numeric:tabular-nums}
+.cue{font:600 15px var(--ui);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border-left:3px solid var(--accent);padding:4px 10px;margin:0 0 1.2em}
+footer button.rec{background:#c8102e;border-color:#c8102e;color:#fff;min-width:120px}
+footer button.rec.on{animation:pulse 1.2s infinite}
+@keyframes pulse{50%{opacity:.6}}
+.takes{max-width:34ch;margin:0 auto;font:400 14px var(--ui);color:var(--muted)}
+#takes{background:var(--panel);border-top:1px solid var(--line);padding:8px max(16px,env(safe-area-inset-left,0px));display:flex;gap:8px;align-items:center;flex-wrap:wrap;font:500 13px var(--ui);color:var(--muted);max-height:30vh;overflow:auto}
+#takes .take{display:flex;align-items:center;gap:6px;background:#1c2027;border:1px solid var(--line);border-radius:10px;padding:4px 8px}
+#takes audio{height:30px;max-width:200px}
+#takes button{font:600 12px var(--ui);color:var(--fg);background:transparent;border:1px solid var(--line);border-radius:8px;padding:4px 8px;cursor:pointer}
+#status{color:var(--fg)}
+@media (prefers-reduced-motion:reduce){footer button.rec.on{animation:none}}
+@media (max-width:520px){:root{--size:32px}.guide{top:34%}}
+@media (prefers-reduced-motion:reduce){main{scroll-behavior:auto}}
+</style>
+
+<header>
+  <div class="top"><h1>America's Fastest College Woman Ever… <b>What Went Wrong?</b></h1><span class="meta" id="meta"></span></div>
+  <nav class="chips" id="chips" aria-label="Script parts"></nav>
+</header>
+<div class="guide" aria-hidden="true"></div>
+<main id="main"><div class="col" id="col"></div></main>
+<div id="takes" aria-live="polite"><span id="status">Takes for this part show up here.</span></div>
+<footer>
+  <button id="prev" aria-label="Previous part">◀</button>
+  <div class="grp"><button id="slower" aria-label="Scroll slower">−</button><span id="spd">Speed 3</span><button id="faster" aria-label="Scroll faster">+</button></div>
+  <button id="rec" class="rec">⬆ Add take</button><input id="pick" type="file" accept="audio/*,.m4a,.mp4,.webm,video/mp4,video/webm" hidden>
+  <button id="play" class="go">▶ Scroll</button>
+  <div class="grp"><button id="smaller" aria-label="Smaller text">A−</button><span id="sz">Text</span><button id="bigger" aria-label="Bigger text">A+</button></div>
+  <button id="next" aria-label="Next part">▶</button>
+</footer>
+<script>
+const SECS = [{"n": 1, "title": "Cold open", "paras": ["May 27, 2001. Eugene, Oregon. The Prefontaine Classic.", "An 18-year-old high school senior lines up in the mile… against grown men. Pros.", "[SOUNDBITE: the 3:53.43 race call]", "3:53.43.", "That's the fastest mile a high schooler has ever run. And 25 years later? Nobody has touched it.", "They said he was gonna save American miling.", "He never won a single Olympic or world medal.", "So what happened to Alan Webb? Lemme tell y'all."]}, {"n": 2, "title": "The kid from Reston", "paras": ["Alan Webb. South Lakes High School. Reston, Virginia.", "As a sophomore he ran 4:06 in the mile. That broke Jim Ryun's national sophomore record.", "His senior year, January 2001, New York. He runs 3:59.86 indoors. First American high schooler ever under 4 minutes indoors.", "Then May. Pre Classic. And he breaks Jim Ryun's high school record. A record that stood for 36 years.", "He was on David Letterman. Track & Field News made him the high school athlete of the year."]}, {"n": 3, "title": "The savior", "paras": ["Now y'all gotta understand what was going on in the mile back then.", "Americans wasn't winning it. The world record belonged to Hicham El Guerrouj from Morocco. 3:43.13. The best milers on the planet were from Morocco, Kenya, Algeria.", "And here come a white kid from the suburbs of D.C. running 3:53 in high school.", "People wasn't just calling him fast. They was calling him the future of American distance running."]}, {"n": 4, "title": "Michigan", "paras": ["So he goes to Michigan.", "Big Ten champion in cross country. All-American. Big Ten champion in the 1500.", "And then 1 year in… he leaves.", "He goes back to his high school coach, Scott Raczko. And he signs with Nike.", "19 years old. A pro."]}, {"n": 5, "title": "Athens", "paras": ["2004. Olympic year.", "He wins the Pre Classic mile in 3:50. Then he wins the Olympic Trials.", "[SOUNDBITE: Webb wins the 2004 Bowerman Mile]", "So he goes to Athens. America's great hope in the 1500.", "First round. 9th in his heat. Out.", "He never even made the final."]}, {"n": 6, "title": "The year everything clicked", "paras": ["And then he came back. And he got better.", "2005, he made the World Championships final. 9th.", "But 2007? 2007 was crazy.", "3:30 in the 1500. 1:43 in the 800.", "And in July, in Belgium, he runs the mile in 3:46.91. The American record.", "That record stood for 16 years.", "He wins USAs. He goes to the World Championships in Osaka as one of the fastest milers on the planet.", "8th.", "And the gold? It went to an American. Just not him. Bernard Lagat."]}, {"n": 7, "title": "The fall", "paras": ["2008. Olympic Trials. He needs top 3.", "5th. No Beijing.", "2009, he moves to Portland to train with Alberto Salazar.", "2010, Achilles surgery.", "2011, he leaves Salazar.", "He moves up to the 5000 and the 10,000. Nothing.", "February 2014. He runs one last mile at Millrose. And he retires. 31 years old.", "Then he tries triathlon.", "His first race? He crashes on the bike."]}, {"n": 8, "title": "What went wrong", "paras": ["So what really went wrong?", "Number 1. The hype. He was the next Jim Ryun at 18. Every race after that, people compared him to a kid in high school.", "Number 2. Championships. Webb could run fast. In rabbit races, in Europe, he was flying. But the big championship races with no pacers? That's where it never came together.", "Number 3. The training. He said it himself. He went too hard in the weight room. He said he went \"full Arnold Schwarzenegger.\"", "[SOUNDBITE: Webb on the weight room, 2026 podcast; exact words checked against the clip]", "Number 4. His body. The Achilles surgery. Coach after coach, chasing that 2007 magic again."]}, {"n": 9, "title": "So what y'all think?", "paras": ["Now I'ma keep it real with y'all.", "Alan Webb ain't a failure. American record. US champion. Olympian.", "But he was supposed to be the guy. The one who finally beat the world.", "And he never won 1 medal.", "Today he's coaching college runners at Ave Maria University in Florida.", "And that high school record? This summer, a kid from Utah went after it at the Pre Classic. Came up short.", "25 years later… it's still his.", "So what y'all think? Was it the hype? The training? Or did he just peak in high school?", "Let me know in the comments."]}];
+const slug = s => s.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
+const fileName = s => `webb_${String(s.n).padStart(2,"0")}_${slug(s.title)}`;
+const store = { get(k,d){try{const v=localStorage.getItem("as_"+k);return v==null?d:JSON.parse(v)}catch(e){return d}}, set(k,v){try{localStorage.setItem("as_"+k,JSON.stringify(v))}catch(e){}} };
+let cur = Math.min(store.get("cur",0), SECS.length-1), speed = store.get("speed",3), size = store.get("size",0);
+let playing=false, raf=0, last=0, acc=0, lock=null;
+let db=null, assets=null, downloads=null, takes=[], rec=null, chunks=[], t0=0, stream=null;
+const $ = id => document.getElementById(id);
+const main=$("main"), col=$("col");
+const esc = t => t.replace(/&/g,"&amp;").replace(/</g,"&lt;");
+function words(s){return s.paras.filter(p=>!p.startsWith("[")).join(" ").split(/\s+/).length}
+function render(){
+  const s=SECS[cur];
+  const help = cur===0 ? `<div class="help"><strong>How to record</strong><ul>
+    <li>Quiet room with soft things around you. A closet or a parked car works great.</li>
+    <li>Start a new recording in your phone's voice memo app, then come back here and tap <strong>▶ Scroll</strong>. Hold the phone about 6 inches from your mouth.</li>
+    <li>Read the part, stop the memo, then tap <strong>⬆ Add take</strong> and pick that recording. It saves here and I pick it up.</li>
+    <li>Mess up? Pause, then say the line again. I cut the bad take.</li>
+    <li>Re-record a part as many times as you want; I use the newest take. If a file won't add, send it in the chat instead.</li></ul></div>` : "";
+  col.innerHTML = help + `<div class="label">Part ${s.n} of ${SECS.length} · ${s.title}</div><div class="file">Phone backup name: ${fileName(s)}</div>` +
+    s.paras.map(p=> p.startsWith("[") ? `<div class="cue">${esc(p.replace(/^\[|\]$/g,""))} (don't read)</div>` : `<p>${esc(p)}</p>`).join("");
+  main.scrollTop=0; acc=0;
+  const doneParts=new Set(takes.map(t=>t.part));
+  [...$("chips").children].forEach((c,i)=>{c.setAttribute("aria-current", i===cur ? "true":"false"); c.classList.toggle("done", doneParts.has(SECS[i].n));});
+  $("chips").children[cur].scrollIntoView({block:"nearest",inline:"center"});
+  const total=SECS.reduce((a,x)=>a+words(x),0);
+  $("meta").textContent = `${words(s)} words · about ${Math.max(1,Math.round(words(s)/150*60))} s · whole script about ${Math.round(total/150)} min`;
+  store.set("cur",cur); renderTakes();
+}
+function renderTakes(msg){
+  const box=$("takes"); const mine=takes.filter(t=>t.part===SECS[cur].n).sort((a,b)=>b.at-a.at);
+  const status = msg || (!db||!assets ? "Saving takes needs this page opened in Claude (signed in). You can still read and scroll." : mine.length ? `${mine.length} take${mine.length>1?"s":""} saved for this part (newest first). I use the newest.` : "No takes yet for this part.");
+  box.innerHTML = `<span id="status">${esc(status)}</span>` + mine.map(t=>`<span class="take"><audio controls preload="none" src="/_blob/${t.asset}"></audio><span>${Math.round(t.secs||0)} s</span>${downloads?`<button data-save="${t.asset}">Save to phone</button>`:""}</span>`).join("");
+}
+$("takes").onclick=async e=>{ const id=e.target.dataset?.save; if(!id||!downloads) return;
+  const t=takes.find(x=>x.asset===id); try{ const b=await (await fetch("/_blob/"+id)).blob(); await downloads.save({filename:`${fileName(SECS.find(s=>s.n===t.part))}.${(t.type||"").includes("mp4")?"m4a":"webm"}`, data:b}); }catch(err){ renderTakes("Couldn't save that file."); } };
+function chips(){ $("chips").innerHTML = SECS.map((s,i)=>`<button class="chip" data-i="${i}">${s.n}. ${esc(s.title)}</button>`).join(""); $("chips").onclick=e=>{const b=e.target.closest(".chip"); if(b && !rec){stop(); cur=+b.dataset.i; render();}}; }
+function applySize(){ const base = innerWidth<=520 ? 32 : 44; document.documentElement.style.setProperty("--size", (base + size*4) + "px"); $("sz").textContent = "Text " + (size>=0?"+":"") + size; store.set("size",size); }
+function applySpeed(){ $("spd").textContent = "Speed " + speed; store.set("speed",speed); }
+function tick(t){ if(!playing) return; const dt = last ? (t-last)/1000 : 0; last=t; acc += dt * (12 + speed*9); if(acc>=1){ const n=Math.floor(acc); main.scrollTop += n; acc-=n; } if(main.scrollTop+main.clientHeight >= main.scrollHeight-2){ stop(); return; } raf=requestAnimationFrame(tick); }
+async function play(){ playing=true; last=0; $("play").textContent="❚❚ Pause"; raf=requestAnimationFrame(tick); try{ lock = await navigator.wakeLock?.request("screen"); }catch(e){} }
+function stop(){ playing=false; cancelAnimationFrame(raf); $("play").textContent="▶ Scroll"; try{ lock?.release(); }catch(e){} lock=null; }
+async function addTake(file){
+  if(!file) return;
+  const part=SECS[cur].n, title=SECS[cur].title;
+  if(!assets||!db){ renderTakes("Saving takes needs this page opened in Claude, signed in. Send the file in the chat instead."); return; }
+  const name=(file.name||"").toLowerCase(), t=(file.type||"").toLowerCase();
+  const kind = /webm/.test(t)||name.endsWith(".webm") ? "video/webm" : (/mp4|m4a|aac|quicktime/.test(t)||/\.(m4a|mp4|aac|mov)$/.test(name)) ? "video/mp4" : null;
+  if(!kind){ renderTakes("That file type can't be stored here ("+(t||name||"unknown")+"). Send it in the chat instead."); return; }
+  let secs=0; try{ secs=await new Promise(r=>{const a=new Audio(); a.preload="metadata"; a.onloadedmetadata=()=>r(isFinite(a.duration)?a.duration:0); a.onerror=()=>r(0); a.src=URL.createObjectURL(file);}); }catch(e){}
+  renderTakes("Saving take…");
+  try{
+    const up=await assets.upload(file,{type:kind});
+    await db.collection("takes").add({part, title, asset:up.id, type:kind, file:file.name||"", secs:Math.round(secs*10)/10, at:Date.now()});
+    renderTakes(`Saved${secs?` (${Math.round(secs)} s)`:""}. Next part when you're ready.`);
+  }catch(e){ renderTakes("Couldn't save that file ("+(e?.code||"error")+"). Send it in the chat instead."); }
+}
+$("pick").onchange=e=>{ const f=e.target.files?.[0]; e.target.value=""; addTake(f); };
+$("rec").onclick=()=> $("pick").click();
+$("play").onclick=()=> playing?stop():play();
+$("prev").onclick=()=>{ if(cur>0 && !rec){stop();cur--;render();} };
+$("next").onclick=()=>{ if(cur<SECS.length-1 && !rec){stop();cur++;render();} };
+$("faster").onclick=()=>{ speed=Math.min(10,speed+1); applySpeed(); };
+$("slower").onclick=()=>{ speed=Math.max(1,speed-1); applySpeed(); };
+$("bigger").onclick=()=>{ size=Math.min(6,size+1); applySize(); };
+$("smaller").onclick=()=>{ size=Math.max(-4,size-1); applySize(); };
+addEventListener("keydown",e=>{ if(e.target.closest("input,textarea")) return;
+  if(e.code==="Space"){e.preventDefault(); playing?stop():play();}
+  else if(e.key==="ArrowRight"){ $("next").click(); } else if(e.key==="ArrowLeft"){ $("prev").click(); }
+  else if(e.key==="ArrowUp"){ $("faster").click(); } else if(e.key==="ArrowDown"){ $("slower").click(); } });
+addEventListener("resize",applySize);
+main.addEventListener("wheel",()=>{ if(playing && !rec) stop(); },{passive:true});
+main.addEventListener("touchstart",()=>{ if(playing && !rec) stop(); },{passive:true});
+chips(); applySize(); applySpeed(); render();
+(async()=>{
+  try{ downloads = await window.claude?.use("downloads"); }catch(e){}
+  try{ assets = await window.claude?.use("assets"); }catch(e){}
+  try{ db = await window.claude?.use("db"); }catch(e){}
+  if(db){ db.collection("takes").onSnapshot(s=>{ takes=s.docs.map(d=>({id:d.id,...d.data()})); render(); }, ()=>renderTakes("Couldn't load saved takes.")); }
+  else renderTakes();
+})();
+</script>
