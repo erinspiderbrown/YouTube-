@@ -1,6 +1,5 @@
 # Thumbnail photo sources (real photos, no video stills)
-- A: Nike photoshoot, about.nike.com "How I Got Here" feature (Nike Vomero)
-- B, D: Wikipedia "Jane-Hedengren-BYU-2025.jpg" (2025 NCAA XC regional, bib 146)
-- C: BYU Photo, byucougars.com (NCAA XC Championships, Columbia MO, Nov 22, 2025, bib 145)
-- D (left): Katelyn Tuohy, from the user's own Tuohy thumbnail
-- B background: dusk sky from the Nike "Run Bigger" film (no person)
+- 1, 2, 4 (Jane, head in hand): Nike photoshoot, about.nike.com "How I Got Here" feature
+- 3 (Jane racing, bib 145): BYU Photo, byucougars.com, NCAA XC Championships, Columbia MO, Nov 22, 2025
+- 4 (Tuohy): from the user's own Tuohy thumbnail
+- Backgrounds: drawn dark stadium-light blur (no people)
