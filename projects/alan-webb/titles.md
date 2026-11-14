@@ -1,4 +1,5 @@
 # Alan Webb: titles (vidIQ click scores, 14 Nov 2026)
+Chosen (user, 14 Nov 2026): #1 "America's Greatest High School Miler Ever... What Went Wrong?" with the user's "WHAT HAPPENED?" thumbnail.
 98 America's Greatest High School Miler Ever... What Went Wrong?  <- recommended (Boling/Tuohy formula, user's pick)
 98 He Was Supposed To Save American Running... What Went Wrong?
 98 The Record Nobody Can Break For 25 Years... And The Kid Who Set It
