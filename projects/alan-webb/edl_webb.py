@@ -67,7 +67,7 @@ def edl(a, S, O, stat, say, stack, name, stamp, chapter, PART):
     S(PART[4] - 0.15, "w_letterman", 40.0, flash=1); chapter(PART[4], "03", "MICHIGAN")
     S(a("big 10 championships"), "w_letterman", 45.0); stack(a("big 10 championships"), 5.0, ["BIG TEN XC CHAMPION", "ALL-AMERICAN", "BIG TEN 1500 CHAMPION"], "gold")
     S(a("and then one year"), "w_letterman", 80.0, bw=1); say(a("he leaves"), 1.8, "1 YEAR · GONE", "red", "c", None, 160)
-    S(a("he goes back"), "w_pre2004", 150.0); name(a("scott") - 0.2, 2.6, "SCOTT RACZKO", "HIS HIGH SCHOOL COACH")
+    S(a("he goes back"), "w_pre2004", 150.0); say(a("scott") - 0.2, 2.6, "BACK TO COACH SCOTT RACZKO", "white", "b", "RACZKO")
     S(a("19 years old"), "w_pre2004", 200.0, amb=1); say(a("19 years old"), 2.2, "PRO AT 19 · NIKE", "white", "c", "19", 160)
     # 5 Athens --------------------------------------------------------------------------
     S(PART[5] - 0.15, "w_pre2004", 110.0, flash=1); chapter(PART[5], "04", "ATHENS")
@@ -81,7 +81,7 @@ def edl(a, S, O, stat, say, stack, name, stamp, chapter, PART):
     # 6 the year everything clicked -----------------------------------------------------
     S(PART[6] - 0.15, "w_worlds05", 600.0, flash=1); chapter(PART[6], "05", "2007")
     S(a("2005 he made"), "w_worlds05", 640.0, amb=1); stat(a("9th") - 0.1, 2.0, "9TH", "WORLD CHAMPIONSHIPS FINAL · 2005", "red")
-    S(a("but 2007"), "w_usas07", 60.0, amb=1); say(a("was crazy"), 1.6, "2007", "orange", "c", None, 180)
+    S(a("but 2007"), "w_pre2004", 300.0, amb=1); say(a("was crazy"), 1.6, "2007", "orange", "c", None, 180)
     stack(a("330 in the"), 4.4, ["1500M · 3:30.54", "800M · 1:43.84"], "gold")
     S(a("and in july"), "w_usas07", 200.0); say(a("in belgium"), 2.0, "BRASSCHAAT, BELGIUM", "white", "t")
     stat(a("346") + 0.1, 3.0, "3:46.91", "AMERICAN MILE RECORD", "gold")
