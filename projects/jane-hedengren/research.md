@@ -1,0 +1,15 @@
+# Jane Hedengren: verified facts (14 Nov 2026)
+- Born Sept 23, 2006, Houston; Timpview HS, Provo UT; dad John Hedengren an All-American runner. https://en.wikipedia.org/wiki/Jane_Hedengren
+- NXN Dec 2024: won in 16:32.7, course record, 5 s under Tuohy's (Deseret, Mar 13 2026). 
+- 2025 HS records: 15:13.26 indoor 5000 (Mar), 4:26.14 indoor mile 3 days later, 9:34.12 2-mile (Apr), 14:57.93 5000 (Apr, first HS sub-15), 4:23.50 mile (Jun 5; previous HSR Engelhardt 4:28.46; Tuohy's HS mile 4:33.87), 9:17.75 2-mile (Jun 8), 8:40.03 3000 (Jun 21). 9 HS records in 2025 (USATF Utah).
+- Nike NIL deal (2025, FloTrack text only).
+- BYU, coach Diljeet Taylor. 2025: Pre-Nats course record 18:42.3 (first college race), Big 12 18:29.60 CR, NCAA XC 2nd 18:38.9 (fastest freshman in meet history).
+- Dec 6 2025: 14:44.79 5000 indoor, collegiate record. Feb 2026 Millrose 3000: 3rd 8:34.98 (Lemngole 8:31.39); both under Tuohy's NCAA record 8:35.20.
+- NCAA indoors Mar 13-14 2026: won 5000 (15:00.12) and 3000 (8:36.61 MR), first freshman to win both.
+- Apr 2026: NCAA 10,000 record 30:46.80 (Stanford), then NCAA outdoor 5000 record 14:50.50 (Bryan Clay, Apr 17; previous Valby 14:52.18).
+- NCAA outdoors Jun 2026: ill before the meet; 3rd 10,000 (31:57.94), 9th 5000 (LetsRun Sept 2026 preview).
+- Sept 26 2026 Cowboy Jamboree: 3rd 19:32.5 (Jepkirui 19:24.4 CR); first regular-season loss of her career; hadn't raced in almost a month.
+- Oct 2026 Pre-Nats: did not run; Taylor: on the "tail end" of an illness (LetsRun Oct 2026).
+- Oct 31 2026: Big 12 XC champion again, 19:28.0, by 10 s over Jepkirui.
+- NCAA XC Champs: Sat Nov 21 2026, Terre Haute (regionals Nov 13).
+- Quotes (Deseret, Mar 13 2026): Taylor "more is not necessarily better", "Sometimes less is actually more", "It's really easy at this age when you've got all of this success for it to change you". Goucher: compared her to Usain Bolt; "There's no one comparable to her in my mind".
