@@ -25,7 +25,6 @@ SB_LIST = [  # ((before phrase, part), src, a, b, credit)
     (("april she runs", 2), "j_nin_mile", 512.3, 522.6, "RUNNERSPACE · NIKE INDOOR NATIONALS · MARCH 2025"),
     (("now this where", 3), "j_nike", 130.3, 142.5, "NIKE · RUN BIGGER (2025)"),
     (("and in college", 3), "j_ksl", 116.0, 128.1, "TIMPVIEW COACH JAIMIE RIBERA · KSL"),
-    (("then indoors", 4), "j_ncaaxc25", 1109.2, 1124.2, "ESPN · NCAA CROSS COUNTRY · NOV 22, 2025"),
     (("third in the", 5), "j_bedridden", 17.4, 27.0, "JANE HEDENGREN · LETSRUN · JUNE 2026"),
     (("september the cowboy", 5), "j_ncaa10k26", 1373.3, 1386.8, "ESPN · NCAA 10,000M FINAL · JUNE 2026"),
     (("october the pre", 5), "j_letsrun_slump", 49.1, 66.3, "LETSRUN TRACK TALK · SEPT 2026"),
@@ -35,7 +34,7 @@ SB_LIST = [  # ((before phrase, part), src, a, b, credit)
     (("dominant in high", 6), "a_citius_trials24", 49.6, 52.9, "ABBY STEINER · CITIUS MAG · 2024"),
     (("so it can be", 6), "j_valby_usa", 115.45, 122.3, "PARKER VALBY · LETSRUN · JULY 2026"),
     (("thats a coach", 6), "j_stride", 891.5, 898.95, "COACH DILJEET TAYLOR · THE STRIDE REPORT"),
-    (("november 21st", 8), "j_ncaaxc25", 1258.1, 1287.6, "ESPN · NCAA CROSS COUNTRY 2025"),
+    (("november 21st", 8), "j_big12_26", 1359.6, 1370.6, "BIG 12 XC CHAMPIONSHIP · OCT 31, 2026"),
     (("so what y all", 9), "j_stride", 907.6, 921.8, "JANE HEDENGREN · THE STRIDE REPORT"),
 ]
 
@@ -82,13 +81,13 @@ def edl(a, S, O, stat, say, stack, name, stamp, chapter, PART):
     S(a("jane went with"), "j_stride", 250.0, amb=1); name(a("coach dejeet") - 0.2, 2.8, "DILJEET TAYLOR", "BYU HEAD COACH")
     S(a("coach dejeet"), "j_stride", 868.0)
     # 4 freshman year -------------------------------------------------------------------
-    S(PART[4] - 0.15, "j_ncaaxc25", 60.0, flash=1); chapter(PART[4], "03", "FRESHMAN YEAR")
-    say(a("october 2025"), 2.0, "OCTOBER 2025", "white", "t"); S(a("her first college race"), "j_ncaaxc25", 260.0, amb=1)
+    S(PART[4] - 0.15, "j_stride", 194.0, flash=1); chapter(PART[4], "03", "FRESHMAN YEAR")
+    say(a("october 2025"), 2.0, "OCTOBER 2025", "white", "t"); S(a("her first college race"), "j_stride", 300.0, amb=1)
     stamp(a("course record she wins") , 1.4, "COURSE RECORD", "gold")
     S(a("she wins the big"), "j_big12_26", 400.0, amb=1); say(a("big twelve"), 1.8, "BIG 12 CHAMPION", "orange", "b", "BIG")
-    S(a("ncaa cross country second"), "j_ncaaxc25", 379.0, amb=1)
-    S(a("second place"), "j_ncaaxc25", 971.0, amb=1); stat(a("second place"), 2.2, "2ND", "NCAA XC · AS A FRESHMAN", "orange")
-    S(a("fastest freshman"), "j_ncaaxc25", 1210.0, slow=0.6)
+    S(a("ncaa cross country second"), "j_stride", 420.0, amb=1)
+    S(a("second place"), "j_nike", 211.0, amb=1); stat(a("second place"), 2.2, "2ND", "NCAA XC · AS A FRESHMAN", "orange")
+    S(a("fastest freshman"), "j_nike", 266.0, slow=0.6)
     S(a("december fourteen"), "j_stride", 300.0, amb=1); stat(a("fourteen 44"), 2.6, "14:44.79", "5000M · COLLEGIATE RECORD", "gold")
     S(a("february 2026"), "j_millrose_int", 20.0); say(a("milrose"), 2.0, "MILLROSE GAMES · FEB 2026", "white", "t")
     stat(a("eight 34 98"), 2.6, "8:34.98", "3000M · UNDER TUOHY'S 8:35.20", "gold")
@@ -153,9 +152,9 @@ def edl(a, S, O, stat, say, stack, name, stamp, chapter, PART):
     S(a("but she said usain"), "j_nxn24", 600.0, amb=1)
     S(a("she said there is"), "j_nike", 244.0, punch=0.5); say(a("no one comparable"), 2.6, "“NO ONE COMPARABLE TO HER”", "white", "b", "COMPARABLE")
     # 8 what's next ---------------------------------------------------------------------
-    S(PART[8] - 0.15, "j_ncaaxc25", 30.0, flash=1); chapter(PART[8], "07", "WHAT'S NEXT")
+    S(PART[8] - 0.15, "j_big12_26", 158.0, flash=1); chapter(PART[8], "07", "WHAT'S NEXT")
     say(a("november 21st"), 2.4, "NCAA XC · NOV 21 · TERRE HAUTE", "white", "t")
-    S(a("last year she got"), "j_ncaaxc25", 1130.0, amb=1); stat(a("second"), 2.0, "2ND", "NCAA XC 2025", "orange")
+    S(a("last year she got"), "j_nike", 103.0, amb=1); stat(a("second"), 2.0, "2ND", "NCAA XC 2025", "orange")
     S(a("this year shes"), "j_big12_26", 1250.0); say(a("the favorite"), 1.8, "THE FAVORITE", "gold", "c", "FAVORITE", 160)
     S(a("if she wins"), "j_nike", 146.0, slow=0.7)
     S(a("if she dont"), "t_letsrun26", 155.0, bw=1)

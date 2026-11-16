@@ -1,6 +1,9 @@
 # Jane Hedengren: YouTube upload (16 Nov 2026)
-- Upload-Post job f3e848d9257f48909bc4972bd913f4e2 (runs 03:19 UTC). Private; YouTube publishes 2026-11-16T13:00:00Z (Mon 6:00 AM MT, user's pick). Category 17 via schedule PATCH.
+- v1 upload OLdWR-wJzHM got a Content ID claim (Turner Sports, "2025 NCAA DI women's cross country championship | FULL RACE", not monetizing).
+  It is now private, renamed "[OLD - claimed] ...", publishAt pushed to 2027-11-16 so it never goes live. User can delete it in Studio.
+- Fix: every j_ncaaxc25 (NCAA Championships channel, Turner) shot and both its soundbites removed; replaced with Stride Report/Nike/Big 12 footage
+  and a Big 12 call ("whatever illness she had... completely recovered"). New cut 9:45, 16 soundbites.
+- v3 upload: Upload-Post job 5dfcb20151dd4474ad842e1ce6c3b51f, private, YouTube publishes 2026-11-16T13:00:00Z (Mon 6:00 AM MT, user's pick). Category 17.
 - Title: The Greatest High School Runner Ever... Will She Be The Next To Fall Off? (user's pick)
-- Thumbnail: user's "NEXT TO FALL?" (thumbnail_user_next_to_fall.jpg), set after upload.
-- Captions: captions_en.srt. Description: description.txt.
-- Video: Dropbox /Jane Video/ (re-render with tightened soundbites is the one uploaded; 10:19).
+- Thumbnail: user's "NEXT TO FALL?" (thumbnail_user_next_to_fall.jpg). Captions: captions_en.srt. Description: description.txt.
+- Rule learned: NCAA Championships YouTube channel uploads (Turner Sports) can trigger Content ID claims.
