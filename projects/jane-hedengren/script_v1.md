@@ -1,6 +1,6 @@
 # Jane Hedengren: script v1 (for the user to read)
 
-Title idea: "She Broke Katelyn Tuohy's Records... Will She End Up The Same?"
+Title: "The Greatest High School Runner Ever... Will She Be The Next To Fall Off?"
 Angle (user, 14 Nov 2026): the next Tuohy? Jane broke Tuohy's records. Same hype, same pressure. Is history about to repeat, or is she different? Rides the Tuohy video. Facts only, no guessing about her health.
 About 950 words, about 6 min of your voice; with the real clips it lands around 9 min. Read it in one take like Tuohy and Webb. If you mess up, pause and say the line again.
 Numbers are written as numbers.
@@ -20,7 +20,7 @@ Her name is Jane Hedengren. She's 20 years old.
 
 And right now… she's starting to show some of the same signs.
 
-So is Jane Hedengren the next Katelyn Tuohy? Lemme tell y'all.
+So is Jane Hedengren gon' be the next one to fall off? Lemme tell y'all.
 
 ## 2. The kid from Provo
 Jane Hedengren. Timpview High School. Provo, Utah.
@@ -88,14 +88,26 @@ But sick at NCAAs. Sick in October. A loss in September.
 
 Where have we heard that before?
 
-## 6. Remember Tuohy
+## 6. They all fell off
 Katelyn Tuohy was the best high school runner ever.
 
 She won in college. Then she turned pro.
 
 And then it was injuries. Health issues she said she was keeping to herself. Then she stopped racing.
 
-Nobody's saying that's Jane. Jane's coach is literally doing the opposite. She cut back her training.
+And it ain't just Tuohy.
+
+Mary Cain. Fastest girl in America at 17. Went pro. Later she said the program broke her down. She was never the same.
+
+Abby Steiner. Fastest college woman ever. 2 years later, she disappeared. Y'all seen that video.
+
+Dominate in high school. Dominate in college. Then gone.
+
+Now the one that came back? Parker Valby. 6 NCAA titles. Broke her foot and missed about a year. This year she ran 14:39 and got 3rd at USAs.
+
+So it can be done.
+
+Nobody's saying Jane gon' fall off. Jane's coach is literally doing the opposite. She cut back her training.
 
 Her coach said, "more is not necessarily better." She said, "Sometimes less is actually more."
 
@@ -128,6 +140,6 @@ I hope this girl makes it. For real.
 
 We already watched 1 phenom disappear. I don't wanna watch it again.
 
-So what y'all think? Is Jane Hedengren the next great American distance runner? Or the next Katelyn Tuohy?
+So what y'all think? Is Jane Hedengren the next great American distance runner? Or the next one to fall off?
 
 Let me know in the comments.
