@@ -9,3 +9,7 @@
 - Rule learned: NCAA Championships YouTube channel uploads (Turner Sports) can trigger Content ID claims.
 - gEICwBRqdvs: thumbnail + 18 tags set via vidIQ 03:53 UTC; private, publishAt 2026-11-16T13:00:00Z confirmed. Captions scheduled for 08:10 UTC (Composio YouTube quota).
 - 08:13 UTC: English captions (captions_en.srt, 234 cues) uploaded, serving. At that check the API reported privacyStatus public (publishAt still 2026-11-16T13:00:00Z), so it may already be live.
+- 16 Nov ~16:50 UTC: gEICwBRqdvs got a second claim (XOS Digital Sports, "2026 Big12 Womens Cross Country Championship", ineligible to earn). Had 2,777 views when replaced.
+- v4: all Big 12 / NCAA / World Champs broadcast footage removed (RunnerSpace, UVU Invitational from John Hedengren's channel, BYU long-run vlog, Tracklandia instead). 9:44.
+- v4 LIVE: https://youtu.be/2Ueu8UCms20 (Upload-Post job 9bd2c3d653f948afa59cc1139dee698e), public 17:11 UTC 16 Nov. Same title, NEXT TO FALL? thumbnail, 18 tags, category 17, English captions (236 cues) serving.
+- gEICwBRqdvs set to private. OLdWR-wJzHM still private (old, claimed).
