@@ -49,12 +49,18 @@ TAGS = {}  # filled in edl_tuohy.py
 
 # ------------------------------------------------------------------ soundbites (inserted; the voiceover pauses)
 def snap(src, a, b):
-    """Snap a soundbite to the clip's own word boundaries so no word is clipped."""
+    """Snap a soundbite to the clip's own word boundaries so no word is clipped, and keep the padded window
+    (PAD either side) clear of the neighbouring words so no stray half-sentence leaks in."""
     try: segs = json.load(open(f"{CS}/tx_{src}.json"))
     except FileNotFoundError: return a, b
-    ws = [w for s in segs for w in s.get("words", s.get("w", []))]
-    st = [w["s"] for w in ws if w["s"] >= a - 0.4]; en = [w["e"] for w in ws if w["e"] <= b + 0.4]
-    a2 = (min(st) - 0.12) if st else a; b2 = (max(en) + 0.3) if en else b
+    ws = sorted((w for s in segs for w in s.get("words", s.get("w", []))), key=lambda w: w["s"])
+    inn = [w for w in ws if w["s"] >= a - 0.05 and w["e"] <= b + 0.05]
+    if not inn: return a, b
+    prev = [w["e"] for w in ws if w["e"] <= inn[0]["s"] and w is not inn[0]]; nxt = [w["s"] for w in ws if w["s"] >= inn[-1]["e"] and w is not inn[-1]]
+    a2 = inn[0]["s"] - 0.12; b2 = inn[-1]["e"] + 0.3
+    if prev: a2 = max(a2, prev[-1] + 0.05 + 0.3)
+    if nxt: b2 = min(b2, nxt[0] - 0.05 - 0.3)
+    a2 = min(a2, inn[0]["s"] - 0.02); b2 = max(b2, inn[-1]["e"] - 0.02)
     return round(max(0, a2), 2), round(max(b2, a2 + 1), 2)
 
 PAD = 0.3

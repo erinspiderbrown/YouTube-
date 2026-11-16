@@ -26,17 +26,17 @@ SB_LIST = [  # ((before phrase, part), src, a, b, credit)
     (("now this where", 3), "j_nike", 130.3, 142.5, "NIKE · RUN BIGGER (2025)"),
     (("and in college", 3), "j_ksl", 116.0, 128.1, "TIMPVIEW COACH JAIMIE RIBERA · KSL"),
     (("then indoors", 4), "j_ncaaxc25", 1109.2, 1124.2, "ESPN · NCAA CROSS COUNTRY · NOV 22, 2025"),
-    (("third in the", 5), "j_bedridden", 17.4, 27.2, "JANE HEDENGREN · LETSRUN · JUNE 2026"),
+    (("third in the", 5), "j_bedridden", 17.4, 27.0, "JANE HEDENGREN · LETSRUN · JUNE 2026"),
     (("september the cowboy", 5), "j_ncaa10k26", 1373.3, 1386.8, "ESPN · NCAA 10,000M FINAL · JUNE 2026"),
     (("october the pre", 5), "j_letsrun_slump", 49.1, 66.3, "LETSRUN TRACK TALK · SEPT 2026"),
     (("but sick at", 5), "j_big12_26", 1261.1, 1276.0, "BIG 12 XC CHAMPIONSHIP · OCT 31, 2026"),
     (("and it aint just", 6), "t_letsrun26", 148.6, 157.3, "KATELYN TUOHY · LETSRUN · APRIL 2026"),
     (("abby steiner", 6), "j_cain_nyt", 41.8, 57.0, "MARY CAIN · NYT OPINION 2019 · SALAZAR DENIED HER CLAIMS"),
     (("dominant in high", 6), "a_citius_trials24", 49.6, 52.9, "ABBY STEINER · CITIUS MAG · 2024"),
-    (("so it can be", 6), "j_valby_usa", 115.0, 122.3, "PARKER VALBY · LETSRUN · JULY 2026"),
-    (("thats a coach", 6), "j_stride", 887.6, 902.8, "COACH DILJEET TAYLOR · THE STRIDE REPORT"),
+    (("so it can be", 6), "j_valby_usa", 115.45, 122.3, "PARKER VALBY · LETSRUN · JULY 2026"),
+    (("thats a coach", 6), "j_stride", 891.5, 898.95, "COACH DILJEET TAYLOR · THE STRIDE REPORT"),
     (("november 21st", 8), "j_ncaaxc25", 1258.1, 1287.6, "ESPN · NCAA CROSS COUNTRY 2025"),
-    (("so what y all", 9), "j_stride", 906.0, 921.8, "JANE HEDENGREN · THE STRIDE REPORT"),
+    (("so what y all", 9), "j_stride", 907.6, 921.8, "JANE HEDENGREN · THE STRIDE REPORT"),
 ]
 
 
