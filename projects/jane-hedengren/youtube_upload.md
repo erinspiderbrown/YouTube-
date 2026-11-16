@@ -8,3 +8,4 @@
 - Thumbnail: user's "NEXT TO FALL?" (thumbnail_user_next_to_fall.jpg). Captions: captions_en.srt. Description: description.txt.
 - Rule learned: NCAA Championships YouTube channel uploads (Turner Sports) can trigger Content ID claims.
 - gEICwBRqdvs: thumbnail + 18 tags set via vidIQ 03:53 UTC; private, publishAt 2026-11-16T13:00:00Z confirmed. Captions scheduled for 08:10 UTC (Composio YouTube quota).
+- 08:13 UTC: English captions (captions_en.srt, 234 cues) uploaded, serving. At that check the API reported privacyStatus public (publishAt still 2026-11-16T13:00:00Z), so it may already be live.
