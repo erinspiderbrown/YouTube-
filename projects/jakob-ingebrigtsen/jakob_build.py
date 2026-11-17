@@ -127,6 +127,9 @@ def build_edl():
 def timeline():
     build_edl()
     vo_shots = sorted(SHOTS, key=lambda s: s["t"])
+    for v in vo_shots:   # a cut placed just before a soundbite split would flash for a few frames: move it past the split
+        for s in SOUNDBITES:
+            if 0 < s["t"] - v["t"] < 0.5: v["t"] = s["t"] + 0.001
     for s in SOUNDBITES:   # after each soundbite the previous shot continues where it left off
         if any(abs(v["t"] - s["t"]) < 0.3 or (s["t"] < v["t"] < s["t"] + 0.6) for v in vo_shots): continue
         prev = max((v for v in vo_shots if v["t"] < s["t"]), key=lambda v: v["t"])

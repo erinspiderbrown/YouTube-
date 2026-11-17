@@ -11,7 +11,7 @@ RAW=sys.argv[1]
 CHAIN="highpass=f=75,afftdn=nr=10:nf=-50:tn=1,acompressor=threshold=-20dB:ratio=2.5:attack=8:release=120:makeup=2,equalizer=f=180:t=q:w=1.2:g=-1.5,equalizer=f=3500:t=q:w=1.5:g=1.5"
 W=json.load(open(f"{P}/vo_words_raw.json"))
 # flubs (raw seconds)
-MIST=[]   # fill in after listening to the raw take
+MIST=[(0.5,3.4),(431.2,436.5)]   # "Testing 1-2" ; restart "went to court against his own dad at 2024 and | went against his own dad in court at 24"
 x=np.frombuffer(subprocess.run(["ffmpeg","-v","error","-i",RAW,"-af",CHAIN,"-ac","1","-ar",str(SR),"-f","f32le","-"],capture_output=True,check=True).stdout,np.float32).copy()
 mist=[(safe_point(x,SR,a,0.25),safe_point(x,SR,b,0.25)) for a,b in MIST]
 w=[q for q in W if not any(a<=(q["s"]+q["e"])/2<=b for a,b in mist)]

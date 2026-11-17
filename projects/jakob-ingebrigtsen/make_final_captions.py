@@ -1,22 +1,19 @@
-"""Jakob Ingebrigtsen: child prodigy. Boling v2 style. No Olympic, NCAA, Worlds or FloTrack footage.
+"""Captions for the final cut: the user's VO words (mapped with FT) + every soundbite's own words, names fixed."""
 import sys, json, re
 sys.argv = ["x"]
 src = open("/home/user/YouTube-/projects/jakob-ingebrigtsen/jakob_build.py").read().split("if __name__")[0]
 exec(src)
 TL()
 CS_ = CS
-FIX = [(r"\bHend[a-z]*gr[ae]n[a-z]*\b|\bHen+[a-z]*gren\b|\bHennigran\b|\bHedinger\b|\bHendringen\b|\bHettingrand\b|\bHedgren\b|\bHead and grin\b|\bhead and grin\b|\bHendergram\b|\bAhedegren\b|\bDeHeadengrin\b|\bHendegrenz\b", "Hedengren"),
-       (r"\bKaitlyn Toohey\b|\bKaitlin Toohey\b|\bCaitlin Tuey\b|\bCaitlyn to me\b|\bKatelyn Chuey\b|\bkalen tui\b", "Katelyn Tuohy"),
-       (r"\bToohey\b|\bTui\b|\btui\b|\bTuey\b", "Tuohy"), (r"\bKaitlyn\b|\bKalen\b|\bCaitlin\b|\bKaitlin\b", "Katelyn"),
-       (r"\b10th View\b|\bTimfield\b|\bTimview\b", "Timpview"), (r"\bDejeet Taylor\b|\bDlG Taylor\b|\bDel G Taylor\b", "Diljeet Taylor"),
-       (r"\bMary Kane\b|\bMary Key\b", "Mary Cain"), (r"\bAlberta\b", "Alberto"), (r"\bmilrose game\b|\bMiro's game\b", "Millrose Games"),
-       (r"\bchorus records\b", "course records"), (r"\bfastest school girl\b", "fastest high school girl"),
-       (r"\b15 -13\b|\b1513\b", "15:13"), (r"\b426\b", "4:26"), (r"\b14 57\b|\b1457\b", "14:57"), (r"\b423 \.50\b", "4:23.50"),
-       (r"\b4 \.33\b", "4:33"), (r"\b9 \.17\b", "9:17"), (r"\b8 \.40\b", "8:40"), (r"\b14 44\b", "14:44"), (r"\b8 34 \.98\b", "8:34.98"),
-       (r"\b1439\b", "14:39"), (r"\b30 usas\b|\b30 USA's\b", "3rd at USAs"), (r"\b16 c -double -a titles\b", "6 NCAA titles"),
-       (r"\b6th in October\b", "sick in October"), (r"\bnc double a\b|\bNC double A\b", "NCAA"), (r"\bLemon-Golay\b|\bLevin Golay\b", "Lemngole"),
-       (r"\bKausgeye\b|\bCosgai\b|\bKostai\b|\bcos-guy\b", "Kosgei"), (r"\bI'm gonna\b", "I'ma"), (r"\bAaron Brown\b", "Erin Brown"),
-       (r"\bRojo\b|\brojo\b", "Rojo"), (r"\bGlendaver\b", "Glendoveer"), (r"\bshit\b", "s***")]
+FIX = [(r"\bIngeb[a-z]*s[eo]n\b|\bIngenreichsen\b|\bIncombrison\b|\bIngebretsen\b", "Ingebrigtsen"),
+       (r"\bJacob\b|\bYacob\b|\bYaakob\b|\bYaakov\b|\bJakub\b|\bJaco\b", "Jakob"), (r"\bHerrick\b|\bHerek\b|\bHenneke\b", "Henrik"),
+       (r"\bPhilip\b|\bPhilipp\b", "Filip"), (r"\bKirk\b", "Kerr"), (r"\bJake Wiedman\b|\bJake white man\b", "Jake Wightman"),
+       (r"\bcold hawker\b|\bCole Hawker\b", "Cole Hocker"), (r"\bNeguse\b", "Nuguse"), (r"\bJared\b", "Yared"),
+       (r"\bParker Wolf\b", "Parker Wolfe"), (r"\bRolled ass\b", "Ol' ass"), (r"\broad asses\b", "ol' asses"),
+       (r"\bimma\b", "I'ma"), (r"\b328 32\b", "3:28.32"), (r"\b717 \.55\b", "7:17.55"), (r"\b443 \.13\b", "4:43.13"),
+       (r"\b345 \.14\b", "3:45.14"), (r"\b329 \.63\b", "3:29.63"), (r"\b3 \.58 \.07\b", "3:58.07"), (r"\b12 \.59 \.24\b", "12:59.24"),
+       (r"\b5 ,000\b", "5000"), (r"\b3 ,000\b", "3000"), (r"\b2 ,000\b", "2000"), (r"\$150 ,000", "$150,000"),
+       (r"\bfifth nanometer\b|\b5th nanometer\b", "1500 meter"), (r"\bShitty\b|\bshit\b", "S***"), (r"\bf\*\*\*ing\b", "f***ing")]
 words = []
 for w in WORDS:
     words.append((FT(w["s"]), FT(w["e"]), w["w"], "vo"))
