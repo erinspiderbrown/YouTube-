@@ -41,3 +41,14 @@ Wikimedia Commons, Category:Jakob Ingebrigtsen (independent photographers, CC li
 - k_citius_ultimate 142.1-151.5: "it's 100% no guarantee that I will ever be at this level ever again. So to do that, it's amazing."
 - k_citius_ultimate 599.0-614.5: surgery, "when you chop up your body..."
 - k_qa 266.1-285.2: "Are you the GOAT?" ... "No, but I don't think anyone else is either." (ending)
+- k_ea_u20_2017 82.7-88.5: (age 16) "Is it also that you like to think about tactics?" "No, I like to win." (Built in Sandnes / 2017)
+- k_ea_u20_2017 10.3-15.7: "I have three distances. I'm running the 1500, steeplechase and the 5000m."
+- k_ea_xc2018 113.3-125.3: "It's been an incredible year. I wasn't expecting to do this good in 2018" (after the Berlin double)
+- k_aw_2021 194.1-209.7: "when I started running, like in preschool, I was always the fastest... because I was training and playing with my older brothers." (Built in Sandnes)
+- k_aw_2021 167.5-181.7: "when you're really young, you have to listen to what other people are saying. My father and my brothers."
+- k_aw_2021 250.2-286.8: first loss at 14-15, "losing in general is something that I hate."
+- k_aw_2021 619.6-629.9: "my main goal is to be too fast for everybody else, which means I can basically do whatever I want and I will still win."
+- k_citius_worlds23 609.9-621.2: on Josh Kerr's 2023 1500 title: "He was just the next guy. So it's like if I hadn't ran in the final, he would probably have won. That's how I see the race." (rivals, strong)
+- k_citius_worlds23 442.7-467.5: "I see the World Athletics Championship as a pretty big deal compared to the Olympics... that's more a celebration of different sports"
+- k_citius_pre24 152.3-157.4: after Kerr beat him at Pre 2024: "I tried to fight him, but I thought for me today was more of a time trial."
+- k_aw_cowards 44.1-61.4: AW angle of the "cowards" quote (alternate to CITIUS)
