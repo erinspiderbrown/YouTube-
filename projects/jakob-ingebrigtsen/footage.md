@@ -52,3 +52,8 @@ Wikimedia Commons, Category:Jakob Ingebrigtsen (independent photographers, CC li
 - k_citius_worlds23 442.7-467.5: "I see the World Athletics Championship as a pretty big deal compared to the Olympics... that's more a celebration of different sports"
 - k_citius_pre24 152.3-157.4: after Kerr beat him at Pre 2024: "I tried to fight him, but I thought for me today was more of a time trial."
 - k_aw_cowards 44.1-61.4: AW angle of the "cowards" quote (alternate to CITIUS)
+
+## Final cut (17 Nov 2026, ~06:30 UTC)
+- scratchpad output/Jakob_Ingebrigtsen.mp4, 10:29.7, -15.3 LUFS. 146 shots, 13 soundbites + cold open.
+- Hosted for Upload-Post: https://d2ol7oe51mr4n9.cloudfront.net/user_3LcEFdqZuIv3oGXP4pI7v67JXeg/97b4c899-c23c-43cb-b45e-5af557581fa0.mp4
+- Waiting on the user: title pick and thumbnail. Release 6:00 AM MT = 2026-11-17T13:00:00Z.
