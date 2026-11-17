@@ -10,3 +10,13 @@
 9. Olympic Champion At 20... In Court With His Dad At 24 (89)
 10. Jakob Ingebrigtsen: The Prodigy His Father Built (84)
 Not used: "...Then He Took Him To Court" (96) - Jakob didn't bring the case, prosecutors did. "The Fastest Kid In The World Was Raised Like This" (97) - "fastest kid in the world" isn't true for a distance runner.
+
+## New list (17 Nov 2026, vidIQ scores on the channel)
+1. His Dad Made Him The Best In The World... Then Fired Him (98) - true: the brothers dropped Gjert as coach in Feb 2022
+2. Raised To Be A Champion... The Dark Side Of Jakob Ingebrigtsen's Family (98)
+3. The Most Hated Champion In Running... What Went Wrong? (98) - only if the video leans on the hate angle
+4. The Greatest Runner Alive... What His Dad Did To Him (97)
+5. The World's Greatest Runner Ever... What Did His Father Do? (97)
+6. The Greatest Distance Runner Ever... What Happened At Home? (97)
+7. The Kid Who Beat Everyone... And The Father Who Pushed Too Far (93)
+8. Gold Medal At 20... Testifying Against His Own Dad At 24 (89)
