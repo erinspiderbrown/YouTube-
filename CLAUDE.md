@@ -105,6 +105,7 @@ The user said viewers notice the AI voice and that it "doesn't really sound like
   Upload-Post drops tags and thumbnail sent through Composio, which is why step 4 sets them.
 - **Monetization must be on for every video.** No API we have can switch it (the YouTube Data API has no monetization field). It comes from the channel's upload defaults (Studio → Settings → Upload defaults → Advanced settings → Monetization: On). Remind the user to check the Monetization tab on any video uploaded before that default was set.
 - Composio's own YouTube upload (`YOUTUBE_MULTIPART_UPLOAD_VIDEO`) shares a daily upload quota that is usually used up; don't rely on it.
+- **Upload-Post's free plan allows 10 uploads a month** (hit on 17 Nov 2026). When it refuses, upload with `YOUTUBE_MULTIPART_UPLOAD_VIDEO` (privacy private) right after its quota resets at 08:00 UTC, then set `publishAt` and the thumbnail with vidIQ.
 
 ## Reference examples
 - `examples/thumbnails/README.md`: **thumbnail house style = the user's own Boling thumbnail** (`examples/thumbnails/user_boling_what_happened.png`, 10 Nov 2026). One bright stadium scene, the athlete's peak action cutout upper-left, a big front-lit close-up face on the right, a heavy italic 2-line question bottom-left (white + yellow→orange gradient, red swoosh). Build with `tools/thumb_template.py`. The earlier Ev Hand notes are superseded.
