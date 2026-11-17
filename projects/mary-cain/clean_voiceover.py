@@ -11,7 +11,7 @@ RAW=sys.argv[1]
 CHAIN="highpass=f=75,afftdn=nr=10:nf=-50:tn=1,acompressor=threshold=-20dB:ratio=2.5:attack=8:release=120:makeup=2,equalizer=f=180:t=q:w=1.2:g=-1.5,equalizer=f=3500:t=q:w=1.5:g=1.5"
 W=json.load(open(f"{P}/vo_words_raw.json"))
 # flubs (raw seconds)
-MIST=[(51.6,54.5),(144.75,150.6),(266.9,271.35)]   # "and that's when she met a name" ; first "but that's not" ; first "2021 the U.S. Center for SafeSport."
+MIST=[(51.6,54.5),(72.3,73.6),(144.75,150.6),(266.9,271.35)]   # "and that's when she met a name" ; "Gold me-" restart ; first "but that's not" ; first "2021 the U.S. Center for SafeSport."
 x=np.frombuffer(subprocess.run(["ffmpeg","-v","error","-i",RAW,"-af",CHAIN,"-ac","1","-ar",str(SR),"-f","f32le","-"],capture_output=True,check=True).stdout,np.float32).copy()
 mist=[(safe_point(x,SR,a,0.25),safe_point(x,SR,b,0.25)) for a,b in MIST]
 w=[q for q in W if not any(a<=(q["s"]+q["e"])/2<=b for a,b in mist)]
