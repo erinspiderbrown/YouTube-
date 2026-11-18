@@ -37,7 +37,7 @@
 - End on the open question and a comment prompt ("what do you think really happened?"), plus end screen to the Tuohy video.
 
 ## Footage (Content ID rules)
-- User, 18 Nov 2026: NBC footage is allowed for this video. Still no FloTrack/MileSplit. Keep each NBC clip short (a few seconds to ~10 s) with voiceover or commentary over it, to lower Content ID risk.
+- User, 18 Nov 2026: NBC footage is allowed for this video. Still no FloTrack/MileSplit. User rule: no clip longer than 8 seconds at a time (any source, soundbites included). Longer soundbites get split with a cutaway or photo between pieces.
 - Use: RunnerSpace (Mt. SAC 2025 is theirs), CITIUS MAG interviews, The Pivot, Call Your Sister, Bodega Track, fan videos, Texas A&M athletics,
   Trenton local news, photos. Short clips only, with commentary.
 - The Trials fall, Tokyo gold, Eugene 2022 and Budapest 2023 can come from NBC Sports' YouTube uploads.
