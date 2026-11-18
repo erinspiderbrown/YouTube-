@@ -10,3 +10,4 @@
 - Facebook: posted to E.Diamondz (page 506309812910570) via FACEBOOK_CREATE_VIDEO_POST file_url = hosted 16:9 MP4; video 1122011837348129; YouTube thumbnail set as preferred (18 Nov 2026).
   Then, at the user's request, the vertical cover (tiktok_cover.jpg) was set as the preferred Facebook thumbnail instead.
 - 18 Nov 2026: user replaced the YouTube thumbnail themselves with thumbnail_user_crying_v2 (crying close-up, no text) after a slow first 5 h (1.8K views, CTR 6.8%, AVD 3:51).
+- 18 Nov 2026: user changed the title to '"I Was The Fastest Girl In America... Until I Joined Nike"'. At 7h13m: 2.6K views, CTR 7.0% (up from 6.8%), AVD 3:44, ranking 6 of 10.
