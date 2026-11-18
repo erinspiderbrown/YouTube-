@@ -7,3 +7,4 @@
 - Hosted MP4 (Facebook/TikTok later): https://d2ol7oe51mr4n9.cloudfront.net/user_3LcEFdqZuIv3oGXP4pI7v67JXeg/3165d536-e447-4020-bfac-c7857634e6da.mp4
 - TikTok: cover tiktok_cover.jpg (make_tiktok_cover.py), vertical scratchpad output/Mary_vertical_cover.mp4 (8:40, 1080x1920, cover on first 1.2 s).
   vidIQ uploadId b56b6722-2033-4f56-a8d5-a633c6b80490, draft post 070ae153-b05d-4582-96c1-53c5dd3e7c54 (Erin Spider Brown, public, comments on), user approved; published 18 Nov 2026 (vidIQ status completed, no post URL returned).
+- Facebook: posted to E.Diamondz (page 506309812910570) via FACEBOOK_CREATE_VIDEO_POST file_url = hosted 16:9 MP4; video 1122011837348129; YouTube thumbnail set as preferred (18 Nov 2026).
