@@ -40,7 +40,12 @@ SB_LIST = [  # ((before phrase, part), src, a, b, credit, {opts})
     (("then she anchors", 4), "a_cbs_philly_tokyo", 14.8, 20.7, "CBS Philadelphia · August 2021"),
     (("they light up the bridge", 4), "a_tokyo_presser", 51.1, 61.0, "Tokyo 2020 press conference"),
     (("2022 world championships", 5), "a_trenton_speech", 107.8, 111.5, "Athing Mu · Trenton homecoming · 2021"),
+    (("three months later", 5), "a_citius_budapest2023", 611.6, 614.9, "Athing Mu · CITIUS MAG · Budapest, August 2023"),
+    (("but three weeks later", 6), "a_citius_budapest2023", 386.1, 394.9, "Athing Mu · CITIUS MAG · Budapest, August 2023"),
+    (("three times she thought", 6), "a_pivot_podcast", 832.2, 850.7, "Athing Mu · The Pivot Podcast · March 2023"),
+    (("she told us herself", 11), "a_pivot_podcast", 2720.5, 2722.4, "Athing Mu · The Pivot Podcast · March 2023"),
     (("and 6 weeks later", 7), "a_keely_reacts", 148.6, 162.9, "Keely Hodgkinson · Athletics Weekly · June 2024"),
+    (("march 2025", 8), "a_callyoursister", 1929.1, 1934.6, "Athing Mu · Call Your Sister podcast · November 2024"),
     (("august 1st 2025", 8), "a_citius_pre2025", 139.8, 159.8, "Athing Mu after Pre 2025 · CITIUS MAG"),
     (("this is the last race", 8), "a_citius_usa2025", 148.8, 151.6, "Athing Mu after USAs 2025 · CITIUS MAG"),
     (("so what really went wrong", 11), "a_trenton_speech", 133.6, 143.8, "Athing Mu · Trenton homecoming · 2021"),
@@ -121,7 +126,7 @@ def edl(a, S, O, number, title, name, quote, date, chapter, PART):
     # 6 the doubt ------------------------------------------------------------------------
     S(PART[6] - 0.05, "a_pivot_podcast", 167.0, flash=1); chapter(PART[6] + 0.2, "03", "The Doubt")
     S(a("says something"), "a_pivot_podcast", 316.0)
-    S(a("three times she thought"), "a_pivot_podcast", 1615.0, punch=0.4); quote(a("three times she thought"), 3.6, "There's probably three moments where I really was like, I don't even know if I want to do this.", "Athing Mu, 2023")
+    S(a("three times she thought"), "a_pivot_podcast", 1615.0, punch=0.4)
     S(a("that summer"), "a_citius_budapest2023", 30.0)
     S(a("her coach told the la times"), "a_letsrun_kersee2023", 520.0, bw=1)
     S(a("she deletes her social media"), "a_citius_budapest2023", 200.0)
