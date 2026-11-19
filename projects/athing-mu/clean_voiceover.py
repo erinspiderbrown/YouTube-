@@ -26,6 +26,18 @@ for u,v in segs:
     if len(seg)>2*n: seg[:n]*=np.linspace(0,1,n); seg[-n:]*=np.linspace(1,0,n)
     y.append(seg)
 y=np.concatenate(y)
+# second pass (user, 19 Nov 2026: "remove the long pauses"): every measured silence longer than 0.6 s is shortened to 0.5 s,
+# cutting only inside the silence (0.25 s kept on each side), so no word is touched.
+fr=int(0.01*SR); e=np.sqrt(np.convolve(y**2,np.ones(fr)/fr,'same'))[::fr]; db=20*np.log10(e+1e-9); fl=np.percentile(db,8); q=db<fl+14
+keep=np.ones(len(y),bool); i=0; nsil=0
+while i<len(q):
+    if q[i]:
+        j=i
+        while j<len(q) and q[j]: j+=1
+        if (j-i)*0.01>0.6 and i>0 and j<len(q): keep[(i+25)*fr:(j-25)*fr]=False; nsil+=1
+        i=j
+    else: i+=1
+y=y[keep]; print("long pauses shortened:",nsil)
 subprocess.run(["ffmpeg","-v","error","-y","-f","f32le","-ar",str(SR),"-ac","1","-i","-","-af","loudnorm=I=-16:TP=-1.5:LRA=9,alimiter=limit=0.89","-ar",str(SR),"-c:a","pcm_s16le",f"{P}/athing_voiceover.wav"],input=y.tobytes(),check=True)
 json.dump({"cuts":cuts,"start":a0,"end":b0},open(f"{P}/vo_cuts.json","w"))
 print("cuts",len(cuts),"raw",round(len(x)/SR,1),"->",round(len(y)/SR,1),"s")
