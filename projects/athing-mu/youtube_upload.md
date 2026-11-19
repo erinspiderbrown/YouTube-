@@ -9,3 +9,9 @@
   draft post 557cdc9f-0d56-4c0b-8d7a-18b5a4edb259 (The Erin Brown, private, publishAt 2026-11-19T13:00:00Z = 6:00 AM MT, category 17, tags), waiting for the user's OK.
 - Published via vidIQ (user approved): https://youtu.be/0IFshsImmiw, private, scheduledPublishAt 2026-11-19T13:00:00Z (6:00 AM MT, user's pick), tags + category 17, user's thumbnail.
 - English captions (captions_en.srt, 242 cues, make_final_captions.py) uploaded with Composio YOUTUBE_UPLOAD_CAPTION_TRACK: serving.
+
+## TikTok + Facebook (19 Nov 2026)
+- User's vertical cover ("This is so BAD", crying at the 2024 Trials): tiktok_cover_user.png → tiktok_cover.jpg (1080x1920).
+- Facebook (E.Diamondz): video post 1779316673162845 (web copy, caption + YouTube link); thumbnail set to the vertical cover (FACEBOOK_SET_VIDEO_THUMBNAIL, is_preferred).
+- TikTok: Athing_vertical_cover.mp4 (blurred fill, 16:9 centred, cover on the first 1.2 s, 9:57). vidIQ upload 0fc29b78-96c0-4a20-9651-c19ab986a8cc,
+  draft 946f503e-98c5-480e-ad0d-ff3f7b76af84 to Erin Spider Brown, public, comments on, music confirmed. Waiting on the user's OK to publish.
