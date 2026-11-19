@@ -47,3 +47,6 @@
   of the cold open linking to the full video.
 - Pinned comment with the question; reply to early comments (engagement in the first 2 h matters).
 - End screen + description link to the Tuohy video (and Tuohy's end screen to this one) so the two feed each other.
+
+## Thumbnail chosen by the user (19 Nov 2026)
+thumbnail_user_this_is_so_bad.png: close-up of her crying, "This is so BAD" (white + big red). Pairs with the title "America's Greatest 800m Runner Ever... What Went Wrong?".
