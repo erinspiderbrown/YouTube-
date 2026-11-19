@@ -11,9 +11,13 @@ RAW=sys.argv[1]
 CHAIN="highpass=f=75,afftdn=nr=10:nf=-50:tn=1,acompressor=threshold=-20dB:ratio=2.5:attack=8:release=120:makeup=2,equalizer=f=180:t=q:w=1.2:g=-1.5,equalizer=f=3500:t=q:w=1.5:g=1.5"
 W=json.load(open(f"{P}/vo_words_raw.json"))
 # flubs (raw seconds)
-MIST=[(141.85,143.52),(190.9,195.6),(198.12,200.5),(382.9,384.12)]   # "June 21st," (wrong date: Trials final was June 27) ; first "She holds Keely Hodgkinson off by one." ; "by eight thousandths of a second" (wrong: it was 0.08 s, shown as a graphic) ; "14" (meant 4:10)
+MIST=[(83.3,86.4),(141.85,143.52),(190.9,195.6),(198.12,200.5),(382.9,384.12)]
+# restart "He says she had more th-" ; "June 21st," (wrong date: Trials final was June 27) ; first "She holds Keely Hodgkinson off by one." ;
+# "by eight thousandths of a second" (wrong: it was 0.08 s, shown as a graphic) ; "14"/"4:10" (shown as a graphic)
+MUTE=[(90.9,91.3),(149.1,149.45)]   # stray noises in the pauses (user, 19 Nov 2026: mic/grunt noises between takes)
 x=np.frombuffer(subprocess.run(["ffmpeg","-v","error","-i",RAW,"-af",CHAIN,"-ac","1","-ar",str(SR),"-f","f32le","-"],capture_output=True,check=True).stdout,np.float32).copy()
-mist=[(safe_point(x,SR,a,0.25),safe_point(x,SR,b,0.25)) for a,b in MIST]
+for a,b in MUTE: x[int(a*SR):int(b*SR)]=0.0
+mist=[(safe_point(x,SR,m[0],m[2] if len(m)>2 else 0.25),safe_point(x,SR,m[1],m[2] if len(m)>2 else 0.25)) for m in MIST]
 w=[q for q in W if not any(a<=(q["s"]+q["e"])/2<=b for a,b in mist)]
 cuts=[c for c in pause_cuts(x,SR,w,min_gap=0.8,keep=0.35) if all(c[1]<=a or c[0]>=b for a,b in mist)]+mist
 a0=max(0,safe_point(x,SR,w[0]["s"]-0.4,0.3)); b0=min(len(x)/SR,w[-1]["e"]+0.8)
@@ -37,7 +41,14 @@ while i<len(q):
         if (j-i)*0.01>0.6 and i>0 and j<len(q): keep[(i+25)*fr:(j-25)*fr]=False; nsil+=1
         i=j
     else: i+=1
-y=y[keep]; print("long pauses shortened:",nsil)
+# rebuild from the kept stretches with 10 ms fades at every join, so no cut can click
+idx=np.flatnonzero(np.diff(np.concatenate([[0],keep.astype(np.int8),[0]])))
+segs2=[]; n=int(0.01*SR)
+for u,v in zip(idx[::2],idx[1::2]):
+    s=y[u:v].copy()
+    if len(s)>2*n: s[:n]*=np.linspace(0,1,n); s[-n:]*=np.linspace(1,0,n)
+    segs2.append(s)
+y=np.concatenate(segs2); print("long pauses shortened:",nsil)
 subprocess.run(["ffmpeg","-v","error","-y","-f","f32le","-ar",str(SR),"-ac","1","-i","-","-af","loudnorm=I=-16:TP=-1.5:LRA=9,alimiter=limit=0.89","-ar",str(SR),"-c:a","pcm_s16le",f"{P}/athing_voiceover.wav"],input=y.tobytes(),check=True)
 json.dump({"cuts":cuts,"start":a0,"end":b0},open(f"{P}/vo_cuts.json","w"))
 print("cuts",len(cuts),"raw",round(len(x)/SR,1),"->",round(len(y)/SR,1),"s")

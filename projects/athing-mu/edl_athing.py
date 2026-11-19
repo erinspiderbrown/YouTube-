@@ -160,7 +160,7 @@ def edl(a, S, O, number, title, name, quote, date, chapter, PART):
     S(a("she tries to come back"), "a_runnerspace_mtsac2025", 138.0)
     S(a("a 5k"), "a_runnerspace_mtsac2025", 193.0)
     S(a("she steps off"), "a_runnerspace_mtsac2025", 413.0, slow=0.7)
-    S(a("then her second race"), "a_bodega_2025", 49.0)
+    S(a("then her second race"), "a_bodega_2025", 49.0); number(a("then her second race") + 0.6, 3.0, "4:10.70", "1500m · 2nd in her heat", "May 2025")
     S(a("then the pre fontaine"), "a_citius_pre2025", 20.0)
     S(a("last place"), "a_citius_pre2025", 60.0, bw=1); number(a("last place"), 3.0, "2:03.44", "10th of 10 · Prefontaine Classic", "July 2025")
     S(a("august 1st 2025"), "a_citius_usa2025", 11.0); date(a("august 1st 2025"), 3.0, "August 1, 2025", "US Championships · semifinal")
