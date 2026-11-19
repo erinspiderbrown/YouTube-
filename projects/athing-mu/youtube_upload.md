@@ -15,3 +15,6 @@
 - Facebook (E.Diamondz): video post 1779316673162845 (web copy, caption + YouTube link); thumbnail set to the vertical cover (FACEBOOK_SET_VIDEO_THUMBNAIL, is_preferred).
 - TikTok: Athing_vertical_cover.mp4 (blurred fill, 16:9 centred, cover on the first 1.2 s, 9:57). vidIQ upload 0fc29b78-96c0-4a20-9651-c19ab986a8cc,
   draft 946f503e-98c5-480e-ad0d-ff3f7b76af84 to Erin Spider Brown, public, comments on, music confirmed. Waiting on the user's OK to publish.
+
+## Stats (user screenshot, 19 Nov 2026, first 3 h 15 min)
+- 6.0K views (ranked 1 of 10 of the channel's last 10 at this point), 83 likes, 40 comments, CTR 9.1% (channel best so far; Tuohy 8.7%), AVD 4:18 of 9:57 (~43%; Tuohy 3:42).
