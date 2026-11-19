@@ -97,7 +97,7 @@ The user said viewers notice the AI voice and that it "doesn't really sound like
   - Show the user the cover before posting.
 - **Vertical video:** blurred, darkened copy of the video filling the frame, with the 16:9 video centred. The cover is overlaid on the first 1.2 s (TikTok uses the opening frame as the cover; vidIQ can't set one), and the audio keeps playing under it.
 - **Posting:** vidIQ `vidiq_video_upload` (localFile), then `vidiq_social_post_draft_create` to Erin Spider Brown (`_000ssAV0cJxYmcJ0XSxwm8rgS87rI5_tVPx`), public, comments on, music confirmed. The caption starts with `#5MinutePlus`. Then publish.
-- **No second confirmation (user, 19 Nov 2026):** when the user says to post on a platform, that is the approval. Draft, check it, and publish straight away; don't ask "should I post?" again. Show the result (link/status) afterwards. TikTok processing of a 10-minute video can take 10+ minutes.
+- **No second confirmation (user, 19 Nov 2026):** when the user says to post on a platform, that is the approval, for every platform and tool (vidIQ to TikTok/YouTube/Instagram/Facebook/X, Composio Facebook, Upload-Post). Draft, check it, and publish straight away; don't ask "should I post?" again. Show the result (link/status) afterwards. TikTok processing of a 10-minute video can take 10+ minutes.
 
 ## Facebook (user, 17 Nov 2026)
 - The user's Facebook Page is **E.Diamondz** (id 506309812910570), connected through Composio (`facebook` toolkit), not vidIQ.
