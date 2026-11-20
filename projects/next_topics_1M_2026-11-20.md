@@ -18,3 +18,15 @@ What Mu proves works: a big-name American Olympic/world champion, a clear peak, 
 4. Jim Ryun: first high schooler under 4:00 (1964), mile world record, fell in the 1972 Olympic 1500 heat, later a US congressman. Title: "America's First High School Sub-4 Miler... What Happened?"
 5. Mondo Duplantis (user correction: 2026 is his worst season, more losses than ever). Kurtis Marschall beat him at his home Stockholm DL (7 Jun 2026, 5.90 to 5.80), ending a 40-meet streak, first loss since Jul 2023; hamstring/thigh trouble and a break later (ABC/AP, Athletics Weekly). Title: "The Man Who Never Lost... Is Losing. What's Wrong With Mondo?" Verify every 2026 loss, the injury timeline and WR count.
 6. Keely Hodgkinson: the woman who took Mu's gold; feeds off the Mu video (verify 2025-26 status).
+
+## Corrections (user, 20 Nov 2026)
+- Already done, don't pitch: Steve Prefontaine, Jim Ryun (did poorly). Never pitch Keely Hodgkinson (user doesn't want her).
+- Doris Lemngole turned pro with On on 10 Sep 2026 (On press release), so she is NOT in the 2026 NCAA XC race.
+- NCAA D1 XC 2026: Sat 21 Nov, LaVern Gibson course, Terre Haute; women 10:20 ET, men 11:10 ET, ESPNU (LetsRun schedule page, Yahoo, terrehaute.com). User thinks this is wrong; showed the sources.
+
+## Mondo: "Is This The End Of Mondo Duplantis?" (user's pick of angle)
+2026 (Wikipedia + World Athletics Lausanne report; verify each before script):
+- WR 6.31 Uppsala 12 Mar (15th WR); World Indoor gold Torun 6.25; wins Shanghai, Paris, Monaco, Euros Birmingham 6.15, Lausanne 6.21, Zurich DL final 6.25, Budapest Ultimate 6.20.
+- Lost: Stockholm DL 7 Jun to Kurtis Marschall (home meet, first loss since Jul 2023, ended ~40-meet streak); London DL 17 Jul 2nd to Sam Kendricks (stopped at 5.95, thigh injury); withdrew from Brussels DL final 5 Sep (leg injury), ending his run of 5 straight DL titles.
+- 2025 he was unbeaten (16 for 16). Off track: married, moved to Monaco.
+- The challenger: Emmanouil Karalis (Greece, ~same age, Olympic bronze + world silver): 6.16 Lausanne, PB 6.20 Zurich (lost to 6.21/6.25), won Brussels DL title 6.12 with Mondo out. Has not beaten Mondo head-to-head yet in 2026 (per these sources).
