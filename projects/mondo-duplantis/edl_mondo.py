@@ -46,6 +46,10 @@ TAGS = {
     "karalis_fail": "Jumpman",
     "wedding": "Expressen",
     "wedding_proposal": "Vogue Scandinavia · 2024",
+    "vg_uppsala26_ulrika": "Mondo Classic 2026 · Ulrika Hård af Segerstad",
+    "vg_bud26_canelas": "Budapest 2026 · CANELAS TV",
+    "vg_euros26_matty1": "European Championships 2026 · Uncle Matty's Adventures",
+    "vg_euros26_matty2": "European Championships 2026 · Uncle Matty's Adventures",
 }
 
 # cold open: Mondo, minutes after the Stockholm loss
@@ -113,13 +117,13 @@ def edl(a, S, O, number, title, name, quote, date, chapter, PART):
     S(a("sixteen meet sixteen wins"), "wr630_dan78", 90.0); number(a("sixteen meet sixteen wins"), 2.8, "16–0", "2025 season", "Unbeaten")
     # 3 the summer it stopped ------------------------------------------------------------
     S(PART[3] - 0.05, "wr631", 116.0, flash=1); chapter(PART[3] + 0.2, "02", "The Summer It Stopped")
-    S(a("he did set a record"), "wr631", 137.0); number(a("march 631"), 3.0, "6.31", "World record · indoors", "Uppsala · March 2026")
-    S(a("but that was indoors"), "wr631", 95.0)
+    S(a("he did set a record"), "vg_uppsala26_ulrika", 13.0); number(a("march 631"), 3.0, "6.31", "World record · indoors", "Uppsala · March 2026")
+    S(a("but that was indoors"), "vg_uppsala26_ulrika", 148.0)
     S(a("the outdoor season is what"), "paris_613", 25.0)
     S(a("outdoors this year he tried"), "laus_mondo621", 19.0); number(a("he tried 632"), 2.6, "6.32", "World record attempt", "Missed")
     S(a("zurich missed"), "zur_rs_mondo", 10.0)
-    S(a("budapest missed"), "bud_reup", 25.0)
-    S(a("ultimate championships missed"), "bud_reup", 5.0)
+    S(a("budapest missed"), "vg_bud26_canelas", 3.0)
+    S(a("ultimate championships missed"), "vg_bud26_canelas", 9.0)
     S(a("his best jump all summer"), "bud_reup", 36.0); number(a("his best jump all summer"), 2.8, "6.25", "Best outdoor jump of 2026", "Zurich · August 2026")
     S(a("so for the first time since 2021"), "bud_citius_mondo", 57.0, bw=1)
     S(a("a whole outdoor season"), "paris_613", 36.0, bw=1)
@@ -131,7 +135,7 @@ def edl(a, S, O, number, title, name, quote, date, chapter, PART):
     date(a("june 12th"), 3.0, "June 12, 2026", "Wedding · South of France"); S(a("a big wedding"), "wedding_proposal", 28.0)
     S(a("his long time girlfriend"), "wedding_proposal", 40.0); name(a("his long time girlfriend"), 3.0, "Desiré Inglander", "Engaged in 2024")
     S(a("right after the loss"), "stock_reaction_stt", 22.0)
-    S(a("now y all know what they say"), "wedding_proposal", 51.0)
+    S(a("now y all know what they say"), "vg_uppsala26_ulrika", 64.0)
     S(a("the hunger changes"), "wedding_proposal", 62.0)
     S(a("is this what happened"), "wedding_proposal", 74.0, bw=1)
     S(a("or is this just a coincidence"), "wedding", 24.0)
@@ -186,8 +190,8 @@ def edl(a, S, O, number, title, name, quote, date, chapter, PART):
     S(a("wins his first diamond league trophy"), "bru_karalis612_ig", 4.0, slow=0.7); number(a("a meet record"), 2.8, "6.12", "Meet record", "First Diamond League trophy")
     # 8 the gap --------------------------------------------------------------------------
     S(PART[8] - 0.05, "bud_reup", 5.0, flash=1); chapter(PART[8] + 0.2, "06", "The Gap")
-    S(a("mondo still won every championship"), "euros_2026", 8.0)
-    S(a("world indoors"), "euros_2026", 10.0); title(a("world indoors"), 3.4, "2026 championships · all won by Mondo", "World Indoors · Europeans · Ultimate")
+    S(a("mondo still won every championship"), "vg_euros26_matty1", 2.0)
+    S(a("world indoors"), "vg_euros26_matty2", 3.0); title(a("world indoors"), 3.4, "2026 championships · all won by Mondo", "World Indoors · Europeans · Ultimate")
     S(a("ultimate championships carlis"), "bud_reup", 15.0)
     S(a("hasnt beaten him since 2018"), "bud_reup", 66.0)
     S(a("but look at who came second"), "bud_reup", 46.0)
@@ -216,7 +220,7 @@ def edl(a, S, O, number, title, name, quote, date, chapter, PART):
     S(a("hes lost more than"), "stock_reaction_stt", 28.0, bw=1)
     S(a("the world record didnt fall"), "bud_reup", 56.0, bw=1)
     S(a("a man from greece standing right there"), "zur_karalis620_pvs", 30.0)
-    S(a("is this the end of mondo"), "bud_reup", 36.0, slow=0.6)
+    S(a("is this the end of mondo"), "vg_bud26_canelas", 10.0, slow=0.6)
     S(a("or is carlis about to find out"), "bru_karalis612_ig", 4.0)
     S(a("wake up a champion"), "laus_karalis616_ig", 6.0)
     S(a("let me know down below"), "wr630_dan78", 81.0)
