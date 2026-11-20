@@ -9,3 +9,12 @@ What Mu proves works: a big-name American Olympic/world champion, a clear peak, 
 5. Marion Jones: 5 Sydney medals stripped, 6 months federal prison (2008). Title: "America's Golden Girl To Federal Prison".
 6. Tori Bowie (tribute only): Rio triple medalist, 2017 world champ, died in childbirth May 2023 at 32. Title: "She Was The Fastest Woman In The World... Then Nobody Checked On Her".
 7. Jeff Demps (Boling sequel): 10.01 as a high schooler at the 2008 Trials, Olympic medal stripped through no fault of his own, 1 NFL carry. Status needs research.
+
+## Revised (user, 20 Nov 2026): all 7 above already done; known/popular white athletes perform best on the channel; NCAA XC is Sat 21 Nov (Terre Haute)
+1. Jane Hedengren x NCAA XC (Sat 21 Nov): she lost last year's title to Doris Lemngole (2nd, 22 Nov 2025); Lemngole is back. Pre-write script with two endings, user records body tonight, last part after the race, publish Sun/Mon.
+   Win: "She Lost Last Year... Then This Happened" / Lose: "She Lost Again... What's Wrong With Jane Hedengren?"
+2. Steve Prefontaine: 3 NCAA XC titles for Oregon, never lost at Hayward over certain distances, 4th Munich 1972, died at 24 (car crash, 30 May 1975). Title: "America's Greatest Runner Ever... Then He Died At 24". Avoid movie footage (Without Limits / Prefontaine) for Content ID.
+3. Molly Seidel: 2015 NCAA XC champion (Notre Dame), Olympic marathon bronze 2021 in her 3rd marathon, then OCD/eating disorder/injuries, now ultras (Bandera 50K win Jan 2026, Western States 2026). Title: "She Won An Olympic Medal In Her 3rd Marathon... What Happened To Molly Seidel?"
+4. Jim Ryun: first high schooler under 4:00 (1964), mile world record, fell in the 1972 Olympic 1500 heat, later a US congressman. Title: "America's First High School Sub-4 Miler... What Happened?"
+5. Mondo Duplantis (positive): "Why Nobody Can Beat Mondo Duplantis" (verify current WR count).
+6. Keely Hodgkinson: the woman who took Mu's gold; feeds off the Mu video (verify 2025-26 status).
