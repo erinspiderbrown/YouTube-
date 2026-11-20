@@ -1,111 +1,46 @@
-# Jane Hedengren: NCAA XC 2026 preview script (for the user to read)
+# Jane Hedengren: NCAA XC 2026 preview script v2 (for the user to read)
 
 Race: Saturday, November 21, 2026, Terre Haute, Indiana. Women's 6K at 10:20 a.m. ET. Publish today (Nov 20).
-Facts + sources: ncaa2026_preview_research.md. About 720 words, about 4.5 min of your voice; ~6-7 min with real clips.
-Structure (new): countdown cold open → the girl who beat her is gone → the year she had → the cracks → the new threat → the history → the call.
-Numbers are written as numbers. Read each part in one take; if you mess up, pause and say the line again.
+v2 (user, 20 Nov 2026): v1 "sounded like AI" — no more date-place-event stacks, one-line dramatic fragments, "here's what's on the line", rule-of-three lists or the same opener/closer every video.
+This one is written like you're talking to the camera: your opinions, run-on sentences, side comments. Change any word to how you'd really say it.
+Facts + sources: ncaa2026_preview_research.md. About 650 words.
 
 ---
 
-## 1. Tomorrow
-Tomorrow morning. 10:20 a.m. Terre Haute, Indiana.
+## Part 1
+Y'all, NCAA cross country is tomorrow morning, and I really feel like this is the biggest race of Jane Hedengren's life so far. Like, bigger than anything she did in high school.
 
-The NCAA Cross Country Championships.
+'Cause last year she went in there as a freshman and ran 18:38.9, which is the fastest a freshman has ever run at that meet, and she still lost. Doris Lemngole from Alabama beat her by like 13 seconds.
 
-And for the first time in her life… Jane Hedengren is the one everybody's chasing.
+But Lemngole ain't there no more. She went pro back in September, she signed with On. So for the first time, the girl that beat Jane is out the way, and everybody, I mean NCAA.com, all of 'em, got Jane as the favorite.
 
-Last year she was a freshman. She ran 18:38.9. The fastest a freshman has ever run at this meet.
+So on paper it's hers to lose. But I'm telling y'all, it ain't that simple this year.
 
-And she still lost.
+## Part 2
+Now don't get me wrong, when Jane is healthy, ain't nobody in college messing with her. Back in March she won the 3000 and the 5000 at NCAA indoors, and she was the first freshman to ever win both of 'em. Then in April she broke the NCAA record in the 10,000, 30:46.80, and a couple weeks after that she went and broke the NCAA record in the 5000 too, 14:50.50. She was 19 years old doing all that.
 
-## 2. The girl who beat her
-Doris Lemngole. Alabama. 2-time national champion.
+But then right before NCAA outdoors in June she got sick, and she ended up 3rd in the 10,000 and 9th in the 5000. That was the first time y'all really seen her look human.
 
-She beat Jane by 13 seconds last year.
+## Part 3
+And this fall it's kinda been the same story. In September she ran the Cowboy Jamboree and finished 3rd, and that was her first regular season loss in college. Then she missed Pre-Nats, and that's the meet they run on the same exact course as nationals. Her coach said she was getting over being sick.
 
-But in September, Lemngole turned pro. She signed with On.
+Then she comes back at the Big 12 in the pouring rain and just takes off from the gun and wins it by 10 seconds, and she beat the same girl that beat her in September. So y'all know she still got it.
 
-She's gone.
+But then at regionals last week BYU didn't even run her. They rested her. So the last time anybody seen Jane race was October 31st. That's 3 weeks ago, and nobody really knows what kinda shape she in right now.
 
-So tomorrow there's no Lemngole. No excuses. NCAA.com called Jane "the favorite all year long."
+## Part 4
+And while Jane been resting, there's a girl from New Zealand named Hannah Gapes that runs for NC State, and she hasn't lost one race this whole season.
 
-The question is… is she still the same Jane?
+She won Pre-Nats on that same course in 18:57, which is a course record, and she was the first woman to ever break 19 minutes out there. Then last week at regionals she broke a course record that Katelyn Tuohy had. And her and Jane haven't raced each other one time this year. Tomorrow's the first time.
 
-## 3. The year
-'Cause look at the year she had.
+And it's not just Gapes either. You got Billah Jepkirui from Oklahoma State, she the one that beat Jane in September, and Pamela Kosgei from New Mexico, she beat Jane in the 10,000 back in June.
 
-March. NCAA indoors. She wins the 3000 and the 5000. The first freshman ever to win both.
+## Part 5
+If Jane wins this thing, she's only the second girl from BYU to ever win it. The only other one was Whittni Orton back in 2021. And she'd be the first American to win it since Parker Valby in 2023.
 
-April. She breaks the NCAA record in the 10,000. 30:46.80.
+And the team race is crazy too, 'cause it's been BYU or NC State every single year since 2020. NC State got 'em last year, but at Pre-Nats this year BYU beat NC State, and they did it without Jane.
 
-2 weeks later, she breaks the NCAA record in the 5000. 14:50.50.
+## Part 6
+So honestly, if it's the healthy Jane, I think she wins it. I really do. But she's been sick, she's lost this year, and she ain't raced in 3 weeks, so I can see Gapes taking it from her.
 
-She's 19 years old. And she holds 2 NCAA records.
-
-## 4. The cracks
-Then June. NCAA outdoors.
-
-She gets sick right before the meet.
-
-3rd in the 10,000. 9th in the 5000.
-
-Then this fall. September. The Cowboy Jamboree.
-
-She takes 3rd. The first regular-season loss of her college career.
-
-October. Pre-Nats. That's the meet they run on the same course as nationals.
-
-She doesn't run. Her coach said she was getting over an illness.
-
-Then October 31. The Big 12 Championships. In the rain.
-
-Jane takes it from the gun and wins by 10 seconds. Over the same girl who beat her in September.
-
-And then regionals… BYU sat her out. Rested.
-
-So her last race was 3 weeks ago. Nobody's seen her since.
-
-## 5. The new threat
-And while Jane was resting… somebody else was doing damage.
-
-Hannah Gapes. NC State. From New Zealand.
-
-She hasn't lost a race all fall.
-
-She won Pre-Nats on the same course Jane races tomorrow. 18:57. A course record. The first woman ever under 19 minutes on that course.
-
-Then last week at regionals, she broke a course record that belonged to Katelyn Tuohy.
-
-Jane and Gapes ain't raced each other all season.
-
-Tomorrow's the first time.
-
-And that's not all. Billah Jepkirui from Oklahoma State. She beat Jane in September.
-
-Pamela Kosgei from New Mexico. She beat Jane in the 10,000 in June.
-
-## 6. History
-Here's what's on the line.
-
-Only one woman from BYU has ever won this race. Whittni Orton. 2021.
-
-And the last American woman to win it? Parker Valby. 2023.
-
-If Jane wins tomorrow, she's the next one.
-
-And it ain't just her. BYU or NC State has won the team title every year since 2020. 6 straight.
-
-Last year NC State beat BYU. At Pre-Nats this year, BYU beat NC State… without Jane.
-
-## 7. The call
-So here it is.
-
-Healthy Jane is the best college distance runner in the country. Maybe ever.
-
-But she's been sick. She's been beat. And she ain't raced in 3 weeks.
-
-Tomorrow at 10:20, we find out which Jane shows up.
-
-Who y'all got? Jane? Gapes? Or somebody we ain't even talking about?
-
-Drop it in the comments. And I'll see y'all after the race.
+Who y'all got tomorrow, Jane or Gapes? Let me know, and I'ma have a video up after the race.
