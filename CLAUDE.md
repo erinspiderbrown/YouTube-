@@ -118,6 +118,8 @@ The user said viewers notice the AI voice and that it "doesn't really sound like
 - Composio's own YouTube upload (`YOUTUBE_MULTIPART_UPLOAD_VIDEO`) shares a daily upload quota that is usually used up; don't rely on it.
 - **Upload-Post's free plan allows 10 uploads a month** (hit on 17 Nov 2026). When it refuses, upload with `YOUTUBE_MULTIPART_UPLOAD_VIDEO` (privacy private) right after its quota resets at 08:00 UTC, then set `publishAt` and the thumbnail with vidIQ.
 
+- **Titles (user, 20 Nov 2026): short, simple, to the point** (e.g. "Is Rocky Hansen About To Get EXPOSED?"). No long two-part titles with "..." setups.
+
 ## What's working (Studio stats the user shared, 17 Nov 2026)
 - Tuohy "America's Greatest High School Runner Ever... What Went Wrong?": 196.4K views in 3 days, CTR 8.7%, AVD 3:42 (of 9:54).
 - Boling "America's Fastest High Schooler... What Went Wrong?": 136.2K in 6 days, CTR 5.7%, AVD 3:40.
