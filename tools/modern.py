@@ -198,7 +198,37 @@ def source(t, dur, text):
     return soft_shadow(im, 6, 0.6)
 
 
-KINDS = dict(date=date, title=title, number=number, name=name, quote=quote, chapter=chapter, label=label, source=source)
+def board(t, dur, kicker, rows, note=""):
+    """Animated table (added 20 Nov 2026 for the NCAA men's preview). rows = [(left, mid, right, hi), ...];
+    rows ease in one by one from the top; hi=1 rows get the accent rule and full white, others are soft.
+    Darkened frame, clean Inter type, nothing slams."""
+    k = life(t, dur, 0.5, 0.5); out = scrim(0.8 * k)
+    n = len(rows); rh = min(64, int(640 / max(1, n))); top = H / 2 - (n * rh) / 2 + 30
+    hd = layer(); dh = ImageDraw.Draw(hd)
+    draw_tracked(dh, (W / 2, top - 70), kicker.upper(), F(SEMI, 30), WHITE + (235,), 10, "c")
+    dh.line([(W / 2 - 30, top - 40), (W / 2 + 30, top - 40)], fill=ACCENT + (255,), width=3)
+    out.alpha_composite(reveal(soft_shadow(hd), k))
+    fs = F(LIGHT, int(rh * 0.56)); fb = F(MED, int(rh * 0.56))
+    x0, x1, x2 = W / 2 - 560, W / 2 - 330, W / 2 + 560
+    for i, (a, b, c, hi) in enumerate(rows):
+        kr = life(max(0.0, t - 0.25 - i * 0.12), dur - 0.25 - i * 0.12, 0.45, 0.45)
+        if kr <= 0: continue
+        r = layer(); d = ImageDraw.Draw(r); y = top + i * rh + rh * 0.72
+        col = WHITE + (255,) if hi else SOFT + (190,); f = fb if hi else fs
+        d.text((x0, y), a, font=f, fill=col, anchor="ls")
+        d.text((x1, y), b, font=f, fill=col, anchor="ls")
+        d.text((x2, y), c, font=f, fill=col, anchor="rs")
+        if hi: d.line([(x0 - 26, y - rh * 0.5), (x0 - 26, y - rh * 0.05)], fill=ACCENT + (255,), width=4)
+        d.line([(x0, top + (i + 1) * rh + 4), (x2, top + (i + 1) * rh + 4)], fill=SOFT + (40,), width=1)
+        out.alpha_composite(reveal(soft_shadow(r, 12, 0.45), kr, 8))
+    if note:
+        nl = layer(); dn = ImageDraw.Draw(nl)
+        draw_tracked(dn, (W / 2, top + n * rh + 60), note.upper(), F(REG, 24), SOFT + (210,), 7, "c")
+        out.alpha_composite(reveal(nl, life(max(0, t - 0.6), dur - 0.6, 0.6, 0.5)))
+    return out
+
+
+KINDS = dict(date=date, title=title, number=number, name=name, quote=quote, chapter=chapter, label=label, source=source, board=board)
 
 
 def render(spec, dur, out):
