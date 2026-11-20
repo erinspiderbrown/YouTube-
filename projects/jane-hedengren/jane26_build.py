@@ -166,7 +166,8 @@ def timeline():
     return out, ov, end
 
 CROPS = {   # burned-in UI to crop away
-    "j_nxn24": "crop=iw*0.62:ih*0.62:iw*0.36:ih*0.30",          # RunnerSpace leaderboard on the left
+    "g_anz_int": "crop=iw*0.82:ih*0.82:iw*0.09:0",               # burned-in captions at the bottom
+    "g_se_regional": "crop=iw*0.86:ih*0.86:iw*0.14:0",           # Urban Announcing logo + FINISH badge bottom
     "j_uvu26_dad": "crop=iw:ih*0.84:0:0",                        # "Race Reels" end card / name card at the bottom
     "j_byu_big12": "crop=iw:ih*0.86:0:ih*0.14",                   # "GENERATION" title top
 }

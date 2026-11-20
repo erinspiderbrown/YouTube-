@@ -1,16 +1,16 @@
 """Jane Hedengren NCAA XC 2026 preview: soundbites + EDL (modern style, tools/modern.py incl. 'board').
 Footage rules: no NCAA Championships / ESPN / Big 12 or other conference broadcasts, no FloTrack/MileSplit, no Olympic/NBC,
-no Diamond League. Race footage: her dad's camera, BYU's own camera, RunnerSpace's own streams, Nike/KSL docs, team vlogs.
+no Diamond League. No RunnerSpace (user, 20 Nov 2026). Race footage: her dad's camera, BYU's own camera, fan cams, Nike/KSL docs, team vlogs.
 Clips: scratchpad/jane26/clips (INDEX.md). Soundbite times: scratchpad/jane26/tx/*.json."""
 
 TAGS = {
     "j_nike": "Nike · Run Bigger · 2025", "j_ksl": "KSL · Beyond the Game · 2025",
     "j_uvu26": "UVU Invitational 2026 · John Hedengren", "j_uvu26_dad": "UVU Invitational 2026 · John Hedengren",
     "j_byu_big12": "Big 12 XC 2026 · BYU Cougars", "j_millrose": "Millrose Games 2026",
-    "j_nxn24": "RunnerSpace · NXN 2024", "j_nin_mile": "RunnerSpace · Nike Indoor Nationals 2025",
+    "g_anz_int": "Athletics New Zealand · September 2026", "g_se_regional": "Urban Announcing · Southeast Regional 2026",
+    "g_nd_dad": "HSE CC Dad · Notre Dame Invitational 2026", "g_nd_muchmore": "Jim Muchmore · Notre Dame Invitational 2026",
     "j_longrun": "TRACK: All-Access · BYU", "j_stride": "BYU workout", "j_wtwo_course": "WTWO News · November 2026",
-    "j_lavern_6k": "LaVern Gibson 6K · Game Action 360", "j_gapes_int": "RunnerSpace · Pre-Nats 2026",
-    "j_unm_kosgei": "Noah Reed Reports · Mountain Regional 2026", "j_bedridden": "LetsRun · NCAA outdoors, June 2026",
+    "j_lavern_6k": "LaVern Gibson 6K · Game Action 360", "j_unm_kosgei": "Noah Reed Reports · Mountain Regional 2026", "j_bedridden": "LetsRun · NCAA outdoors, June 2026",
     "j_letsrun_x": "LetsRun · Millrose 2026", "j_lastlap_int": "The Last Lap Podcast · BYU awards 2026",
     "j_byutv_team": "BYUtv Sports Nation · 2026", "j_letsrun_slump": "LetsRun Track Talk · September 2026",
 }
@@ -27,7 +27,7 @@ PRE_SB = ("j_ksl", 220.4, 223.6, "Jaimie Ribera, Jane's high school coach · KSL
 SB_LIST = [  # ((before phrase, part), src, a, b, credit)
     (("but then you look at", 3), "j_ksl", 85.9, 97.8, "Jane Hedengren · KSL · 2025"),
     (("and thats not who jane", 3), "j_bedridden", 48.9, 58.1, "Jane Hedengren after NCAA outdoors · LetsRun · June 2026"),
-    (("then last week at regional", 5), "j_gapes_int", 23.6, 32.0, "Hannah Gapes after Pre-Nats · RunnerSpace · October 2026"),
+    (("and her and jane aint raced", 5), "g_se_regional", 4.0, 19.6, "Hannah Gapes · Southeast Regional · Urban Announcing · November 13, 2026"),
     (("plus the team title", 6), "j_lastlap_int", 262.8, 272.1, "BYU women's cross country · The Last Lap Podcast · 2026"),
     (("if jane shows up", 7), "j_ksl", 192.0, 200.0, "Jane Hedengren · KSL · 2025"),
 ]
@@ -42,7 +42,7 @@ def edl(a, S, O, number, title, name, quote, date, chapter, PART):
     S(a("because on paper"), "j_byu_big12", 9.0)
     S(a("shes the favorite"), "j_uvu26", 413.0)
     S(a("everybody got her"), "j_millrose", 384.0)
-    S(a("but we done seen favorites fold"), "j_nxn24", 1482.0, bw=1)
+    S(a("but we done seen favorites fold"), "j_millrose", 640.0, bw=1)
     S(a("jane has had some moments"), "j_bedridden", 72.0, bw=1)
     # 2 last year -----------------------------------------------------------------------
     S(PART[2] - 0.05, "j_nike", 220.0, flash=1); chapter(PART[2] + 0.2, "01", "Last Year")
@@ -61,10 +61,10 @@ def edl(a, S, O, number, title, name, quote, date, chapter, PART):
     S(a("when jane is right"), "j_millrose", 454.0)
     S(a("back in march"), "j_millrose", 175.0)
     O(a("back in march"), 9.5, ("board", "Jane's 2026", SEASON[:3], "At 19 years old"))
-    S(a("then she broke the ncaa record in the 10k"), "j_nin_mile", 489.0)
+    S(a("then she broke the ncaa record in the 10k"), "j_stride", 300.0)
     S(a("and then a couple weeks later"), "j_stride", 175.0)
     S(a("at nineteen years old"), "j_ksl", 163.0)
-    S(a("thats somebody that shines"), "j_nin_mile", 578.0)
+    S(a("thats somebody that shines"), "j_nike", 150.0)
     S(a("she got sick right before"), "j_bedridden", 120.0, bw=1); title(a("ended up third"), 3.0, "NCAA outdoors · June 2026", "3rd 10,000 · 9th 5000")
     S(a("and thats not who jane"), "j_longrun", 468.0, bw=1)
     # 4 this fall -----------------------------------------------------------------------
@@ -81,12 +81,12 @@ def edl(a, S, O, number, title, name, quote, date, chapter, PART):
     S(a("either shes fresh and ready"), "j_longrun", 870.0)
     S(a("and thats what were going to find out"), "j_lavern_6k", 230.0)
     # 5 the threats ---------------------------------------------------------------------
-    S(PART[5] - 0.05, "j_gapes_int", 3.0, flash=1); chapter(PART[5] + 0.2, "04", "The Threat")
-    S(a("named hannah grapes"), "j_gapes_int", 16.0); name(a("named hannah grapes"), 3.0, "Hannah Gapes", "NC State · New Zealand")
-    S(a("she hasnt lost one time"), "j_gapes_int", 40.0)
+    S(PART[5] - 0.05, "g_nd_muchmore", 57.0, flash=1); chapter(PART[5] + 0.2, "04", "The Threat")
+    S(a("named hannah grapes"), "g_anz_int", 12.0); name(a("named hannah grapes"), 3.0, "Hannah Gapes", "NC State · New Zealand")
+    S(a("she hasnt lost one time"), "g_nd_dad", 203.0)
     S(a("she won pre nationals"), "j_lavern_6k", 199.0); number(a("eighteen 57"), 3.0, "18:57", "Course record · Pre-Nats", "First woman under 19:00 on this course")
-    S(a("the first woman to ever break"), "j_gapes_int", 76.0)
-    S(a("then last week at regional"), "j_gapes_int", 70.0)
+    S(a("the first woman to ever break"), "g_nd_dad", 508.0)
+    S(a("then last week at regional"), "g_se_regional", 75.0)
     S(a("that kaitlyn toohey had"), "j_wtwo_course", 121.0)
     S(a("and her and jane aint raced"), "j_uvu26_dad", 17.0)
     S(a("you got the girl from oklahoma state"), "j_letsrun_slump", 137.0)
@@ -104,8 +104,8 @@ def edl(a, S, O, number, title, name, quote, date, chapter, PART):
     S(a("i think its a good chance"), "j_uvu26", 505.0)
     S(a("shes too talented"), "j_nike", 24.0)
     S(a("but if she run like"), "j_bedridden", 264.0, bw=1)
-    S(a("grapes gonna drag her"), "j_gapes_int", 58.0)
+    S(a("grapes gonna drag her"), "g_anz_int", 100.0)
     S(a("but i wanna know"), "j_nike", 366.0)
     S(a("is jane gonna come through"), "j_uvu26_dad", 9.0, slow=0.7)
-    S(a("or is she gonna go out there"), "j_nxn24", 1213.0)
+    S(a("or is she gonna go out there"), "j_millrose", 300.0)
     S(a("y all let me know"), "j_nike", 317.0)
