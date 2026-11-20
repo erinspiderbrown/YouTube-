@@ -208,8 +208,13 @@ def board(t, dur, kicker, rows, note=""):
     draw_tracked(dh, (W / 2, top - 70), kicker.upper(), F(SEMI, 30), WHITE + (235,), 10, "c")
     dh.line([(W / 2 - 30, top - 40), (W / 2 + 30, top - 40)], fill=ACCENT + (255,), width=3)
     out.alpha_composite(reveal(soft_shadow(hd), k))
-    fs = F(LIGHT, int(rh * 0.56)); fb = F(MED, int(rh * 0.56))
-    x0, x1, x2 = W / 2 - 560, W / 2 - 330, W / 2 + 560
+    sz = int(rh * 0.56)
+    while True:   # size columns to the text so nothing overlaps
+        fs = F(LIGHT, sz); fb = F(MED, sz)
+        wa = max(fb.getlength(r[0]) for r in rows); wb = max(fb.getlength(r[1]) for r in rows); wc = max(fb.getlength(r[2]) for r in rows)
+        if wa + wb + wc + 140 <= 1400 or sz <= 18: break
+        sz -= 2
+    tot = wa + wb + wc + 140; x0 = W / 2 - max(tot, 1120) / 2; x1 = x0 + wa + 70; x2 = W / 2 + max(tot, 1120) / 2
     for i, (a, b, c, hi) in enumerate(rows):
         kr = life(max(0.0, t - 0.25 - i * 0.12), dur - 0.25 - i * 0.12, 0.45, 0.45)
         if kr <= 0: continue

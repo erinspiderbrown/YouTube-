@@ -88,3 +88,4 @@ Also: 2012 Kennedy Kithuka (Texas Tech, KEN). Kenyan titles from 2012 to 2019: 5
 10. But 2026 hasn't gone clean: banged up, only 2 races, 4th at Nuttycombe, beaten at ACC by Louisville's Elsingi Kipruto, skipped regionals.
 11. The wall in front of him: regional champs Kipruto, Musau, Kimaru, Kipchoge, Big 12 champ Kipngetich, the Colorado freshman Meshack Kipruto, and New Mexico's pack.
 12. Close: perfect weather, no excuses, 10K. Can the "Swiss army knife" finally end the drought for America, or does Kenya take it back? Ask viewers for their pick.
+- v1 render 20 Nov 2026: 5:43, 86 shots, 7 soundbites. Web copy: https://d2ol7oe51mr4n9.cloudfront.net/user_3LcEFdqZuIv3oGXP4pI7v67JXeg/577b9f9a-1343-43b0-9716-a24f86a6a963.mp4
