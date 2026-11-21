@@ -1,0 +1,12 @@
+# Script additions v2 (to reach 8+ min). Cloned-voice text. Inserted after Part 2, after Part 4, after Part 5.
+
+## Part 2B (after Part 2: the hype)
+[calm] [relaxed] [Texas accent] And y'all gotta understand how big the hype was on this girl. In high school she won Nike Cross Nationals in twenty twenty-four with a course record. She ran fifteen thirteen in the five thousand as a high schooler, a national high school record. Then she get to B Y U, and as a freshman she won the three thousand and the five thousand at N C double-A indoors, and in her first ever ten thousand she broke the N C double-A record, thirty forty-six point eight. [pause] [calm] [relaxed] [Texas accent] So when people say she the best female distance runner America got comin' up, that wasn't just talk. On paper, she supposed to win races like this.
+
+[calm] [relaxed] [Texas accent] But if you was payin' attention this season, there was signs. Back in September at the Cowboy Jamboree she finished third, the first regular season loss of her college career, and Billah Jepkirui from Oklahoma State was one of the girls that beat her. She bounced back and won the Big Twelve by ten seconds over Billah Jepkirui. But at nationals, Jepkirui finished eighth… and Jane finished thirty-ninth. The same girl she beat by ten seconds a month ago was thirty-one spots ahead of her.
+
+## Part 4B (after Part 4: Rocky's story)
+[calm] [relaxed] [Texas accent] And what makes it hurt for Rocky is he already knew who he had to beat. At the A C C championships a few weeks ago, Kipruto beat him then too, and Rocky was second. So this wasn't no surprise. He knew Kipruto was the man, he had the lead late in the race, and he still couldn't hold him off. [pause] [calm] [relaxed] [Texas accent] Last year Rocky was the feel-good story, he came from way back the year before to second in the country. This year he was supposed to finish the job. Instead he went backwards, from second to sixth.
+
+## Part 5B (after Part 5: who did get the job done)
+[calm] [relaxed] [Texas accent] Now let's give credit where it's due, 'cause some people really came through. Hannah Gapes from New Zealand won it from the front, a course record, and she the first N C State woman to win it since Katelyn Tuohy. Alabama won the women's team title for the first time ever, and they came in ranked fourth. And on the men's side, New Mexico won their first national title in school history. [pause] [calm] [relaxed] [Texas accent] So the job got done… it just wasn't the two people everybody was talkin' about.
