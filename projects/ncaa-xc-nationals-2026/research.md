@@ -20,3 +20,6 @@ LetsRun: 45% of scorers on qualifying teams international https://www.letsrun.co
 Weather: race-day weather not verified; course records in both races = fast. Script says "fast and dry" as opinion; check before final.
 2018 snow race (Madison, Nov 17): women won by Dani Jones (Colorado, American) 19:43; men by Morgan McDonald (Wisconsin, Australian). https://worldathletics.org/news/report/ncaa-cross-country-2018-mcdonald-jones
 2025 was Gans Creek, Columbia MO (wet), not snow.
+
+## User rule for this video (21 Nov)
+No mention of injuries, cramps, calf, illness or 'not 100%'. Only that they showed up and failed. Diljeet Taylor's post-race calf comments: NOT used.
