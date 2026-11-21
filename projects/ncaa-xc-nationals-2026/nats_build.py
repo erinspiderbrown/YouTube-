@@ -25,7 +25,7 @@ def _tok(w):
     return _NUMW[int(t)] if t.isdigit() and int(t) <= 20 else t
 TOK = [_tok(x["w"]) for x in WORDS]
 VO_END = WORDS[-1]["e"]
-PART = {1: 0.0, 2: 36.6, 3: 72.3, 4: 110.9, 5: 151.9, 6: 212.9}   # section starts in vo_nats.mp3 (1.3 s gaps between parts)
+PART = {1: 0.0, 2: 36.6, 3: 72.3, 4: 149.8, 5: 188.7, 6: 229.4, 7: 269.9, 8: 330.8, 9: 366.8}   # v2 VO sections 01,02,02B,03,04,04B,05,05B,06
 _CUR = [0.0]
 def A(phrase, after=None, end=False, win=45):
     """First match of `phrase` at/after the running cursor; tolerant of whisper misspellings."""
@@ -326,11 +326,12 @@ def stage_audio():
     # fall (dark) -> Trenton (light) -> 16 (light) -> rise (tense build) -> cracks (tense) -> doubt (sad) -> the fall (dark/tense)
     # -> comeback (tense) -> silence (dark) -> answer (warm) -> end (reflective)
     beds = [bed(f"{M1}/M1_cold-open-background.mp3", 0, Pt[2] + 0.4, 0.48, end, 1.0, 1.5),
-            bed(f"{M1}/M4_coaching-ban.mp3", Pt[2] - 0.2, Pt[3] + 0.4, 0.42, end, 0.6, 1.2),
-            bed(f"{M1}/M2_sydney.mp3", Pt[3] - 0.2, Pt[4] + 0.4, 0.40, end, 0.6, 1.2),
-            bed(f"{M1}/M3_rule-paris-fallout.mp3", Pt[4] - 0.2, Pt[5] + 0.4, 0.42, end, 0.6, 1.5),
-            bed(f"{M1}/M1_cold-open-background.mp3", Pt[5] - 0.2, Pt[6] + 0.4, 0.46, end, 0.6, 1.2, offset=40),
-            bed(f"{M1}/M5_verdict-ending.mp3", Pt[6] - 0.2, end, 0.48, end, 0.8, 3.5)]
+            bed(f"{M1}/M4_coaching-ban.mp3", Pt[2] - 0.2, Pt[4] + 0.4, 0.42, end, 0.6, 1.2),
+            bed(f"{M1}/M2_sydney.mp3", Pt[4] - 0.2, Pt[5] + 0.4, 0.40, end, 0.6, 1.2),
+            bed(f"{M1}/M3_rule-paris-fallout.mp3", Pt[5] - 0.2, Pt[7] + 0.4, 0.42, end, 0.6, 1.5),
+            bed(f"{M1}/M1_cold-open-background.mp3", Pt[7] - 0.2, Pt[8] + 0.4, 0.46, end, 0.6, 1.2, offset=40),
+            bed(f"{M1}/M4_coaching-ban.mp3", Pt[8] - 0.2, Pt[9] + 0.4, 0.40, end, 0.6, 1.2, offset=60),
+            bed(f"{M1}/M5_verdict-ending.mp3", Pt[9] - 0.2, end, 0.48, end, 0.8, 3.5)]
     S_ = sfx_plan(shots, ov)
     ins, fl = [], []; nb = len(beds); base = 2 + nb
     for j, (t, path, g) in enumerate(S_):
