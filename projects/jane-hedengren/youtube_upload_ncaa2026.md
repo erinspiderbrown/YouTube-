@@ -10,3 +10,7 @@
 - TikTok: vertical Jane_NCAA_2026_vertical.mp4 + tiktok_cover_ncaa2026.jpg (make_tiktok_cover26.py). Worker restart made it miss 6 PM; published ~8:30 PM MT, vidIQ post 869882b4.
 - Captions: YouTube quota exceeded 03:36Z; retry scheduled 08:05Z.
 - TikTok delivered: https://www.tiktok.com/@erinspiderbrown/video/7710463302001773838
+
+## 21 Nov 2026, 08:07 UTC
+- YouTube English captions uploaded to mBae_-TAJ1s (caption id AUieDaaZkrj3q2WTafDtyibVMzjIzDJsKmlbu-L1ldc11hjiP3ikhJi5, status serving, standard track, not auto-synced).
+- TikTok post 869882b4-75f2-4430-aec7-6c601fd64a3d: vidIQ status completed, https://www.tiktok.com/@erinspiderbrown/video/7710463302001773838
