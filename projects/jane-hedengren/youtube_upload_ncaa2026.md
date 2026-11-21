@@ -5,3 +5,7 @@
 - User picked title 4 "Is Jane Hedengren About To Choke?" + thumbnail_user_ncaa2026.png/.jpg.
 - vidIQ draft ready (not yet published): post 12d91bed-74b9-4bb9-b5f5-fcbc72d8ff7a rev 1eb807fc, upload 58b5274a-1357-478b-a809-f6e4e5d593e0, thumb e31f4111-c49c-44f5-a457-1348a108fb64, public, cat 17, 15 tags, description_ncaa2026.txt.
 - Captions: captions_ncaa2026.srt (make_captions26.py, 134 cues) to upload after the video is live.
+- YouTube LIVE 6:00 PM MT 20 Nov (01:00Z): https://youtu.be/mBae_-TAJ1s (vidIQ post 12d91bed). 593 views by 8:30 PM MT.
+- Facebook E.Diamondz: scheduled via Composio, published 01:00Z, video id 2611525216006826 (reel), thumbnail set.
+- TikTok: vertical Jane_NCAA_2026_vertical.mp4 + tiktok_cover_ncaa2026.jpg (make_tiktok_cover26.py). Worker restart made it miss 6 PM; published ~8:30 PM MT, vidIQ post 869882b4.
+- Captions: YouTube quota exceeded 03:36Z; retry scheduled 08:05Z.
