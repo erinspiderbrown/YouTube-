@@ -1,0 +1,154 @@
+<title>Shelby Houlihan Script</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Space+Grotesk:wght@500;700&display=swap">
+<style>
+/* Layout: a single-theme dark prompter. Thin top bar with part chips, one big reading column, a fixed control bar at the bottom. */
+:root{
+  --bg:#0b0d10; --panel:#14171c; --line:#262b33; --fg:#f3f1ec; --muted:#9aa1ab; --accent:#ff7a1a; --guide:rgba(255,122,26,.16);
+  --read:"Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --ui:"Space Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --size:44px;
+  color-scheme:dark;
+}
+html,body{height:100%}
+body{background:var(--bg);color:var(--fg);font-family:var(--ui);display:flex;flex-direction:column;overflow:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--panel);z-index:10}
+header{background:var(--panel);border-bottom:1px solid var(--line);padding-block:10px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:8px}
+.top{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.top h1{font-size:15px;margin:0;letter-spacing:.06em;text-transform:uppercase;font-weight:700}
+.top h1 b{color:var(--accent)}
+.meta{color:var(--muted);font-size:13px;font-variant-numeric:tabular-nums}
+.chips{display:flex;gap:6px;overflow-x:auto;padding-bottom:2px}
+.chip{flex:0 0 auto;font:600 13px var(--ui);color:var(--muted);background:transparent;border:1px solid var(--line);border-radius:999px;padding:6px 11px;cursor:pointer;white-space:nowrap}
+.chip[aria-current="true"]{color:var(--bg);background:var(--accent);border-color:var(--accent)}
+.chip.done::after{content:" ✓";color:var(--accent)}
+.chip[aria-current="true"].done::after{color:var(--bg)}
+button:focus-visible,.chip:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+main{flex:1;min-height:0;overflow-y:auto;position:relative;scroll-behavior:auto}
+.col{max-width:34ch;margin:0 auto;padding-block:30vh 60vh;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));font-family:var(--read);font-size:var(--size);line-height:1.42}
+.col .label{font:700 14px var(--ui);letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:.6em}
+.col .file{font:500 13px var(--ui);color:var(--muted);margin-bottom:1.4em;letter-spacing:.02em}
+.col p{margin:0 0 .9em;text-wrap:pretty}
+.guide{position:fixed;left:0;right:0;top:38%;height:calc(var(--size)*1.5);background:var(--guide);border-block:1px solid rgba(255,122,26,.35);pointer-events:none;z-index:1}
+.help{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:1.2em;font:400 15px/1.5 var(--ui);color:var(--muted)}
+.help strong{color:var(--fg)}
+.help ul{margin:.4em 0 0;padding-left:1.1em}
+footer{background:var(--panel);border-top:1px solid var(--line);padding-top:10px;padding-bottom:calc(10px + env(safe-area-inset-bottom,0px));padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;gap:8px;align-items:center;justify-content:center;flex-wrap:wrap}
+footer button{font:700 15px var(--ui);color:var(--fg);background:#1c2027;border:1px solid var(--line);border-radius:10px;padding:10px 14px;cursor:pointer;min-width:44px}
+footer button.go{background:var(--accent);border-color:var(--accent);color:#14100b;min-width:110px}
+.grp{display:flex;align-items:center;gap:6px}
+.grp span{color:var(--muted);font-size:12px;letter-spacing:.06em;text-transform:uppercase;min-width:52px;text-align:center;font-variant-numeric:tabular-nums}
+.cue{font:600 15px var(--ui);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border-left:3px solid var(--accent);padding:4px 10px;margin:0 0 1.2em}
+footer button.rec{background:#c8102e;border-color:#c8102e;color:#fff;min-width:120px}
+footer button.rec.on{animation:pulse 1.2s infinite}
+@keyframes pulse{50%{opacity:.6}}
+.takes{max-width:34ch;margin:0 auto;font:400 14px var(--ui);color:var(--muted)}
+#takes{background:var(--panel);border-top:1px solid var(--line);padding:8px max(16px,env(safe-area-inset-left,0px));display:flex;gap:8px;align-items:center;flex-wrap:wrap;font:500 13px var(--ui);color:var(--muted);max-height:30vh;overflow:auto}
+#takes .take{display:flex;align-items:center;gap:6px;background:#1c2027;border:1px solid var(--line);border-radius:10px;padding:4px 8px}
+#takes audio{height:30px;max-width:200px}
+#takes button{font:600 12px var(--ui);color:var(--fg);background:transparent;border:1px solid var(--line);border-radius:8px;padding:4px 8px;cursor:pointer}
+#status{color:var(--fg)}
+@media (prefers-reduced-motion:reduce){footer button.rec.on{animation:none}}
+@media (max-width:520px){:root{--size:32px}.guide{top:34%}}
+@media (prefers-reduced-motion:reduce){main{scroll-behavior:auto}}
+</style>
+
+<header>
+  <div class="top"><h1>Shelby Houlihan · <b>Banned For A Burrito?</b></h1><span class="meta" id="meta"></span></div>
+  <nav class="chips" id="chips" aria-label="Script parts"></nav>
+</header>
+<div class="guide" aria-hidden="true"></div>
+<main id="main"><div class="col" id="col"></div></main>
+<div id="takes" aria-live="polite"><span id="status">Takes for this part show up here.</span></div>
+<footer>
+  <button id="prev" aria-label="Previous part">◀</button>
+  <div class="grp"><button id="slower" aria-label="Scroll slower">−</button><span id="spd">Speed 3</span><button id="faster" aria-label="Scroll faster">+</button></div>
+  <button id="rec" class="rec">⬆ Add take</button><input id="pick" type="file" accept="audio/*,.m4a,.mp4,.webm,video/mp4,video/webm" hidden>
+  <button id="play" class="go">▶ Scroll</button>
+  <div class="grp"><button id="smaller" aria-label="Smaller text">A−</button><span id="sz">Text</span><button id="bigger" aria-label="Bigger text">A+</button></div>
+  <button id="next" aria-label="Next part">▶</button>
+</footer>
+<script>
+const SECS = [{"n": 1, "title": "Part 1", "paras": ["Y'all remember the burrito girl? 'Cause I feel like that's all people know her as now, and that's crazy to me, 'cause before all that, Shelby Houlihan was the fastest woman America ever had in the 1500 and the 5000. Not one of the fastest. The fastest. And then one day she wakes up, and she's banned for 4 years for steroids, and her explanation is a pork burrito from a food truck. So I wanna get into the whole thing, 'cause honestly I think most people only know the joke and not the story."]}, {"n": 2, "title": "Part 2", "paras": ["Shelby's from Iowa, and she ran in college at Arizona State, and she won an NCAA title in the 1500 for them back in 2014. After college she moved up to Portland and joined the Bowerman Track Club with Jerry Schumacher, which is one of the best pro groups in the country. And she made the Olympic team in 2016 in Rio, in the 5000, and she finished 11th in the final. On paper that's a good start, but nobody was calling her a star yet."]}, {"n": 3, "title": "Part 3", "paras": ["Then she really started to shine. In 2018 she broke the American record in the 5000. Then at the 2019 World Championships in Doha she ran 3:54.99 in the 1500, another American record, and she finished 4th in the world. Then in July 2020, in the middle of COVID with no big meets, she ran 14:23.92 in a time trial in Portland and broke her own 5000 record by like 10 seconds. She had this kick that nobody in America could match. Going into the Tokyo Olympics she was one of the biggest medal hopes we had in distance running. Like she was really about to come through."]}, {"n": 4, "title": "Part 4", "paras": ["Then in June of 2021, a couple days before the Olympic Trials, it all falls apart. Shelby goes on Instagram and tells everybody she got banned for 4 years. She said back in December 2020 they tested her and found nandrolone, which is a steroid. And her explanation was that about 10 hours before the test, she ate a burrito from a food truck near her house in Beaverton, Oregon. She said she ordered a carne asada burrito, which is beef, but they gave her pork, and she said pig organ meat can make your body show nandrolone."]}, {"n": 5, "title": "Part 5", "paras": ["Now the people that decide these cases, the Court of Arbitration for Sport, they actually said they believed she was being honest with them. But they said her burrito story was possible but unlikely, and she couldn't prove where the nandrolone came from, so the 4 years stood. USATF tried to let her run the Trials anyway while she appealed, but World Athletics shut that down, and they pulled her name off the start list. She tried the Swiss court after that, and she lost that too. So she missed Tokyo, and she missed Paris, and the best years of her career just went by without her.", "And it ain't just the races. She lost her Nike money, and one of her own Bowerman teammates, Gabriela DeBues-Stafford, ended up leaving the group, 'cause the club stayed with Shelby. So you got people in her own circle that ain't sure what to believe."]}, {"n": 6, "title": "Part 6", "paras": ["Her ban finally ended in January of 2025, and she came back like she had something to prove. Her first race back, she ran 8:31.56 in the 3000 at the Razorback Invitational. Then in March she went to World Indoors in China and won a silver medal in the 3000. Then she won the US title in the 5000, and at the World Championships in Tokyo she was leading that race at halfway, and she ended up 4th, about 2 seconds away from a medal. She called it her revenge tour. And still, no shoe company would touch her for almost 2 years.", "This year she ran her first ever 10,000, won it in 30:50, and that put her 10th on the all-time US list. She was 2nd at USAs in the 5000. And in September Skechers finally signed her. She's 33 now, and she says she's going for Worlds in 2027."]}, {"n": 7, "title": "Part 7", "paras": ["So here's what I keep going back and forth on. On paper she did everything right since she came back. She's running fast at 32, 33 years old, after 4 years off. Some people see that and say that proves she was clean. Other people say she's still benefiting from something, and they ain't never gonna believe the burrito no matter what she does.", "Honestly I don't know what to believe. What I do know is that she lost 4 years she ain't never getting back, and she still came back and almost medaled at Worlds. So y'all tell me, do y'all believe the burrito, or nah? Let me know in the comments."]}];
+const slug = s => s.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
+const fileName = s => `shelby_${String(s.n).padStart(2,"0")}_${slug(s.title)}`;
+const store = { get(k,d){try{const v=localStorage.getItem("sh1_"+k);return v==null?d:JSON.parse(v)}catch(e){return d}}, set(k,v){try{localStorage.setItem("sh1_"+k,JSON.stringify(v))}catch(e){}} };
+let cur = Math.min(store.get("cur",0), SECS.length-1), speed = store.get("speed",3), size = store.get("size",0);
+let playing=false, raf=0, last=0, acc=0, lock=null;
+let db=null, assets=null, downloads=null, takes=[], rec=null, chunks=[], t0=0, stream=null;
+const $ = id => document.getElementById(id);
+const main=$("main"), col=$("col");
+const esc = t => t.replace(/&/g,"&amp;").replace(/</g,"&lt;");
+function words(s){return s.paras.filter(p=>!p.startsWith("[")).join(" ").split(/\s+/).length}
+function render(){
+  const s=SECS[cur];
+  const help = cur===0 ? `<div class="help"><strong>How to record</strong><ul>
+    <li>Quiet room with soft things around you. A closet or a parked car works great.</li>
+    <li>Start a new recording in your phone's voice memo app, then come back here and tap <strong>▶ Scroll</strong>. Hold the phone about 6 inches from your mouth.</li>
+    <li>Read the part, stop the memo, then tap <strong>⬆ Add take</strong> and pick that recording. It saves here and I pick it up.</li>
+    <li>Mess up? Pause, then say the line again. I cut the bad take.</li>
+    <li>Re-record a part as many times as you want; I use the newest take. If a file won't add, send it in the chat instead.</li></ul></div>` : "";
+  col.innerHTML = help + `<div class="label">Part ${s.n} of ${SECS.length} · ${s.title}</div><div class="file">Phone backup name: ${fileName(s)}</div>` +
+    s.paras.map(p=> p.startsWith("[") ? `<div class="cue">${esc(p.replace(/^\[|\]$/g,""))} (don't read)</div>` : `<p>${esc(p)}</p>`).join("");
+  main.scrollTop=0; acc=0;
+  const doneParts=new Set(takes.map(t=>t.part));
+  [...$("chips").children].forEach((c,i)=>{c.setAttribute("aria-current", i===cur ? "true":"false"); c.classList.toggle("done", doneParts.has(SECS[i].n));});
+  $("chips").children[cur].scrollIntoView({block:"nearest",inline:"center"});
+  const total=SECS.reduce((a,x)=>a+words(x),0);
+  $("meta").textContent = `${words(s)} words · about ${Math.max(1,Math.round(words(s)/150*60))} s · whole script about ${Math.round(total/150)} min`;
+  store.set("cur",cur); renderTakes();
+}
+function renderTakes(msg){
+  const box=$("takes"); const mine=takes.filter(t=>t.part===SECS[cur].n).sort((a,b)=>b.at-a.at);
+  const status = msg || (!db||!assets ? "Saving takes needs this page opened in Claude (signed in). You can still read and scroll." : mine.length ? `${mine.length} take${mine.length>1?"s":""} saved for this part (newest first). I use the newest.` : "No takes yet for this part.");
+  box.innerHTML = `<span id="status">${esc(status)}</span>` + mine.map(t=>`<span class="take"><audio controls preload="none" src="/_blob/${t.asset}"></audio><span>${Math.round(t.secs||0)} s</span>${downloads?`<button data-save="${t.asset}">Save to phone</button>`:""}</span>`).join("");
+}
+$("takes").onclick=async e=>{ const id=e.target.dataset?.save; if(!id||!downloads) return;
+  const t=takes.find(x=>x.asset===id); try{ const b=await (await fetch("/_blob/"+id)).blob(); await downloads.save({filename:`${fileName(SECS.find(s=>s.n===t.part))}.${(t.type||"").includes("mp4")?"m4a":"webm"}`, data:b}); }catch(err){ renderTakes("Couldn't save that file."); } };
+function chips(){ $("chips").innerHTML = SECS.map((s,i)=>`<button class="chip" data-i="${i}">${s.n}. ${esc(s.title)}</button>`).join(""); $("chips").onclick=e=>{const b=e.target.closest(".chip"); if(b && !rec){stop(); cur=+b.dataset.i; render();}}; }
+function applySize(){ const base = innerWidth<=520 ? 32 : 44; document.documentElement.style.setProperty("--size", (base + size*4) + "px"); $("sz").textContent = "Text " + (size>=0?"+":"") + size; store.set("size",size); }
+function applySpeed(){ $("spd").textContent = "Speed " + speed; store.set("speed",speed); }
+function tick(t){ if(!playing) return; const dt = last ? (t-last)/1000 : 0; last=t; acc += dt * (12 + speed*9); if(acc>=1){ const n=Math.floor(acc); main.scrollTop += n; acc-=n; } if(main.scrollTop+main.clientHeight >= main.scrollHeight-2){ stop(); return; } raf=requestAnimationFrame(tick); }
+async function play(){ playing=true; last=0; $("play").textContent="❚❚ Pause"; raf=requestAnimationFrame(tick); try{ lock = await navigator.wakeLock?.request("screen"); }catch(e){} }
+function stop(){ playing=false; cancelAnimationFrame(raf); $("play").textContent="▶ Scroll"; try{ lock?.release(); }catch(e){} lock=null; }
+async function addTake(file){
+  if(!file) return;
+  const part=SECS[cur].n, title=SECS[cur].title;
+  if(!assets||!db){ renderTakes("Saving takes needs this page opened in Claude, signed in. Send the file in the chat instead."); return; }
+  const name=(file.name||"").toLowerCase(), t=(file.type||"").toLowerCase();
+  const kind = /webm/.test(t)||name.endsWith(".webm") ? "video/webm" : (/mp4|m4a|aac|quicktime/.test(t)||/\.(m4a|mp4|aac|mov)$/.test(name)) ? "video/mp4" : null;
+  if(!kind){ renderTakes("That file type can't be stored here ("+(t||name||"unknown")+"). Send it in the chat instead."); return; }
+  let secs=0; try{ secs=await new Promise(r=>{const a=new Audio(); a.preload="metadata"; a.onloadedmetadata=()=>r(isFinite(a.duration)?a.duration:0); a.onerror=()=>r(0); a.src=URL.createObjectURL(file);}); }catch(e){}
+  renderTakes("Saving take…");
+  try{
+    const up=await assets.upload(file,{type:kind});
+    await db.collection("takes").add({part, title, asset:up.id, type:kind, file:file.name||"", secs:Math.round(secs*10)/10, at:Date.now()});
+    renderTakes(`Saved${secs?` (${Math.round(secs)} s)`:""}. Next part when you're ready.`);
+  }catch(e){ renderTakes("Couldn't save that file ("+(e?.code||"error")+"). Send it in the chat instead."); }
+}
+$("pick").onchange=e=>{ const f=e.target.files?.[0]; e.target.value=""; addTake(f); };
+$("rec").onclick=()=> $("pick").click();
+$("play").onclick=()=> playing?stop():play();
+$("prev").onclick=()=>{ if(cur>0 && !rec){stop();cur--;render();} };
+$("next").onclick=()=>{ if(cur<SECS.length-1 && !rec){stop();cur++;render();} };
+$("faster").onclick=()=>{ speed=Math.min(10,speed+1); applySpeed(); };
+$("slower").onclick=()=>{ speed=Math.max(1,speed-1); applySpeed(); };
+$("bigger").onclick=()=>{ size=Math.min(6,size+1); applySize(); };
+$("smaller").onclick=()=>{ size=Math.max(-4,size-1); applySize(); };
+addEventListener("keydown",e=>{ if(e.target.closest("input,textarea")) return;
+  if(e.code==="Space"){e.preventDefault(); playing?stop():play();}
+  else if(e.key==="ArrowRight"){ $("next").click(); } else if(e.key==="ArrowLeft"){ $("prev").click(); }
+  else if(e.key==="ArrowUp"){ $("faster").click(); } else if(e.key==="ArrowDown"){ $("slower").click(); } });
+addEventListener("resize",applySize);
+main.addEventListener("wheel",()=>{ if(playing && !rec) stop(); },{passive:true});
+main.addEventListener("touchstart",()=>{ if(playing && !rec) stop(); },{passive:true});
+chips(); applySize(); applySpeed(); render();
+(async()=>{
+  try{ downloads = await window.claude?.use("downloads"); }catch(e){}
+  try{ assets = await window.claude?.use("assets"); }catch(e){}
+  try{ db = await window.claude?.use("db"); }catch(e){}
+  if(db){ db.collection("takes").onSnapshot(s=>{ takes=s.docs.map(d=>({id:d.id,...d.data()})); render(); }, ()=>renderTakes("Couldn't load saved takes.")); }
+  else renderTakes();
+})();
+</script>
