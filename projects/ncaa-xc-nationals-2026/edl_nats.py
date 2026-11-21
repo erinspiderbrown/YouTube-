@@ -101,7 +101,7 @@ def edl(a, S, O, number, title, name, quote, date, chapter, PART):
     S(a("when you leading nationals"), M10, 1300.0)
     S(a("you gotta get the job done"), "rocky26_pre_stride", 20.0)
     # 5 the takeover --------------------------------------------------------------------------
-    S(PART[5] - 0.05, TH, 125.0, flash=1); chapter(PART[5] + 0.2, "04", "The Takeover")
+    S(PART[5] - 0.05, TH, 119.0, flash=1); chapter(PART[5] + 0.2, "04", "The Takeover")
     S(a("in the womens race"), ND, 600.0, blur=1); O(a("in the womens race") + 0.1, 5.4, ("board", "Women's top 10 · NCAA XC 2026", WOMEN10, "All international"))
     S(a("the whole top 10"), ND, 650.0, blur=1)
     S(a("the first american was"), "zang26_stride", 30.0); name(a("the first american was") + 0.4, 3.0, "Katy Zang", "Indiana · 15th · first American")
