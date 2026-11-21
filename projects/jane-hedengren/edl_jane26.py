@@ -81,11 +81,11 @@ def edl(a, S, O, number, title, name, quote, date, chapter, PART):
     S(a("either shes fresh and ready"), "j_longrun", 870.0)
     S(a("and thats what were going to find out"), "j_lavern_6k", 230.0)
     # 5 the threats ---------------------------------------------------------------------
-    S(PART[5] - 0.05, "g_nd_muchmore", 57.0, flash=1); chapter(PART[5] + 0.2, "04", "The Threat")
+    S(PART[5] - 0.05, "g_nd_dad", 506.0, flash=1); chapter(PART[5] + 0.2, "04", "The Threat")
     S(a("named hannah grapes"), "g_anz_int", 12.0); name(a("named hannah grapes"), 3.0, "Hannah Gapes", "NC State · New Zealand")
     S(a("she hasnt lost one time"), "g_nd_dad", 203.0)
     S(a("she won pre nationals"), "j_lavern_6k", 199.0); number(a("eighteen 57"), 3.0, "18:57", "Course record · Pre-Nats", "First woman under 19:00 on this course")
-    S(a("the first woman to ever break"), "g_nd_dad", 508.0)
+    S(a("the first woman to ever break"), "j_lavern_6k", 120.0)
     S(a("then last week at regional"), "g_se_regional", 75.0)
     S(a("that kaitlyn toohey had"), "j_wtwo_course", 121.0)
     S(a("and her and jane aint raced"), "j_uvu26_dad", 17.0)
