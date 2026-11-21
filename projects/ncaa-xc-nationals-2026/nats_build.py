@@ -171,6 +171,7 @@ CROPS = {   # burned-in UI to crop away
     "jane26_big12_byu": "crop=iw:ih*0.86:0:ih*0.14",                 # "GENERATION" title top
     "preview26_letsrun_live": "crop=iw*0.66:ih*0.66:iw*0.17:ih*0.03", # LetsRun ad bars + news ticker at the bottom
     "gapes26_ndinvite_fan": "crop=iw*0.92:ih*0.92:iw*0.04:0",
+    "terrehaute26_wtwo": "crop=iw*0.76:ih*0.76:iw*0.12:0",        # WTWO burned-in lower thirds
 }
 GRAPHIC = "crop=iw*0.94:ih*0.9:iw*0.03:0"   # LetsRun "Who wins NCAAs?" odds graphic without the ticker
 def _isvert(src):

@@ -50,18 +50,16 @@ PV = "preview26_letsrun_live"; ND = "gapes26_ndinvite_fan"; TH = "terrehaute26_w
 
 def edl(a, S, O, number, title, name, quote, date, chapter, PART):
     # 1 cooked ------------------------------------------------------------------------------
-    S(PART[1] - 0.05, RW, 0.0, flash=1); date(PART[1] + 0.1, 3.0, "Saturday, November 21, 2026", "NCAA Cross Country · Terre Haute, Indiana")
-    S(a("jane hedding green"), J6, 1294.0); name(a("jane hedding green"), 2.6, "Jane Hedengren", "BYU · the favorite")
-    S(a("and rocky hanson"), RW, 2.5); name(a("and rocky hanson"), 2.6, "Rocky Hansen", "Wake Forest · 2025 runner-up")
-    S(a("and i aint gonna"), TH, 40.0)
-    S(a("jane came in as the favorite"), "jane26_big12_byu", 9.0)
+    S(PART[1] - 0.05, RW, 0.0, flash=1)
+    S(a("and i aint gonna"), TH, 24.0); date(a("and i aint gonna"), 3.0, "Saturday, November 21, 2026", "NCAA Cross Country · Terre Haute, Indiana")
+    S(a("jane came in as the favorite"), "jane26_big12_byu", 9.0); name(a("jane came in as the favorite") + 0.3, 2.8, "Jane Hedengren", "BYU · the favorite")
     S(a("she was the runner up"), JR, 20.0)
     S(a("everybody had her"), PV, 2195.0, crop=GRAPHIC)
     S(a("and she ended up"), J6, 1312.0, bw=1); number(a("and she ended up") + 0.6, 3.6, "39th", "Jane Hedengren · NCAA XC 2026", "19:26.1")
     S(a("not top 10"), J6, 1342.0, bw=1)
-    S(a("and rocky he was"), "rocky25_citius", 30.0)
+    S(a("and rocky he was"), "rocky25_citius", 30.0); name(a("and rocky he was") + 0.3, 2.6, "Rocky Hansen", "Wake Forest · 2025 runner-up")
     S(a("he was leading this race"), M10, 900.0)
-    S(a("and he still ended up"), RW, 5.0, bw=1); number(a("and he still ended up") + 0.4, 3.4, "6th", "Rocky Hansen · NCAA XC 2026", "28:38.4")
+    S(a("and he still ended up"), RW, 5.0, bw=1); number(a("and he still ended up") + 0.4, 2.6, "6th", "Rocky Hansen · NCAA XC 2026", "28:38.4")
     S(a("so i gotta ask it"), TH, 121.0)
     S(a("are these two choke"), J6, 1420.0, slow=0.7)
     # 2 Jane ----------------------------------------------------------------------------------
@@ -103,7 +101,7 @@ def edl(a, S, O, number, title, name, quote, date, chapter, PART):
     S(a("when you leading nationals"), M10, 1300.0)
     S(a("you gotta get the job done"), "rocky26_pre_stride", 20.0)
     # 5 the takeover --------------------------------------------------------------------------
-    S(PART[5] - 0.05, TH, 45.0, flash=1); chapter(PART[5] + 0.2, "04", "The Takeover")
+    S(PART[5] - 0.05, TH, 125.0, flash=1); chapter(PART[5] + 0.2, "04", "The Takeover")
     S(a("in the womens race"), ND, 600.0, blur=1); O(a("in the womens race") + 0.1, 5.4, ("board", "Women's top 10 · NCAA XC 2026", WOMEN10, "All international"))
     S(a("the whole top 10"), ND, 650.0, blur=1)
     S(a("the first american was"), "zang26_stride", 30.0); name(a("the first american was") + 0.4, 3.0, "Katy Zang", "Indiana · 15th · first American")
@@ -114,7 +112,7 @@ def edl(a, S, O, number, title, name, quote, date, chapter, PART):
     S(a("and the weather was perfect"), PV, 300.0)
     S(a("course records went down"), "gapes26_seregional_urban", 15.0)
     S(a("i really feel like"), ND, 700.0)
-    S(a("the last time nationals"), TH, 105.0, bw=1); title(a("the last time nationals"), 3.6, "NCAA XC 2018 · Madison, Wisconsin", "Snow · women's winner Dani Jones (Colorado)")
+    S(a("the last time nationals"), ND, 780.0, bw=1, blur=1); title(a("the last time nationals"), 3.6, "NCAA XC 2018 · Madison, Wisconsin", "Snow · won by American Dani Jones")
     S(a("danny jones"), ND, 760.0)
     S(a("so when its a pure speed"), M10, 800.0)
     S(a("our people gotta"), "zang26_stride", 100.0)
