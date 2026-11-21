@@ -9,3 +9,4 @@
 - Facebook E.Diamondz: scheduled via Composio, published 01:00Z, video id 2611525216006826 (reel), thumbnail set.
 - TikTok: vertical Jane_NCAA_2026_vertical.mp4 + tiktok_cover_ncaa2026.jpg (make_tiktok_cover26.py). Worker restart made it miss 6 PM; published ~8:30 PM MT, vidIQ post 869882b4.
 - Captions: YouTube quota exceeded 03:36Z; retry scheduled 08:05Z.
+- TikTok delivered: https://www.tiktok.com/@erinspiderbrown/video/7710463302001773838
