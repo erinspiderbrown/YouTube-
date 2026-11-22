@@ -80,7 +80,7 @@ def edl(a, S, O, number, title, name, quote, date, chapter, PART):
     # 3 winning young / coach leaves -------------------------------------------------------------
     S(PART[3] - 0.05, CAMP, 300.0, flash=1); chapter(PART[3] + 0.2, "02", "The Greatest Team Ever")
     S(a("back in 2019"), CAMP, 340.0); date(a("back in 2019"), 2.8, "December 2019", "Nike Cross Nationals · Leo, the only freshman")
-    S(a("and nico was the one"), NA, 70.0)
+    S(a("and nico was the one"), ND, 180.0)
     S(a("so from 14"), CAMP, 380.0)
     S(a("then right before"), CAMP, 440.0)
     S(a("sean brosnan"), "brosnan_woodbridge21_int", 30.0); name(a("sean brosnan") + 0.2, 2.8, "Sean Brosnan", "Left Newbury Park for UCLA · August 2022")
