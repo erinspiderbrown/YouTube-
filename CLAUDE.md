@@ -73,6 +73,12 @@ The user said viewers notice the AI voice and that it "doesn't really sound like
 - Use the cloned voice below only for long videos, or when the user asks for it.
 
 ## The cloned voice (long videos only, or when the user asks)
+**NEW DEFAULT from 22 Nov 2026: "Erin Brown 2026"** (Instant Voice Clone on the user's own ElevenLabs account, voice_id `uBqzFhqGLj9GteaUaPDl`, made from ~28 min of the user's own reads; their Composio `elevenlabs` connection is the user's account). Settings: `eleven_v4`, stability 0.3, similarity 0.9, **no style tags** (no `[calm] [relaxed]`). The user said the old takes were "too slow and chill" and "too proper".
+- **Pace:** never slow the words. Use `tools/match_rhythm.py IN OUT` (only lengthens pauses toward ~0.7 s). Do not use `space_voiceover.py` for this voice. The user's reads measure ~19 pauses per 100 words, median pause 0.70 s.
+- **Spell it how the user talks** (TTS reads the spelling): "da" for the, "dis/dat/dese/dey/dem", "wit", drop the g ("runnin'"), drop plural/possessive s where they would ("Nico Young little brother", "choke artist"), "ain't", "gon'", "'cause", "y'all". Dates with ordinals ("June 24th"), "4x4" not "4x400".
+- **Openers/phrases (user, 22 Nov 2026):** no "Man,"/"Aight" warm-up openers, just get into it. Not "I ain't gon' sugarcoat it"; the user says "I ain't gon' hold you".
+- Older voice below (PVC "Erin Brown" `dk6cvd5UilZRrcpZ7dNK`) only if the user asks.
+
 **Default from 9 Nov 2026: the "Felix / Jacobs" voice.** The user said the voice on their Allyson Felix and Marcell Jacobs videos "is the closest to mine" and asked for it on every future YouTube narration. It's the setup first made for the Jon Drummond video (v4), reused for "Felix vs Tarmoh" (ElevenLabs flow `4LlukseKRsgRiOUAzkpV`; the Drummond take is flow `EwtCtvyEoktyTmEPgx7r`, nodes "V4 0x"). No Jacobs flow exists in ElevenLabs any more; it was made with the same recipe.
 - **ElevenLabs:** voice `dk6cvd5UilZRrcpZ7dNK` (Erin Brown), model `eleven_v4`, voice_settings **stability 0.45, similarity 0.85**. Pass the voice as `voice_id`, and set the settings with `creative_update_node` `model_parameters={"voice_id": ..., "voice_settings": {"stability": 0.45, "similarity": 0.85}}`. The key is `similarity`, not `similarity_boost`; a wrong key is dropped silently, so read the node back before running.
 - **Tags at the start of every paragraph:** `[calm] [relaxed] [Texas accent]`. Put `[pause]` before a turn or a reveal (`[pause] [calm] [relaxed] [Texas accent] Then a few hours later…`).
