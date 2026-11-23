@@ -114,7 +114,7 @@ The user said viewers notice the AI voice and that it "doesn't really sound like
 - Caption: the TikTok caption without `#5MinutePlus`, plus the YouTube link.
 
 ## Scheduling uploads
-- The user wants every scheduled video to go public at **11:00 AM Mountain** (18:00 UTC in winter), not 6 AM. Keep the date they give.
+- **Every scheduled YouTube video goes public at 6:00 AM Mountain** (13:00 UTC in winter, 12:00 UTC in summer) (user, 23 Nov 2026; replaces the earlier 11:00 AM rule). Keep the date they give.
 - **Upload through Upload-Post** (Composio toolkit `upload_post`, profile `default`, YouTube channel The Erin Brown connected). It has its own YouTube quota. The flow that gets everything on before the video goes public:
   1. Host the MP4 at a public URL (Higgsfield `media_upload` → PUT → `media_confirm`).
   2. `UPLOAD_POST_SCHEDULE_POST` (`content_type: video`, `platforms: ["youtube"]`, `video` = URL, title, description, `scheduled_date` a few minutes from now).
