@@ -13,3 +13,6 @@ Schedule: public 24 Nov 2026 6:00 AM MT (13:00 UTC; user changed from 11 AM), Yo
 - TikTok posted now (vidIQ post b304f0a9, new publication 2e91f457 completed; the 24 Nov 13:00 slot cancelled).
 - Facebook: the scheduled post could not be flipped to published (Graph API "(#2) Service temporarily unavailable" x5), so posted fresh now: video 2572316873263858 (published, thumbnail set); the scheduled copy 2233511117508312 was deleted so it won't double-post.
 - YouTube unchanged: v1vt9d9s-d0 still goes public 24 Nov 6:00 AM MT.
+
+## 23 Nov 2026 ~20:30 UTC: retitle + new thumbnail (user picked #1)
+- Title: "America's Fastest Miler Ever... What Went Wrong?" (vidIQ score 97; old title 91). Thumbnail v2 (make_thumbnail_v2.py): bright photo, USA flag + HOULIHAN bib, cream Bebas "BANNED FOR A BURRITO?" left. Stats at swap (7h17m): 4.2K views, CTR 6.7%, AVD 4:20.
