@@ -8,9 +8,11 @@ Speed ran 10.35 in the 100 and half the track world lost they mind. Everybody in
 ## Part 2
 So let me explain what actually happened, 'cause a lot of people talkin' and ain't even watch it. This was on his Speed Goes Pro series. Ato Boldon been training him since September of last year, and Usain Bolt was right there watching. First run he went 10.5. Second run he went 10.35. And Bolt, the fastest man ever, said he was genuinely impressed, and said to run 10.35 by yourself is no joke.
 
-[SOUNDBITE: Bolt "I'm genuinely impressed" / "10.35 is no joke"]
+[SOUNDBITE: speed_bolt_main 1406.6-1418.1 Bolt "10.35 is a massive difference… I'm genuinely impressed"]
 
-And even Ato Boldon said when he first started, he figured Speed would last 2 weeks. He ain't quit. He kept showin' up.
+And listen to what Ato Boldon said about him. He said Speed really is a natural, and that like 70% of it is natural speed, then you gotta add the technique. That's exactly what I been sayin'.
+
+[SOUNDBITE: speed_bolt_main 501.4-502.3 "He really is a natural." + 565.9-570.4 "A lot of natural speed. I would say like 70%…"]
 
 ## Part 3
 Now here's where the haters got one real point, and I'ma be fair 'cause I'm not gon' lie to y'all. It wasn't a gun start. It was timing gates, so the clock started when he broke the beam, not when a gun went off. That means there's no reaction time in that number. People been sayin' in a real race with a gun it might be more like 10.7, 10.8.
@@ -30,7 +32,9 @@ So my point is, an official meet didn't stop the debate for Gout. So stop acting
 ## Part 6
 And this the part that really gets me. Track and field always complaining nobody watch the sport. Nobody care about the athletes. The meets is empty. Then somebody come along and bring the whole internet to track, and the first thing we do is try to push him out. That's crabs in a bucket. That's the reason the sport is where it's at.
 
-Speed said he going to the Olympics in 2028. Now do I think he making the team? Bolt said he need at least 5 more years of training, and I agree he got a long way to go. But I respect it. He shining right now, and he deserve his flowers.
+Speed asked Bolt straight up if he got what it takes to go pro, and Bolt said I think so. Now do I think he making an Olympic team next year? Bolt said he need at least 5 more years of training, and I agree he got a long way to go. But I respect it. He shining right now, and he deserve his flowers.
+
+[SOUNDBITE: speed_bolt_main 1378.1-1399.1 "Do I have what it takes to go pro?" / "I think so." + 1434.5-1438.5 "You need at least five more years of training."]
 
 [CLIP: erin_prediction.mp4 91.3-96.9 "Two three years of this consistency, IShowSpeed is running 9.7 and he's winning the next Olympics"]
 
