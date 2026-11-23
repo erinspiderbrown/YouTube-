@@ -3,7 +3,7 @@
 ## Part 1
 Speed ran 10.35 in the 100 and half the track world lost they mind. Everybody in the comments talkin' 'bout it's fake, it's not real, he ain't really run that. And I'ma be honest with y'all, I'm probably one of the few people on this app that can actually speak on it, 'cause I've ran 10.3 multiple times. I know what 10.3 feel like, I know what it look like, and what I saw from Speed was real speed. And I'ma tell y'all something else, I been said this.
 
-[CLIP: Erin's clip from last year saying Speed could run 10.3]
+[CLIP: erin_prediction.mp4 57.8-78.2 "I've seen a lot of people saying he wouldn't break 11… IShowSpeed will run about 10.3… I ran 10.3 my first year" (vertical 576x1024)]
 
 ## Part 2
 So let me explain what actually happened, 'cause a lot of people talkin' and ain't even watch it. This was on his Speed Goes Pro series. Ato Boldon been training him since September of last year, and Usain Bolt was right there watching. First run he went 10.5. Second run he went 10.35. And Bolt, the fastest man ever, said he was genuinely impressed, and said to run 10.35 by yourself is no joke.
@@ -31,6 +31,8 @@ So my point is, an official meet didn't stop the debate for Gout. So stop acting
 And this the part that really gets me. Track and field always complaining nobody watch the sport. Nobody care about the athletes. The meets is empty. Then somebody come along and bring the whole internet to track, and the first thing we do is try to push him out. That's crabs in a bucket. That's the reason the sport is where it's at.
 
 Speed said he going to the Olympics in 2028. Now do I think he making the team? Bolt said he need at least 5 more years of training, and I agree he got a long way to go. But I respect it. He shining right now, and he deserve his flowers.
+
+[CLIP: erin_prediction.mp4 91.3-96.9 "Two three years of this consistency, IShowSpeed is running 9.7 and he's winning the next Olympics"]
 
 ## Part 7
 So y'all tell me. Is Speed's 10.35 real to you, or y'all still gon' hate? And would y'all rather the sport stay small just so nobody new get any love? Let me know in the comments.
