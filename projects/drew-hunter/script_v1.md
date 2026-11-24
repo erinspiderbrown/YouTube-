@@ -1,5 +1,5 @@
 # Drew Hunter: script v1 (user reads it)
-Title: "America's Best High School Miler Skipped College... What Went Wrong?"
+Title: "America's Greatest High School Miler Ever... What Went Wrong?" (user pick, 24 Nov 2026)
 Read it how you talk. Numbers are written the way you'd say them.
 
 ## Part 1
