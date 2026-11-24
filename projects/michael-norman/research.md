@@ -29,4 +29,4 @@ No NBC (Trials/Paris/Eugene broadcasts are NBC), no Olympic channel, no FloTrack
 - Tokyo 2021 400 final: 5th 44.31, led then faded; Gardiner won; Cherry 4th 44.21 (World Athletics results, SI).
 - Eugene 2022: Norman 44.29, Kirani James 44.48, Hudson-Smith 44.66 (World Athletics). Slowest Worlds-winning 400 since 2011 (James 44.60): 2013 43.74, 2015 43.48, 2017 43.98, 2019 43.48.
 - Norman never bettered 43.45 (PB stays 43.45 on World Athletics profile).
-- 2019: Wikipedia infobox lists him as 2019 Diamond League 400m winner, so do NOT say he "won nothing" in 2019; script says no medal at Worlds.
+- 2019: he won the Diamond League 400 title; user (24 Nov 2026): only Worlds and the Olympics count, so the script says he "won nothing that mattered" and names the Diamond League head-on.
