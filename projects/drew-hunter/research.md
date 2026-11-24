@@ -35,3 +35,4 @@ Colorado Runner 6 Oct 2026 (C), CITIUS Mag podcast 18 Nov 2021 (P), FloTrack art
 ## Footage rules
 No FloTrack (both viral HS clips are FloTrack), no MileSplit/RunnerSpace, no NBC (2024 Trials on NBC), no NCAA.
 Use: fan HS race clips, local news (Loudoun TV, WUSA, Washington Post video), Adidas/Tinman Elite channel, his own YouTube/vlogs, CITIUS/LetsRun interviews, photos.
+- Thumbnail: user's own image kept as-is (user, 24 Nov 2026), despite the Nike singlet.
