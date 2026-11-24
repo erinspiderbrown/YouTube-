@@ -25,15 +25,15 @@ SB_LIST = [  # ((insert before phrase, part), src, a, b, credit[, opts])
     (("you a kid", 4), "gatorade_2016", 71.50, 85.70, "Drew on skipping college · Rich Gonzalez · July 2016", R),
     (("but a lot of people", 4), "gatorade_2016", 168.30, 181.90, "Drew Hunter · Rich Gonzalez · July 2016", R),
     (("and they became like", 5), "tracklandia_tinman", 194.10, 196.30, "Coach Tom Schwartz · Tracklandia · 2021", R),
-    (("he actually said", 5), "toad_trials", 33.50, 44.60, "Drew on missing the Tokyo Trials · Billy Toad · 2021", R),
+    (("he actually said", 5), "toad_trials", 33.50, 44.50, "Drew on missing the Tokyo Trials · Billy Toad · 2021", R),
     (("and around that same time", 5), "tinman_s3_trailer", 0.80, 5.90, "Inside Tinman Elite · Season 3 · 2021", R),
-    (("now here go the part", 6), "citius_coach", 390.90, 400.70, "Drew on his mom coaching him · CITIUS MAG · 2021", R),
-    (("thats how close", 6), "letsrun_trials4th", 7.78, 13.45, "Drew Hunter, 4th · LetsRun · 2024 Olympic Trials", R),
+    (("now here go the part", 6), "citius_coach", 391.00, 400.48, "Drew on his mom coaching him · CITIUS MAG · 2021", R),
+    (("thats how close", 6), "letsrun_trials4th", 7.78, 13.36, "Drew Hunter, 4th · LetsRun · 2024 Olympic Trials", R),
     (("so every time", 6), "letsrun_trials4th", 297.70, 301.95, "Drew Hunter · LetsRun · 2024 Olympic Trials", R),
-    (("and honestly thats what", 6), "letsrun_trials4th", 140.30, 152.70, "Drew Hunter · LetsRun · 2024 Olympic Trials", R),
+    (("and honestly thats what", 6), "letsrun_trials4th", 140.30, 152.58, "Drew Hunter · LetsRun · 2024 Olympic Trials", R),
     (("he wrote something", 7), "citius_portland", 107.50, 116.40, "Drew Hunter · CITIUS MAG · June 2025", R),
     (("so that whole chapter", 7), "letsrun_asics", 284.40, 295.25, "Drew on his Adidas contract ending · LetsRun · March 2025", R),
-    (("is he gonna make the team", 8), "toad_trials", 196.55, 200.40, "Drew Hunter · Billy Toad · 2021", R),
+    (("is he gonna make the team", 8), "toad_trials", 196.55, 200.32, "Drew Hunter · Billy Toad · 2021", R),
 ]
 
 LU = "loudoun_unscripted"; GA = "gatorade_2016"; PN = "penn_dmr_fan"; TL = "tracklandia_tinman"; S3 = "tinman_s3_trailer"
@@ -64,7 +64,7 @@ def edl(a, S, O, number, title, name, quote, date, chapter, PART):
     S(a("and he ran for"), LU, 26.3)
     S(a("and running is literally"), BF, 44.8)
     S(a("his dad mark"), BF, 60.0); name(a("his dad mark") + 0.1, 3.0, "Marc Hunter", "His dad · ran 13:36 for 5000m")
-    S(a("his mom joanne"), BU, 617.5); name(a("his mom joanne") + 0.1, 3.0, "Joan Hunter", "His mom · ran at West Virginia")
+    S(a("his mom joanne"), BU, 616.0); name(a("his mom joanne") + 0.1, 3.0, "Joan Hunter", "His mom · ran at West Virginia")
     S(a("and get this"), LU, 48.0)
     S(a("so drew grew up"), LU, 43.0)
     S(a("and honestly i feel"), LU, 59.8)
