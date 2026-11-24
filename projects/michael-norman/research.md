@@ -30,3 +30,5 @@ No NBC (Trials/Paris/Eugene broadcasts are NBC), no Olympic channel, no FloTrack
 - Eugene 2022: Norman 44.29, Kirani James 44.48, Hudson-Smith 44.66 (World Athletics). Slowest Worlds-winning 400 since 2011 (James 44.60): 2013 43.74, 2015 43.48, 2017 43.98, 2019 43.48.
 - Norman never bettered 43.45 (PB stays 43.45 on World Athletics profile).
 - 2019: he won the Diamond League 400 title; user (24 Nov 2026): only Worlds and the Olympics count, so the script says he "won nothing that mattered" and names the Diamond League head-on.
+- Mother Nobue (née Saito) was born in Japan and was a sprinter there; Norman has family in Japan and learned Japanese before Tokyo (NBC Connecticut, Olympics.com, Andscape). Whether he was ever eligible to switch to Japan is NOT confirmed, so the script frames it as the user's opinion ("he should've ran for Japan"), not a claim about eligibility.
+- "Soft mentally" (Part 10) is the user's opinion, stated as opinion.
