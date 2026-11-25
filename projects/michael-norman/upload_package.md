@@ -6,7 +6,10 @@
 3. He Ran 43.45 In His First Race... Then He Choked Everything
 4. Michael Norman Was Supposed To Break The World Record. What Happened?
 
-## Thumbnails (downfall style, real Doha 2019 mixed-zone frame, LetsRun)
+## Thumbnail: USER'S CHOICE (25 Nov 2026)
+- `thumbnail_user_this_is_bad.jpg` ("this is BAD", made by the user). Use this one.
+
+## Earlier options, not used (downfall style, real Doha 2019 mixed-zone frame, LetsRun)
 - A: `thumbnail_A_wasted_talent.jpg`: "WASTED TALENT."
 - B: `thumbnail_B_choked_again.jpg`: "HE CHOKED AGAIN."
 Face colour-corrected only (stadium light cast); expression untouched.
