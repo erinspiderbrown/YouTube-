@@ -16,3 +16,6 @@ C. High schooler vs the world: Cooper diving at the Oslo line next to Wanyonyi; 
 D. Downfall-style tease: big Cooper face on textured blue; "HE'S 17." small / giant red "WORLD" / "CHAMPION." yellow underline
 E. Nike contract: Cooper + Nike swoosh / contract graphic, text "SIGNED AT 16"
 Teleprompter: https://claude.ai/artifact/4TtfFAJdMSAQm6G5iTtXCe
+
+## Chosen thumbnail (user, 25 Nov 2026)
+- thumbnail_user_how_is_this_possible.jpg ("How Is This Possible?")
