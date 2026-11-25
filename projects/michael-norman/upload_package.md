@@ -2,7 +2,7 @@
 - YouTube: https://www.youtube.com/watch?v=jGcYCbZTD1w (vidIQ post 3f24ab34), private until publishAt 2026-11-25T13:00:00Z = 6:00 AM MT, then public. Category 17, 15 tags, user's "this is BAD" thumbnail, chapters.
 - Captions: uploaded 25 Nov 08:13 UTC, English, serving (id AUieDaadJmzhtcS5aMS-Xvar4MEqCqglpBB9UstlhTPFgMASBTswQNrN).
 - Verified via API 08:13 UTC: processed, privacyStatus private, publishAt 2026-11-25T13:00:00Z, category 17, 15 tags, custom thumbnail live.
-- TikTok (Erin Spider Brown): vidIQ post 157fe25c-5085-441b-b54a-53f592ac16e3, public, comments on, music confirmed; vertical with tiktok_cover.jpg on the first 1.2 s; caption starts #5MinutePlus.
+- TikTok (Erin Spider Brown): https://www.tiktok.com/@erinspiderbrown/video/7712139161377017101 (vidIQ post 157fe25c, delivered), public, comments on, music confirmed; vertical with tiktok_cover.jpg on the first 1.2 s; caption starts #5MinutePlus.
 - Monetization: no API can set it. Check YouTube Studio -> video -> Monetization tab.
 
 # Michael Norman: upload package
