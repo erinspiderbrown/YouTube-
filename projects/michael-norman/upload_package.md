@@ -1,3 +1,8 @@
+# Michael Norman: scheduled 25 Nov 2026
+- YouTube: https://www.youtube.com/watch?v=jGcYCbZTD1w (vidIQ post 3f24ab34), private until publishAt 2026-11-25T13:00:00Z = 6:00 AM MT, then public. Category 17, 15 tags, user's "this is BAD" thumbnail, chapters.
+- Captions: captions.srt (from the final cut) ready; YouTube API quota was used up at upload time, so they go on after the 08:00 UTC reset (scheduled follow-up).
+- Monetization: no API can set it. Check YouTube Studio -> video -> Monetization tab.
+
 # Michael Norman: upload package
 
 ## Title options
