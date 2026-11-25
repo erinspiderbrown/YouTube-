@@ -3,6 +3,7 @@
 - Captions: uploaded 25 Nov 08:13 UTC, English, serving (id AUieDaadJmzhtcS5aMS-Xvar4MEqCqglpBB9UstlhTPFgMASBTswQNrN).
 - Verified via API 08:13 UTC: processed, privacyStatus private, publishAt 2026-11-25T13:00:00Z, category 17, 15 tags, custom thumbnail live.
 - TikTok (Erin Spider Brown): https://www.tiktok.com/@erinspiderbrown/video/7712139161377017101 (vidIQ post 157fe25c, delivered), public, comments on, music confirmed; vertical with tiktok_cover.jpg on the first 1.2 s; caption starts #5MinutePlus.
+- Facebook (E.Diamondz): video 1405934064698933, published, user's thumbnail set as preferred.
 - Monetization: no API can set it. Check YouTube Studio -> video -> Monetization tab.
 
 # Michael Norman: upload package
