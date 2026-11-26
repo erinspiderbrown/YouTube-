@@ -1,4 +1,4 @@
-"""Michael Norman ("The Tragic Downfall Of Michael Norman"), ~15 min. Cinematic step-up (25 Nov 2026): tools/modern.py + tools/cinema.py
+"""Cooper Lutkenhaus (template copied from the Norman build), ~10 min. Cinematic step-up (25 Nov 2026): tools/modern.py + tools/cinema.py
 (letterbox, championship tracker, PB counter, versus split, scope), speed ramps, depth-pull photo stills, cinematic grade.
 Voiceover: the user's own read, cleaned (vo_cooper.mp3, clean_voiceover.py). Soundbites + EDL: edl_cooper.py.
 Footage rules: no NCAA/ESPN broadcast, FloTrack/MileSplit, RunnerSpace, NBC, Olympic, Diamond League, World Athletics.
@@ -176,7 +176,7 @@ def timeline():
         ov.append((round(f0, 3), round(min(f1, end), 3), spec))
     return out, ov, end
 
-CROPS = {}
+CROPS = {k: "crop=iw*0.82:ih*0.82:iw*0.18:0" for k in ("tao_workout25", "tao_firstworkout", "tao_wcworkout")}   # cut the TRACK: All-Access split-timer box (bottom-left)
 def _isvert(src):
     try:
         w, h = map(int, subprocess.run(["ffprobe", "-v", "error", "-select_streams", "v:0", "-show_entries", "stream=width,height", "-of", "csv=p=0", f"{REAL}/{src}.mp4"], capture_output=True, text=True).stdout.strip().split(",")[:2])
@@ -335,14 +335,16 @@ def stage_audio():
     # -> comeback (tense) -> silence (dark) -> answer (warm) -> end (reflective)
     # dark open -> prodigy/USC/43.45 (rise) -> chokes (dark) -> gold (tense) -> switch + Paris (dark) -> comeback (hope/dark)
     # -> soft + Japan (tense) -> verdict (reflective)
+    # Cooper: cold open (dark) -> Justin/record/1:42 (rise) -> the deal (tense) -> Tokyo (dark) -> response + DL (rise)
+    # -> senior year (reflective) -> will he fall off (tense) -> LA 2028 (verdict)
     beds = [bed(f"{M1}/M1_cold-open-background.mp3", 0, Pt[2] + 0.4, 0.48, end, 1.0, 1.5),
             bed(f"{M1}/M2_sydney.mp3", Pt[2] - 0.2, Pt[5] + 0.4, 0.40, end, 0.6, 1.2),
             bed(f"{M1}/M4_coaching-ban.mp3", Pt[5] - 0.2, Pt[6] + 0.4, 0.42, end, 0.6, 1.2),
             bed(f"{M1}/M3_rule-paris-fallout.mp3", Pt[6] - 0.2, Pt[7] + 0.4, 0.42, end, 0.6, 1.2),
-            bed(f"{M1}/M4_coaching-ban.mp3", Pt[7] - 0.2, Pt[9] + 0.4, 0.42, end, 0.6, 1.2, offset=60),
+            bed(f"{M1}/M2_sydney.mp3", Pt[7] - 0.2, Pt[9] + 0.4, 0.40, end, 0.6, 1.2, offset=60),
             bed(f"{M1}/M1_cold-open-background.mp3", Pt[9] - 0.2, Pt[10] + 0.4, 0.46, end, 0.6, 1.2, offset=40),
-            bed(f"{M1}/M3_rule-paris-fallout.mp3", Pt[10] - 0.2, Pt[12] + 0.4, 0.42, end, 0.6, 1.5, offset=50),
-            bed(f"{M1}/M5_verdict-ending.mp3", Pt[12] - 0.2, end, 0.48, end, 0.8, 3.5)]
+            bed(f"{M1}/M4_coaching-ban.mp3", Pt[10] - 0.2, Pt[11] + 0.4, 0.42, end, 0.6, 1.5, offset=50),
+            bed(f"{M1}/M5_verdict-ending.mp3", Pt[11] - 0.2, end, 0.48, end, 0.8, 3.5)]
     S_ = sfx_plan(shots, ov)
     ins, fl = [], []; nb = len(beds); base = 2 + nb
     for j, (t, path, g) in enumerate(S_):
