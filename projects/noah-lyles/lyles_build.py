@@ -203,6 +203,7 @@ def _isvert(src):
         return h > w
     except Exception: return False
 CLIPLEN.update({os.path.splitext(f)[0]: _cliplen(os.path.splitext(f)[0]) for f in os.listdir(REAL) if f.endswith('.mp4')})
+CLIPLEN["fan_paris100"] = 58.0   # after ~58 s the fan video is blurry crowd shots
 VERT = {os.path.splitext(f)[0] for f in os.listdir(REAL) if f.endswith(".mp4") and _isvert(os.path.splitext(f)[0])}
 GRADE = ("colorbalance=rs=-0.03:gs=-0.01:bs=0.04:rh=0.04:gh=0.01:bh=-0.03,eq=contrast=1.09:saturation=1.04:gamma=0.98,"
          "vignette=angle=PI/5,unsharp=5:5:0.6")   # cinematic grade: teal shadows / warm highlights, soft vignette, no grain
