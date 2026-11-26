@@ -26,7 +26,7 @@ SB_LIST = [  # ((insert before phrase, part), src, a, b, credit[, opts])
     (("the whole stadium", 4), "own_usa25", 11.85, 17.60, "Stadium announcer · 2025 USAs · fan video", R),
     (("and finished second", 4), A1, 34.02, 45.28, "Cooper Lutkenhaus after 1:42.27 · LetsRun", R),
     (("thats a under 18", 4), BZ, 122.10, 133.40, "Donavan Brazier, 2019 world champion · LetsRun", R),
-    (("to ever make a world", 4), A1, 74.45, 84.72, "Cooper Lutkenhaus · LetsRun · 2025 USAs", R),
+    (("and it made him", 4), A1, 74.45, 84.72, "Cooper Lutkenhaus · LetsRun · 2025 USAs", R),
     (("but he kept it simple", 5), A1, 373.62, 383.02, "Cooper Lutkenhaus, before going pro · LetsRun · Aug 2025", R),
     (("then came tokyo", 6), A1, 283.40, 290.30, "Cooper Lutkenhaus, before Tokyo · LetsRun · Aug 2025", R),
     (("he called it the worst", 6), WI, 166.52, 170.04, "Cooper Lutkenhaus on Tokyo · LetsRun · March 2026", R),
@@ -34,7 +34,6 @@ SB_LIST = [  # ((insert before phrase, part), src, a, b, credit[, opts])
     (("he did that over spring", 7), WI, 5.82, 12.30, "Cooper Lutkenhaus, world indoor champion · LetsRun", R),
     (("a high schooler beat", 8), OS, 14.76, 24.18, "Cooper Lutkenhaus after beating Wanyonyi · LetsRun · Oslo", dict(raw=1, vsrc="tao_wcworkout", vss=880.0, quote="I thought he got me at the line.", who="Cooper Lutkenhaus, after Oslo")),
     (("then at usas in new york", 8), PR, 48.92, 57.12, "Cooper Lutkenhaus after Pre · CITIUS MAG · July 2026", dict(raw=1, vsrc="tao_wcworkout", vss=960.0, quote="If 1:44 is my bad race, I'm happy with that.", who="Cooper Lutkenhaus, after his only loss")),
-    (("hobbs kessler said", 9), BZ, 125.26, 133.40, "Donavan Brazier · LetsRun · 2025 USAs", R),
     (("and then cooper did", 9), KE, 122.86, 151.22, "Hobbs Kessler on Cooper · LetsRun · July 2026", R),
     (("and he skipped it", 9), PR, 88.50, 103.56, "Cooper Lutkenhaus · CITIUS MAG · July 2026", dict(raw=1, vsrc="tao_workout25", vss=640.0, quote="One more year of high school.", who="Cooper Lutkenhaus, July 2026")),
     (("so think about where", 10), U6, 160.40, 171.76, "Cooper Lutkenhaus after the US title · CITIUS MAG", R),
@@ -71,12 +70,12 @@ def edl(a, S, O, number, title, name, quote, date, chapter, PART):
     S(a("and he run for northwest"), W25, 300.0)
     S(a("he didnt even start"), W25, 240.0, punch=0.4)
     S(a("it wasnt till the summer"), W25, 400.0, slow=0.7)
-    S(a("and his dad george"), W25, 8.0)
+    S(a("and his dad george"), W25, 250.0)
     # 3 The Record ------------------------------------------------------------------------------------
     S(PART[3] - 0.05, W25, 460.0, flash=1); chapter(PART[3] + 0.2, "02", "The Record"); lb(O, PART[3], 3.4)
     S(a("as a freshman in 2024"), W25, 200.0); number(a("he ran 147") + 0.1, 3.0, "1:47.58", "800m · Texas state record", "As a freshman · 2024")
     S(a("and broke the texas"), W25, 380.0)
-    S(a("then his sophomore year"), W25, 2.0); name(a("with a new coach") + 0.4, 2.8, "Chris Capeau", "Coach · Northwest High School")
+    S(a("then his sophomore year"), WC, 505.0); name(a("with a new coach") + 0.4, 2.8, "Chris Capeau", "Coach · Northwest High School")
     S(a("and its like he jumped"), W25, 560.0, punch=0.3)
     S(a("he broke the high school indoor"), MR, 10.0)
     S(a("he won the state title"), W25, 640.0)
@@ -107,7 +106,7 @@ def edl(a, S, O, number, title, name, quote, date, chapter, PART):
     S(a("sixteen years old"), FW, 190.0)
     S(a("but he kept it simple"), FW, 320.0)
     S(a("he stayed home in texas"), W25, 730.0)
-    S(a("he kept training"), FW, 95.0); name(a("he kept training"), 2.6, "Chris Capeau", "Still his coach · Northwest HS")
+    S(a("he kept training"), FW, 640.0); name(a("he kept training"), 2.6, "Chris Capeau", "Still his coach · Northwest HS")
     S(a("and he kept going to class"), FW, 360.0)
     # 6 Tokyo -----------------------------------------------------------------------------------------
     S(PART[6] - 0.05, FW, 400.0, flash=1); chapter(PART[6] + 0.2, "05", "Tokyo"); lb(O, PART[6], 3.4)
