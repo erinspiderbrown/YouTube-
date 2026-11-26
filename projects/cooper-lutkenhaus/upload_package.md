@@ -6,4 +6,4 @@
 - YouTube: https://www.youtube.com/watch?v=rnkLRmMPta8 (posted public now, 26 Nov 2026, vidIQ post 34afa059, category Sports, user thumbnail).
 - Facebook (E.Diamondz): video 1477779150982712, thumbnail set (preferred).
 - Captions: captions.srt (medium.en transcription of the final cut, names/times fixed), uploaded 26 Nov 13:48 UTC, English, serving (id AUieDaale5t876XKzn8n4fxQ5SpkIgBF2eTxzPG3zvtQEypxWQQtgcGl).
-- TikTok (Erin Spider Brown): vidIQ post 2404a77d, public, comments on, music confirmed; vertical with tiktok_cover.jpg (make_tiktok_cover.py) on the first 1.2 s; caption starts #5MinutePlus.
+- TikTok (Erin Spider Brown): https://www.tiktok.com/@erinspiderbrown/video/7712476246843608334 (vidIQ post 2404a77d, delivered), public, comments on, music confirmed; vertical with tiktok_cover.jpg (make_tiktok_cover.py) on the first 1.2 s; caption starts #5MinutePlus.
