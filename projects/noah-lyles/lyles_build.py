@@ -164,6 +164,22 @@ def timeline():
         keep.append(x)
     seq = keep
     end = FT(VO_END) + 4.0; out = []
+    # keep cuts every 2-5 s: split any non-soundbite shot longer than 6 s into parts, jumping ahead in the same clip
+    split = []
+    for i, x in enumerate(seq):
+        t1 = seq[i + 1]["T"] if i + 1 < len(seq) else end
+        d = t1 - x["T"]
+        if x.get("sb") or d <= 6.0: split.append(x); continue
+        n = int(d // 3.5) + 1; step = d / n; L = CLIPLEN.get(x["src"], 0)
+        for k in range(n):
+            y = dict(x); y["T"] = round(x["T"] + k * step, 3)
+            if k:
+                y.pop("flash", None); y.pop("ramp", None)
+                jump = 9.0 * k if L > x["ss"] + 9.0 * k + step + 2 else step * x.get("slow", 1) * k
+                y["ss"] = round(x["ss"] + jump, 3); y["punch"] = 0.3 if k % 2 else None
+                if y["punch"] is None: y.pop("punch")
+            split.append(y)
+    seq = split
     for i, x in enumerate(seq):
         t1 = seq[i + 1]["T"] if i + 1 < len(seq) else end
         if t1 - x["T"] < 0.3: continue
@@ -176,12 +192,17 @@ def timeline():
         ov.append((round(f0, 3), round(min(f1, end), 3), spec))
     return out, ov, end
 
-CROPS = {}
+CROPS = {"fan_tokyo200": "crop=iw*0.70:ih*0.55:iw*0.15:ih*0.30"}   # cut the cartoon watermarks in the bottom corners
+CLIPLEN = {}
+def _cliplen(src):
+    try: return float(subprocess.run(['ffprobe','-v','error','-show_entries','format=duration','-of','csv=p=0',f'{REAL}/{src}.mp4'],capture_output=True,text=True).stdout)
+    except Exception: return 0
 def _isvert(src):
     try:
         w, h = map(int, subprocess.run(["ffprobe", "-v", "error", "-select_streams", "v:0", "-show_entries", "stream=width,height", "-of", "csv=p=0", f"{REAL}/{src}.mp4"], capture_output=True, text=True).stdout.strip().split(",")[:2])
         return h > w
     except Exception: return False
+CLIPLEN.update({os.path.splitext(f)[0]: _cliplen(os.path.splitext(f)[0]) for f in os.listdir(REAL) if f.endswith('.mp4')})
 VERT = {os.path.splitext(f)[0] for f in os.listdir(REAL) if f.endswith(".mp4") and _isvert(os.path.splitext(f)[0])}
 GRADE = ("colorbalance=rs=-0.03:gs=-0.01:bs=0.04:rh=0.04:gh=0.01:bh=-0.03,eq=contrast=1.09:saturation=1.04:gamma=0.98,"
          "vignette=angle=PI/5,unsharp=5:5:0.6")   # cinematic grade: teal shadows / warm highlights, soft vignette, no grain
