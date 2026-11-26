@@ -1,7 +1,7 @@
 """Cooper Lutkenhaus v2, THE RISE (user, 26 Nov 2026): soundbites + EDL. Title: "He's Still In High School... And He's A World Champion".
 Voice: Erin Brown 2026 clone, approved A3b style (light respelling + casual accent tag, stability 0.4, atempo 0.94 + match_rhythm).
 Footage: fan video from the stands at 2025 USAs (Cooper Lutkenhaus's own channel; Mark & Kathryn), TRACK: All-Access workouts,
-LetsRun + CITIUS MAG interviews. No NBC/USATF broadcast, FloTrack/MileSplit, RunnerSpace, Diamond League, World Athletics or
+LetsRun + CITIUS MAG interviews (Oslo/Pre mixed-zone bites play audio-only over workout B-roll: no Diamond League backdrop on screen, user 26 Nov 2026). No NBC/USATF broadcast, FloTrack/MileSplit, RunnerSpace, Diamond League, World Athletics or
 Olympic video. Avoid: mk_u18wr 0-6 s and 115-122 s (burned captions); tao_wcworkout ~250-310 s and tao_firstworkout 0-47 s,
 234-282 s (picture-in-picture insets). Soundbite times word-checked with small.en word timestamps (scratchpad win.py)."""
 
@@ -19,7 +19,7 @@ R = {"raw": 1}
 PRE_SB = ("lr_wic", 0.00, 5.62, "Cooper Lutkenhaus, 17, world indoor champion · LetsRun · March 2026")
 A1 = "lr_after142"; WI = "lr_wic"; OS = "lr_oslo"; PR = "citius_pre"; U6 = "citius_usa26"; KE = "lr_kessler"; BZ = "lr_brazier"
 SB_LIST = [  # ((insert before phrase, part), src, a, b, credit[, opts])
-    (("so let me show", 1), OS, 65.76, 73.92, "Cooper Lutkenhaus, 17 · LetsRun · Oslo 2026", R),
+    (("so let me show", 1), OS, 65.76, 73.92, "Cooper Lutkenhaus, 17 · LetsRun · Oslo 2026", dict(raw=1, vsrc="tao_wcworkout", vss=345.0, quote="Would you ever think you'd be this good at this age? Definitely not.", who="Cooper Lutkenhaus, 17")),
     (("and his dad george", 2), A1, 305.05, 318.26, "Cooper Lutkenhaus, 16 · LetsRun · August 2025", R),
     (("as a freshman in 2024", 3), U6, 406.18, 423.50, "Cooper Lutkenhaus · CITIUS MAG · July 2026", R),
     (("and its like he jumped", 3), A1, 444.40, 450.90, "Cooper Lutkenhaus on Coach Capeau · LetsRun · 2025", R),
@@ -32,15 +32,15 @@ SB_LIST = [  # ((insert before phrase, part), src, a, b, credit[, opts])
     (("he called it the worst", 6), WI, 166.52, 170.04, "Cooper Lutkenhaus on Tokyo · LetsRun · March 2026", R),
     (("and instead of that", 6), WI, 62.50, 77.82, "Cooper Lutkenhaus on Tokyo · LetsRun · March 2026", R),
     (("he did that over spring", 7), WI, 5.82, 12.30, "Cooper Lutkenhaus, world indoor champion · LetsRun", R),
-    (("a high schooler beat", 8), OS, 14.76, 24.18, "Cooper Lutkenhaus after beating Wanyonyi · LetsRun · Oslo", R),
-    (("then at usas in new york", 8), PR, 48.92, 57.12, "Cooper Lutkenhaus after Pre · CITIUS MAG · July 2026", R),
+    (("a high schooler beat", 8), OS, 14.76, 24.18, "Cooper Lutkenhaus after beating Wanyonyi · LetsRun · Oslo", dict(raw=1, vsrc="tao_wcworkout", vss=880.0, quote="I thought he got me at the line.", who="Cooper Lutkenhaus, after Oslo")),
+    (("then at usas in new york", 8), PR, 48.92, 57.12, "Cooper Lutkenhaus after Pre · CITIUS MAG · July 2026", dict(raw=1, vsrc="tao_wcworkout", vss=960.0, quote="If 1:44 is my bad race, I'm happy with that.", who="Cooper Lutkenhaus, after his only loss")),
     (("hobbs kessler said", 9), BZ, 125.26, 133.40, "Donavan Brazier · LetsRun · 2025 USAs", R),
     (("and then cooper did", 9), KE, 122.86, 151.22, "Hobbs Kessler on Cooper · LetsRun · July 2026", R),
-    (("and he skipped it", 9), PR, 88.50, 103.56, "Cooper Lutkenhaus · CITIUS MAG · July 2026", R),
+    (("and he skipped it", 9), PR, 88.50, 103.56, "Cooper Lutkenhaus · CITIUS MAG · July 2026", dict(raw=1, vsrc="tao_workout25", vss=640.0, quote="One more year of high school.", who="Cooper Lutkenhaus, July 2026")),
     (("so think about where", 10), U6, 160.40, 171.76, "Cooper Lutkenhaus after the US title · CITIUS MAG", R),
     (("if he keep going", 10), A1, 291.86, 303.86, "Cooper Lutkenhaus, 16, on 2028 · LetsRun · Aug 2025", R),
     (("so yall tell me", 10), U6, 71.82, 82.52, "Cooper Lutkenhaus · CITIUS MAG · July 2026", R),
-    (("let me know in the comments", 10), PR, 133.82, 136.98, "Cooper Lutkenhaus · CITIUS MAG · July 2026", R),
+    (("let me know in the comments", 10), PR, 133.82, 136.98, "Cooper Lutkenhaus · CITIUS MAG · July 2026", dict(raw=1, vsrc="tao_wcworkout", vss=700.0, quote="I know I'm better than that, so I just gotta go out and prove it.", who="Cooper Lutkenhaus")),
 ]
 SPLIT_AT = {}
 
@@ -132,12 +132,12 @@ def edl(a, S, O, number, title, name, quote, date, chapter, PART):
     # 8 Diamond League --------------------------------------------------------------------------------
     S(PART[8] - 0.05, WC, 170.0, flash=1); chapter(PART[8] + 0.2, "07", "Beating The Best"); lb(O, PART[8], 3.4)
     S(a("diamond league in stockholm"), WC, 180.0); date(a("diamond league in stockholm"), 2.6, "June 7, 2026", "Diamond League debut · Stockholm")
-    S(a("marco arop"), OS, 1.0); number(a("to win in") + 0.3, 2.8, "1:42.70", "Stockholm · 1st", "Beats Marco Arop")
-    S(a("a few days later in oslo"), OS, 30.0); number(a("he'd run 142") + 0.3, 3.0, "1:42.08", "World U20 record · Oslo", "Beats Olympic champion Wanyonyi by 0.01")
+    S(a("marco arop"), WC, 380.0); number(a("to win in") + 0.3, 2.8, "1:42.70", "Stockholm · 1st", "Beats Marco Arop")
+    S(a("a few days later in oslo"), WC, 400.0); number(a("he'd run 142") + 0.3, 3.0, "1:42.08", "World U20 record · Oslo", "Beats Olympic champion Wanyonyi by 0.01")
     S(a("another under 20"), WC, 560.0)
-    S(a("and he'd dive at the line"), OS, 40.0, slow=0.6); season(O, a("by one hundredth") + 0.2, 4, 2.6)
-    S(a("a high schooler beat"), OS, 50.0)
-    S(a("his only loss"), PR, 20.0); name(a("brandon miller got him") - 0.2, 2.6, "Brandon Miller", "1st · Prefontaine Classic · 1:43.68")
+    S(a("and he'd dive at the line"), U25, 124.0, slow=0.5); season(O, a("by one hundredth") + 0.2, 4, 2.6)
+    S(a("a high schooler beat"), MK, 108.0, slow=0.6)
+    S(a("his only loss"), WC, 760.0); name(a("brandon miller got him") - 0.2, 2.6, "Brandon Miller", "1st · Prefontaine Classic · 1:43.68")
     S(a("then at usas in new york"), U6, 30.0); number(a("he won by") + 0.4, 3.0, "1.07 s", "Winning margin · 2026 USAs", "Biggest since 2014")
     S(a("the biggest winning"), WC, 880.0)
     S(a("seven wins out of eight"), U6, 100.0); season(O, a("seven wins out of eight") - 0.3, 6, 3.4)
