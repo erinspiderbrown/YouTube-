@@ -27,7 +27,7 @@ def _tok(w):
     return _NUMW[int(t)] if t.isdigit() and int(t) <= 20 else t
 TOK = [_tok(x["w"]) for x in WORDS]
 VO_END = WORDS[-1]["e"]
-PART = {1: 0.0, 2: 37.98, 3: 78.81, 4: 134.36, 5: 173.93, 6: 223.33, 7: 271.67, 8: 304.33, 9: 344.99}   # parts 1..9 in vo_ruthe.mp3
+PART = {1: 0.0, 2: 40.94, 3: 81.77, 4: 137.32, 5: 176.89, 6: 226.29, 7: 274.63, 8: 307.29, 9: 347.95}   # parts 1..9 in vo_ruthe.mp3
 _CUR = [0.0]
 def A(phrase, after=None, end=False, win=45):
     """First match of `phrase` at/after the running cursor; tolerant of whisper misspellings."""
@@ -336,14 +336,15 @@ def stage_audio():
     # dark open -> prodigy/USC/43.45 (rise) -> chokes (dark) -> gold (tense) -> switch + Paris (dark) -> comeback (hope/dark)
     # -> soft + Japan (tense) -> verdict (reflective)
     # Cooper rise: cold open (dark) -> Justin/record/1:42 (rise) -> Nike + Tokyo (tense) -> 2026 run (triumph) -> respect/senior (reflective) -> end
-    # Ruthe: cold open (dark) -> family/15/records (rise) -> Boston (triumph) -> Hocker lesson (tense) -> injury (sad) -> decision (dark) -> end (reflective)
-    beds = [bed(f"{M1}/M1_cold-open-background.mp3", 0, Pt[2] + 0.4, 0.48, end, 1.0, 1.5),
-            bed(f"{M1}/M2_sydney.mp3", Pt[2] - 0.2, Pt[5] + 0.4, 0.40, end, 0.6, 1.2),
-            bed(f"{T2}/triumph_drums_choir.mp3", Pt[5] - 0.2, Pt[6] + 0.4, 0.34, end, 0.8, 1.5),
-            bed(f"{M1}/M4_coaching-ban.mp3", Pt[6] - 0.2, Pt[7] + 0.4, 0.42, end, 0.6, 1.2),
-            bed(f"{T2}/grief_kalimba.mp3", Pt[7] - 0.2, Pt[8] + 0.4, 0.40, end, 0.6, 1.2),
-            bed(f"{M1}/M3_rule-paris-fallout.mp3", Pt[8] - 0.2, Pt[9] + 0.4, 0.40, end, 0.6, 1.2),
-            bed(f"{M1}/M5_verdict-ending.mp3", Pt[9] - 0.2, end, 0.48, end, 0.8, 3.5)]
+    # Ruthe: its own score (ElevenLabs music v2.5, flow aXvnFu3COJL7mFlxv084, M1-M7), one track per mood
+    MU = f"{P}/music"
+    beds = [bed(f"{MU}/M1_cold_open.mp3", 0, Pt[2] + 0.4, 0.58, end, 1.0, 1.5),
+            bed(f"{MU}/M2_the_rise.mp3", Pt[2] - 0.2, Pt[5] + 0.4, 0.52, end, 0.8, 1.5),
+            bed(f"{MU}/M3_boston.mp3", Pt[5] - 0.2, Pt[6] + 0.4, 0.48, end, 0.8, 1.5),
+            bed(f"{MU}/M4_the_lesson.mp3", Pt[6] - 0.2, Pt[7] + 0.4, 0.50, end, 0.6, 1.2),
+            bed(f"{MU}/M5_the_injury.mp3", Pt[7] - 0.2, Pt[8] + 0.4, 0.58, end, 0.6, 1.5),
+            bed(f"{MU}/M6_the_decision.mp3", Pt[8] - 0.2, Pt[9] + 0.4, 0.56, end, 0.6, 1.2),
+            bed(f"{MU}/M7_whats_next.mp3", Pt[9] - 0.2, end, 0.56, end, 0.8, 3.5)]
     S_ = sfx_plan(shots, ov)
     ins, fl = [], []; nb = len(beds); base = 2 + nb
     for j, (t, path, g) in enumerate(S_):
