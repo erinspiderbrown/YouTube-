@@ -2,7 +2,7 @@
 Title: "He's Still In High School... And He's A World Champion" (pairs with the user's "How Is This Possible?" thumbnail)
 
 ## Part 1
-This year a high school junior from Texas went overseas, won a world title, and was back in class the next week. His name is Cooper Lutkenhaus, he's 17, and he's already beaten the Olympic champion in the 800. I've been watching track my whole life and I really don't think we've ever seen a kid do what he's doing right now. So let me show y'all how he went from a freshman nobody knew to the best young runner in the world.
+This year a high school junior from Texas went overseas, won a world title, and was back in class the next week. His name is Cooper Lutkenhaus, he's 17, and he's already beaten the Olympic champion in the 800. I've been watching track for a while now and I really don't think we've ever seen a kid do what he's doing right now. So let me show y'all how he went from a freshman nobody knew to the best young runner in the world.
 
 ## Part 2
 Cooper is from Justin, Texas, a small town right outside Fort Worth, and he runs for Northwest High School. He didn't even start running until 7th grade, and he was playing a bunch of other sports too. It wasn't until the summer before his freshman year that he decided track was gonna be his thing. And his dad George been coaching high school running for years, so he grew up around it.
