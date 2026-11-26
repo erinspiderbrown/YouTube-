@@ -20,7 +20,7 @@ R = {"raw": 1}
 # cold open: the sub-4 at 15, the commentator's call ("Here they come... That's a sub four, baby. That's a sub four.")
 PRE_SB = ("sub4", 246.30, 265.40, "Commentary · ACA Mile Night · March 19, 2025")
 SB_LIST = [  # ((insert before phrase, part), src, a, b, credit[, opts])
-    (("so i want to go through", 1), "lr_ben", 104.60, 111.40, "Ben Ruthe, Sam's dad · LetsRun · Boston", R),
+    (("so im gonna break down", 1), "lr_ben", 104.60, 111.40, "Ben Ruthe, Sam's dad · LetsRun · Boston", R),
     (("but i really respect this part", 2), "bu_fan", 511.92, 525.50, "Sam Ruthe on his dad · fan video · Boston"),
     (("when he finally did start", 3), "bu_fan", 649.66, 661.18, "Ben Ruthe · fan video · Boston"),
     (("both", 3), "nztie", 218.40, 238.10, "Commentary · NZ 1500m final · March 2025", R),
@@ -54,18 +54,18 @@ def lb(O, t, dur): O(t, dur, ("letterbox",))
 def edl(a, S, O, number, title, name, quote, date, chapter, PART):
     # 1 cold open ---------------------------------------------------------------------------------------
     S(PART[1] - 0.05, BU, 170.0, flash=1); lb(O, PART[1], 9.0)
-    S(a("and this kid flew"), BU, 30.0)
+    S(a("and this little dude flew"), BU, 30.0)
     S(a("ran his first race"), BU, 195.0, slow=0.7)
-    S(a("and beat a bunch"), BU, 245.0, slow=0.5)
+    S(a("and beat a whole bunch"), BU, 245.0, slow=0.5)
     number(a("for the mile") - 1.6, 3.2, "3:48.88", "Mile · world U18 best", "Age 16 · Boston · Jan 31, 2026")
-    S(a("his name is"), BU, 272.0)
-    title(a("his name is") + 0.3, 3.2, "16 years old · New Zealand", "Sam Ruthe")
-    S(a("and honestly"), B4, 15.0, slow=0.7)
+    S(a("his names sam"), BU, 272.0)
+    title(a("his names sam") + 0.3, 3.2, "16 years old · New Zealand", "Sam Ruthe")
+    S(a("and i aint gonna hold"), B4, 15.0, slow=0.7)
     S(a("cause jakob"), CK, 140.0)
     S(a("couldnt even run that"), BU, 255.0, slow=0.5)
     S(a("how this kid got here"), B4, 190.0)
-    S(a("race and the way"), B1, 30.0, bw=1)
-    S(a("not how anybody"), B1, 72.0, bw=1, slow=0.7)
+    S(a("and the way his year"), B1, 30.0, bw=1)
+    S(a("aint nobody"), B1, 72.0, bw=1, slow=0.7)
     # 2 Tauranga ----------------------------------------------------------------------------------------
     S(PART[2] - 0.05, B4, 140.0, flash=1); chapter(PART[2] + 0.2, "01", "Tauranga"); lb(O, PART[2], 3.4)
     date(a("sam from tauranga"), 2.8, "Tauranga, New Zealand", "Bay of Plenty · North Island")
