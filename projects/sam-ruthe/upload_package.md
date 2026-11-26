@@ -7,6 +7,6 @@
 - Tags: Sam Ruthe, Sam Ruthe mile, Sam Ruthe 3:48, Sam Ruthe 3:48.88, youngest sub 4 mile, fastest 16 year old, New Zealand running, Sam Tanner, John Walker record, Jakob Ingebrigtsen, Cole Hocker, mile, 1500m, track and field
 - 19 soundbites: Ben Ruthe, Sam Tanner, NZ PM Christopher Luxon, Sam (LetsRun, Boston fan video, Stuff audio-only, Back on Track), race calls (Athletics NZ).
 - Scheduled 27 Nov 2026 6:00 AM MT (13:00 UTC), all three:
-  - YouTube: https://www.youtube.com/watch?v=cmTmg07-Byg (vidIQ post fe386ab3; verified private + publishAt 2026-11-27T13:00:00Z, category 17, tags, user thumbnail).
+  - YouTube: https://www.youtube.com/watch?v=cmTmg07-Byg (vidIQ post fe386ab3; verified private + publishAt 2026-11-27T13:00:00Z, category 17, tags, user thumbnail). Captions uploaded (captions.srt, serving, id AUieDaYQvuFwbfJfYJ1unQpkrAQ4mZZ8CpFoz07eeKS1Edat4CIHk1hl).
   - Facebook (E.Diamondz): video 1048674168245100, scheduled_publish_time 1795784400, thumbnail set.
   - TikTok (Erin Spider Brown): vidIQ post fe667552, scheduled 13:00 UTC, public, comments on, music confirmed; vertical with tiktok_cover.jpg (make_tiktok_cover.py) on the first 1.2 s; caption starts #5MinutePlus.
