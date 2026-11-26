@@ -26,7 +26,7 @@ SB_LIST = [  # ((insert before phrase, part), src, a, b, credit[, opts])
     (("thats an under", 4), BZ, 122.10, 133.40, "Donavan Brazier, 2019 world champion · LetsRun", R),
     (("the first 16 year old american", 4), A1, 74.45, 84.72, "Cooper Lutkenhaus · LetsRun · 2025 USAs", R),
     (("right after that nike", 5), A1, 373.62, 383.02, "Cooper Lutkenhaus, before he turned pro · LetsRun · Aug 2025", R),
-    (("and he said it himself", 6), WI, 164.18, 170.04, "Cooper Lutkenhaus on Tokyo · LetsRun · March 2026", R),
+    (("and he said it himself", 6), WI, 166.52, 170.04, "Cooper Lutkenhaus on Tokyo · LetsRun · March 2026", R),
     (("now a lot of kids", 6), WI, 62.50, 77.82, "Cooper Lutkenhaus on Tokyo · LetsRun · March 2026", R),
     (("he did that over spring", 7), WI, 0.00, 12.30, "Cooper Lutkenhaus, world indoor champion · LetsRun", R),
     (("a 17 year old beat", 8), OS, 14.76, 24.18, "Cooper Lutkenhaus after beating Wanyonyi · LetsRun · Oslo", R),
@@ -34,9 +34,9 @@ SB_LIST = [  # ((insert before phrase, part), src, a, b, credit[, opts])
     (("and he skipped it", 9), PR, 88.50, 103.56, "Cooper Lutkenhaus · CITIUS MAG · July 2026", R),
     (("a kid who already got paid", 9), U6, 160.40, 171.76, "Cooper Lutkenhaus after the US title · CITIUS MAG", R),
     (("and when he lost at pre", 10), U6, 406.18, 423.50, "Cooper Lutkenhaus · CITIUS MAG · July 2026", R),
-    (("and to me thats the biggest", 10), KE, 120.78, 151.22, "Hobbs Kessler on Cooper · LetsRun · July 2026", R),
+    (("and to me thats the biggest", 10), KE, 122.86, 151.22, "Hobbs Kessler on Cooper · LetsRun · July 2026", R),
     (("thats a lot to put on a kid", 11), U6, 71.82, 82.52, "Cooper Lutkenhaus · CITIUS MAG · July 2026", R),
-    (("let me know in the comments", 11), PR, 134.00, 136.98, "Cooper Lutkenhaus · CITIUS MAG · July 2026", R),
+    (("let me know in the comments", 11), PR, 133.82, 136.98, "Cooper Lutkenhaus · CITIUS MAG · July 2026", R),
 ]
 SPLIT_AT = {}
 
@@ -127,7 +127,7 @@ def edl(a, S, O, number, title, name, quote, date, chapter, PART):
     S(a("and then in march"), WI, 25.0); number(a("and won it") + 0.1, 3.0, "1:44.24", "World Indoor 800m champion", "Youngest ever · age 17")
     S(a("and won it"), WC, 330.0, punch=0.4)
     S(a("and became the youngest"), WI, 100.0); season(O, a("and became the youngest") + 0.6, 2, 3.0)
-    S(a("he did that over spring"), WC, 300.0)
+    S(a("he did that over spring"), WC, 345.0)
     S(a("then he went back to class"), WC, 1030.0, punch=0.3)
     # 8 Diamond League --------------------------------------------------------------------------------
     S(PART[8] - 0.05, WC, 170.0, flash=1); chapter(PART[8] + 0.2, "07", "Diamond League"); lb(O, PART[8], 3.4)
