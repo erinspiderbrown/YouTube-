@@ -13,3 +13,14 @@
 12. Noah Lyles Is Done... (82)
 13. Is Noah Lyles Washed? (81)
 Teleprompter: https://claude.ai/artifact/DmndGybGfidRUXdsQLvxXg
+
+## Round 2 (26 Nov 2026), paired with the user's thumbnail "This is really bad" (crying Noah)
+vidIQ scores, channel UCiMHg3V2Q414zFIjb8PyTcg:
+1. America's Fastest Man... What Went Wrong? (96)
+2. The Fall Of America's Fastest Man (94)
+3. The World's Fastest Man Is Breaking Down (94)
+4. Noah Lyles Is In Trouble (91)
+5. The Fastest Man Alive Is Falling Apart (88)
+6. Noah Lyles Is Running Out Of Time (88)
+7. What Happened To Noah Lyles? (86)
+8. Is Noah Lyles Washed? (81)
