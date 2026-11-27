@@ -33,7 +33,8 @@ PRE_SB = ("mh_prerace", 3.56, 10.78, "Yomif Kejelcha, two days before London · 
 R = {"raw": 1}
 SB_LIST = [  # ((insert before phrase, part), src, a, b, credit[, opts])
     (("yall i aint", 1), "livenow_gault", 213.70, 225.04, "Jonathan Gault, LetsRun · via LiveNOW from FOX",
-     dict(vsrc="co_finish", vss=0.0, subs=1, name=("Jonathan Gault", "LetsRun.com", "Audio · LiveNOW from FOX"), tr="whip")),
+     dict(vsrc="co_finish", vss=0.0, subs=1, name=("Jonathan Gault", "LetsRun.com", "Audio · LiveNOW from FOX"), tr="whip",
+          subfix=[("second man of the two hours", "second man under two hours")])),
     (("yomif was born", 2), "cit_post", 20.98, 23.96, "Yomif Kejelcha · CITIUS MAG", dict(subs=1, name=KJ)),
     (("yomif was born", 2), "let_disbelief", 14.38, 34.68, "Yomif Kejelcha · LetsRun.com", dict(subs=1, tr="none")),
 ]

@@ -60,7 +60,7 @@ def iname(t, dur, nm, role, where=""):
     """Interview ID, lower-left; leaves after ~4.5 s even if the bite runs on."""
     d_ = min(dur, 4.8); k = life(t, d_, 0.7, 0.5); g = ease(seg(t, 0.05, 0.9))
     if k <= 0: return layer()
-    x, y = 132, H - 250
+    x, y = 132, H - 330
     im = layer(); d = ImageDraw.Draw(im)
     d.line([(x - 26, y - 52), (x - 26, y - 52 + 120 * g)], fill=ACCENT + (255,), width=3)
     d.text((x, y), nm, font=F(DISP_SEMI, 54), fill=WHITE + (255,), anchor="ls")

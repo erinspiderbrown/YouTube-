@@ -153,12 +153,12 @@ def timeline():
         cont["ss"] = prev["ss"] + (s["t"] - prev["t"]) * prev.get("slow", 1)
         vo_shots.append(cont)
     vo_shots.sort(key=lambda s: s["t"])
-    seq = [dict(T=0.0, src=PRE_SB[0], ss=PRE_SB[1] - PAD, tag=PRE_SB[3], sb=1, **(PRE_SB[4] if len(PRE_SB) > 4 else {}))]
+    seq = [dict(T=0.0, src=PRE_SB[0], ss=PRE_SB[1] - PAD, tag=PRE_SB[3], sb=1, _sbend=PRE_SB[2], **(PRE_SB[4] if len(PRE_SB) > 4 else {}))]
     for v in vo_shots:
         d = dict(v); d["T"] = round(FT(v["t"]), 3); seq.append(d)
     for s in SOUNDBITES:
-        seq.append(dict(T=round(SB_START(s), 3), src=s["src"], ss=round(s["ss"] - PAD, 3), tag=s["tag"], sb=1,
-                        **{k: s[k] for k in ("vsrc", "vss", "quote", "who", "crop", "name", "subs", "tr") if k in s}))
+        seq.append(dict(T=round(SB_START(s), 3), src=s["src"], ss=round(s["ss"] - PAD, 3), tag=s["tag"], sb=1, _sbend=round(s["ss"] + s["dur"], 3),
+                        **{k: s[k] for k in ("vsrc", "vss", "quote", "who", "crop", "name", "subs", "tr", "subfix") if k in s}))
     seq.sort(key=lambda x: x["T"])
     # no flash cuts: drop any non-soundbite shot shorter than 0.9 s (the previous shot runs on instead)
     keep = []
@@ -217,18 +217,25 @@ def ov_mov(spec, dur):
     if not os.path.exists(p): K.render(spec, dur, p)
     return p
 
-def sub_words(src, ss, dur, fix=None):
-    """Clip transcript words inside [ss, ss+dur] -> [(word, t0, t1)] relative to the shot start."""
+SUBFIX = [("Solway", "Sawe"), ("Sawi", "Sawe"), ("Kejelcher", "Kejelcha"), ("Kajelcher", "Kejelcha"), ("Kejalcha", "Kejelcha"), ("Kejelja", "Kejelcha"),
+          ("Faresmarata", "First marathon"), ("Addis", "Haile")]
+def sub_words(src, ss, dur, end=None, fix=None):
+    """Clip transcript words inside [ss, min(ss+dur, end)] -> [(word, t0, t1)] relative to the shot start.
+    fix: [(old phrase, new phrase)] applied to consecutive words (whisper mishears), plus the global SUBFIX."""
     try: segs = json.load(open(f"{CS}/tx/{src}.json"))
     except FileNotFoundError: return []
-    FIX = {"Kejalcha": "Kejelcha", "Kejelja": "Kejelcha", "Sawi": "Sawe", "Sawa": "Sawe", "Haile,": "Haile,"}
-    out = []
-    for sg in segs:
-        for w in sg["words"]:
-            if w["s"] >= ss - 0.05 and w["e"] <= ss + dur + 0.05:
-                t = w["w"].strip(); t = FIX.get(t, t)
-                if t: out.append((t, round(w["s"] - ss, 2), round(w["e"] - ss, 2)))
-    return out
+    lim = min(ss + dur, end + 0.15) if end else ss + dur
+    ws = [[w["w"].strip(), round(w["s"] - ss, 2), round(w["e"] - ss, 2)] for sg in segs for w in sg["words"]
+          if w["s"] >= ss - 0.05 and w["s"] <= lim and w["w"].strip()]
+    def norm(x): return "".join(c for c in x.lower() if c.isalnum())
+    for old, new in list(fix or []) + SUBFIX:
+        ot = [norm(x) for x in old.split()]; i = 0
+        while i <= len(ws) - len(ot):
+            if [norm(w[0]) for w in ws[i:i + len(ot)]] == ot:
+                trail = "".join(c for c in ws[i + len(ot) - 1][0] if not c.isalnum() and c not in "'")[-1:]
+                ws[i] = [new + trail, ws[i][1], ws[i + len(ot) - 1][2]]; del ws[i + 1:i + len(ot)]
+            i += 1
+    return [tuple(w) for w in ws]
 
 def tag_png(tag):
     p = f"{R}/tags/{hashlib.md5(tag.encode()).hexdigest()[:10]}.png"
@@ -280,7 +287,7 @@ def render_shot(i, sh, T1, OV):
         mov = ov_mov(("iname",) + tuple(sh["name"]), min(dur, 5.0)); k += 1; ins += ["-i", mov]
         vf.append(f"[{k}:v]setpts=PTS-STARTPTS,format=rgba[o{k}];[b{k - 1}][o{k}]overlay=0:0:eof_action=pass[b{k}]")
     if sh.get("subs"):
-        ws = sub_words(sh.get("_asrc", src), sh.get("_ass", sh["ss"]), dur)
+        ws = sub_words(sh.get("_asrc", src), sh.get("_ass", sh["ss"]), dur, sh.get("_sbend"), sh.get("subfix"))
         if ws:
             mov = ov_mov(("subs", ws), dur); k += 1; ins += ["-i", mov]
             vf.append(f"[{k}:v]setpts=PTS-STARTPTS,format=rgba[o{k}];[b{k - 1}][o{k}]overlay=0:0:eof_action=pass[b{k}]")
@@ -373,6 +380,8 @@ def make_sfx(kind, seed):
     return p
 
 def bed(path, t0, t1, vol, end, fin=1.5, fout=2.5, offset=0.0):
+    if t0 >= end - 0.5: return None
+    t1 = min(t1, end)
     out = f"{R}/bed_{os.path.basename(path)}_{t0:.1f}.wav"; L = t1 - t0; dl = int(t0 * 1000)
     run(["ffmpeg", "-v", "error", "-y", "-stream_loop", "-1", "-ss", str(offset), "-i", path, "-t", f"{L:.2f}", "-af",
          f"volume={vol},afade=t=in:st=0:d={fin},afade=t=out:st={max(0, L - fout):.2f}:d={fout},adelay={dl}|{dl},apad=whole_dur={end:.2f}",
@@ -410,6 +419,7 @@ def stage_audio():
             bed(f"{MU}/K4_london_chase.mp3", Pt[6] - 0.2, Pt[8] + 0.4, 0.54, end, 0.8, 1.2),
             bed(f"{MU}/K5_aftermath.mp3", Pt[8] - 0.2, Pt[10] + 0.4, 0.50, end, 0.8, 1.5),
             bed(f"{MU}/K6_rematch.mp3", Pt[10] - 0.2, end, 0.55, end, 0.8, 3.5)]
+    beds = [b for b in beds if b]
     S_ = sfx_plan(shots, ov)
     ins, fl = [], []; nb = len(beds); base = 2 + nb
     for j, (t, path, g) in enumerate(S_):
