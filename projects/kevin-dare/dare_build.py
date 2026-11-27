@@ -204,6 +204,7 @@ def _isvert(src):
         return h > w
     except Exception: return False
 CLIPLEN.update({os.path.splitext(f)[0]: _cliplen(os.path.splitext(f)[0]) for f in os.listdir(REAL) if f.endswith('.mp4')})
+CLIPLEN["mondo_slowmo"] = 38.0   # Born To Fly end card after ~40 s
 VERT = {os.path.splitext(f)[0] for f in os.listdir(REAL) if f.endswith(".mp4") and _isvert(os.path.splitext(f)[0])}
 GRADE = ("colorbalance=rs=-0.03:gs=-0.01:bs=0.04:rh=0.03:gh=0.01:bh=-0.02,eq=contrast=1.07:saturation=0.86:gamma=0.98,"
          "vignette=angle=PI/5,unsharp=5:5:0.6")   # cinematic grade: teal shadows / warm highlights, soft vignette, no grain
