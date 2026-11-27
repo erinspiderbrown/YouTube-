@@ -6,7 +6,7 @@
 - Title: He Died At A Track Meet... In Front Of His Parents (user pick, vidIQ 98). Thumbnail: thumbnail_user_dead_at_19.jpg (user, "dead at 19", colorized Penn State headshot).
 - Description: description.txt (chapters filled). Tags: Kevin Dare, Penn State, pole vault, pole vault death, pole vault safety, Big Ten, track and field tragedy, Ed Dare, box collar, pole vault helmet
 - Scheduled Sunday 29 Nov 2026 6:00 AM MT (13:00 UTC):
-  - YouTube: https://www.youtube.com/watch?v=mW50vmjxdIE (vidIQ post ebf11b6f; v2 render with clean NPR cuts; private + publishAt, category 17, tags, user thumbnail). Captions: captions.srt, upload after quota reset (scheduled task 27 Nov 08:20 UTC).
-  - Old first upload nQW7eP45Y5s (tiny NPR narrator leaks): renamed "[old copy - do not publish]", set private; scheduled task checks its publish time is gone and deletes it.
+  - YouTube: https://www.youtube.com/watch?v=mW50vmjxdIE (vidIQ post ebf11b6f; v2 render with clean NPR cuts; private + publishAt, category 17, tags, user thumbnail). Captions uploaded 27 Nov (id AUieDaYfYrU4CDyiFDM_Kxv5YUCxZrWIXRHuEK7AA5oYMop9Fiyeu3Hk). Verified private + publishAt 2026-11-29T13:00:00Z, category 17, 12 tags, thumbnail.
+  - Old first upload nQW7eP45Y5s (tiny NPR narrator leaks): renamed "[old copy - do not publish]", set private; no longer on the channel (27 Nov 08:22 UTC check: the YouTube API returns nothing for it).
   - Facebook (E.Diamondz): video 1191133003923621 (v2), scheduled_publish_time 1795957200, thumbnail set. (v1 2535423406982299 deleted.)
   - TikTok (Erin Spider Brown): vidIQ post 1c70430b (v2 media), scheduled 13:00 UTC, public, comments on, music confirmed; tiktok_cover.jpg on the first 1.2 s; caption starts #5MinutePlus.

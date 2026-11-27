@@ -7,6 +7,6 @@
 - Tags: Noah Lyles, Noah Lyles 200m, Noah Lyles injury, Noah Lyles hamstring, Noah Lyles Olympics, Noah Lyles falling off, Noah Lyles 2026, Kishane Thompson, Letsile Tebogo, Jordan Anthony, Garrett Kaalund, Usain Bolt, 200m, sprinting, track and field
 - 14 soundbites: Noah (Instagram, AP, LetsRun 2016, own channel, CITIUS, CGTN, Beyond The Records, Budapest presser audio-only), Jordan Anthony, Garrett Kaalund.
 - Scheduled 28 Nov 2026 6:00 AM MT (13:00 UTC):
-  - YouTube: https://www.youtube.com/watch?v=qDLDEMSnO_c (vidIQ post 8a4662b9; private + publishAt 2026-11-28T13:00:00Z, category 17, tags, user thumbnail). Captions: captions.srt, upload after the YouTube quota resets (scheduled task 27 Nov 08:20 UTC).
+  - YouTube: https://www.youtube.com/watch?v=qDLDEMSnO_c (vidIQ post 8a4662b9; private + publishAt 2026-11-28T13:00:00Z, category 17, tags, user thumbnail). Captions uploaded 27 Nov (serving, id AUieDaaGRJJPRSsig44C-TwhsFKwfIkEnNKio6nfkp8Bxg_w8zVJd_tU). Verified private + publishAt 2026-11-28T13:00:00Z, category 17, tags, thumbnail.
   - Facebook (E.Diamondz): video 1135927512614447, scheduled_publish_time 1795870800, thumbnail set.
   - TikTok (Erin Spider Brown): vidIQ post 30fe6205, scheduled 13:00 UTC, public, comments on, music confirmed; vertical with tiktok_cover.jpg (make_tiktok_cover.py) on the first 1.2 s.
