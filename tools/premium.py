@@ -103,7 +103,8 @@ def gap(t, dur, a_name, a_secs, b_name, b_secs, gap_text, kicker=""):
         d.line([(x0, y), (X(cur), y)], fill=col + (255,), width=6)
         d.ellipse([X(cur) - 9, y - 9, X(cur) + 9, y + 9], fill=col + (255,))
         d.text((x0, y - 34), nm, font=F(DISP_SEMI, 40), fill=WHITE + (255,), anchor="ls")
-        d.text((x1, y - 30), _fmt(cur, False), font=F(DISP_MED, 48), fill=col + (255,), anchor="rs")
+        hund = abs(b_secs - a_secs) < 2
+        d.text((x1, y - 30), _fmt(secs if (hund and roll >= 0.999) else cur, hund), font=F(DISP_MED, 48), fill=col + (255,), anchor="rs")
     bk = ease(seg(t, 3.7, 4.4))
     if bk > 0:
         xa, xb = X(a_secs), X(b_secs); yb = lane_y[1] + 70
