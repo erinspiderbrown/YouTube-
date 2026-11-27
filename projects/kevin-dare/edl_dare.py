@@ -21,24 +21,24 @@ R = {"raw": 1}
 NPR = "npr_2002"
 ED = "Ed Dare, Kevin's father · NPR · April 2002"
 # cold open: his dad on the last thing Kevin said to him
-PRE_SB = (NPR, 69.10, 79.20, ED, dict(vsrc="umn_fieldhouse", vss=16.0, quote="Dad... this is my day.", who="Kevin Dare, to his father, before the jump"))
+PRE_SB = (NPR, 69.18, 79.05, ED, dict(vsrc="umn_fieldhouse", vss=16.0, quote="Dad... this is my day.", who="Kevin Dare, to his father, before the jump"))
 SB_LIST = [  # ((insert before phrase, part), src, a, b, credit[, opts])
-    (("and he could jump", 3), NPR, 35.90, 47.40, "NPR · All Things Considered · April 2002",
+    (("and he could jump", 3), NPR, 36.85, 47.45, "NPR · All Things Considered · April 2002",
      dict(raw=1, vsrc="kdi_2014", vss=110.0)),
-    (("they rushed him", 5), NPR, 101.40, 120.60, ED,
+    (("they rushed him", 5), NPR, 101.90, 120.75, ED,
      dict(raw=1, vsrc="umn_fieldhouse", vss=30.0, quote="I immediately left my seat and ran down to the track.", who="Ed Dare")),
-    (("the whole building", 6), NPR, 120.80, 134.50, "NPR · April 2002",
+    (("the whole building", 6), NPR, 121.05, 134.50, "NPR · April 2002",
      dict(raw=1, vsrc="ph_kevin", vss=0.0, quote="53 days of just absolute living hell.", who="Ed Dare, on what would have been Kevin's 20th birthday")),
-    (("but ed and terri", 8), NPR, 164.80, 182.30, ED,
+    (("but ed and terri", 8), NPR, 164.75, 182.35, ED,
      dict(raw=1, vsrc="umn_snow", vss=117.0, quote="Young athletes are dying.", who="Ed Dare, April 2002")),
-    (("now to be fair", 8), NPR, 316.50, 330.30, ED,
+    (("now to be fair", 8), NPR, 316.75, 330.30, ED,
      dict(raw=1, vsrc="hs_gopro", vss=84.0, quote="No one's going to sit here and tell me that a helmet would not have protected those athletes.", who="Ed Dare")),
     (("but i really feel", 8), "jj_johnson", 287.86, 298.60, "Jan Johnson, USATF pole vault safety chair · Your Pivot Journey"),
     (("but i really feel", 8), "jj_johnson", 643.10, 669.90, "Jan Johnson · on the steel plant box", R),
     (("and kevin name never", 9), "jj_johnson", 538.90, 557.60, "Jan Johnson · Your Pivot Journey", R),
     (("and kevin name never", 9), "fox_roach", 53.10, 85.40, "KTLA · September 2009 · Leon Roach, 19, UC San Diego", R),
     (("his brother eric grew", 9), "psu_award", 6.55, 12.85, "Penn State · Kevin Dare Most Inspirational Award", R),
-    (("so the next time", 10), NPR, 442.10, 460.10, ED,
+    (("so the next time", 10), NPR, 442.50, 460.00, ED,
      dict(raw=1, vsrc="kdi_2017", vss=80.0, quote="The day that I can go out there and watch vaulters compete again...", who="Ed Dare")),
 ]
 SPLIT_AT = {}
