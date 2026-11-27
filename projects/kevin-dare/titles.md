@@ -1,0 +1,7 @@
+# Kevin Dare: title ideas (vidIQ scores, 27 Nov 2026)
+1. He Died At A Track Meet... In Front Of His Parents (98)
+2. America's Best Young Pole Vaulter... What Happened? (94)
+3. The Tragic Death Of A 19-Year-Old Pole Vaulter (93)
+4. The Pole Vault Death That Changed Everything (92)
+5. The Jump That Changed Track Forever (88)
+6. He Never Came Back Down (78)
