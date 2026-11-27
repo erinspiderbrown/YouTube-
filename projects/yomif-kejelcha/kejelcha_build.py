@@ -168,6 +168,8 @@ def timeline():
         keep.append(x)
     seq = keep
     end = FT(VO_END) + 4.0; out = []
+    if os.environ.get("TEST"):   # style test: stop at the start of part TEST (+2 s)
+        end = FT(PART[int(os.environ["TEST"])]) + 2.0; seq = [x for x in seq if x["T"] < end - 0.3]
     # keep cuts every 2-5 s: split any non-soundbite shot longer than 6 s into parts, jumping ahead in the same clip
     split = []
     for i, x in enumerate(seq):
@@ -193,7 +195,7 @@ def timeline():
         f0, f1 = FT(a0), FT(a1)
         for s in SOUNDBITES:
             if a0 < s["t"] < a1: f1 = min(f1, SB_START(s))
-        ov.append((round(f0, 3), round(min(f1, end), 3), spec))
+        if f0 < end - 0.3: ov.append((round(f0, 3), round(min(f1, end), 3), spec))
     return out, ov, end
 
 CROPS = {}
@@ -356,6 +358,7 @@ def vo_track(end):
     for s in SOUNDBITES:
         cut = int(s["t"] * SR); parts.append(x[last:cut]); parts.append(np.zeros((int((s["dur"] + 2 * PAD) * SR), 2), np.float32)); last = cut
     parts.append(x[last:]); y = np.concatenate(parts)
+    if os.environ.get("TEST"): y = y[:int(end * SR)].copy(); y[-int(1.5 * SR):] *= np.linspace(1, 0, int(1.5 * SR))[:, None]
     y = np.concatenate([y, np.zeros((max(0, int(end * SR) - len(y)), 2), np.float32)])[:int(end * SR)]
     p = f"{R}/vo_full.wav"
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-f", "f32le", "-ar", "48000", "-ac", "2", "-i", "-", "-c:a", "pcm_s16le", p], input=y.tobytes(), check=True)
