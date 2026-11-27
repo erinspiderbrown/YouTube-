@@ -28,7 +28,7 @@ def _tok(w):
     return _NUMW[int(t)] if t.isdigit() and int(t) <= 20 else t
 TOK = [_tok(x["w"]) for x in WORDS]
 VO_END = WORDS[-1]["e"]
-PART = {1: 0.0, 2: 39.56, 3: 73.01, 4: 98.16, 5: 144.48, 6: 190.5, 7: 225.41, 8: 264.21, 9: 315.71, 10: 351.74, 11: 385.49}   # parts 1..11 in vo_quincy.mp3
+PART = {1: 0.0, 2: 38.54, 3: 71.99, 4: 97.14, 5: 143.46, 6: 186.59, 7: 213.98, 8: 252.24, 9: 303.64, 10: 330.74, 11: 359.26}   # parts 1..11 in vo_quincy.mp3 (v2, rise + future)
 _CUR = [0.0]
 def A(phrase, after=None, end=False, win=45):
     """First match of `phrase` at/after the running cursor; tolerant of whisper misspellings."""

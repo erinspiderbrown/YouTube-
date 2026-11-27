@@ -16,23 +16,23 @@ TAGS = {
 }
 
 R = {"raw": 1}
-# cold open: his coach in tears after the Trials final
-PRE_SB = ("cit_lee_tears", 249.11, 266.73, "Joe Lee, Bullis coach · CITIUS MAG · 2024 Olympic Trials")
+# cold open: Quincy after breaking the 42-year-old record for the second time
+PRE_SB = ("cit_4459", 13.40, 24.60, "Quincy Wilson, 16, after his 44.59 · CITIUS MAG · 2024 Olympic Trials")
 SB_LIST = [  # ((insert before phrase, part), src, a, b, credit[, opts])
     (("his dad roy", 2), "own_decision", 507.42, 522.18, "Quincy Wilson · The Decision"),
     (("he started running when", 3), "sst_family", 146.92, 159.20, "Quincy Wilson · Sports Stars of Tomorrow"),
     (("he started running when", 3), "sst_family", 188.64, 203.06, "Joe Lee, Bullis coach · Sports Stars of Tomorrow"),
     (("then come the 2024", 4), "sst_family", 41.84, 54.62, "Quincy Wilson · Sports Stars of Tomorrow"),
-    (("he made the final", 4), "cit_4459", 13.40, 24.60, "Quincy Wilson after the 44.59 · CITIUS MAG"),
     (("he made the final", 4), "cit_4459", 46.84, 53.24, "Quincy Wilson · CITIUS MAG"),
     (("and whats crazy is", 4), "cit_lee_tears", 140.63, 156.77, "Joe Lee · CITIUS MAG · 2024 Olympic Trials"),
+    (("but team usa put him", 5), "cit_lee_tears", 249.11, 266.73, "Joe Lee · CITIUS MAG · 2024 Olympic Trials"),
     (("in august", 5), "wjla_int", 97.54, 119.64, "Quincy Wilson on the call · WJLA"),
-    (("now 2025 is where", 6), "sst_family", 254.76, 265.32, "Quincy Wilson on Paris · Sports Stars of Tomorrow"),
-    (("which brings us to", 8), "own_decision", 1037.89, 1059.97, "Quincy Wilson commits to Maryland · The Decision"),
-    (("but he never ran faster", 9), "wusa_penn26", 37.79, 42.67, "Quincy Wilson · WUSA9 · Penn Relays 2026"),
-    (("so this my take", 10), "own_decision", 145.0, 164.0, "Quincy Wilson · The Decision"),
-    (("i really feel like this next", 10), "cit_lee_tears", 63.15, 76.61, "Joe Lee · CITIUS MAG"),
-    (("and the big one is", 11), "sst_family", 340.66, 358.44, "Quincy Wilson · Sports Stars of Tomorrow"),
+    (("and then 2025", 6), "sst_family", 254.76, 265.32, "Quincy Wilson on Paris · Sports Stars of Tomorrow"),
+    (("then his senior year", 8), "own_decision", 1037.89, 1059.97, "Quincy Wilson commits to Maryland · The Decision"),
+    (("and now he got somebody", 8), "wusa_penn26", 37.79, 42.67, "Quincy Wilson · WUSA9 · Penn Relays 2026"),
+    (("so where is he headed", 10), "sst_family", 203.48, 219.42, "Quincy Wilson · Sports Stars of Tomorrow"),
+    (("and the big one is", 11), "own_decision", 145.0, 164.0, "Quincy Wilson · The Decision"),
+    (("so i want to hear", 11), "sst_family", 340.66, 358.44, "Quincy Wilson · Sports Stars of Tomorrow"),
 ]
 SPLIT_AT = {}
 
@@ -47,13 +47,14 @@ def lb(O, t, dur): O(t, dur, ("letterbox",))
 def edl(a, S, O, number, title, name, quote, date, chapter, PART):
     # 1 open ----------------------------------------------------------------------------------------
     S(PART[1] - 0.05, T6, 60.0, flash=1); lb(O, PART[1], 9.0)
-    title(PART[1] + 0.8, 3.4, "Youngest US male track Olympian · gold medalist", "Quincy Wilson")
+    title(PART[1] + 0.8, 3.4, "Olympic gold at 16 · fastest high schooler ever", "Quincy Wilson")
     S(a("sixteen years old"), WK, 31.0)
     S(a("and he came home"), T9, 80.0, slow=0.6)
-    S(a("i aint gonna hold you"), M10, 140.0)
-    S(a("but its been two years"), T9, 100.0, bw=1)
-    S(a("maryland beat him"), C6, 40.0, bw=1)
-    S(a("is quincy wilson still"), T6, 87.0, slow=0.6)
+    S(a("at 17 he ran"), M10, 33.0, slow=0.6)
+    number(a("at 17 he ran") + 1.0, 3.0, "44.10", "400m at 17", "Fastest high schooler ever")
+    S(a("and now this little dude"), UM, 150.0)
+    S(a("a kid that fast"), M10, 140.0)
+    S(a("so im gonna break down"), T6, 87.0, slow=0.6)
     # 2 military kid ---------------------------------------------------------------------------------
     S(PART[2] - 0.05, SS, 122.0, flash=1); chapter(PART[2] + 0.2, "01", "Military Kid"); lb(O, PART[2], 3.4)
     date(a("quincy was born") + 0.3, 3.0, "January 8, 2008", "New London, Connecticut")
@@ -86,51 +87,53 @@ def edl(a, S, O, number, title, name, quote, date, chapter, PART):
     S(a("in august"), WK, 31.0, slow=0.8)
     number(a("in august") + 2.4, 3.2, "16y 214d", "Youngest US male track Olympian", "Passes Jim Ryun")
     S(a("he led off the"), SS, 220.0)
-    number(a("he led off the") + 2.0, 3.0, "47.27", "Paris 4x400 heat · lead-off split", "One of the slowest legs in the heat")
-    S(a("later he said his hamstring"), DEC, 1209.0, bw=1)
-    S(a("team usa ran the final"), SS, 360.0)
+    S(a("team usa won the final"), SS, 360.0)
     S(a("since he ran the"), FX, 198.0)
+    S(a("sixteen years old with olympic"), WK, 18.0, slow=0.7)
     # 6 2025 ---------------------------------------------------------------------------------------
-    S(PART[6] - 0.05, PF, 94.0, flash=1); chapter(PART[6] + 0.2, "05", "The Real Deal"); lb(O, PART[6], 3.4)
+    S(PART[6] - 0.05, PF, 94.0, flash=1); chapter(PART[6] + 0.2, "05", "Takeoff"); lb(O, PART[6], 3.4)
     S(a("at the penn relays he anchored"), PF, 132.0)
     number(a("thats a high schooler") - 0.2, 3.0, "43.99", "4x400 anchor split · Penn Relays 2025", "Bullis 3:06.31 · national high school record")
-    S(a("but they still lost"), PF, 240.0, bw=1)
-    S(a("then in may he lost"), PP, 125.0, bw=1)
-    S(a("and at new balance nationals"), PP, 54.0)
+    S(a("he took a l"), PP, 125.0)
+    S(a("at new balance nationals"), PP, 54.0)
     S(a("and he still went out"), PP, 89.0, slow=0.7)
     # 7 44.10 + Maryland ----------------------------------------------------------------------------
     S(PART[7] - 0.05, M10, 11.0, flash=1); chapter(PART[7] + 0.2, "06", "44.10"); lb(O, PART[7], 3.4)
     S(a("in memphis he ran"), M10, 33.0, slow=0.6)
     number(a("in memphis he ran") + 1.2, 3.4, "44.10", "Memphis · July 12, 2025", "High school + U18 world record")
     S(a("thats the high school record"), M10, 78.0)
-    S(a("but three weeks later"), C6, 120.0, bw=1)
-    title(a("he finished fourth in his") + 0.2, 3.2, "USATF Championships · Aug 1, 2025", "4th in semi · 45.39 · out")
+    S(a("and just to put that"), M10, 100.0, slow=0.7)
+    S(a("he did it at"), M10, 123.0)
     S(a("and in november"), FX, 40.0)
     S(a("texas am south carolina"), FX, 278.0)
     S(a("and he picked maryland"), FX, 436.0)
-    # 8 the rival ------------------------------------------------------------------------------------
-    S(PART[8] - 0.05, AR, 22.0, flash=1); chapter(PART[8] + 0.2, "07", "The Rival"); lb(O, PART[8], 3.4)
-    name(a("theres another kid") + 0.6, 3.0, "Jayden DeLeon", "Montgomery Blair HS · signed with LSU")
-    S(a("he went to montgomery"), AR, 112.0)
-    S(a("in march at new balance"), AR, 201.0)
-    O(a("in march at new balance") + 0.5, 15.5, ("versus", ("Quincy Wilson", "Bullis · Maryland"), ("Jayden DeLeon", "Montgomery Blair · LSU"),
-       [("NB Indoor Nationals · March", "45.37", "45.38"), ("USATF U20 · June", "44.84", "44.52"), ("World U20 final · Eugene · August", "44.62", "44.47")], "DeLeon: world U20 champion"))
-    S(a("so for the first time"), AR, 291.0, bw=1)
-    # 9 to be fair ----------------------------------------------------------------------------------
-    S(PART[9] - 0.05, WP, 53.0, flash=1); chapter(PART[9] + 0.2, "08", "To Be Fair"); lb(O, PART[9], 3.4)
-    S(a("and at the penn relays this year"), WP, 74.0)
-    title(a("and at the penn relays this year") + 0.6, 3.2, "Penn Relays 2026 · Championship of America", "Bullis 3:10.15 · first US boys win in 19 years")
+    # 8 senior year + the rival ----------------------------------------------------------------------
+    S(PART[8] - 0.05, WP, 53.0, flash=1); chapter(PART[8] + 0.2, "07", "Senior Year"); lb(O, PART[8], 3.4)
+    S(a("at the penn relays bullis won"), WP, 74.0)
+    title(a("at the penn relays bullis won") + 0.6, 3.2, "Penn Relays 2026 · Championship of America", "Bullis 3:10.15 · first US boys win in 19 years")
     S(a("and he anchored it"), WP, 117.0)
-    S(a("he even went back"), M10, 120.0, bw=1)
-    number(a("finished 7th in") + 0.2, 3.0, "45.53", "Memphis · July 2026 · 7th", "Same meet as his 44.10")
-    # 10 my take ------------------------------------------------------------------------------------
-    S(PART[10] - 0.05, T9, 20.0, flash=1); chapter(PART[10] + 0.2, "09", "My Take"); lb(O, PART[10], 3.4)
-    S(a("at 17 and a lot"), M10, 80.0, slow=0.7)
-    S(a("every prodigy hit a wall"), C6, 180.0)
-    S(a("what i do think"), C9, 100.0)
-    S(a("i really feel like this next"), UM, 150.0)
+    S(a("and now he got somebody"), AR, 22.0)
+    name(a("theres another kid") + 0.6, 3.0, "Jayden DeLeon", "Montgomery Blair HS · signed with LSU")
+    S(a("quincy beat him indoors"), AR, 112.0)
+    O(a("quincy beat him indoors") + 0.3, 9.0, ("versus", ("Quincy Wilson", "Bullis · Maryland"), ("Jayden DeLeon", "Montgomery Blair · LSU"),
+       [("NB Indoor Nationals · March", "45.37", "45.38"), ("World U20 final · Eugene · August", "44.62", "44.47")], "4x400 gold together"))
+    S(a("and 2 days later"), AR, 201.0)
+    S(a("quincy still running"), AR, 291.0)
+    # 9 never seen this ------------------------------------------------------------------------------
+    S(PART[9] - 0.05, M10, 140.0, flash=1); chapter(PART[9] + 0.2, "08", "Never Seen This"); lb(O, PART[9], 3.4)
+    S(a("quincy did it in high school"), SS, 360.0)
+    S(a("and now he walking into college"), UM, 60.0)
+    S(a("a lot of the best"), T9, 20.0, slow=0.6)
+    # 10 where he's headed -------------------------------------------------------------------------
+    S(PART[10] - 0.05, UM, 150.0, flash=1); chapter(PART[10] + 0.2, "09", "Maryland"); lb(O, PART[10], 3.4)
+    S(a("he close to home"), FX, 516.0)
+    S(a("the college record"), T6, 74.0, slow=0.6)
+    O(a("the college record") + 0.4, 4.4, ("board", "NCAA 400m record", [("Michael Norman", "43.61", "2018", 0), ("Quincy Wilson", "44.10", "PB at 17", 1)], "0.49 away"))
+    S(a("give him a couple years"), DEC, 242.0)
     # 11 LA 2028 ------------------------------------------------------------------------------------
     S(PART[11] - 0.05, T6, 87.0, flash=1, slow=0.5); chapter(PART[11] + 0.2, "10", "LA 2028"); lb(O, PART[11], 20.0)
     O(a("he gonna be 20") + 0.2, 3.8, ("counter", 16, 20, "years old at LA 2028", "Olympic gold at 16 · next shot at 20"))
-    S(a("so i want to hear"), M10, 150.0, slow=0.7)
-    S(a("or is jayden"), AR, 336.0)
+    S(a("last time he went"), WK, 31.0)
+    S(a("next time i think"), M10, 150.0, slow=0.7)
+    S(a("so i want to hear"), M10, 160.0)
+    S(a("can he come through"), AR, 336.0)
