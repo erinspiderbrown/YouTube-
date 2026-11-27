@@ -9,5 +9,5 @@
 ## Scheduled: Monday Nov 30, 2026, 6:00 AM MT (13:00 UTC)
 - YouTube: https://www.youtube.com/watch?v=mnUu1_Y-INw (vidIQ post 67760abe, private + publishAt, category 17, tags, thumbnail).
 - Facebook (E.Diamondz): video 2949708682067446, scheduled 1796043600, thumbnail set.
-- TikTok: cover tiktok_cover.jpg (make_tiktok_cover.py), vertical Quincy_2026_tiktok.mp4. Status below.
-- Captions: captions.srt (medium.en of the final cut, checked by hand).
+- TikTok: cover tiktok_cover.jpg (make_tiktok_cover.py), vertical Quincy_2026_tiktok.mp4 (vidIQ media 09de21ed). Scheduled: vidIQ post 76d480e1, 2026-11-30T13:00:00Z, public, comments on.
+- Captions: captions.srt (medium.en of the final cut, checked by hand), uploaded to YouTube (id AUieDabRV2weYOku7Tp5Adw9-fHu658DbLvjuU6DPDkN9XW4emssfYGM).
