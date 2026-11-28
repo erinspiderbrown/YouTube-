@@ -175,7 +175,7 @@ def timeline():
     for i, x in enumerate(seq):
         t1 = seq[i + 1]["T"] if i + 1 < len(seq) else end
         d = t1 - x["T"]
-        if x.get("sb") or d <= 6.0 or x["src"].startswith("ph_"): split.append(x); continue
+        if x.get("sb") or d <= 6.0 or x["src"].startswith("ph_") or x["src"] in NOSPLIT: split.append(x); continue
         n = int(d // 3.5) + 1; step = d / n; L = CLIPLEN.get(x["src"], 0)
         for k in range(n):
             y = dict(x); y["T"] = round(x["T"] + k * step, 3)
@@ -199,6 +199,7 @@ def timeline():
     return out, ov, end
 
 CROPS = {}
+NOSPLIT = {"spot7", "citius_season", "emerole_fl", "btr_lyles", "nova"}   # fast-cut TV specials: never jump ahead inside them
 CLIPLEN = {}
 def _cliplen(src):
     try: return float(subprocess.run(['ffprobe','-v','error','-show_entries','format=duration','-of','csv=p=0',f'{REAL}/{src}.mp4'],capture_output=True,text=True).stdout)
@@ -233,7 +234,8 @@ def sub_words(src, ss, dur, end=None, fix=None):
         while i <= len(ws) - len(ot):
             if [norm(w[0]) for w in ws[i:i + len(ot)]] == ot:
                 trail = "".join(c for c in ws[i + len(ot) - 1][0] if not c.isalnum() and c not in "'")[-1:]
-                ws[i] = [new + trail, ws[i][1], ws[i + len(ot) - 1][2]]; del ws[i + 1:i + len(ot)]
+                nw = new.rstrip(".,!?") + trail
+                if nw != ws[i][0] or len(ot) > 1: ws[i] = [nw, ws[i][1], ws[i + len(ot) - 1][2]]; del ws[i + 1:i + len(ot)]
             i += 1
     return [tuple(w) for w in ws]
 

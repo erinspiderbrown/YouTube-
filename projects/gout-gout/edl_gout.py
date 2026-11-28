@@ -81,12 +81,12 @@ def edl(a, S, O, number, title, name, quote, date, chapter, PART):
     # 2 Ipswich --------------------------------------------------------------------------------------------
     S(PART[2] - 0.05, "spot7", 786.0, tr="leak"); chapter(PART[2] + 0.3, "01", "Ipswich")
     O(a("gout gout was born") + 3.3, 3.2, ("date", "December 29, 2007", "Ipswich, Queensland"))
-    S(a("his parents bona"), "spot7", 560.0)
+    S(a("his parents bona"), "fan_qld100f", 24.0, crop=C_CAP, slow=0.8)
     S(a("he was playing soccer"), "spot7", 1310.0, tr="blur")
     S(a("she a grandmother"), "spot7", 1135.0)
     # 3 the hype -------------------------------------------------------------------------------------------
-    S(PART[3] - 0.05, "spot7", 436.0, tr="leak"); chapter(PART[3] + 0.3, "02", "The Hype")
-    S(a("that broke peter norman"), "spot7", 262.0, slow=0.8)
+    S(PART[3] - 0.05, "spot7", 1484.0, tr="leak"); chapter(PART[3] + 0.3, "02", "The Hype")
+    S(a("that broke peter norman"), "fan_jun100h", 18.6, slow=0.6)
     O(a("that broke peter norman") + 0.5, 4.2, ("title", "Australian record · since 1968", "20.06 → 20.04"))
     S(a("faster than usain bolt"), "bolt_guardian", 8.0, tr="whip")
     S(a("a couple months before"), "nova", 300.0)
