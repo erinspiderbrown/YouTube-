@@ -11,4 +11,5 @@
 - YouTube: https://www.youtube.com/watch?v=eTB0_--KnZ0 (vidIQ post 438a8f1c, private + publishAt, category 17, tags, thumbnail imageId 7df6596b).
 - Facebook (E.Diamondz): video 1014265645092254, scheduled 1796130000, thumbnail set.
 - TikTok: vidIQ post 36abd237 (media b9b2345d), 2026-12-01T13:00:00Z, public, comments on, cover tiktok_cover.jpg.
-- Captions: captions.srt (fixed by hand). YouTube upload blocked by Composio quota on 28 Nov 01:45 UTC; retry set for 08:20 UTC (trig_018caWiXy91tKqUzERgrDJn1).
+- Captions: captions.srt (fixed by hand), uploaded 28 Nov 08:24 UTC (id AUieDabckW9StRLwhPG1X8FWB7K9ULOohKnytVRqykBwJztuM8CFUaMF).
+- Verified 28 Nov: private, publishAt 2026-12-01T13:00:00Z, category 17, custom thumbnail set (maxres).
