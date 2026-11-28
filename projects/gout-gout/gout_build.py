@@ -215,6 +215,7 @@ def timeline():
 SFXEV = []
 
 CROPS = {}
+BANNED = {"spot7": [(255, 270), (430, 452), (560, 582), (1152.5, 1176)]}   # Seven Spotlight inserts: 1968 Olympic board, Netflix Sprint, IOC, Netflix/Tokyo 2020
 NOSPLIT = {"spot7", "citius_season", "emerole_fl", "btr_lyles", "nova"}   # fast-cut TV specials: never jump ahead inside them
 CLIPLEN = {}
 def _cliplen(src):
@@ -272,6 +273,10 @@ def render_shot(i, sh, T1, OV):
         asrc, ass = src, sh["ss"]; src = sh["vsrc"]; sb = None; sh = dict(sh, ss=sh.get("vss", 0.0), _asrc=asrc, _ass=ass)
     rp = sh.get("ramp")
     tin = (rp[0] + (dur - rp[0]) * rp[1]) if rp else dur * slow
+    for b0, b1 in BANNED.get(src, ()):   # Netflix/Olympic/IOC inserts inside TV specials: never render them
+        if sh["ss"] < b1 and sh["ss"] + tin > b0: raise SystemExit(f"shot {i} uses banned footage: {src} {sh['ss']:.1f}-{sh['ss'] + tin:.1f} overlaps {b0}-{b1}")
+    L_ = CLIPLEN.get(src, 0)
+    if L_ and sh["ss"] + tin > L_ - 0.1: sh = dict(sh, ss=max(0.0, L_ - tin - 0.3))   # never seek past the clip's end (empty shot = broken timestamps)
     ins = ["-ss", f"{max(0, sh['ss']):.3f}", "-t", f"{tin + 0.2:.3f}", "-i", f"{REAL}/{src}.mp4"]
     DL = (sh.get("crop") or CROPS.get(src, "")) + ("," if (sh.get("crop") or CROPS.get(src)) else "")   # crop away burned-in UI / boxes
     FILL = "scale=1920:1080:force_original_aspect_ratio=increase:flags=lanczos,crop=1920:1080"
