@@ -82,7 +82,7 @@ def edl(a, S, O, number, title, name, quote, date, chapter, PART):
     # 2 the coach ------------------------------------------------------------------------------------------
     S(PART[2] - 0.05, "spot7", 786.0, tr="leak"); chapter(PART[2] + 0.3, "01", "Ipswich")
     O(a("gout gout was born") + 3.3, 3.2, ("date", "December 29, 2007", "Ipswich, Queensland"))
-    S(a("his mama and daddy"), "fan_qld100f", 24.0, crop=C_CAP, slow=0.8, tr="blur")
+    S(a("and daddy came"), "fan_qld100f", 24.0, crop=C_CAP, slow=0.8, tr="blur")
     S(a("and her story crazy"), "spot7", 1135.0, tr="zoom")
     O(a("back in the early") + 0.2, 4.4, ("title", "Di Sheppard · early 2000s", "Grocery store to school uniforms"))
     S(a("they told her only"), "spot7", 1310.0, bw=1)
