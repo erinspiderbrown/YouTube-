@@ -71,6 +71,7 @@ def iname(t, dur, nm, role, where=""):
 
 def _fmt(s, hund=False):
     if hund: s = round(s, 2)
+    if s < 60: return f"{s:.2f}" if hund else f"{int(s)}"
     h, r = divmod(s, 3600); m, r = divmod(r, 60)
     base = f"{int(h)}:{int(m):02d}:{int(r):02d}" if h >= 1 else f"{int(m)}:{int(r):02d}"
     return base + (f".{int(round((r % 1) * 100)) % 100:02d}" if hund else "")
@@ -81,7 +82,7 @@ def clock(t, dur, t0, label="", rate=1.0, stop=None):
     k = life(t, dur, 0.5, 0.4); v = t0 + t * rate
     if stop is not None: v = min(v, stop)
     im = layer(); d = ImageDraw.Draw(im); x = W - 120
-    f = F(DISP_MED, 50); s = _fmt(v)
+    f = F(DISP_MED, 50); s = f"{v:.2f}" if (stop is not None and stop < 100) else _fmt(v)
     d.text((x, 118), s, font=f, fill=WHITE + (255,), anchor="rs")
     if label: draw_tracked(d, (x, 152), label.upper(), F(MED, 20), SOFT + (230,), 6, "r")
     d.line([(x - 250, 72), (x, 72)], fill=WHITE + (90,), width=1); d.line([(x - 36, 72), (x, 72)], fill=ACCENT + (255,), width=3)
@@ -153,7 +154,9 @@ def timeline(t, dur, title_, events, upto=None):
     for i, (yr, ev, res, note) in enumerate(events[:upto]):
         x = x0 + (x1 - x0) * (i + 0.5) / n; p = ease(seg(t, 0.9 + i * 0.45, 1.5 + i * 0.45))
         if p <= 0: continue
-        a = int(255 * p); up = i % 2 == 0; col = ACCENT if res.lower().startswith(("2", "silver")) else WHITE
+        a = int(255 * p); up = i % 2 == 0
+        hi = res.endswith("*"); res = res.rstrip("*")
+        col = ACCENT if (hi or res.lower() in ("2nd", "silver")) else WHITE
         r = 9 * p; d.ellipse([x - r, y - r, x + r, y + r], fill=col + (a,))
         rows = [("res", res), ("yr", str(yr)), ("ev", ev)] + ([("note", note)] if note else [])
         hgt = {"res": 54, "yr": 32, "ev": 26, "note": 28}
