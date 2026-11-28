@@ -47,10 +47,10 @@ SB_LIST = [  # ((insert before phrase, part), src, a, b, credit[, opts])
      dict(subs=1, name=("Gout Gout", "QLD Champs, March 2026", "10 News First"))),
     (("the womens 200 final", 8), "abc_1967", 14.87, 26.23, "Gout Gout after the 19.67 · ABC News",
      dict(name=("Gout Gout", "Minutes after the 19.67", "ABC News"))),
-    (("now im gonna give", 9), "citius_wind", 87.68, 92.08, "Chris Chavez · CITIUS MAG",
+    (("now imma give", 9), "citius_wind", 87.68, 92.08, "Chris Chavez · CITIUS MAG",
      dict(subs=1, name=("Chris Chavez", "CITIUS MAG", ""))),
-    (("now im gonna give", 9), "citius_wind", 653.70, 667.38, "Chris Chavez · CITIUS MAG", dict(subs=1, tr="none")),
-    (("now im gonna give", 9), "emerole_react", 32.55, 35.23, "Anderson Emerole",
+    (("now imma give", 9), "citius_wind", 653.70, 667.38, "Chris Chavez · CITIUS MAG", dict(subs=1, tr="none")),
+    (("now imma give", 9), "emerole_react", 32.55, 35.23, "Anderson Emerole",
      dict(subs=1, name=("Anderson Emerole", "Former Team USA sprinter", "YouTube"))),
     (("and aiden murphy went", 9), "abc_1967", 82.99, 87.45, "Di Sheppard · ABC News", dict(name=("Di Sheppard", "Gout's coach", "ABC News"))),
     (("but what about gout", 9), "emerole_fl", 2475.46, 2486.08, "Anderson Emerole · The Final Leg",
@@ -60,7 +60,7 @@ SB_LIST = [  # ((insert before phrase, part), src, a, b, credit[, opts])
     (("then in july", 9), "citius_oslo", 29.28, 33.30, "Gout Gout after Oslo · CITIUS MAG",
      dict(subs=1, name=("Gout Gout", "After 20.60 in Oslo", "CITIUS MAG"))),
     (("so here go what", 10), "bailey_cbc", 62.70, 71.56, "Donovan Bailey · CBC Sports", dict(subs=1)),
-    (("so now so now", 11), "spot7", 2667.91, 2681.27, "Gout Gout · Seven Spotlight",
+    (("so now i want", 11), "spot7", 2667.91, 2681.27, "Gout Gout · Seven Spotlight",
      dict(subs=1, name=("Gout Gout", "", "Seven · Spotlight"))),
 ]
 SPLIT_AT = {}
@@ -77,12 +77,12 @@ def edl(a, S, O, number, title, name, quote, date, chapter, PART):
     S(a("so i did what"), "fan_heat1", 16.0, tr="blur")
     S(a("i went back and pulled"), "fan_qld200s", 1.0, slow=0.7)
     S(a("lay it all out"), "fan_1000b", 9.9, slow=0.8)
-    O(a("at the end yall") + 0.2, 3.4, ("wipe", ["Are his times real?"], "The investigation"))
+    O(a("at the end y all") + 0.2, 3.4, ("wipe", ["Are his times real?"], "The investigation"))
     # 2 Ipswich --------------------------------------------------------------------------------------------
     S(PART[2] - 0.05, "spot7", 786.0, tr="leak"); chapter(PART[2] + 0.3, "01", "Ipswich")
     O(a("gout gout was born") + 3.3, 3.2, ("date", "December 29, 2007", "Ipswich, Queensland"))
-    S(a("his parents bona"), "fan_qld100f", 24.0, crop=C_CAP, slow=0.8)
-    S(a("he was playing soccer"), "spot7", 1310.0, tr="blur")
+    S(a("his mama and daddy"), "fan_qld100f", 24.0, crop=C_CAP, slow=0.8)
+    S(a("he was out there playing"), "spot7", 1310.0, tr="blur")
     S(a("she a grandmother"), "spot7", 1135.0)
     # 3 the hype -------------------------------------------------------------------------------------------
     S(PART[3] - 0.05, "spot7", 1484.0, tr="leak"); chapter(PART[3] + 0.3, "02", "The Hype")
@@ -108,11 +108,11 @@ def edl(a, S, O, number, title, name, quote, date, chapter, PART):
     S(a("legal but look"), "fan_1000b", 17.6, slow=0.6)
     S(a("six of the"), "fan_qld200s", 1.0, bw=1)
     O(a("six of the") + 0.2, 4.0, ("title", "Same meet · 49 wind readings", "6 over the legal limit"))
-    S(a("then the rest of the season"), "fan_qld100f", 5.7, crop=C_CAP, tr="whip")
-    O(a("then the rest of the season") + 0.3, 7.0, ("board", "100m · rest of 2026", B(
+    S(a("the rest of the season"), "fan_qld100f", 5.7, crop=C_CAP, tr="whip")
+    O(a("the rest of the season") + 0.3, 7.0, ("board", "100m · rest of 2026", B(
         ("Brisbane · Feb", "10.00", "+0.9", 1), ("QLD Champs · Mar", "10.20", "+1.5", 0), ("Juniors heat · Apr", "10.19", "+0.3", 0),
         ("Juniors semi · Apr", "10.44", "-2.2", 0), ("Juniors final · Apr", "10.21", "+0.5", 0)), ""))
-    S(a("he never came close"), "fan_jun100f", 11.5, slow=0.7)
+    S(a("he aint never came close"), "fan_jun100f", 11.5, slow=0.7)
     # 7 the 200 ------------------------------------------------------------------------------------------------
     S(PART[7] - 0.05, "fan_qld200f", 16.5, crop=C_CAP, tr="leak")
     S(a("and he said he was sick"), "fan_qld200f", 29.0, crop=C_CAP)
@@ -130,7 +130,7 @@ def edl(a, S, O, number, title, name, quote, date, chapter, PART):
         ("Gout Gout", "19.67", "PB · heat 20.11", 1), ("Aidan Murphy", "19.88", "PB · old best 20.41", 1), ("Calab Law", "20.21", "PB", 1),
         ("Christopher Ius", "20.26", "PB", 1), ("Archer McHugh", "20.37", "PB", 1), ("Rory Easton", "20.37", "PB", 1)),
         "Wind +1.7 · women's 200m final just before: +2.3"))
-    S(a("and every single finalist"), F67, 40.0, crop=C_CAP)
+    S(a("and every single dude"), F67, 40.0, crop=C_CAP)
     # 9 the other side -----------------------------------------------------------------------------------------
     S(PART[9] - 0.05, "emerole_fl", 2281.0, tr="leak"); chapter(PART[9] + 0.2, "06", "The Other Side")
     S(a("nobody ever reported"), F67, 37.7, crop=C_CAP, slow=0.7)
@@ -146,7 +146,7 @@ def edl(a, S, O, number, title, name, quote, date, chapter, PART):
         ("Sydney heat · Apr", "20.11", "+0.4", 0), ("Sydney final · Apr", "19.67", "+1.7", 1), ("Oslo · Jun", "20.60", "6th", 0)),
         "Next-best legal 200m ever: 20.02 (Ostrava 2025)"))
     S(a("his next best legal"), "fan_qld200f", 18.0, crop=C_CAP, bw=1)
-    S(a("so how is a dude"), F67, 22.0, crop=C_CAP, slow=0.45)
+    S(a("so tell me how a dude"), F67, 22.0, crop=C_CAP, slow=0.45)
     # 11 verdict -----------------------------------------------------------------------------------------------
     S(PART[11] - 0.05, "nova", 1300.0, tr="leak")
     O(a("is gout gout really") + 0.1, 6.5, ("wipe", ["Australia's fastest man ever?", "Or one perfect day?"], ""))
