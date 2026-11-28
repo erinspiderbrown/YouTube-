@@ -70,9 +70,10 @@ def iname(t, dur, nm, role, where=""):
 
 
 def _fmt(s, hund=False):
+    if hund: s = round(s, 2)
     h, r = divmod(s, 3600); m, r = divmod(r, 60)
     base = f"{int(h)}:{int(m):02d}:{int(r):02d}" if h >= 1 else f"{int(m)}:{int(r):02d}"
-    return base + (f".{int((r % 1) * 100):02d}" if hund else "")
+    return base + (f".{int(round((r % 1) * 100)) % 100:02d}" if hund else "")
 
 
 def clock(t, dur, t0, label="", rate=1.0, stop=None):

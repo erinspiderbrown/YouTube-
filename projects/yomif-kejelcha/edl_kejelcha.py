@@ -67,8 +67,9 @@ SB_LIST = [  # ((insert before phrase, part), src, a, b, credit[, opts])
     (("now think about this", 9), "let_sawe", 12.30, 32.82, "Sabastian Sawe · LetsRun.com",
      dict(subs=1, name=("Sabastian Sawe", "Winner · 1:59:30", "LetsRun.com"))),
     # when his manager told him the time (vertical video call -> audio over him)
-    (("and 4 months later", 9), "podium", 30.00, 43.04, "Yomif Kejelcha · Podium Athletics",
-     dict(vsrc="aw_fav", vss=4.0, subs=1, name=("Yomif Kejelcha", "On seeing the time", "Audio · Podium Athletics"))),
+    (("and 4 months later", 9), "podium", 30.00, 39.20, "Yomif Kejelcha · Podium Athletics",
+     dict(vsrc="aw_fav", vss=4.0, subs=1, name=("Yomif Kejelcha", "On seeing the time", "Audio · Podium Athletics"),
+          subfix=[("run at under 12.", "run under two."), ("under 12.", "under two.")])),
     (("but the rematch", 10), "let_disbelief", 137.36, 145.04, "Yomif Kejelcha on Haile Gebrselassie · LetsRun.com",
      dict(subs=1, name=("Yomif Kejelcha", "On Haile Gebrselassie", "LetsRun.com"))),
     # 1:58 or Olympic gold in LA?
@@ -149,7 +150,7 @@ def edl(a, S, O, number, title, name, quote, date, chapter, PART):
     S(a("so now people starting"), "cit_pre", 20.0)
     S(a("even he wasnt sure"), "cit_pre", 100.0)
     S(a("his coaches believed"), "alv_training", 383.0)
-    S(a("and for his debut"), "fan_mall", 344.0, tr="whip")
+    S(a("and for his debut"), "fan_noxxid", 0.5, tr="whip")
     O(a("and for his debut") + 0.8, 3.2, ("date", "April 26, 2026", "London Marathon"))
     S(a("against the best marathoner"), "adidas_sub2", 539.0)
     S(a("from kenya who"), "fan_summit", 9.4, crop=C_SUMMIT, slow=0.5)
@@ -159,12 +160,12 @@ def edl(a, S, O, number, title, name, quote, date, chapter, PART):
     S(a("at 30k they was"), "alv_sawe", 0.0, crop="crop=iw:iw*9/16:0:ih*0.36", slow=0.6)
     S(a("then from 30 to 35"), "alv_fastest", 0.0, crop="crop=iw:iw*9/16:0:ih*0.36", slow=0.5, tr="whip")
     O(a("then from 30 to 35") + 0.3, 4.4, ("title", "30 → 35 km", "13:54"))
-    S(a("under 2 hours was really"), "fan_mall", 574.0)
+    S(a("under 2 hours was really"), "alv_sawe", 3.0, crop="crop=iw:iw*9/16:0:ih*0.36", slow=0.5)
     S(a("from 35 to 40"), "alv_sub2", 2.4, crop="crop=iw:iw*9/16:0:ih*0.36", slow=0.45)
     O(a("from 35 to 40") + 0.3, 4.0, ("title", "35 → 40 km", "13:42"))
     S(a("and kajolcha side by side"), "fan_cutty", 3.2, crop=C_CUTTY, slow=0.35)
     S(a("according to his nutrition"), "cit_post", 160.0)
-    S(a("one slipped at"), "fan_mall", 620.0, bw=1)
+    S(a("one slipped at"), "fan_cutty", 2.6, crop=C_CUTTY, slow=0.3, bw=1)
     # 8 the finish -----------------------------------------------------------------------------------
     S(PART[8] - 0.05, "fan_nico", 6.8, crop=C_NICO, slow=0.5, tr="whip")
     O(PART[8] + 0.3, 4.2, ("clock", 7080, "Westminster · km 41"))
