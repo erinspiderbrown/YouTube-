@@ -218,7 +218,7 @@ def ov_mov(spec, dur):
     return p
 
 SUBFIX = [("Solway", "Sawe"), ("Sawi", "Sawe"), ("Kejelcher", "Kejelcha"), ("Kajelcher", "Kejelcha"), ("Kejalcha", "Kejelcha"), ("Kejelja", "Kejelcha"),
-          ("Faresmarata", "First marathon"), ("Addis", "Haile")]
+          ("Faresmarata", "First marathon"), ("Addis", "Haile"), ("under 12.", "under two."), ("do this up to.", "do this, sub two.")]
 def sub_words(src, ss, dur, end=None, fix=None):
     """Clip transcript words inside [ss, min(ss+dur, end)] -> [(word, t0, t1)] relative to the shot start.
     fix: [(old phrase, new phrase)] applied to consecutive words (whisper mishears), plus the global SUBFIX."""
