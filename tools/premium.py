@@ -94,7 +94,7 @@ def gap(t, dur, a_name, a_secs, b_name, b_secs, gap_text, kicker=""):
     k = life(t, dur, 0.6, 0.5); out = scrim(0.62 * k)
     im = layer(); d = ImageDraw.Draw(im)
     x0, x1 = 300, W - 300; lane_y = [H / 2 - 90, H / 2 + 110]
-    tmax = max(a_secs, b_secs); base = tmax - 40          # show the last 40 s of the race on the rail
+    tmax = max(a_secs, b_secs); base = tmax - 40 if tmax > 60 else 0.0          # show the last 40 s of the race on the rail
     roll = ease(seg(t, 0.5, 3.6))
     def X(s): return x0 + (x1 - x0) * (s - base) / (tmax + 4 - base)
     if kicker: draw_tracked(d, (W / 2, 190), kicker.upper(), F(MED, 26), SOFT + (240,), 10, "c")

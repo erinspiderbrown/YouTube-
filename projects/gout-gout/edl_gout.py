@@ -54,9 +54,9 @@ SB_LIST = [  # ((insert before phrase, part), src, a, b, credit[, opts])
      dict(subs=1, name=("Anderson Emerole", "Former Team USA sprinter", "YouTube"))),
     (("and aiden murphy went", 9), "abc_1967", 82.99, 87.45, "Di Sheppard · ABC News", dict(name=("Di Sheppard", "Gout's coach", "ABC News"))),
     (("but what about gout", 9), "emerole_fl", 2475.46, 2486.08, "Anderson Emerole · The Final Leg",
-     dict(subs=1, subfix=[("Gout Gout's 19.67 is fake.", "Gout Gout's 19.67 is fake."), ("1967", "19.67")])),
+     dict(subs=1, subfix=[("Nineteen six seven", "19.67"), ("1967", "19.67")])),
     (("two months later in oslo", 9), "gatlin_rsg", 4843.39, 4849.01, "Justin Gatlin · Ready Set Go",
-     dict(subs=1, name=("Justin Gatlin", "2004 Olympic 100m champion", "Ready Set Go podcast"))),
+     dict(subs=1, name=("Justin Gatlin", "2004 Olympic 100m champion", "Ready Set Go podcast"), subfix=[("for God, God,", "for Gout Gout,"), ("God, God,", "Gout Gout,")])),
     (("then in july", 9), "citius_oslo", 29.28, 33.30, "Gout Gout after Oslo · CITIUS MAG",
      dict(subs=1, name=("Gout Gout", "After 20.60 in Oslo", "CITIUS MAG"))),
     (("so here go what", 10), "bailey_cbc", 62.70, 71.56, "Donovan Bailey · CBC Sports", dict(subs=1)),
@@ -80,7 +80,7 @@ def edl(a, S, O, number, title, name, quote, date, chapter, PART):
     O(a("at the end yall") + 0.2, 3.4, ("wipe", ["Are his times real?"], "The investigation"))
     # 2 Ipswich --------------------------------------------------------------------------------------------
     S(PART[2] - 0.05, "spot7", 786.0, tr="leak"); chapter(PART[2] + 0.3, "01", "Ipswich")
-    O(a("gout gout was born") + 0.4, 3.2, ("date", "December 29, 2007", "Ipswich, Queensland"))
+    O(a("gout gout was born") + 3.3, 3.2, ("date", "December 29, 2007", "Ipswich, Queensland"))
     S(a("his parents bona"), "spot7", 560.0)
     S(a("he was playing soccer"), "spot7", 1310.0, tr="blur")
     S(a("she a grandmother"), "spot7", 1135.0)
