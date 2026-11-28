@@ -69,7 +69,7 @@ SB_LIST = [  # ((insert before phrase, part), src, a, b, credit[, opts])
     # when his manager told him the time (vertical video call -> audio over him)
     (("and 4 months later", 9), "podium", 30.00, 39.20, "Yomif Kejelcha · Podium Athletics",
      dict(vsrc="aw_fav", vss=4.0, subs=1, name=("Yomif Kejelcha", "On seeing the time", "Audio · Podium Athletics"),
-          subfix=[("run at under 12.", "run under two."), ("under 12.", "under two.")])),
+          subfix=[("run at under 12.", "run under two"), ("under 12.", "under two")])),
     (("but the rematch", 10), "let_disbelief", 137.36, 145.04, "Yomif Kejelcha on Haile Gebrselassie · LetsRun.com",
      dict(subs=1, name=("Yomif Kejelcha", "On Haile Gebrselassie", "LetsRun.com"))),
     # 1:58 or Olympic gold in LA?
