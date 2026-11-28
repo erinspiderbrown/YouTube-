@@ -16,6 +16,7 @@ sys.path.insert(0, f"{ROOT}/tools"); sys.path.insert(0, P)
 import modern as K
 import premium as PM
 import cinema  # registers letterbox/tracker/counter/versus/scope in K.KINDS
+import windfile  # v3 identity (28 Nov 2026): WIND FILE look, unique to this video (serif + mono, cyan/coral, streamlines, dials, drift chart)
 SCR = "/tmp/claude-0/-home-user/9c604270-316e-5b2c-b8cd-3de373b077b3/scratchpad"
 CS = f"{SCR}/gout"; REAL = f"{CS}/clips"; R = f"{CS}/render"
 for d in ("ov", "shots", "sfx", "tags"): os.makedirs(f"{R}/{d}", exist_ok=True)
@@ -31,7 +32,7 @@ def _tok(w):
     return _NUMW[int(t)] if t.isdigit() and int(t) <= 20 else t
 TOK = [_tok(x["w"]) for x in WORDS]
 VO_END = WORDS[-1]["e"]
-PART = {1: 0.0, 2: 35.86, 3: 65.42, 4: 99.12, 5: 131.19, 6: 155.24, 7: 188.12, 8: 211.74, 9: 250.71, 10: 285.24, 11: 325.55}   # vo_gout.mp3 (v2, accent fix)
+PART = {1: 0, 2: 30.28, 3: 76.2, 4: 115.4, 5: 147.47, 6: 172.18, 7: 204.52, 8: 228.7, 9: 285.9, 10: 367.62, 11: 387.71, 12: 416.03}   # vo_gout.mp3 (v3, 28 Nov 2026; 11 = after the TikTok receipt, 12 = verdict)
 _CUR = [0.0]
 def A(phrase, after=None, end=False, win=45):
     """First match of `phrase` at/after the running cursor; tolerant of whisper misspellings."""
@@ -60,23 +61,35 @@ def A(phrase, after=None, end=False, win=45):
 TAGS = {}  # filled in edl_tuohy.py
 
 # ------------------------------------------------------------------ soundbites (inserted; the voiceover pauses)
+SNAPLOG = []
 def snap(src, a, b):
-    """Snap a soundbite to the clip's own word boundaries so no word is clipped, and keep the padded window
-    (PAD either side) clear of the neighbouring words so no stray half-sentence leaks in."""
+    """Snap a soundbite to whole SENTENCES (user, 28 Nov 2026: interviews cut off mid-sentence look tacky).
+    Start at the start of the sentence that contains `a` (if it began <= 4 s earlier), end at the end of the sentence
+    that contains `b` (if it ends <= 7 s later). Then keep the window clear of the neighbouring words."""
     try: segs = json.load(open(f"{CS}/tx/{src}.json"))
     except FileNotFoundError: return a, b
     if isinstance(segs, dict): segs = segs.get("segments", [])
     ws = sorted(({"w": w[0], "s": w[1], "e": w[2]} if isinstance(w, list) else w for s in segs for w in s.get("words", s.get("w", []))), key=lambda w: w["s"])
-    inn = [w for w in ws if w["s"] >= a - 0.05 and w["e"] <= b + 0.05]
-    if not inn: return a, b
-    prev = [w["e"] for w in ws if w["e"] <= inn[0]["s"] and w is not inn[0]]; nxt = [w["s"] for w in ws if w["s"] >= inn[-1]["e"] and w is not inn[-1]]
-    a2 = inn[0]["s"] - 0.12; b2 = inn[-1]["e"] + 0.3
-    if prev: a2 = max(a2, prev[-1] + 0.05 + 0.3)
-    if nxt: b2 = min(b2, nxt[0] - 0.05 - 0.3)
-    a2 = min(a2, inn[0]["s"] - 0.02); b2 = max(b2, inn[-1]["e"] - 0.02)
+    idx = [i for i, w in enumerate(ws) if w["s"] >= a - 0.05 and w["e"] <= b + 0.05]
+    if not idx: return a, b
+    END = lambda w: w["w"].strip().endswith((".", "?", "!"))
+    i0, i1 = idx[0], idx[-1]
+    j = i0   # walk back to the sentence start
+    while j > 0 and not END(ws[j - 1]) and ws[j]["s"] - ws[j - 1]["e"] < 0.6 and ws[i0]["s"] - ws[j - 1]["s"] <= 4.0: j -= 1
+    if j == 0 or END(ws[j - 1]) or ws[j]["s"] - ws[j - 1]["e"] >= 0.6: i0 = j
+    j = i1   # walk forward to the sentence end
+    while j < len(ws) - 1 and not END(ws[j]) and ws[j + 1]["s"] - ws[j]["e"] < 0.6 and ws[j + 1]["e"] - ws[i1]["e"] <= 7.0: j += 1
+    if END(ws[j]) or j == len(ws) - 1 or ws[j + 1]["s"] - ws[j]["e"] >= 0.6: i1 = j
+    first, last = ws[i0], ws[i1]
+    prev = ws[i0 - 1]["e"] if i0 > 0 else None; nxt = ws[i1 + 1]["s"] if i1 + 1 < len(ws) else None
+    a2 = first["s"] - 0.15; b2 = last["e"] + 0.35
+    if prev is not None: a2 = max(a2, (prev + first["s"]) / 2 if first["s"] - prev < 0.8 else prev + 0.4)
+    if nxt is not None: b2 = min(b2, (last["e"] + nxt) / 2 if nxt - last["e"] < 0.9 else nxt - 0.45)
+    a2 = min(a2, first["s"] - 0.03); b2 = max(b2, last["e"] + 0.08)
+    SNAPLOG.append((src, a, b, round(a2, 2), round(b2, 2), " ".join(w["w"].strip() for w in ws[i0:i1 + 1])))
     return round(max(0, a2), 2), round(max(b2, a2 + 1), 2)
 
-PAD = 0.3
+PAD = 0.05   # snap() already leaves the speaker's own pause at both ends; fades handle the edges
 from edl_gout import PRE_SB, SB_LIST, TAGS as _T, edl
 try: from edl_gout import SPLIT_AT
 except ImportError: SPLIT_AT = {}
@@ -196,7 +209,10 @@ def timeline():
         for s in SOUNDBITES:
             if a0 < s["t"] < a1: f1 = min(f1, SB_START(s))
         if f0 < end - 0.3: ov.append((round(f0, 3), round(min(f1, end), 3), spec))
+    SFXEV[:] = [(o0, o1, spec) for o0, o1, spec in ov if spec[0] in ("sfx", "amb")]
+    ov = [o for o in ov if o[2][0] not in ("sfx", "amb")]
     return out, ov, end
+SFXEV = []
 
 CROPS = {}
 NOSPLIT = {"spot7", "citius_season", "emerole_fl", "btr_lyles", "nova"}   # fast-cut TV specials: never jump ahead inside them
@@ -300,12 +316,13 @@ def render_shot(i, sh, T1, OV):
     ins += ["-f", "lavfi", "-t", f"{dur:.3f}", "-i", "anullsrc=r=48000:cl=stereo"]; amap = f"{k + 1}:a"
     if vsb:
         ins += ["-ss", f"{max(0, ass):.3f}", "-t", f"{dur + 0.2:.3f}", "-i", f"{REAL}/{asrc}.mp4"]
-        vf.append(f"[{k + 2}:a]aresample=48000,loudnorm=I=-17:TP=-2:LRA=11,afade=t=in:d=0.06,apad=whole_dur={dur:.3f}[a]"); amap = "[a]"
+        vf.append(f"[{k + 2}:a]aresample=48000,loudnorm=I=-17:TP=-2:LRA=11,afade=t=in:d=0.15,afade=t=out:st={max(0, dur - 0.45):.3f}:d=0.45,apad=whole_dur={dur:.3f}[a]"); amap = "[a]"
     vol = 1.0 if sb else (0.16 if sh.get("amb") else 0.0)
     if vol > 0:
         hp = ",loudnorm=I=-17:TP=-2:LRA=11" if sb else ",highpass=f=120"
         at = "" if slow == 1 else f",atempo={max(0.5, slow):.3f}"
-        vf.append(f"[0:a]aresample=48000{at},volume={vol}{hp},apad=whole_dur={dur:.3f}[a]"); amap = "[a]"
+        fd = f",afade=t=in:d=0.15,afade=t=out:st={max(0, dur - 0.45):.3f}:d=0.45" if sb else ""
+        vf.append(f"[0:a]aresample=48000{at},volume={vol}{hp}{fd},apad=whole_dur={dur:.3f}[a]"); amap = "[a]"
     cmd = ["ffmpeg", "-v", "error", "-y"] + ins + ["-filter_complex", ";".join(vf), "-map", "[v]", "-map", amap,
            "-t", f"{dur:.3f}", "-r", "24", "-c:v", "libx264", "-preset", "veryfast", "-crf", "19", "-c:a", "aac", "-ar", "48000", "-ac", "2", out]
     run(cmd); open(stamp_, "w").write(key); return out
@@ -342,12 +359,11 @@ def stage_concat():
     run(["ffmpeg", "-v", "error", "-y", "-f", "concat", "-safe", "0", "-i", lst, "-c", "copy", f"{R}/picture.mp4"])
     print("concat", run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", f"{R}/picture.mp4"]).stdout.strip(), "END", round(end, 2))
 
-def stage_trans():
-    """Cinematic transitions on chosen cuts (shot opt tr=kind; soundbites default 'blur' in, chapters 'leak')."""
+def trans_cuts():
     shots, ov, end = TL(); cuts = []
     for i, (sh, t1) in enumerate(shots):
         if i == 0: continue
-        k = sh.get("tr", "blur" if sh.get("sb") else None)
+        k = sh.get("tr", "blur" if sh.get("sb") else ("dip" if shots[i - 1][0].get("sb") else None))   # smooth in AND out of every interview
         if k == "none": k = None
         if k: cuts.append((sh["T"], k))
     for o0, o1, spec in ov:
@@ -357,10 +373,14 @@ def stage_trans():
     for c, k in cuts:
         if clean and c - clean[-1][0] < 1.2: continue
         clean.append((c, k))
+    return clean
+
+def stage_trans():
+    """Cinematic transitions on chosen cuts (shot opt tr=kind; soundbites 'blur' in and 'dip' out, chapters 'leak')."""
+    clean = trans_cuts()
     PM.apply_transitions(f"{R}/picture.mp4", f"{R}/picture_tr.mp4", clean)
     print("transitions", len(clean))
 
-# ------------------------------------------------------------------ audio
 def vo_track(end):
     x = np.frombuffer(subprocess.run(["ffmpeg", "-v", "error", "-i", VO, "-ac", "2", "-ar", "48000", "-f", "f32le", "-"], capture_output=True).stdout, np.float32).reshape(-1, 2)
     SR = 48000; parts = [np.zeros((int(PRE * SR), 2), np.float32)]; last = 0
@@ -389,18 +409,37 @@ def bed(path, t0, t1, vol, end, fin=1.5, fout=2.5, offset=0.0):
          f"volume={vol},afade=t=in:st=0:d={fin},afade=t=out:st={max(0, L - fout):.2f}:d={fout},adelay={dl}|{dl},apad=whole_dur={end:.2f}",
          "-ar", "48000", "-ac", "2", out]); return out
 
+SFXD = f"{P}/sfx"   # real ambience + SFX (ElevenLabs sound effects v3, flow FG4WsvGEsPROQNhXYEBS), 28 Nov 2026
 def sfx_plan(shots, ov):
-    """Few hits, varied, never closer than 3 s, nothing on plain cuts or soundbites."""
-    cand = []
-    for j, (o0, o1, spec) in enumerate(ov):
+    """User, 28 Nov 2026: real ambience and transition sounds that match the picture. Every transition gets a matching
+    whoosh/glitch, chapters a low boom, data graphics soft ticks, receipts shutters; explicit ("sfx", name, gain) cues
+    from the EDL win. Min 1.4 s between hits so nothing stacks."""
+    cand = []; rot = {"fast": 0, "deep": 0}
+    for c, k in trans_cuts():
+        if k in ("whip", "push", "vpush", "zoom"): nm = f"whoosh_fast{rot['fast'] % 3 + 1}"; rot["fast"] += 1; g = 0.32
+        elif k == "rgb": nm, g = "glitch", 0.28
+        else: nm = f"whoosh_deep{rot['deep'] % 3 + 1}"; rot["deep"] += 1; g = 0.30
+        cand.append((c - 0.28, nm, g, 2))
+    for o0, o1, spec in ov:
         k = spec[0]
-        if k == "chapter": cand.append((o0 - 0.05, "zoom", 0.30, 3))
-        elif k in ("number", "date", "counter", "gap", "wipe", "timeline"): cand.append((o0 - 0.06, "scan", 0.10, 2))
-    cand.sort(key=lambda c: (c[0], -c[3])); out, last = [], -9
-    for t, kind, g, pri in cand:
-        if t - last < (6.0 if pri == 2 else 3.0): continue
-        out.append((t, make_sfx(kind, 40 + len(out) * 7), g)); last = t
-    return out
+        if k == "chapter": cand.append((o0 + 0.05, "boom", 0.42, 3))
+        elif k in ("board", "nextrace", "number"): cand.append((o0 + 0.25, "data_ticks", 0.22, 1))
+        elif k == "stamp": cand.append((o0, "shutters", 0.35, 3))
+        elif k == "wipe": cand.append((o0 - 3.6, "riser", 0.22, 1))
+    for o0, o1, spec in SFXEV:
+        if spec[0] == "sfx": cand.append((o0, spec[1], spec[2] if len(spec) > 2 else 0.4, 9))
+    cand.sort(key=lambda c: (-c[3], c[0])); out = []
+    for t, nm, g, pri in cand:
+        if t < 0 or any(abs(t - u) < 1.4 for u, _, _ in out): continue
+        out.append((t, f"{SFXD}/{nm}.mp3", g))
+    return sorted(out)
+
+def amb_beds(end):
+    """Room tone of the story: a low stadium bed under everything, plus wind/rain/heartbeat/clock beds from ("amb", name, vol) cues."""
+    b = [bed(f"{SFXD}/amb_stadium.mp3", 0, end, 0.10, end, 2.0, 3.0)]
+    for o0, o1, spec in SFXEV:
+        if spec[0] == "amb": b.append(bed(f"{SFXD}/{spec[1]}.mp3", o0, o1, spec[2] if len(spec) > 2 else 0.2, end, 1.2, 1.5))
+    return [x for x in b if x]
 
 def stage_audio():
     shots, ov, end = TL(); vo = vo_track(end)
@@ -421,12 +460,12 @@ def stage_audio():
             bed(f"{MU}/G4_evidence.mp3", Pt[4] - 0.2, Pt[8] + 0.4, 0.52, end, 0.8, 1.2),
             bed(f"{MU}/G5_sydney.mp3", Pt[8] - 0.2, Pt[10] + 0.4, 0.54, end, 0.8, 1.5),
             bed(f"{MU}/G6_verdict.mp3", Pt[10] - 0.2, end, 0.55, end, 0.8, 3.5)]
-    beds = [b for b in beds if b]
+    beds = [b for b in beds if b] + amb_beds(end)
     S_ = sfx_plan(shots, ov)
     ins, fl = [], []; nb = len(beds); base = 2 + nb
     for j, (t, path, g) in enumerate(S_):
         ins += ["-i", path]; d = int(max(0, t) * 1000)
-        fl.append(f"[{j + base}:a]volume={g},afade=t=out:st=1.2:d=0.5,adelay={d}|{d},aformat=sample_rates=48000:channel_layouts=stereo[s{j}]")
+        fl.append(f"[{j + base}:a]volume={g},adelay={d}|{d},aformat=sample_rates=48000:channel_layouts=stereo[s{j}]")
     bed_in = "".join(f"[{2 + j}:a]" for j in range(nb)); mix_in = "".join(f"[s{j}]" for j in range(len(S_)))
     fc = ";".join(fl) + (";" if fl else "") + \
         f"[0:a]aformat=sample_rates=48000:channel_layouts=stereo[vo];[1:a]aformat=sample_rates=48000:channel_layouts=stereo[pic];" \

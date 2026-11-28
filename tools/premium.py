@@ -219,6 +219,28 @@ def tframe(kind, A, B, p):
         lum = cv2.cvtColor(B.astype(np.uint8), cv2.COLOR_RGB2GRAY).astype(np.float32) / 255
         m = np.clip((s * 1.6 - (1 - lum) * 0.6), 0, 1)[..., None]; m = cv2.GaussianBlur(m, (31, 31), 0)[..., None] if m.ndim == 3 else m
         return A * (1 - m) + B * m
+    if kind == "zoom":   # zoom-blur punch through the cut (added 28 Nov 2026)
+        sp = math.sin(math.pi * p); z = 1 + 0.35 * s if p < 0.5 else 1.35 - 0.35 * s
+        f = _zoom(A if p < 0.5 else B, z); acc = f.copy(); n = int(2 + 8 * sp)
+        for i in range(1, n): acc += _zoom(f, 1 + 0.018 * i * sp)
+        out = acc / n
+        return out * (1 - 0.25 * sp) + 255 * 0.25 * sp * (out / 255) ** 0.5
+    if kind == "rgb":    # chromatic split + slice glitch, short and clean
+        sp = math.sin(math.pi * p); base = (A if p < 0.5 else B).copy(); off = int(22 * sp)
+        out = base.copy(); out[..., 0] = _shift(base, off)[..., 0]; out[..., 2] = _shift(base, -off)[..., 2]
+        rng = np.random.default_rng(int(p * 1000))
+        for _ in range(int(5 * sp)):
+            y0 = int(rng.integers(0, H - 40)); h = int(rng.integers(8, 60)); dx = int(rng.integers(-90, 90) * sp)
+            out[y0:y0 + h] = np.roll(out[y0:y0 + h], dx, axis=1)
+        return out
+    if kind == "bloom":  # exposure bloom: highlights flare, crossfade underneath
+        sp = math.sin(math.pi * p); base = A * (1 - s) + B * s
+        glow = cv2.GaussianBlur(base, (0, 0), 40) * 1.4 * sp
+        return np.clip(base * (1 + 0.6 * sp) + glow, 0, 255)
+    if kind == "vpush":  # vertical push with motion blur
+        off = H * s; sp = math.sin(math.pi * p)
+        a = _mblur(_shift(A, 0, -off), 0, 60 * sp); b = _mblur(_shift(B, 0, H - off), 0, 60 * sp)
+        out = a.copy(); yb = int(H - off); out[max(0, yb):] = b[max(0, yb):]; return out
     raise ValueError(kind)
 
 
@@ -275,7 +297,7 @@ if __name__ == "__main__":   # preview stills: python3 tools/premium.py OUTDIR [
         fr = bg.copy(); fr.alpha_composite(K.KINDS[spec[0]](at, dur, *spec[1:])); fr.convert("RGB").save(f"{o}/{nm}.jpg", quality=85)
     if len(sys.argv) > 3:
         A = np.asarray(Image.open(sys.argv[2]).convert("RGB").resize((W, H))).astype(np.float32); B = np.asarray(Image.open(sys.argv[3]).convert("RGB").resize((W, H))).astype(np.float32)
-        for kind in ("whip", "blur", "leak", "push", "luma"):
+        for kind in ("whip", "blur", "leak", "push", "luma", "zoom", "rgb", "bloom", "vpush"):
             strip = [Image.fromarray(np.clip(tframe(kind, A, B, p), 0, 255).astype(np.uint8)).resize((480, 270)) for p in (0.2, 0.4, 0.5, 0.6, 0.8)]
             s = Image.new("RGB", (2400, 270)); [s.paste(x, (480 * i, 0)) for i, x in enumerate(strip)]; s.save(f"{o}/tr_{kind}.jpg", quality=80)
     print("ok")
