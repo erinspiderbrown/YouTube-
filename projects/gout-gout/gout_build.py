@@ -416,28 +416,34 @@ def bed(path, t0, t1, vol, end, fin=1.5, fout=2.5, offset=0.0):
 
 SFXD = f"{P}/sfx"   # real ambience + SFX (ElevenLabs sound effects v3, flow FG4WsvGEsPROQNhXYEBS), 28 Nov 2026
 def sfx_plan(shots, ov):
-    """User, 28 Nov 2026: real ambience and transition sounds that match the picture. Every transition gets a matching
-    whoosh/glitch, chapters a low boom, data graphics soft ticks, receipts shutters; explicit ("sfx", name, gain) cues
-    from the EDL win. Min 1.4 s between hits so nothing stacks."""
-    cand = []; rot = {"fast": 0, "deep": 0}
+    """User, 28 Nov 2026 (v3 review): the whip/whoosh noises happened "too consistently... too repetitive". Most cuts and
+    transitions are now SILENT. A sound only lands on: interview entrances, chapter cards, rgb glitches, data graphics,
+    and explicit EDL cues. Whooshes >= 7 s apart, never the same file twice in a row, softer."""
+    shot_at = {round(sh["T"], 2): sh for sh, _ in shots}
+    cand = []
     for c, k in trans_cuts():
-        if k in ("whip", "push", "vpush", "zoom"): nm = f"whoosh_fast{rot['fast'] % 3 + 1}"; rot["fast"] += 1; g = 0.32
-        elif k == "rgb": nm, g = "glitch", 0.28
-        else: nm = f"whoosh_deep{rot['deep'] % 3 + 1}"; rot["deep"] += 1; g = 0.30
-        cand.append((c - 0.28, nm, g, 2))
+        sh = shot_at.get(round(c, 2), {})
+        if k == "rgb": cand.append((c - 0.1, "glitch", 0.20, 2, "w"))
+        elif sh.get("sb") or k == "leak": cand.append((c - 0.3, "whoosh_deep", 0.20, 2, "w"))
     for o0, o1, spec in ov:
         k = spec[0]
-        if k == "chapter": cand.append((o0 + 0.05, "boom", 0.42, 3))
-        elif k in ("board", "nextrace", "number"): cand.append((o0 + 0.25, "data_ticks", 0.22, 1))
-        elif k == "stamp": cand.append((o0, "shutters", 0.35, 3))
-        elif k == "wipe": cand.append((o0 - 3.6, "riser", 0.22, 1))
+        if k == "chapter": cand.append((o0 + 0.05, "boom", 0.34, 3, "b"))
+        elif k in ("board", "drift"): cand.append((o0 + 0.25, "data_ticks", 0.16, 1, "d"))
+        elif k == "stamp": cand.append((o0, "shutters", 0.28, 3, "s"))
     for o0, o1, spec in SFXEV:
-        if spec[0] == "sfx": cand.append((o0, spec[1], spec[2] if len(spec) > 2 else 0.4, 9))
-    cand.sort(key=lambda c: (-c[3], c[0])); out = []
-    for t, nm, g, pri in cand:
-        if t < 0 or any(abs(t - u) < 1.4 for u, _, _ in out): continue
-        out.append((t, f"{SFXD}/{nm}.mp3", g))
-    return sorted(out)
+        if spec[0] == "sfx": cand.append((o0, spec[1], spec[2] if len(spec) > 2 else 0.35, 9, "x"))
+    cand.sort(key=lambda c: (-c[3], c[0])); kept = []
+    for t, nm, g, pri, grp in cand:
+        if t < 0 or any(abs(t - u) < 2.5 for u, *_ in kept): continue
+        if grp == "w" and any(abs(t - u) < 7.0 for u, _, _, _, gg in kept if gg == "w"): continue
+        kept.append((t, nm, g, pri, grp))
+    kept.sort(); out = []; rot = {"whoosh_deep": ["whoosh_deep1", "whoosh_deep3", "whoosh_fast2", "whoosh_deep2", "whoosh_fast1", "whoosh_fast3"]}; last = None; i = 0
+    for t, nm, g, pri, grp in kept:
+        if nm in rot:
+            opts = [x for x in rot[nm] if x != last]; nm2 = opts[i % len(opts)]; i += 1
+        else: nm2 = nm
+        last = nm2; out.append((t, f"{SFXD}/{nm2}.mp3", g))
+    return out
 
 def amb_beds(end):
     """Room tone of the story: a low stadium bed under everything, plus wind/rain/heartbeat/clock beds from ("amb", name, vol) cues."""
